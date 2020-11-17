@@ -118,11 +118,11 @@
 <p>문의 끝에는 세미콜론을 붙이는 것이 일반적이지만 블록문은 언제나 문의 종료를 의미하는 자체 종결성을 갖기 때문에 블록문의 끝에는 세미콜론을 붙이지 않는다. </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 블록문</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">let</span> foo = <span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`foo`</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 제어문</span></span><br><span class="line"><span class="keyword">const</span> x = <span class="number">11</span>;</span><br><span class="line"><span class="keyword">if</span> (x &lt; <span class="number">10</span>) &#123;</span><br><span class="line">  x++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(x)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수 선언문</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>, <span class="number">1</span>));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/11/03/javascript/function-1/"><img class="fill" src="/img/javascript.png" alt="function-1"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-03T12:23:04.000Z" title="2020-11-03T12:23:04.000Z">2020-11-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-11-17T10:25:18.080Z" title="2020-11-17T10:25:18.080Z">2020-11-17</time></span><span class="level-item"><a class="link-muted" href="/categories/Javascript/">Javascript</a></span><span class="level-item">13 minutes read (About 1944 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/11/03/javascript/function-1/">function-1</a></h1><div class="content"><p><strong>함수(Function)</strong></p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/11/03/javascript/function-1/"><img class="fill" src="/img/javascript.png" alt="function-1"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-03T12:23:04.000Z" title="2020-11-03T12:23:04.000Z">2020-11-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-11-17T10:42:02.946Z" title="2020-11-17T10:42:02.946Z">2020-11-17</time></span><span class="level-item"><a class="link-muted" href="/categories/Javascript/">Javascript</a></span><span class="level-item">13 minutes read (About 1939 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/11/03/javascript/function-1/">function-1</a></h1><div class="content"><p><strong>함수(Function)</strong></p>
 <p><strong>1.1</strong> <strong>함수란</strong> <strong>무엇인가</strong>?</p>
 <p>프로그래밍 언어의 함수는 일련의 과정을 문(Statememt)으로 구현하고 코드 블록을 감싸서 하나의 실행 단위로 정의한 것이다. 프로그래밍 언어의 함수도 입력을 받아서 출력을 내보낸다. 이때 함수 내부로 입력을 전달받은 변수를 <strong>매개변수</strong>(Parameter)<strong>, 입력을 인수</strong>(argument)<strong>, 출력을 반환값</strong>(return value)이라 한다. 또한 함수는 값이며, 여러 개 존재할 수 있으므로 특정 함수를 구별하기 위해 식별자인 함수이름을 사용할 수 있다. </p>
-<p><img src="./img/function.png" alt="function" title="function"></p>
-<!-- <img src="../img/function.png" alt="function"> -->
+<img src="../img/function.png" alt="function structure">
+
 
 <br>
 <br>
@@ -359,33 +359,375 @@
 <td>var add =( x, y ) =&gt; x+ y;</td>
 </tr>
 </tbody></table>
-</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/11/03/javascript/expression/"><img class="fill" src="/img/javascript.png" alt="expression"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-03T12:23:04.000Z" title="2020-11-03T12:23:04.000Z">2020-11-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-11-17T04:56:04.621Z" title="2020-11-17T04:56:04.621Z">2020-11-17</time></span><span class="level-item"><a class="link-muted" href="/categories/Javascript/">Javascript</a></span><span class="level-item">a few seconds read (About 0 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/11/03/javascript/expression/">expression</a></h1><div class="content"></div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/11/03/javascript/variable/"><img class="fill" src="/img/javascript.png" alt="variable &amp; identifer"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-03T12:20:13.000Z" title="2020-11-03T12:20:13.000Z">2020-11-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-11-17T04:10:36.700Z" title="2020-11-17T04:10:36.700Z">2020-11-17</time></span><span class="level-item"><a class="link-muted" href="/categories/Javascript/">Javascript</a></span><span class="level-item">5 minutes read (About 791 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/11/03/javascript/variable/">variable &amp; identifer</a></h1><div class="content"><ol>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/11/03/javascript/expression/"><img class="fill" src="/img/javascript.png" alt="expression"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-03T12:23:04.000Z" title="2020-11-03T12:23:04.000Z">2020-11-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-11-17T11:46:16.769Z" title="2020-11-17T11:46:16.769Z">2020-11-17</time></span><span class="level-item"><a class="link-muted" href="/categories/Javascript/">Javascript</a></span><span class="level-item">9 minutes read (About 1413 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/11/03/javascript/expression/">expression</a></h1><div class="content"><p><strong>1. 값(value)</strong></p>
+<p><strong>값(value)은 식(expression)이 평가(evaluate)되어 생성된 결과</strong>를 말한다. <u>평가란 식을 해석해서 값을 생성하거나 참조하는 것</u>을 의미한다. </p>
+<p>모든 값은 데이터 타입을 가지며, 메모리에 2진수, 즉 비트의 나열로 저장된다. 메모리에 저장된 값은 데이터 타입에 따라 다르게 해석될 수 있다. 예를 들어, 메모리에 저장된 값 0100 0001을 숫자로 해석하면 65지만 문자로 해석하면 ‘A’다. </p>
+<p>변수는 하나의 값을 저장하기 위해 확보한 메모리 공간 자체 또는 그 메모리 공간을 식별하기 위해 붙인 이름이라고 했다. 따라서 변수에 할당되는 것은 값이다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">10</span> + <span class="number">20</span>;</span><br><span class="line"><span class="comment">//변수에는 10 + 20이 평가 되어 생성된 숫자 값 30이 할당된다.</span></span><br></pre></td></tr></table></figure>
+
+<p>위의 예제의 sum 변수에 할당되는 것은 10 + 20이 아니라 10 + 20이 평가된 결과인 숫자 값 30이다. 즉, 변수 이름 sum이 기억하는 메모리 공간에 저장되는 것은 10 + 20이 아니라 값 30이다.<br><br></p>
+<p><strong>2. 리터럴(literal)</strong></p>
+<p>리터럴은 <strong>사람이 이해할 수 있는 문자</strong> 또는 <strong>약속된 기호를 사용해 값을 생성하는 표기법</strong>(notaion)을 말한다. </p>
+<pre><code>3 -- 평가 --&gt;  메모리(0 x 0000000F2 )</code></pre>
+<p>위의 예제의 3은 단순한 아라비아 숫자가 아니라 숫자 리터럴이다. 사람이 이해할 수 있는 아라비아 숫자를 사용해 숫자 리터럴 3을 코드에 기술하면 자바스크립트 엔진은 이를 평가해 숫자 값 3을 생성한다. </p>
+<p>=&gt; <strong>리터럴은 평가되어 값을 생성한다.</strong> </p>
+<p>이처럼 리터럴은 사람이 이해할 수 있는 문자(아라비아 숫자, 알파벳, 한글) 또는 미리 약속된 기호(‘ ’, “ ”, ., [ ], { } 등)으로 표시한 코드다. 자바스크립트 엔진은 코드가 실행되는 시점인 런타임(Runtime)에 리터럴을 평가해 값을 생성한다. 즉, **<u>리터럴은 값을 생성하기 위해 미리 약속한 표기법</u>**이라고 할 수 있다. </p>
+<p>리터럴을 사용하면 다음과 같은 다양한 종류(data type)의 값을 생성할 수 있다.<br><br></p>
+<p><strong>3. 표현식</strong></p>
+<p>표현식은 값으로 평가될 수 있는 문(Statement)이다. 즉, 표현식이 평가되면 새로운 값을 생성하거나 기존 값을 참조한다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> score = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+
+<p>위 예제의 100은 리터럴이다. 리터럴 100은 자바스크립트 엔진에 의해 평가되어 값을 생성하므로 리터럴은 그 자체로 표현식이다.</p>
+<p>이처럼 표현식은 리터럴, 식별자(변수, 함수 등의 이름), 연산자, 함수 호출 등의 조합으로 이뤄질 수 있다. 다음과 같이 다양한 표현식이 있지만 값으로 평가된다는 점에서 모두 동일하다. 즉, 값으로 평가될 수 있는 문은 모두 표현식이다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 리터럴 표현식</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line">‘Hello’</span><br><span class="line"></span><br><span class="line"><span class="comment">// 식별자 표현식(선언이 이미 존재한다고 가장)</span></span><br><span class="line">sum</span><br><span class="line">person.name</span><br><span class="line">arr[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 연산자 표현식</span></span><br><span class="line"><span class="number">10</span> + <span class="number">20</span></span><br><span class="line">Sum = <span class="number">10</span></span><br><span class="line">Sum !== <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수/메서드 호출 표현식(선언이 이미 존재한다고 가정)</span></span><br><span class="line">square( )</span><br><span class="line">person.getName( )</span><br></pre></td></tr></table></figure>
+<p><strong>4. 문(statement)</strong></p>
+<p>문은 프로그램을 구성하는 기본 단위이자 최소 실행단위다. 문의 집합으로 이뤄진 것이 바로 프로그램이며, 문을 작성하고 순서에 맞게 나열하는 것이 프로그램이다.</p>
+<p>문은 여러 토큰으로 구성된다. <u>토큰이란 문법적인 의미를 가지며, 문법적으로 더 이상 나눌 수 없는 코드의 기본 요소를 의미한다.</u> 예를 들어, 키워드, 식별자, 연산자, 리터럴, 세미콜론(;)이나 마침표 등의 특수 기호는 문법적인 의미를 가지며, 문법적으로 더이상 나눌 수 없는 코드의 기본 요소이므로 모두 토큰이다.</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>토큰</strong> <strong>(**코드의 기본  **요소는</strong> <strong>모두</strong> <strong>토큰</strong>이다****)</td>
+</tr>
+<tr>
+<td align="center"><strong>var sum = 1 + 2;</strong></td>
+</tr>
+<tr>
+<td align="center"><strong>문</strong></td>
+</tr>
+</tbody></table>
+<p>문을 명령문이라고 한다. 즉, 문은 컴퓨터에게 내리는 명령이다. 문이 실행되면 명령이 실행되고 무슨일인가 일어나게 된다. 문은 <strong>선언문</strong>, <strong>할당문</strong>, <strong>조건문</strong>, <strong>반복문</strong>등으로 구분할 수 있다. (변수 선언문을 실행하면 변수가 선언되고, 할당문을 실행하면 값이 할당된다. 조건문을 실행하면 지정한 조건에 따라 실행할 코드블록이 결정되어 실행되고, 반복문을 실행하면 특정 코드 블록이 반복실행한다.)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 변수 선언문</span></span><br><span class="line">Var x;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 할당문</span></span><br><span class="line">x = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수 선언문</span></span><br><span class="line"><span class="built_in">Function</span> foo ( ) &#123; &#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 조건문</span></span><br><span class="line">If ( x &gt; <span class="number">1</span>) &#123; <span class="built_in">console</span>.log(x); &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 반복문</span></span><br><span class="line">For (<span class="keyword">var</span> i = <span class="number">0</span>; i  &lt;  <span class="number">2</span> ; i ++) &#123; <span class="built_in">console</span>.log(i);&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>5. 표현식인 문과 표현식이 아닌 문</strong></p>
+<p>표현식인 문과 표현식이 아닌 문을 구별하는 가장 간단하고 명료한 방법은 변수에 할당해 보는 것이다</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 변수 선언문은 값으로 평가될 수 없으므로 표현식이 아니다.</span></span><br><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"><span class="comment">// 1, 2, 1 + 2, x = 1 + 2는 모두 표현식이다.</span></span><br><span class="line"><span class="comment">// x = 1 + 2는 표현식이면서 완전한 문이기도 하다.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 변수 선언문은 표현식이 아닌 문이다.</span></span><br><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 할당문은 그 자체가 표현식이지만 완전한 문이기도 하다. 즉, 할당문은 표현식인 문이다.</span></span><br><span class="line">x = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 표현식이 아닌 문은 값처럼 사용할 수 없다.</span></span><br><span class="line"><span class="keyword">var</span> foo = <span class="keyword">var</span> x;</span><br></pre></td></tr></table></figure>
+
+
+
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/11/03/javascript/datatype/"><img class="fill" src="/img/javascript.png" alt="data type"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-03T12:23:04.000Z" title="2020-11-03T12:23:04.000Z">2020-11-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-11-17T14:38:32.577Z" title="2020-11-17T14:38:32.577Z">2020-11-17</time></span><span class="level-item"><a class="link-muted" href="/categories/Javascript/">Javascript</a></span><span class="level-item">15 minutes read (About 2246 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/11/03/javascript/datatype/">data type</a></h1><div class="content"><p><strong>데이터</strong> <strong>타입(Data type)</strong></p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>데이터 타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>원시 타입</td>
+<td>숫자(number) 타입</td>
+<td>숫자, 정수와 실수 구분 없이 하나의 숫자 타입만 존재</td>
+</tr>
+<tr>
+<td>문자열(string) 타입</td>
+<td>문자열</td>
+<td></td>
+</tr>
+<tr>
+<td>불리언(boolean)</td>
+<td>논리적 참(true)과 거짓(false)</td>
+<td></td>
+</tr>
+<tr>
+<td>Undefined 타입</td>
+<td>Var 키워드로 선언된 변수에 암묵적으로 할당되는 값</td>
+<td></td>
+</tr>
+<tr>
+<td>Null 타입</td>
+<td>값이 없다는 것을 의도적으로 명시할 때 사용하는 값</td>
+<td></td>
+</tr>
+<tr>
+<td>심벌(symbol) 타입</td>
+<td>ES6에서 추가된 7번째 타입</td>
+<td></td>
+</tr>
+<tr>
+<td>객체 타입</td>
+<td></td>
+<td>객체, 함수, 배열 등</td>
+</tr>
+</tbody></table>
+<p>=&gt; 데이터 타입에 따라 확보해야할 메모리 공간의 크기도 다르고 메모리에 저장되는 2진수도 다르며 읽어 들여 해석하는 방식도 다르다</p>
+<p><strong>1. 숫자 타입</strong></p>
+<p>C나 자바의 경우, 정수(소숫점 이하가 없는 숫자)와 실수(소숫점 이하가 있는 숫자)를 구분해서 int, long, float, double등과 같은 다양한 숫자 타입을 제공한다. 하지만 자바스크립트는 독특하게 하나의 숫자타입만 존재. 즉, <u>모든 수를 실수로 처리하며, 정수만 표현하기 위한 데이터 타입(integer type)이 별도로 존재하지 않는다.</u> </p>
+<p>숫자 타입은 추가적으로 세 가지 특별한 값도 표현할 수 있다. </p>
+<ul>
+<li>infinity: 양의 무한대</li>
+<li>- infinity: 음의 무한대</li>
+<li>NaN 산술 연산 불가(not - a - number)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="number">37</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a, <span class="keyword">typeof</span> a);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> c = <span class="literal">NaN</span>;</span><br><span class="line"><span class="built_in">console</span>.log(c, <span class="keyword">typeof</span> c);</span><br></pre></td></tr></table></figure>
+
+<p>NaN은 숫자가 아니라는 의미의 숫자이다.</p>
+<p><strong>2. 문자열 타입</strong></p>
+<p>문자열(string) 타입은 텍스트 데이터를 나타내는 데 사용한다. 문자열은 0개 이상 16비트 유니코드 문자(UTF-16)의 집합으로 전 세계 대부분의 문자를 표현할 수 있다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> string;</span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span> = ‘문자열’; <span class="comment">// 작은 따옴표</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span> = “문자열”; <span class="comment">// 큰따옴표</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span> = <span class="string">`문자열`</span>; <span class="comment">// 백틱(ES6)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>✓</strong> 다른 타입과 달리 문자열을 따옴표로 감싸는 이유는 <u><strong>키워드나 식별자 같은 토큰과 구별하기 위해서다.</strong></u> 만약 문자열을 따옴표로 감싸지 않으면 자바스크립트 엔진은 <strong><u>키워드나 식별자 같은 토큰으로 인식한다</u></strong>.</p>
+<p><strong>3. 템플릿 리터럴</strong></p>
+<p>템플릿 리터럴은 <strong>멀티라인 문자열</strong>, <strong>표현식 삽입</strong>, <strong>태그드 템플릿</strong>등 편리한 문자열 처리 기능을 제공한다. 템플릿 리터럴은 런타임에 일반 문자열로 변환되어 처리된다. </p>
+<p><strong>3-1) 멀티라인 문자열</strong></p>
+<p>일반 문자열 내에서는 줄바꿈(개행)이 허용되지 않는다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">`Hello</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">World.`</span>;</span><br><span class="line"><span class="comment">//SyntaxError: Invalid or unexpected token</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>3-2) 표현식 삽입</strong></p>
+<p>문자열은 문자열 연산자 ‘+’를 사용해 연결할 수 있다. + 연산자는 피연산자 중 하나 이상이 문자열인 경우 문자열 연결 연산자로 동작한다. 그 외 경우에는 덧셈 연산자로 동작한다. </p>
+<p>템플릿 리터럴 내에서 표현식 삽입(expression interpolation)을 통해 간단히 문자열을 삽입할 수 있다. 이를 통해 문자 열 연산자보다 가독성 좋고 간편하게 문자열을 조합할 수 있다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> first = ‘Ung-mo’;</span><br><span class="line"><span class="keyword">var</span> last =. Lee’;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`My name is <span class="subst">$&#123;first&#125;</span> <span class="subst">$&#123;last&#125;</span>.`</span>&#125;</span><br><span class="line"><span class="comment">//My name is Ung-mo Lee.</span></span><br></pre></td></tr></table></figure>
+
+<p>표현식을 삽입하려면 <strong><u>${ }으로 표현식을 감싼다.</u></strong> 이때 표현식의 평가 결과가 <u>문자열이 아니더라도 문자열로 타입이 강제로 변환되어 삽입</u>한다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">`1 + 2 = <span class="subst">$&#123;<span class="number">1</span> + <span class="number">2</span>&#125;</span>`</span>); <span class="comment">// 1 + 2 = 3</span></span><br><span class="line"><span class="built_in">console</span>.log(‘<span class="number">1</span> + <span class="number">2</span> = $&#123;<span class="number">1</span> + <span class="number">2</span>&#125;’); <span class="comment">// 1 + 2 = $ &#123;1 + 2&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>표현식 삽입은 반드시 템플릿 리터럴 내에서 사용해야 한다. 템플릿 리터럴이 아닌 일반 문자열에서의 표현식 삽입은 <strong>문자열로 취급</strong>한다. </p>
+<p><strong>4. 불리언 타입</strong></p>
+<p>불리언 타입은 논리적 참, 거짓을 나타내는 true, false 뿐이다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isTrue = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> isFalse = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(isTrue, <span class="keyword">typeof</span> isTrue);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(isFalse, <span class="keyword">typeof</span> isFalse);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>5. undefined 타입</strong></p>
+<p>Var 키워드로 선언한 변수는 암묵적으로 undefined로 초기화된다. 다시 말해, 변수 선언에 의해 <strong>확보된 메모리 공간을 처음 할당이 이뤄질 때까지</strong> 빈 상태(대부분 비어 있지 않고 쓰레기 값(garbage value)이 들어 있다)로 내버려 두지 않고 <strong>자바스크립트 엔진이 undefined로 초기화한다.</strong> 따라서 변수를 선언한 이후 값을 할당하지 않은 변수를 참조하면 undefined가 반환한다. </p>
+<p>변수에 값이 없다는 것을 명시하고 싶을 때는 어떻게 하면 좋을까? <u>그런 경우에는 undefined를 할 당하는 것이 아니라 null을 할당한다.</u> </p>
+<p><strong>6. null 타입</strong></p>
+<p>프로그래밍 언어에서 Null 변수에 값이 없다는 것을 의도적으로 명시할 때 사용한다. 변수에 null을 할당하는 것은 <u><strong>변수가 이전에 참조하던 값을 더 이상 참조하지 않겠다는 의미다.</strong></u> 이전에 할당되어 있던 값에 대한 참조를 명시적으로 제거하는 것을 의미하며, 자바스크립트 엔진은 누구도 참조하지 않는 메모리 공간에 대해 가비지 콜렉션을 수행 할 것이다. </p>
+<ul>
+<li>document.querySelector 메서드는 조건에 부합하는 HTML 요소를 검색할 수 없는 경우 에러 대신 null을 반환한다. </li>
+</ul>
+<p><strong>7. 심벌 타입</strong></p>
+<p>심벌은 변경 불가능한 원시 타입의 값이다. 심벌 값은 다른 값과 중복되지 않는 유일무이한 값이다. 따라서 주로 이름이 <strong><u>충돌할 위험이 없는 객체의 유일한 프로퍼티 키를 만들기 위해 사용한다.</u></strong> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 심벌 값 생성</span></span><br><span class="line"></span><br><span class="line">Var key = symbol(‘key’)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Typeof key);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 객체 생성</span></span><br><span class="line"></span><br><span class="line">Var obj = &#123; &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 이름이 충돌할 위험이 없는 유일무이한 값인 심벌을 프로퍼티 키로 사용한다.</span></span><br><span class="line"></span><br><span class="line">obj[key] = ‘value’;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj[key]);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>8.객체 타입</strong></p>
+<p>자바스크립트는 객체 기반의 언어이며, 자바스크립트를 이루고 있는 거의 모든 것이 객체라는 것이다.</p>
+<p><strong>9. 데이터 타입의 필요성</strong></p>
+<p><strong>9-1)</strong> <strong>데이터</strong> <strong>타입에</strong> <strong>의한</strong> <strong>메모리</strong> <strong>공간의</strong> <strong>확보와</strong> <strong>참조</strong></p>
+<p>메모리에 값을 저장하려면 먼저 확보해야 할 <strong>메모리 공간의 크기</strong>를 결정해야 한다. 몇 바이트의 메모리 공간을 사용해야 낭비와 손실 없이 값을 저장할 수 있는 지 알아야 한다. </p>
+<img src="../img/number-type.png" alt="number type allocation">
+
+<p>위의 예제의 경우 자바스크립트 엔진은 리터럴 100을 숫자 타입의 값으로 해석하고 숫자타입의 값 100을 저장하기 위해 <strong>8바이트의 메모리 공간을 확보</strong>한다. 다음으로는 값을 참조하는 경우를 생각해보자. 식별자 score를 통해 숫자 타입의 값 100이 저장되어 있는 메모리 공간의 주소를 찾아갈 수 있다. 정확히 말하면 100이 저장되어 있는 <strong>메모리 공간의 선두 메모리 셀의 주소</strong>를 찾아갈 수 있다. </p>
+<p>이때, 값을 참조하려면 한 번에 읽어 들어야 할 <strong>메모리 공간의 크기,</strong> 즉 <u>메모리 셀의 개수(</u>바이트 수)를 알아야 한다. Score 변수의 경우, 저장 되어 있는 값이 숫자 타입이므로 8바이트 단위로 읽어 들이지 않으면 값이 훼손된다. <u>그렇다면 컴퓨터는 한 번에 읽어들어야 할 메모리 셀의 크기를 어떻게 알 수 있는 것일까?</u> score변수에는 숫자 타입의 값이 할당되어 있으므로 자바스크립트 엔진은 <strong>score변수를 숫자 타입으로 인식한다</strong>. <strong>숫자 타입은 8바이트 단위로 저장</strong>되므로 score 변수를 참조하면 <strong>8바이트 단위로 메모리 공간에 저장된 값을 읽어 들인다</strong>. </p>
+<p><strong>9-2)</strong> <strong>데이터</strong> <strong>타입에</strong> <strong>의한</strong> <strong>값의</strong> <strong>해석</strong></p>
+<p>메모리에서 읽어 들인 2진수를 어떻게 해석해야 하느냐다. 예를 들어, 메모리에 저장된 값 0100 0001을 숫자로 해석하면 65지만 문자열로 해석하면 ‘A’다.</p>
+<p>앞에서 살펴본 예제의 score 변수에 할당된 값은 숫자 타입의 값이다. 따라서 score 변수를 참조하면 메모리 <strong>공간의 주소에서 읽어들인 2진수를 숫자로 해석</strong>한다. </p>
+<p>데이터 타입이 필요한 이유는 다음과 같다.</p>
+<ul>
+<li>값을 지정할 때 <u>확보해야 하는 메모리 공간의 크기</u>를 결정하기 위해</li>
+<li>값을 참조할 때 <u>한 번에 읽어 들어야 할 메모리 공간의 크기</u>를 결정하기 위해</li>
+<li>메모리에서 읽어들인 <u>2진수를 어떻게 해석할지 결정</u>하기 위해</li>
+</ul>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/11/03/javascript/variable/"><img class="fill" src="/img/javascript.png" alt="variable &amp; identifer"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-03T12:20:13.000Z" title="2020-11-03T12:20:13.000Z">2020-11-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-11-17T11:23:16.342Z" title="2020-11-17T11:23:16.342Z">2020-11-17</time></span><span class="level-item"><a class="link-muted" href="/categories/Javascript/">Javascript</a></span><span class="level-item">21 minutes read (About 3092 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/11/03/javascript/variable/">variable &amp; identifer</a></h1><div class="content"><ol>
 <li>변수(variable)</li>
 </ol>
 <p><strong>변수</strong>(variable)<strong>은</strong> <strong>하나의</strong> <strong>값을</strong> <strong>저장하기</strong> <strong>위해</strong> <strong>확보한</strong> <strong>메모리</strong> <strong>공간</strong> <strong>자체</strong> <strong>또는</strong> <strong>그</strong> <strong>메모리</strong> <strong>공간을</strong> <strong>식별하기</strong> <strong>위해</strong> <strong>붙인</strong> <strong>이름을</strong> <strong>말한다</strong>. </p>
 <p>변수는 하나의 값을 저장하기 위한 매커니즘이다. 여러 개의 값을 저장하려면 여러개의 변수를 사용해야 한다. 단 배열이나 객체같은 자료구조를 사용하면 관련이 있는 여러개의 값을 그룹화해서 하나의 값처럼 사용할 수 있다. </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> userId = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> userName = <span class="string">&#x27;Kim&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> user = &#123;<span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">&#x27;Lee&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> users = [&#123;<span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>:<span class="string">&#x27;Choi&#x27;</span>&#125;, &#123;<span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>:<span class="string">&#x27;Kim&#x27;</span>&#125;];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(userId);</span><br><span class="line"><span class="built_in">console</span>.log(userName);</span><br><span class="line"><span class="built_in">console</span>.log(user);</span><br><span class="line"><span class="built_in">console</span>.log(users);</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>변수가</strong> <strong>왜</strong> <strong>필요한</strong> <strong>것일까</strong>?</p>
+<p><strong>1. 변수는</strong> <strong>무엇인</strong> <strong>것일까</strong>?</p>
+<ol>
+<li>컴퓨터가 자바스크립트를 해석하고 실행하는 자바스크립트 엔진도 사람과 유사하게 자바스크립트 코드를 실행한다. 자바스크립트 엔진이 자바스크립트 코드를 <strong>계산</strong>(evalutae)하려면 먼저 10, 20, +라는 <strong>기호</strong>(리터럴 (literal), <strong>연산자</strong> (operator))의 의미를 알고 있어야 하며, 10 + 20이라는 <strong>식</strong>(표현식, expression)의 의미도 <strong>해석</strong>(parsing)할 수 있어야 한다. </li>
+</ol>
+<ol start="2">
+<li>자바스크립트 엔진이 10 + 20이라는 식의 의미를 해석하면 +연산을 수행하기 위해 먼저 +연산자의 좌변과 우변의 숫자값, 즉 <strong>피연산자(operand)를 기억</strong>한다. <u>컴퓨터는 CPU를 사용해 연산하고, 메모리를 사용해 데이터를 기억한다.</u> </li>
+</ol>
+<ol start="3">
+<li>메모리는 데이터를 저장할 수 있는 메모리 셀의 집합체다. 메모리 셀 하나의 크기는 1바이트(8비트), 컴퓨터의 메모리 셀의 크기, 즉 1바이트 단위로 데이터를 저장하거나 읽어 들인다. </li>
+</ol>
+<ol start="4">
+<li>각 셀은 고유의 메모리 주소를 갖는다. 이 <strong>메모리 주소</strong>는 <u>메모리 공간의 위치</u>를 나타내며, 0부터 시작해서 <u>메모리의 크기만큼 정수로 표현</u>된다. </li>
+</ol>
+<ol start="5">
+<li>컴퓨터는 모든 데이터를 2진수로 처리하는데 저장되는 <u>데이터는 데이터의 종류(숫자, 텍스트, 이미지, 동영상) 상관없이 모두 2진수로 저장</u>된다. </li>
+</ol>
+<ol start="6">
+<li>변수에 값을 저장하는 것을 <strong>할당</strong>(assignment, 대입, 저장)이라 하고, 변수에 저장된 값을 읽어들이는 것을 <strong>참조</strong>(reference)라 한다. </li>
+</ol>
+<p><strong>2. 변수가</strong> <strong>왜</strong> <strong>필요한</strong> <strong>것일까</strong>?</p>
 <ol>
 <li>메모리 주소를 통해 값에 직접 접근하는 것은 <strong>치명적인</strong> <strong>오류를</strong> <strong>발생시킬</strong> <strong>가능성이</strong> <strong>높은</strong> <strong>매우</strong> <strong>위험한</strong> <strong>일이다</strong>. 만약 실수로 운영체제가 사용하고 있는 값을 변경하면 시스템을 멈추게 하는 치명적인 오류가 발생할 수도 있다. 따라서 개발자의 직접적인 메모리 제어를 허용하지 않는다. </li>
 </ol>
 <ol start="2">
 <li>개발자가 직접적인 메모리 제어를 허용한다고 하더라도 문제가 있다. 값이 저장될 <strong>메모리</strong> <strong>주소는</strong> <strong>코드가</strong> <strong>실행될</strong> <strong>때</strong> <strong>메모리</strong> <strong>상황에</strong> <strong>따라</strong> <strong>임의로</strong> <strong>결정</strong>된다. 코드가 실행되기 이전에는 값이 저장된 메모리 주소를 알 수 없으며, 알려 주지도 않는다. </li>
 </ol>
-<p>메모리 공간에 저장된 값을 식별할 수 있는 고유한 이름(userId, userName, user, users)을 변수이름(변수명)이라 한다. 그리고 변수에 저장된 값을 변수 값이라고 한다.<br><br></p>
-<hr>
+<p>메모리 공간에 저장된 값을 식별할 수 있는 고유한 이름(userId, userName, user, users)을 변수이름(변수명)이라 한다. 그리고 변수에 저장된 값을 변수 값이라고 한다.<br><br><br><br><br>변수 선언(variable declaration)이란 변수를 생성하는 것을 말함. 값을 저장하기 위해 <strong>메모리</strong> <strong>공간을</strong> <strong>확보</strong>하고 <strong>변수</strong> <strong>이름</strong>과 확보된 <strong>메모리</strong> <strong>공간의</strong> <strong>주소</strong>를 연결(name binding)해서 값을 저장할 수 있게 준비하는 것이다. 변수 선언에 의해 확보된 메모리 공간은 확보가 해제(release)되기 전까지는 누구도 확보된 메모리 공간을 사용할 수 없도록 보호되므로 안전하게 사용할 수 있다.<br><br><br><br><br><strong>변수 선언 단계</strong></p>
+<ol>
+<li><strong>선언단계</strong>: 변수 이름을 등록해서 자바스크립트 엔진에 <u>변수의 존재를 알린다.</u> </li>
+<li><strong>초기화 단계</strong>: 값을 저장하기 위한 메모리 공간을 확보하고 암묵적으로 <u>undefined를 할당해 초기화한다</u>. </li>
+</ol>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0 x 0000000</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>…</td>
+</tr>
+<tr>
+<td>0 x 00000F2</td>
+<td><strong>undefined</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>…</td>
+</tr>
+<tr>
+<td>0 x FFFFFFF</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>var</strong> score</td>
+</tr>
+</tbody></table>
 <br>
-2. 식별자 (identifier)
 
-<p>변수 이름을 식별자라고 한다. <strong>식별자는</strong> <strong>어떤</strong> <strong>값을</strong> <strong>구별해서</strong> <strong>식별할</strong> <strong>수</strong> <strong>있는</strong> <strong>고유한</strong> <strong>이름을</strong> <strong>말한다.</strong> 식별자는 값이 아니라 메모리 주소를 기억하고 있다. 식별자가 값을 구별해서 식별한다는 것은 식별자가 기억하고 있는 메모리 주소를 통해 메모리 공간에 저장된 값에 접근할 수 있다는 의미다. </p>
+<p><strong>+ 변수이름 과 같은 변수 값은 실행 컨텐스트 내 key/value 형식인 객체로 등록되어 관리 된다.</strong> </p>
+<p>일반적으로 <u><strong>초기화(initialization)</strong></u>란 변수가 선언된 이후 최초로 값을 할당하는 것을 말한다. <u>var 키워드로 선언한 변수는 undefined로 암묵적인 초기화가 자동 수행</u>한다. 따라서 var 키워드로 선언한 변수는 어떠한 값도 할당하지 않아도 undefined라는 값을 갖는다. </p>
+<p>만약 초기화 단계를 거치지 않으면 확보된 메모리 공간에는 <u>이전에 다른 애플리케이션이 사용했던 값이 남아있을 수 있다. 이러한 값을 쓰레기 값(garbage value)라 한다</u>. 따라서 메모리 공간을 확보한 다음, <u>값을 할당하지 않은 상태에서 곧바로 변수 값을 참조하면 쓰레기 값이 나올 수 있다.</u> (var 키워드는 암묵적으로 초기화를 수행하므로 이러한 위험으로부터 안전하다.)</p>
+<br>
+
+<p><strong>3. 변수 선언의 실행 시점과 변수 호이스팅</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(score);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> score;</span><br></pre></td></tr></table></figure>
+
+<p>자바스크립트 코드는 인터프리터에 의해 한 줄 씩 순차적으로 실행되므로 console.log(score);가 가장 먼저 실행되고 순차적으로 다음 줄에 있는 코드를 실행한다. 따라서 console.log(score); 가 실행 되는 시점에는 아직 score 변수 선언이 실행되지 않았으므로, <u>reference error가 발생한다. 하지만 참조 에러가 발생되지 않고,</u> <strong>undefined</strong>가 출력된다. </p>
+<p>그 이유는 변수 선언이 소스코드가 한 줄씩 순차적으로 실행되는 시점, <strong>즉</strong> <strong>런타임</strong>(Runtime)<strong>**이 **아니라</strong> <strong>그</strong> <strong>이전</strong> <strong>단계에서</strong> <strong>먼저</strong> <strong>실행되기</strong> <strong>때문이다</strong>.</p>
+<p>이처럼 변수 선언문이 코드의 선두로 끌어올려진 것처럼 동작하는 자바스크립트 고유의 특징을 *<em>변수 호이스팅(variable hoisting)**이라 한다. 사실 변수 선언 뿐만 아니라 var, let, const, function, function</em>, class 키워드를 사용해서 선언하는 모든 식별자(변수, 함수, 클래스 등)는 호이스팅 된다. 모든 선언문은 런타임 이전 단계에서 먼저 실행되기 때문이다.</p>
+<p><strong>4. 값의 할당</strong></p>
+<p>변수 선언과 값의 할당은 하나의 문(statement)으로 단축 표현할 수 있다.</p>
+<table>
+<thead>
+<tr>
+<th><strong>변수</strong> <strong>선언</strong> <strong>+</strong> <strong>값의</strong> <strong>할당</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>var score;</td>
+</tr>
+<tr>
+<td>score = 80;</td>
+</tr>
+<tr>
+<td><strong>변수</strong> <strong>선언과</strong> <strong>값의</strong> <strong>할당</strong></td>
+</tr>
+<tr>
+<td>var score = 80;</td>
+</tr>
+</tbody></table>
+<p>자바스크립트 엔진은 변수 선언과 값의 할당을 하나의 문으로 단축 표현해도 변수 선언과 값의 할당을 2개의 문으로 나누어 각각 실행한다. 이때 주의해야 할 점은 변수 선언과 실행 시점이 다르다는 것이다. <strong>변수</strong> <strong>선언은</strong> 소스코드가 순차적으로 실행되는 시점인 <strong>런타임</strong> <strong>이전에</strong> 먼저 실행되지만 <strong>값의</strong> <strong>할당은</strong> 소스코드가 <strong>순차적으로</strong> <strong>실행되는</strong> <strong>시점인</strong> <strong>런타임에</strong> <strong>실행된다</strong>. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(score);</span><br><span class="line"></span><br><span class="line">score = <span class="number">80</span>; <span class="comment">//변수 선언</span></span><br><span class="line"><span class="keyword">var</span> score; <span class="comment">//값의 할당</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(score); <span class="comment">//undefined 80</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0 x 000000</td>
+<td></td>
+<td>0 x 000000</td>
+<td></td>
+<td>0 x 000000</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>…</td>
+<td></td>
+<td>…</td>
+<td></td>
+<td>…</td>
+</tr>
+<tr>
+<td><strong>score</strong> 00000F2</td>
+<td><strong>undefined</strong></td>
+<td>00000F2</td>
+<td><strong>undefined</strong></td>
+<td>00000F2</td>
+<td><strong>undefined</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>…</td>
+<td></td>
+<td>…</td>
+<td></td>
+<td>…</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><strong>score</strong> 0 x 00001332</td>
+<td><strong>80</strong></td>
+<td>0 x 00001332</td>
+<td><strong>80</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>…</strong></td>
+<td></td>
+<td><strong>…</strong></td>
+<td></td>
+<td><strong>…</strong></td>
+</tr>
+<tr>
+<td>0 x FFFFFF</td>
+<td></td>
+<td>0 x FFFFFF</td>
+<td></td>
+<td><strong>score</strong> 0 x 0669f913</td>
+<td><strong>90</strong></td>
+</tr>
+<tr>
+<td>변수 선언</td>
+<td>var score;</td>
+<td>값의 할당</td>
+<td>score = 80;</td>
+<td>값의 재할당</td>
+<td>score = 90;</td>
+</tr>
+</tbody></table>
+<p>=&gt; 변수에 값을 할당할 때는 이전 값 undefined가 저장되어 있던 메모리 공간을 지우고 그 메모리 공간에 할당 값 80을 새롭게 저장하는 것이 아니라 <strong>새로운</strong> <strong>메모리</strong> <strong>공간을</strong> <strong>확보하고</strong>, <strong>그곳에</strong> <strong>할당</strong> <strong>값</strong> <strong>80</strong>을 <strong>저장한</strong> <strong>다는</strong> <strong>점에</strong> <strong>유의하자</strong></p>
+<p>변수에 값을 재할당하면 score 변수의 값은 이전 값 80에서 재 할당한 값 90으로 변경된다. 처음 값을 할당 했을 때와 마찬가지로 이전 값 80이 저장되어 있던 메모리 공간을 지우고 그 메모리 공간에 재할당 값 90을 <strong><u>새롭게 저장하는 것이 아니라 새로운 메모리 공간을 확보하고 그 메모리 공간에 숫자 값 90을 저장한다</u></strong>. </p>
+<p>현재 score 변수의 값은 90이다. Score 변수의 이전 값인 undefined 와 80은 어떤 변수도 값을 갖고 있지 않다. 다시 말해 어떤 식별자와 연결되어 있지 않다. 이것은 undefined와 80이 더 이상 필요하지 않는 다는 것을 의미한다. <strong><u>아무도 사용하지 않기 때문에 이러한 불필요한 값들은 가비지 콜렉터에 의해 메모리에서 자동 해제된다</u></strong>.<br><br><br><br><br>+추가</p>
+<p><strong>가비지</strong> <strong>콜렉터</strong>(garbage collector)</p>
+<p>가비지 콜렉터는 어플레케이션이 할당한 메모리 공간을 주기적으로 검사하여 더이상 사용하지 않는 메모리를 해제하는 기능을 말한다. 어떤 식별자도 참조하지 않는 메모리 공간을 의미한다. 자바스크립트는 가비지 콜렉터를 내장하고 있는 매니지드 언어로서 가비지 콜렉터를 통해 메모리 누수(memory leak)를 방지한다. </p>
+<p><strong>언매니지드</strong> <strong>언어</strong>(unmanaged language) <strong>매니지드</strong> <strong>언어</strong>(managed language)</p>
+<p>프로그래밍 언어는 메모리 관리 방식에 따라 언매니지드 언어, 매니지드 언어로 구분한다. </p>
+<p><strong>언매니지드 언어:</strong> <u>메모리 제어를 개발자가 주도할 수 있으므로 개발자의 역량에 따라 최적의 성능을 확보</u> 그반대의 경우 치명적일 수 있다</p>
+<p><strong>매니지드 언어:</strong> 메모리의 할당 및 해제를 위한 메모리 관리 기능은 언어 차원에서 담당하고 <u>개발자의 직접적인 메모리 제어를 허용하지 않는다.</u> 즉, 개발자가 명시적으로 메모리를 할당하고 해제할 수 없다. 개발자 역량에 의존하는 정도가 낮아 일정한 생산성을 확보할 수 있지만 성능면에서 어느 정도의 손실은 감수할 수 밖에 없다.</p>
+<hr>
+<ol start="2">
+<li>식별자 (identifier)</li>
+</ol>
+<p>변수 이름을 식별자라고 한다. <strong>식별자는</strong> <strong>어떤</strong> <strong>값을</strong> <strong>구별해서</strong> <strong>식별할</strong> <strong>수</strong> <strong>있는</strong> <strong>고유한</strong> <strong>이름을</strong> <strong>말한다.</strong> 식별자는 값이 아니라 메모리 주소를 기억하고 있다. <u>식별자가 값을 구별해서 식별한다는 것은 식별자가 기억하고 있는 메모리 주소를 통해 메모리 공간에 저장된 값에 접근할 수 있다는 의미다.</u></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">   result --&gt; 0x0669f913  ; 30</span><br><span class="line">변수이름(식별자)  (메모리 주소)  (메모리)</span><br></pre></td></tr></table></figure>
-
+<p>값은 메모리 공간에 저장되어 있다. 따라서 <strong>식별자</strong>는 <u>메모리 공간에 저장되어 있는 어떤 값을 구별해서 식별해 낼 수 있어야 한다.</u> 이를 위해 <strong>식별자</strong>는 어떤 값이 저장되어 있는 <strong>메모리 주소</strong>를 기억(저장)해야 한다. </p>
+<p>=&gt; <strong>식별자(result)</strong>는 <strong>값(30)</strong>이 저장되어 있는 <strong>메모리주소(0x069F913)</strong>을 기억해야 한다. <u>식별자는 값이 저장되어 있는 메모리 주소와 매핑관계를 맺으며 이 매핑정보도 메모리에 저장되어야 한다.</u> </p>
 <p>식별자라는 용어는 변수 이름에만 국한해서 사용하지 않는다. 예를 들어, 변수, 함수, 클래스 등의 이름은 모두 식별자다. 식별자인 변수 이름으로는 메모리 상에 존재하는 변수 값을 식별할 수 있고, 함수 이름으로는 메모리 상에 존재하는 함수(자바스크립트에서 함수는 값이다.)를 식별할 수 있다. 즉, 메모리 상에 존재하는 어떤 값을 식별 할 수 있는 이름은 모두 식별자라고 부른다. </p>
-<p><strong>Preview)</strong> 변수, 함수, 클래스 등의 이름과 같은 식별자는 네이밍 규칙을 준수해야 하며, 선언(declaration)에 의해 자바스크립트 엔진에 식별자의 존재를 알린다. </p>
-</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Jay Tak"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Jay Tak</p><p class="is-size-6 is-block">Frontend Developer</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Seoul, South Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">16</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tag</p><a href="/tags"><p class="title">1</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/CSS/"><span class="level-start"><span class="level-item">CSS</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Javascript/"><span class="level-start"><span class="level-item">Javascript</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/categories/algorithm/"><span class="level-start"><span class="level-item">algorithm</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/assignments/"><span class="level-start"><span class="level-item">assignments</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-11-16T11:29:06.000Z">2020-11-16</time></p><p class="title"><a href="/2020/11/16/assignments/assignment-1/">assignment(pixel &amp; interpreter-compiler)</a></p><p class="categories"><a href="/categories/assignments/">assignments</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-11-04T10:56:43.000Z">2020-11-04</time></p><p class="title"><a href="/2020/11/04/algorithm/space-complexity/">space complexity</a></p><p class="categories"><a href="/categories/algorithm/">algorithm</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-11-04T02:55:09.000Z">2020-11-04</time></p><p class="title"><a href="/2020/11/04/javascript/control-flow-statement-3/">control-flow-statement-3</a></p><p class="categories"><a href="/categories/Javascript/">Javascript</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-11-04T02:55:09.000Z">2020-11-04</time></p><p class="title"><a href="/2020/11/04/javascript/control-flow-statement-4/">control-flow-statement-4</a></p><p class="categories"><a href="/categories/Javascript/">Javascript</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-11-04T02:55:09.000Z">2020-11-04</time></p><p class="title"><a href="/2020/11/04/javascript/control-flow-statement-5/">control-flow-statement-5</a></p><p class="categories"><a href="/categories/Javascript/">Javascript</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="My Blog" height="28"></a><p class="is-size-7"><span>&copy; 2020 Jay Take</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Jay Tak"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Jay Tak</p><p class="is-size-6 is-block">Frontend Developer</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Seoul, South Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">17</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tag</p><a href="/tags"><p class="title">1</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/CSS/"><span class="level-start"><span class="level-item">CSS</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Javascript/"><span class="level-start"><span class="level-item">Javascript</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/algorithm/"><span class="level-start"><span class="level-item">algorithm</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/assignments/"><span class="level-start"><span class="level-item">assignments</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-11-16T11:29:06.000Z">2020-11-16</time></p><p class="title"><a href="/2020/11/16/assignments/assignment-1/">assignment(pixel &amp; interpreter-compiler)</a></p><p class="categories"><a href="/categories/assignments/">assignments</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-11-04T10:56:43.000Z">2020-11-04</time></p><p class="title"><a href="/2020/11/04/algorithm/space-complexity/">space complexity</a></p><p class="categories"><a href="/categories/algorithm/">algorithm</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-11-04T02:55:09.000Z">2020-11-04</time></p><p class="title"><a href="/2020/11/04/javascript/control-flow-statement-3/">control-flow-statement-3</a></p><p class="categories"><a href="/categories/Javascript/">Javascript</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-11-04T02:55:09.000Z">2020-11-04</time></p><p class="title"><a href="/2020/11/04/javascript/control-flow-statement-4/">control-flow-statement-4</a></p><p class="categories"><a href="/categories/Javascript/">Javascript</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-11-04T02:55:09.000Z">2020-11-04</time></p><p class="title"><a href="/2020/11/04/javascript/control-flow-statement-5/">control-flow-statement-5</a></p><p class="categories"><a href="/categories/Javascript/">Javascript</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="My Blog" height="28"></a><p class="is-size-7"><span>&copy; 2020 Jay Take</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
