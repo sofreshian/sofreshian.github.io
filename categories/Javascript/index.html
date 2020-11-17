@@ -118,48 +118,24 @@
 <p>문의 끝에는 세미콜론을 붙이는 것이 일반적이지만 블록문은 언제나 문의 종료를 의미하는 자체 종결성을 갖기 때문에 블록문의 끝에는 세미콜론을 붙이지 않는다. </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 블록문</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">let</span> foo = <span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`foo`</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 제어문</span></span><br><span class="line"><span class="keyword">const</span> x = <span class="number">11</span>;</span><br><span class="line"><span class="keyword">if</span> (x &lt; <span class="number">10</span>) &#123;</span><br><span class="line">  x++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(x)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수 선언문</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>, <span class="number">1</span>));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/11/03/javascript/identifier/"><img class="fill" src="/img/javascript.png" alt="identifier"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-03T12:23:04.000Z" title="2020-11-03T12:23:04.000Z">2020-11-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-11-03T12:56:42.239Z" title="2020-11-03T12:56:42.239Z">2020-11-03</time></span><span class="level-item"><a class="link-muted" href="/categories/Javascript/">Javascript</a></span><span class="level-item">2 minutes read (About 344 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/11/03/javascript/identifier/">identifier</a></h1><div class="content"><ol start="2">
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/11/03/javascript/identifier/"><img class="fill" src="/img/javascript.png" alt="identifier"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-03T12:23:04.000Z" title="2020-11-03T12:23:04.000Z">2020-11-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-11-17T02:58:38.872Z" title="2020-11-17T02:58:38.872Z">2020-11-17</time></span><span class="level-item"><a class="link-muted" href="/categories/Javascript/">Javascript</a></span><span class="level-item">2 minutes read (About 344 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/11/03/javascript/identifier/">identifier</a></h1><div class="content"><ol start="2">
 <li>식별자 (identifier)</li>
 </ol>
 <p>변수 이름을 식별자라고 한다. <strong>식별자는</strong> <strong>어떤</strong> <strong>값을</strong> <strong>구별해서</strong> <strong>식별할</strong> <strong>수</strong> <strong>있는</strong> <strong>고유한</strong> <strong>이름을</strong> <strong>말한다.</strong> 식별자는 값이 아니라 메모리 주소를 기억하고 있다. 식별자가 값을 구별해서 식별한다는 것은 식별자가 기억하고 있는 메모리 주소를 통해 메모리 공간에 저장된 값에 접근할 수 있다는 의미다. </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">   result --&gt; 0x0669f913  ; 30</span><br><span class="line">변수이름(식별자)  (메모리 주소)  (메모리)</span><br></pre></td></tr></table></figure>
 
 
-
 <p>식별자라는 용어는 변수 이름에만 국한해서 사용하지 않는다. 예를 들어, 변수, 함수, 클래스 등의 이름은 모두 식별자다. 식별자인 변수 이름으로는 메모리 상에 존재하는 변수 값을 식별할 수 있고, 함수 이름으로는 메모리 상에 존재하는 함수(자바스크립트에서 함수는 값이다.)를 식별할 수 있다. 즉, 메모리 상에 존재하는 어떤 값을 식별 할 수 있는 이름은 모두 식별자라고 부른다. </p>
 <p><strong>Preview)</strong> 변수, 함수, 클래스 등의 이름과 같은 식별자는 네이밍 규칙을 준수해야 하며, 선언(declaration)에 의해 자바스크립트 엔진에 식별자의 존재를 알린다. </p>
-</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/11/03/javascript/function-1/"><img class="fill" src="/img/javascript.png" alt="function-1"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-03T12:23:04.000Z" title="2020-11-03T12:23:04.000Z">2020-11-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-11-17T00:18:04.745Z" title="2020-11-17T00:18:04.745Z">2020-11-17</time></span><span class="level-item"><a class="link-muted" href="/categories/Javascript/">Javascript</a></span><span class="level-item">13 minutes read (About 1972 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/11/03/javascript/function-1/">function-1</a></h1><div class="content"><p><strong>함수(Function)</strong></p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/11/03/javascript/function-1/"><img class="fill" src="/img/javascript.png" alt="function-1"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-03T12:23:04.000Z" title="2020-11-03T12:23:04.000Z">2020-11-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-11-17T02:53:52.639Z" title="2020-11-17T02:53:52.639Z">2020-11-17</time></span><span class="level-item"><a class="link-muted" href="/categories/Javascript/">Javascript</a></span><span class="level-item">13 minutes read (About 1939 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/11/03/javascript/function-1/">function-1</a></h1><div class="content"><p><strong>함수(Function)</strong></p>
 <p><strong>1.1</strong> <strong>함수란</strong> <strong>무엇인가</strong>?</p>
-<p>프로그래밍 언어의 함수는 일련의 과정을 문(Statememt)으로 구현하고 코드 블록을 감싸서 하나의 실행 단위로 정의한 것이다. 프로그래밍 언어의 함수도 입력을 받아서 출력을 내보낸다. 이때 함수 내부로 입력을 전달받은 변수를 <strong>매개변수</strong>(Parameter)<strong>, 입력을 **인수</strong>(argument)<strong>, 출력을 **반환값</strong>(return value)이라 한다. 또한 함수는 값이며, 여러 개 존재할 수 있으므로 특정 함수를 구별하기 위해 식별자인 함수이름을 사용할 수 있다. </p>
-<table>
-<thead>
-<tr>
-<th>함수 정의</th>
-<th><strong>Function add[<strong>함수이름</strong></strong>] <strong>(x, y)[<strong>매개변수</strong></strong>] { return x + y[반환 <strong>값</strong>]; }</th>
-<th>함수 몸체</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>함수 호출</td>
-<td>add(<strong>2, 5[<strong>인수</strong></strong>]);</td>
-<td></td>
-</tr>
-<tr>
-<td><br></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><br></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>함수 정의만으로 함수가 실행되는 것은 아니다. 수학의 함수처럼 미리 정의된 일련의 과정을 실행하기 위해 필요한 입력, 즉 인수(argument)를 매개변수를 통해 함수에 전달하면서 함수의 실행을 명시적으로 지시해야 한다.</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
+<p>프로그래밍 언어의 함수는 일련의 과정을 문(Statememt)으로 구현하고 코드 블록을 감싸서 하나의 실행 단위로 정의한 것이다. 프로그래밍 언어의 함수도 입력을 받아서 출력을 내보낸다. 이때 함수 내부로 입력을 전달받은 변수를 <strong>매개변수</strong>(Parameter)<strong>, 입력을 인수</strong>(argument)<strong>, 출력을 반환값</strong>(return value)이라 한다. 또한 함수는 값이며, 여러 개 존재할 수 있으므로 특정 함수를 구별하기 위해 식별자인 함수이름을 사용할 수 있다. </p>
+<img src="../img/function.png" alt="function">
+
+<br>
+<br>
+함수 정의만으로 함수가 실행되는 것은 아니다. 수학의 함수처럼 미리 정의된 일련의 과정을 실행하기 위해 필요한 입력, 즉 인수(argument)를 매개변수를 통해 함수에 전달하면서 함수의 실행을 명시적으로 지시해야 한다. 
+
 <p>이를 <strong>함수 호출(function call/invoke)</strong>이라고 한다. 함수를 호출하면 코드 블록에 담긴 문들이 일괄적으로 실행되고, 실행결과, 즉 반환값을 반환한다. </p>
 <p>//함수 호출</p>
 <p>var result = add(2, 5);</p>
