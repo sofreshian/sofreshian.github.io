@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>assignment(pixel &amp; interpreter-compiler) - My Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="My Blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="My Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="Pixel의 단위는 절대적 인가? 상대적인가?  먼저, 픽셀의 정의를 찾아보면 픽셀은 화면을 구성하는 가장 기본이 되는 단위이다. 우리가 모니터를 통해서 보는 문자와 이미지는 실제로는 픽셀이라고 하는 매우 작은 사각형의 점들로 구성되어 있습니다. 하나하나의 픽셀은 해당 위치에서 그 픽셀이 가진 색상 정보를 표현하게 되고, 그 픽셀들이 수없이 많이 모여서"><meta property="og:type" content="blog"><meta property="og:title" content="assignment(pixel &amp; interpreter-compiler)"><meta property="og:url" content="http://example.com/2020/11/16/assignments/assignment-1/"><meta property="og:site_name" content="My Blog"><meta property="og:description" content="Pixel의 단위는 절대적 인가? 상대적인가?  먼저, 픽셀의 정의를 찾아보면 픽셀은 화면을 구성하는 가장 기본이 되는 단위이다. 우리가 모니터를 통해서 보는 문자와 이미지는 실제로는 픽셀이라고 하는 매우 작은 사각형의 점들로 구성되어 있습니다. 하나하나의 픽셀은 해당 위치에서 그 픽셀이 가진 색상 정보를 표현하게 되고, 그 픽셀들이 수없이 많이 모여서"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://example.com/img/javascript.png"><meta property="article:published_time" content="2020-11-16T11:29:06.000Z"><meta property="article:modified_time" content="2020-11-17T00:03:34.447Z"><meta property="article:author" content="Jay Take"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/javascript.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/11/16/assignments/assignment-1/"},"headline":"My Blog","image":["http://example.com/img/javascript.png"],"datePublished":"2020-11-16T11:29:06.000Z","dateModified":"2020-11-17T00:03:34.447Z","author":{"@type":"Person","name":"Jay Take"},"description":"Pixel의 단위는 절대적 인가? 상대적인가?  먼저, 픽셀의 정의를 찾아보면 픽셀은 화면을 구성하는 가장 기본이 되는 단위이다. 우리가 모니터를 통해서 보는 문자와 이미지는 실제로는 픽셀이라고 하는 매우 작은 사각형의 점들로 구성되어 있습니다. 하나하나의 픽셀은 해당 위치에서 그 픽셀이 가진 색상 정보를 표현하게 되고, 그 픽셀들이 수없이 많이 모여서"}</script><link rel="canonical" href="http://example.com/2020/11/16/assignments/assignment-1/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="My Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/img/javascript.png" alt="assignment(pixel &amp; interpreter-compiler)"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-16T11:29:06.000Z" title="2020-11-16T11:29:06.000Z">2020-11-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-11-17T00:03:34.447Z" title="2020-11-17T00:03:34.447Z">2020-11-17</time></span><span class="level-item"><a class="link-muted" href="/categories/Javascript/">Javascript</a></span><span class="level-item">13 minutes read (About 1939 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">assignment(pixel &amp; interpreter-compiler)</h1><div class="content"><ol>
+<li><strong>Pixel</strong>의 <strong>단위는</strong> <strong>절대적 인가</strong>? <strong>상대적인가</strong>?</li>
+</ol>
+<p>먼저, 픽셀의 정의를 찾아보면 픽셀은 화면을 구성하는 가장 기본이 되는 단위이다. 우리가 모니터를 통해서 보는 문자와 이미지는 실제로는 픽셀이라고 하는 매우 작은 사각형의 점들로 구성되어 있습니다. 하나하나의 픽셀은 해당 위치에서 그 픽셀이 가진 색상 정보를 표현하게 되고, 그 픽셀들이 수없이 많이 모여서 우리에게 실물과 비슷한 수준의 이미지를 보여 줍니다. </p>
+<p><strong>해상도</strong> ∝픽셀의 <strong>갯수</strong>, 픽셀의 <strong>밀도</strong></p>
+<p><strong>1)</strong> 픽셀의  <strong>갯수</strong></p>
+<p>모니터의 경우 1024 x 768, 1900 x 1200 과 같은 각각의최적화된 해상도를 설정하여 사용하는데 이때 모니터에서 사용하는 해상도라는 용어도 가로 x 세로 픽셀의 갯수를 표현하는 용어이다. 이처럼 해상도라는 말은 어떤 이미지나 디스플레이를 구성하는 최소 단위인 <strong>픽셀의</strong> <strong>총량</strong>을 나타내는 말입니다. </p>
+<p><strong>2)</strong> <strong>픽셀의</strong> <strong>밀도</strong></p>
+<p>픽셀의 밀도(집적도)를 나타내는 경우에도 해상도라는 용어를 사용합니다. 흔히 우리가 사용하는 모니터의 해상도는 72ppi라고 알려져 있는데, 1ppi란 Pixel per Inch의 약어로 1인치당 몇개의 픽셀이 들어가는지를 말합니다. 즉 1 x 1인치의 면적에 72 x 72개의 픽셀로 이루어져 있다는 뜻입니다. </p>
+<p>(*dpi (Dots per Inch)라는 인쇄 용어는 1x1인치의 면적에 몇개의 점을 찍어 인쇄할 것인가를 나타내는 용어입니다.) 이처럼 해상도란 ppi와 dpi와 같이 <strong>픽셀의</strong> <strong>밀도를</strong> 나타내는 용어입니다. </p>
+<p>=&gt; 해상도란 기본적으로 이미지가 포함하고 있는 정보와 같다고 볼 수 있다. 해상도가 높을 수록 더많은 이미지 정보를 갖고 있다는 것입니다. 이미지에 <u><strong>픽셀이 많으면 많을 수록 더 큰 이미지를 만들 수 있고</strong></u>, 또한 픽셀이 많으면 많을수록 <strong><u>픽셀의 밀도를 높여 더 좋은 품질의 이미지를 만들 수 있다는 것입니다</u></strong>. 결국 픽셀의 수는 많을 수록 좋은 것인데, 이 픽셀들을 얼마만큼의 밀도로 어떤 사이즈의 이미지를 표현할 것인가 하는 이슈가 바로 해상도 인것이다. </p>
+<p>그렇다면 픽셀의 크기는 절대적인가 상대적인가?</p>
+<p><strong>픽셀의</strong> <strong>이미지의</strong> <strong>크기</strong>, <strong>픽셀의</strong> <strong>밀도</strong>, <strong>픽셀의</strong> <strong>총량에</strong> <strong>따라</strong> <strong>상대적이다</strong>!</p>
+<img src="../img/pixel-dimension.png" alt="pixel dimension">
+
+<p>위의 보이는 사진처럼 72ppi 이미지를 살펴보면, 1인치 면적 안에 518,400개의 픽셀로 이뤄져 있는 것을 알 수 있다. 만약 72ppi를 인쇄용도인 300ppi로 만들면서 픽셀수를 그대로 유지하기 위해서는 이미지의 사이즈가 2.4 x 2.4인치로 줄어드는 것을 확인할 수 있다.  <strong><u>즉 픽셀의 크기는 상대적이며 가변적인것을 확인 할 수 있다.</u></strong><br><br><br><br><br><br><br><br><br><strong>2.</strong> <strong>컴파일러와</strong> <strong>인터프리터의</strong> <strong>차이는</strong> <strong>무엇일까</strong>?</p>
+<p>프로그램 언어를 해석하고 실행하는 대표적인 방법은 Compile과 Interpret 방식이 있다. </p>
+<ol>
+<li><strong>컴파일</strong>(Compile) </li>
+</ol>
+<p><strong>=&gt;</strong> <strong>전체</strong> <strong>소스코드를</strong> <strong>보고</strong> <strong>명령어를</strong> <strong>수집하고</strong> <strong>재구성</strong></p>
+<ol>
+<li>프로그램 언어를 <strong>Runtime</strong> <strong>이전에</strong> <strong>기계어로</strong> <strong>해석하는</strong> <strong>작업방식</strong>이다. (원시코드 =&gt; 목적코드(Object code)</li>
+</ol>
+<ol start="2">
+<li>런타임 이전에 Assembly 언어로 변환하기 때문에 <strong>구동시간이</strong> <strong>오래</strong> <strong>걸리지만</strong>, <strong>구동된</strong> <strong>이후는</strong> <strong>하나의</strong> <strong>패키지로</strong> <strong>매우</strong> <strong>빠르게</strong> <strong>작동</strong>하게 된다. 구동시에 코드와 함께 시스템으로부터 메모리를 할당받으며 할당받은 메모리를 사용하게된다. </li>
+</ol>
+<ol start="3">
+<li>런타임 이전에 이미 해석을 마치고 대게 컴파일 결과물이 바로 기계어로 전환되기 때문에 OS 및 빌드 환경에 종속적이다. 그러므로 <strong>OS</strong> <strong>환경에</strong> <strong>맞게</strong> <strong>호환되는</strong> <strong>라이브러리와</strong> <strong>환경을</strong> <strong>구분해서</strong> <strong>구축해줘야</strong> <strong>한다</strong>.</li>
+</ol>
+<ol start="4">
+<li>Compile 언어의 대표격으로 C / C++ 와 같은 언어들을 들 수 있으며, JAVA 역시 <strong>Byte code</strong> <strong>로</strong> <strong>바꾸기</strong> <strong>위한</strong> <strong>과정에서</strong> <strong>컴파일을</strong> <strong>수행</strong>한다. </li>
+</ol>
+<p><strong>2)</strong> <strong>인터프릿</strong> <strong>(interpret )</strong></p>
+<p><strong>=&gt;</strong> <strong>소스코드의</strong> <strong>각</strong> <strong>행을</strong> <strong>연속적으로</strong> <strong>분석하며</strong> <strong>실행</strong></p>
+<ol>
+<li>런타임 이전에 기계어로 프로그래밍 언어를 변환하는 컴파일 방식과 다르게, 런타임 이후에 <strong>Row</strong> <strong>단위로</strong> <strong>해석</strong>(Interpret)<strong>**하며</strong> <strong>프로그램을</strong> <strong>구동시키는</strong> <strong>방식이다</strong>.</li>
+</ol>
+<ol start="2">
+<li>프로그래밍 언어를 기계어로 바꾸지 않고 중간 단계를 거친 뒤, <strong>런타임에</strong> <strong>즉시</strong> <strong>해석</strong>하기 때문에 바로 컴팩트한 패키지 형태로 Binary 파일을 뽑아 낼 수 있는 Compile 방식에 비해 낮은 퍼포먼스를 보이게 된다.</li>
+</ol>
+<ol start="3">
+<li>런타임에 직접 코드를 구동시키는 특징이 있기 때문에 실제 실행 시간은 느리며, 대신 런타임에 실시간 Debugging 및 코드 수정이 가능하다. 또한 메모리를 별도로 할당받아 수행되지 않으며, 필요할 때마다 할당하며 사용한다. </li>
+</ol>
+<ol start="4">
+<li>대표적인 Interpreter 언어로는 Javascript와 같은 스크립팅 언어들이 있다. </li>
+</ol>
+<ol start="5">
+<li>많은 프로그래밍 언어들의 인터프리터는 해석을 위한 Virtual Machine을 두고, Machine위에서 Interpret을 수행하게 되는데, 이때 해석의 기반이 되는 머신들이 OS 환경을 지원해줌으로써, 해당 방식으로 인터프리터는 OS및 플랫폼에 종속되지 않는 프로그램 구동이 가능하게 된다. (이런 특징을 지는 Interpreter는 Java의 JVM과 Python의 Analyzer가 있다.)</li>
+</ol>
+<p>&lt;컴파일러, 인터프리터 비교 chart&gt;</p>
+<ul>
+<li>기계어로 번역된 <strong>목적</strong> <strong>프로그램의</strong> <strong>생성</strong> <strong>여부에</strong> <strong>따라</strong> 컴파일러 언어와 인터프리터 언어로 구분된다. </li>
+<li>인터프리터 언어는 번역 즉시 실행되기 때문에 해석 언어라고도 한다. </li>
+</ul>
+<img src="../img/comint-comparison.png" alt="compiler compare with interpreter">
+<br>
+<br>
+
+<p><strong>프로그램</strong> <strong>언어의</strong> <strong>종류</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>저급언어</strong></th>
+<th><strong>어셈블리어</strong></th>
+<th><strong>고급언어</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>기계가 알아듣기 쉬운 언어, 기계 중심의 저급언어</td>
+<td>어셈블리어(Assembly)는 기계어와 1:1로 대응되는 기호로 이루어진 언어로, 니모닉(Mnemonic)언어라고도 함</td>
+<td>사람 중심의 언어로 배우기 쉽다</td>
+</tr>
+<tr>
+<td>2진수 0과 1만 사용하여 명령어와 데이터를 나타냄</td>
+<td>하드웨어 제어에 주로 사용되며, 처리 속도가 빠름</td>
+<td>호환성이 좋아 상이한 기계에서 별다른 수정 없이 실행가능한 언어다</td>
+</tr>
+<tr>
+<td>컴퓨터가 직접 이해할 수 있어 실행속도가 빠름</td>
+<td>기계어와 가장 유사하며 호환성이 떨어짐</td>
+<td>실행을 위해서는 번역하는 과정이 필요하다</td>
+</tr>
+<tr>
+<td>전문적인 지식이 없으면 이해하기 어려움</td>
+<td>기계어로 번역하기 위해 어셈블리러(Assembler)라는 번역기가 필요함</td>
+<td></td>
+</tr>
+<tr>
+<td>기계마다 언어가 달라 호환성이 없음</td>
+<td>어셈블리어에서의 상수의 정의 2진 상수 정의: BL DCBL3 “101” 16진 상수 정의 XL DC XL2 “A2”</td>
+<td></td>
+</tr>
+<tr>
+<td>프로그램의 작성 및 유지보수가 어려움</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</div><div class="article-licensing box"><div class="licensing-title"><p>assignment(pixel &amp; interpreter-compiler)</p><p><a href="http://example.com/2020/11/16/assignments/assignment-1/">http://example.com/2020/11/16/assignments/assignment-1/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Jay Take</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2020-11-16</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2020-11-17</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="notification is-danger">You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.</div></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" href="/" target="_blank" rel="noopener" data-type="afdian"><span class="icon is-small"><i class="fas fa-charging-station"></i></span><span>Afdian.net</span></a><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>Alipay</span><span class="qrcode"><img src="/" alt="Alipay"></span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="buymeacoffee"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>Buy me a coffee</span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="patreon"><span class="icon is-small"><i class="fab fa-patreon"></i></span><span>Patreon</span></a><div class="notification is-danger">You forgot to set the <code>business</code> or <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.</div><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/11/04/algorithm/space-complexity/"><span class="level-item">space complexity</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Jay Tak"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Jay Tak</p><p class="is-size-6 is-block">Frontend Developer</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Seoul, South Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">16</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tag</p><a href="/tags"><p class="title">1</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/CSS/"><span class="level-start"><span class="level-item">CSS</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Javascript/"><span class="level-start"><span class="level-item">Javascript</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/algorithm/"><span class="level-start"><span class="level-item">algorithm</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-11-16T11:29:06.000Z">2020-11-16</time></p><p class="title"><a href="/2020/11/16/assignments/assignment-1/">assignment(pixel &amp; interpreter-compiler)</a></p><p class="categories"><a href="/categories/Javascript/">Javascript</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-11-04T10:56:43.000Z">2020-11-04</time></p><p class="title"><a href="/2020/11/04/algorithm/space-complexity/">space complexity</a></p><p class="categories"><a href="/categories/algorithm/">algorithm</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-11-04T02:55:09.000Z">2020-11-04</time></p><p class="title"><a href="/2020/11/04/javascript/control-flow-statement-3/">control-flow-statement-3</a></p><p class="categories"><a href="/categories/Javascript/">Javascript</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-11-04T02:55:09.000Z">2020-11-04</time></p><p class="title"><a href="/2020/11/04/javascript/control-flow-statement-4/">control-flow-statement-4</a></p><p class="categories"><a href="/categories/Javascript/">Javascript</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-11-04T02:55:09.000Z">2020-11-04</time></p><p class="title"><a href="/2020/11/04/javascript/control-flow-statement-5/">control-flow-statement-5</a></p><p class="categories"><a href="/categories/Javascript/">Javascript</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="My Blog" height="28"></a><p class="is-size-7"><span>&copy; 2020 Jay Take</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
