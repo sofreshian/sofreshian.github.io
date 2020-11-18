@@ -168,7 +168,7 @@
 
 
 
-</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/11/03/javascript/datatype/"><img class="fill" src="/img/javascript.png" alt="Data type"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-03T12:23:04.000Z" title="2020-11-03T12:23:04.000Z">2020-11-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-11-17T23:51:22.606Z" title="2020-11-17T23:51:22.606Z">2020-11-18</time></span><span class="level-item"><a class="link-muted" href="/categories/Javascript/">Javascript</a></span><span class="level-item">20 minutes read (About 3001 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/11/03/javascript/datatype/">Data type</a></h1><div class="content"><p><strong>데이터</strong> <strong>타입(Data type)</strong></p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/11/03/javascript/datatype/"><img class="fill" src="/img/javascript.png" alt="Data type"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-03T12:23:04.000Z" title="2020-11-03T12:23:04.000Z">2020-11-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-11-18T00:47:08.184Z" title="2020-11-18T00:47:08.184Z">2020-11-18</time></span><span class="level-item"><a class="link-muted" href="/categories/Javascript/">Javascript</a></span><span class="level-item">20 minutes read (About 3001 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/11/03/javascript/datatype/">Data type</a></h1><div class="content"><p><strong>데이터</strong> <strong>타입(Data type)</strong></p>
 <table>
 <thead>
 <tr>
@@ -265,7 +265,7 @@
 </ul>
 <p><strong>7. 심벌 타입</strong></p>
 <p>심벌은 변경 불가능한 원시 타입의 값이다. 심벌 값은 다른 값과 중복되지 않는 유일무이한 값이다. 따라서 주로 이름이 <strong><u>충돌할 위험이 없는 객체의 유일한 프로퍼티 키를 만들기 위해 사용한다.</u></strong> </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 심벌 값 생성</span></span><br><span class="line"></span><br><span class="line">Var key = symbol(‘key’)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Typeof key);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 객체 생성</span></span><br><span class="line"></span><br><span class="line">Var obj = &#123; &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 이름이 충돌할 위험이 없는 유일무이한 값인 심벌을 프로퍼티 키로 사용한다.</span></span><br><span class="line"></span><br><span class="line">obj[key] = ‘value’;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj[key]);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 심벌 값 생성</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> key = symbol(‘key’)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Typeof key);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 객체 생성</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123; &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 이름이 충돌할 위험이 없는 유일무이한 값인 심벌을 프로퍼티 키로 사용한다.</span></span><br><span class="line"></span><br><span class="line">obj[key] = ‘value’;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj[key]);</span><br></pre></td></tr></table></figure>
 
 
 
@@ -274,10 +274,12 @@
 <p><strong>9. 데이터 타입의 필요성</strong></p>
 <p><strong>9-1)</strong> <strong>데이터</strong> <strong>타입에</strong> <strong>의한</strong> <strong>메모리</strong> <strong>공간의</strong> <strong>확보와</strong> <strong>참조</strong></p>
 <p>메모리에 값을 저장하려면 먼저 확보해야 할 <strong>메모리 공간의 크기</strong>를 결정해야 한다. 몇 바이트의 메모리 공간을 사용해야 낭비와 손실 없이 값을 저장할 수 있는 지 알아야 한다. </p>
-<br>
+<img src="../img/number-type.png" alt="number value allocation">
 
 <p>위의 예제의 경우 자바스크립트 엔진은 리터럴 100을 숫자 타입의 값으로 해석하고 숫자타입의 값 100을 저장하기 위해 <strong>8바이트의 메모리 공간을 확보</strong>한다. 다음으로는 값을 참조하는 경우를 생각해보자. 식별자 score를 통해 숫자 타입의 값 100이 저장되어 있는 메모리 공간의 주소를 찾아갈 수 있다. 정확히 말하면 100이 저장되어 있는 <strong>메모리 공간의 선두 메모리 셀의 주소</strong>를 찾아갈 수 있다. </p>
 <p>이때, 값을 참조하려면 한 번에 읽어 들어야 할 <strong>메모리 공간의 크기,</strong> 즉 <u>메모리 셀의 개수(</u>바이트 수)를 알아야 한다. Score 변수의 경우, 저장 되어 있는 값이 숫자 타입이므로 8바이트 단위로 읽어 들이지 않으면 값이 훼손된다. <u>그렇다면 컴퓨터는 한 번에 읽어들어야 할 메모리 셀의 크기를 어떻게 알 수 있는 것일까?</u> score변수에는 숫자 타입의 값이 할당되어 있으므로 자바스크립트 엔진은 <strong>score변수를 숫자 타입으로 인식한다</strong>. <strong>숫자 타입은 8바이트 단위로 저장</strong>되므로 score 변수를 참조하면 <strong>8바이트 단위로 메모리 공간에 저장된 값을 읽어 들인다</strong>. </p>
+<br>
+
 <p><strong>9-2)</strong> <strong>데이터</strong> <strong>타입에</strong> <strong>의한</strong> <strong>값의</strong> <strong>해석</strong></p>
 <p>메모리에서 읽어 들인 2진수를 어떻게 해석해야 하느냐다. 예를 들어, 메모리에 저장된 값 0100 0001을 숫자로 해석하면 65지만 문자열로 해석하면 ‘A’다.</p>
 <p>앞에서 살펴본 예제의 score 변수에 할당된 값은 숫자 타입의 값이다. 따라서 score 변수를 참조하면 메모리 <strong>공간의 주소에서 읽어들인 2진수를 숫자로 해석</strong>한다. </p>
@@ -306,7 +308,7 @@
 <li>변수 보다는 상수를 사용해 값의 변경을 억제한다</li>
 <li>변수 이름은 변수의 목적이나 의미를 파악할 수 있도록 네이밍 한다.</li>
 </ul>
-</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/11/03/javascript/variable/"><img class="fill" src="/img/javascript.png" alt="variable &amp; identifer"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-03T12:20:13.000Z" title="2020-11-03T12:20:13.000Z">2020-11-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-11-17T11:23:16.342Z" title="2020-11-17T11:23:16.342Z">2020-11-17</time></span><span class="level-item"><a class="link-muted" href="/categories/Javascript/">Javascript</a></span><span class="level-item">21 minutes read (About 3092 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/11/03/javascript/variable/">variable &amp; identifer</a></h1><div class="content"><ol>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/11/03/javascript/variable/"><img class="fill" src="/img/javascript.png" alt="variable &amp; identifer"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-03T12:20:13.000Z" title="2020-11-03T12:20:13.000Z">2020-11-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-11-18T00:31:16.675Z" title="2020-11-18T00:31:16.675Z">2020-11-18</time></span><span class="level-item"><a class="link-muted" href="/categories/Javascript/">Javascript</a></span><span class="level-item">21 minutes read (About 3092 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/11/03/javascript/variable/">variable &amp; identifer</a></h1><div class="content"><ol>
 <li>변수(variable)</li>
 </ol>
 <p><strong>변수</strong>(variable)<strong>은</strong> <strong>하나의</strong> <strong>값을</strong> <strong>저장하기</strong> <strong>위해</strong> <strong>확보한</strong> <strong>메모리</strong> <strong>공간</strong> <strong>자체</strong> <strong>또는</strong> <strong>그</strong> <strong>메모리</strong> <strong>공간을</strong> <strong>식별하기</strong> <strong>위해</strong> <strong>붙인</strong> <strong>이름을</strong> <strong>말한다</strong>. </p>
@@ -338,7 +340,7 @@
 <ol start="2">
 <li>개발자가 직접적인 메모리 제어를 허용한다고 하더라도 문제가 있다. 값이 저장될 <strong>메모리</strong> <strong>주소는</strong> <strong>코드가</strong> <strong>실행될</strong> <strong>때</strong> <strong>메모리</strong> <strong>상황에</strong> <strong>따라</strong> <strong>임의로</strong> <strong>결정</strong>된다. 코드가 실행되기 이전에는 값이 저장된 메모리 주소를 알 수 없으며, 알려 주지도 않는다. </li>
 </ol>
-<p>메모리 공간에 저장된 값을 식별할 수 있는 고유한 이름(userId, userName, user, users)을 변수이름(변수명)이라 한다. 그리고 변수에 저장된 값을 변수 값이라고 한다.<br><br><br><br><br>변수 선언(variable declaration)이란 변수를 생성하는 것을 말함. 값을 저장하기 위해 <strong>메모리</strong> <strong>공간을</strong> <strong>확보</strong>하고 <strong>변수</strong> <strong>이름</strong>과 확보된 <strong>메모리</strong> <strong>공간의</strong> <strong>주소</strong>를 연결(name binding)해서 값을 저장할 수 있게 준비하는 것이다. 변수 선언에 의해 확보된 메모리 공간은 확보가 해제(release)되기 전까지는 누구도 확보된 메모리 공간을 사용할 수 없도록 보호되므로 안전하게 사용할 수 있다.<br><br><br><br><br><strong>변수 선언 단계</strong></p>
+<p>메모리 공간에 저장된 값을 식별할 수 있는 고유한 이름(userId, userName, user, users)을 변수이름(변수명)이라 한다. 그리고 변수에 저장된 값을 변수 값이라고 한다.<br><br><br>변수 선언(variable declaration)이란 변수를 생성하는 것을 말함. 값을 저장하기 위해 <strong>메모리</strong> <strong>공간을</strong> <strong>확보</strong>하고 <strong>변수</strong> <strong>이름</strong>과 확보된 <strong>메모리</strong> <strong>공간의</strong> <strong>주소</strong>를 연결(name binding)해서 값을 저장할 수 있게 준비하는 것이다. 변수 선언에 의해 확보된 메모리 공간은 확보가 해제(release)되기 전까지는 누구도 확보된 메모리 공간을 사용할 수 없도록 보호되므로 안전하게 사용할 수 있다.<br><br><br><strong>변수 선언 단계</strong></p>
 <ol>
 <li><strong>선언단계</strong>: 변수 이름을 등록해서 자바스크립트 엔진에 <u>변수의 존재를 알린다.</u> </li>
 <li><strong>초기화 단계</strong>: 값을 저장하기 위한 메모리 공간을 확보하고 암묵적으로 <u>undefined를 할당해 초기화한다</u>. </li>
@@ -386,8 +388,8 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(score);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> score;</span><br></pre></td></tr></table></figure>
 
 <p>자바스크립트 코드는 인터프리터에 의해 한 줄 씩 순차적으로 실행되므로 console.log(score);가 가장 먼저 실행되고 순차적으로 다음 줄에 있는 코드를 실행한다. 따라서 console.log(score); 가 실행 되는 시점에는 아직 score 변수 선언이 실행되지 않았으므로, <u>reference error가 발생한다. 하지만 참조 에러가 발생되지 않고,</u> <strong>undefined</strong>가 출력된다. </p>
-<p>그 이유는 변수 선언이 소스코드가 한 줄씩 순차적으로 실행되는 시점, <strong>즉</strong> <strong>런타임</strong>(Runtime)<strong>**이 **아니라</strong> <strong>그</strong> <strong>이전</strong> <strong>단계에서</strong> <strong>먼저</strong> <strong>실행되기</strong> <strong>때문이다</strong>.</p>
-<p>이처럼 변수 선언문이 코드의 선두로 끌어올려진 것처럼 동작하는 자바스크립트 고유의 특징을 *<em>변수 호이스팅(variable hoisting)**이라 한다. 사실 변수 선언 뿐만 아니라 var, let, const, function, function</em>, class 키워드를 사용해서 선언하는 모든 식별자(변수, 함수, 클래스 등)는 호이스팅 된다. 모든 선언문은 런타임 이전 단계에서 먼저 실행되기 때문이다.</p>
+<p>그 이유는 변수 선언이 소스코드가 한 줄씩 순차적으로 실행되는 시점, <strong>즉</strong> <strong>런타임(Runtime)**이 **아니라</strong> <strong>그</strong> <strong>이전</strong> <strong>단계에서</strong> <strong>먼저</strong> <strong>실행되기</strong> <strong>때문이다</strong>.</p>
+<p>이처럼 변수 선언문이 코드의 선두로 끌어올려진 것처럼 동작하는 자바스크립트 고유의 특징을 <strong>변수 호이스팅(variable hoisting)</strong>이라 한다. 사실 변수 선언 뿐만 아니라 var, let, const, function, function*, class 키워드를 사용해서 선언하는 모든 식별자(변수, 함수, 클래스 등)는 호이스팅 된다. 모든 선언문은 런타임 이전 단계에서 먼저 실행되기 때문이다.</p>
 <p><strong>4. 값의 할당</strong></p>
 <p>변수 선언과 값의 할당은 하나의 문(statement)으로 단축 표현할 수 있다.</p>
 <table>
@@ -487,9 +489,10 @@
 <td>score = 90;</td>
 </tr>
 </tbody></table>
-<p>=&gt; 변수에 값을 할당할 때는 이전 값 undefined가 저장되어 있던 메모리 공간을 지우고 그 메모리 공간에 할당 값 80을 새롭게 저장하는 것이 아니라 <strong>새로운</strong> <strong>메모리</strong> <strong>공간을</strong> <strong>확보하고</strong>, <strong>그곳에</strong> <strong>할당</strong> <strong>값</strong> <strong>80</strong>을 <strong>저장한</strong> <strong>다는</strong> <strong>점에</strong> <strong>유의하자</strong></p>
+<p>=&gt; 변수에 값을 할당할 때는 이전 값 undefined가 저장되어 있던 메모리 공간을 지우고 그 메모리 공간에 할당 값 80을 새롭게 저장하는 것이 아니라 <strong>새로운</strong> <strong>메모리</strong> <strong>공간을</strong> <strong>확보하고</strong>, <strong>그곳에</strong> <strong>할당</strong> <strong>값</strong> <strong>80을</strong> <strong>저장한다는</strong> <strong>점에</strong> <strong>유의하자</strong></p>
 <p>변수에 값을 재할당하면 score 변수의 값은 이전 값 80에서 재 할당한 값 90으로 변경된다. 처음 값을 할당 했을 때와 마찬가지로 이전 값 80이 저장되어 있던 메모리 공간을 지우고 그 메모리 공간에 재할당 값 90을 <strong><u>새롭게 저장하는 것이 아니라 새로운 메모리 공간을 확보하고 그 메모리 공간에 숫자 값 90을 저장한다</u></strong>. </p>
-<p>현재 score 변수의 값은 90이다. Score 변수의 이전 값인 undefined 와 80은 어떤 변수도 값을 갖고 있지 않다. 다시 말해 어떤 식별자와 연결되어 있지 않다. 이것은 undefined와 80이 더 이상 필요하지 않는 다는 것을 의미한다. <strong><u>아무도 사용하지 않기 때문에 이러한 불필요한 값들은 가비지 콜렉터에 의해 메모리에서 자동 해제된다</u></strong>.<br><br><br><br><br>+추가</p>
+<p>현재 score 변수의 값은 90이다. Score 변수의 이전 값인 undefined 와 80은 어떤 변수도 값을 갖고 있지 않다. 다시 말해 어떤 식별자와 연결되어 있지 않다. 이것은 undefined와 80이 더 이상 필요하지 않는 다는 것을 의미한다. <strong><u>아무도 사용하지 않기 때문에 이러한 불필요한 값들은 가비지 콜렉터에 의해 메모리에서 자동 해제된다</u></strong>.</p>
+<p>+추가</p>
 <p><strong>가비지</strong> <strong>콜렉터</strong>(garbage collector)</p>
 <p>가비지 콜렉터는 어플레케이션이 할당한 메모리 공간을 주기적으로 검사하여 더이상 사용하지 않는 메모리를 해제하는 기능을 말한다. 어떤 식별자도 참조하지 않는 메모리 공간을 의미한다. 자바스크립트는 가비지 콜렉터를 내장하고 있는 매니지드 언어로서 가비지 콜렉터를 통해 메모리 누수(memory leak)를 방지한다. </p>
 <p><strong>언매니지드</strong> <strong>언어</strong>(unmanaged language) <strong>매니지드</strong> <strong>언어</strong>(managed language)</p>
