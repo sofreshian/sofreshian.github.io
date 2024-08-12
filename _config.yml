@@ -160,22 +160,22 @@ newsletter:
 
 contact_form: 
   use_netlify_form: false
-  use_formspree_form: true
+  use_formspree_form: false
   formspree_endpoint: https://formspree.io/f/moqyklqv
   netlify_form_name: "contact"
 
 menu: 
   show_dropdown_items_in_mobile_menu: false
-  show_social_media_in_mobile_menu: true
+  show_social_media_in_mobile_menu: false
 
 footer:
-  enable_footer: true # show/hide the entire footer
+  enable_footer: false # show/hide the entire footer
   footer_title: "Jekyll Curate"
   footer_description: "Curate is a creative portfolio for Jekyll by Zerostatic Themes."
-  enable_social_media_icons: true
+  enable_social_media_icons: false
   enable_contact_details: false
-  enable_menu_footer_primary: true
-  enable_menu_footer_secondary: true
+  enable_menu_footer_primary: false
+  enable_menu_footer_secondary: false
   enable_menu_footer_tertiary: false
   footer_primary_menu_title: "Our Projects"
   footer_secondary_menu_title: "Company"
@@ -184,5 +184,5 @@ footer:
 bottom:
   enable_bottom: false # show/hide the entire bottom (below the footer)
   enable_bottom_menu: false # if enabled, the bottom menu can be edited in `_data/menu.yml`
-  copyright_text: "© 2021 Zerostatic Themes"
+  copyright_text: "© 2024 Jay's Blog"
   show_rss_icon: true
