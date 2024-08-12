@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <title>Blog - Jekyll Curate</title>
+
+
+
+
+    <meta property="og:type" content="website"/>
+<meta property="og:url" content="http://localhost:4000/blog/page/2/"/>
+
+
+  <meta property="og:title" content="Blog"/>
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@zerostaticio" />
+<meta name="twitter:creator" content="@zerostaticio" />
+    <link rel="alternate" type="application/atom+xml" title="Jekyll Curate" href="/feed.xml">
+    <link rel="icon" href="/assets/images/favicon/favicon.png">
+
+
+    <link href="/assets/css/main.css" rel="stylesheet">
+
+    
+      <script>
+          localStorage.getItem('darkMode') === 'true' && document.documentElement.setAttribute('data-bs-theme', 'dark');
+      </script>
+    
+
+    
+      <!-- https://github.com/orestbida/cookieconsent -->
+
+<link rel="stylesheet" href="/assets/css/cookieconsent.css">
+<script defer src="/assets/js/cookieconsent.js"></script>
+
+<!-- Inline script -->
+<script>
+    window.addEventListener('load', function () {
+
+        // obtain plugin
+        var cc = initCookieConsent();
+
+        // run plugin with your configuration
+        cc.run({
+            current_lang: 'en',
+            autoclear_cookies: true,                   // default: false
+            page_scripts: true,                        // default: false
+
+            // mode: 'opt-in'                          // default: 'opt-in'; value: 'opt-in' or 'opt-out'
+            // delay: 0,                               // default: 0
+            // auto_language: '',                      // default: null; could also be 'browser' or 'document'
+            // autorun: true,                          // default: true
+            // force_consent: false,                   // default: false
+            // hide_from_bots: true,                   // default: true
+            // remove_cookie_tables: false             // default: false
+            // cookie_name: 'cc_cookie',               // default: 'cc_cookie'
+            // cookie_expiration: 182,                 // default: 182 (days)
+            // cookie_necessary_only_expiration: 182   // default: disabled
+            // cookie_domain: location.hostname,       // default: current domain
+            // cookie_path: '/',                       // default: root
+            // cookie_same_site: 'Lax',                // default: 'Lax'
+            // use_rfc_cookie: false,                  // default: false
+            // revision: 0,                            // default: 0
+
+            onFirstAction: function (user_preferences, cookie) {
+                // callback triggered only once on the first accept/reject action
+            },
+
+            onAccept: function (cookie) {
+                // callback triggered on the first accept/reject action, and after each page load
+            },
+
+            onChange: function (cookie, changed_preferences) { 
+                // If analytics category is disabled => disable google analytics 
+                if (!cc.allowedCategory('analytics')) { 
+                    typeof gtag === 'function' && gtag('consent', 'update', { 
+                        'analytics_storage': 'denied' 
+                    }); 
+                } 
+            }, 
+
+            languages: {
+                'en': {
+                    consent_modal: {
+                        title: 'We use cookies!',
+                        description: 'Hi, this website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
+                        primary_btn: {
+                            text: 'Accept all',
+                            role: 'accept_all'              // 'accept_selected' or 'accept_all'
+                        },
+                        secondary_btn: {
+                            text: 'Reject all',
+                            role: 'accept_necessary'        // 'settings' or 'accept_necessary'
+                        }
+                    },
+                    settings_modal: {
+                        title: 'Cookie preferences',
+                        save_settings_btn: 'Save settings',
+                        accept_all_btn: 'Accept all',
+                        reject_all_btn: 'Reject all',
+                        close_btn_label: 'Close',
+                        // cookie_table_caption: 'Cookie list',
+                        cookie_table_headers: [
+                            { col1: 'Name' },
+                            { col2: 'Domain' },
+                            { col3: 'Expiration' },
+                            { col4: 'Description' }
+                        ],
+                        blocks: [
+                            {
+                                title: 'Cookie usage 📢',
+                                description: 'I use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want. For more details relative to cookies and other sensitive data, please read the full <a href="#" class="cc-link">privacy policy</a>.'
+                            }, {
+                                title: 'Strictly necessary cookies',
+                                description: 'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly',
+                                toggle: {
+                                    value: 'necessary',
+                                    enabled: true,
+                                    readonly: true          // cookie categories with readonly=true are all treated as "necessary cookies"
+                                }
+                            }, {
+                                title: 'Performance and Analytics cookies',
+                                description: 'These cookies allow the website to remember the choices you have made in the past',
+                                toggle: {
+                                    value: 'analytics',     // your cookie category
+                                    enabled: false,
+                                    readonly: false
+                                },
+                                cookie_table: [             // list of all expected cookies
+                                    {
+                                        col1: '^_ga',       // match all cookies starting with "_ga"
+                                        col2: 'google.com',
+                                        col3: '2 years',
+                                        col4: 'description ...',
+                                        is_regex: true
+                                    },
+                                    {
+                                        col1: '_gid',
+                                        col2: 'google.com',
+                                        col3: '1 day',
+                                        col4: 'description ...',
+                                    }
+                                ]
+                            },
+                            {
+                                title: 'More information',
+                                description: 'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="#yourcontactpage">contact us</a>.',
+                            }
+                        ]
+                    }
+                }
+            }
+        });
+    });
+</script>
+    
+
+    
+
+    <link href="/assets/css/fonts.css" rel="stylesheet">
+
+
+
+
+    
+
+  </head>
+<body class="page page-blog has-static-header">
+
+
+<div class="menu-main-mobile " id="menu-main-mobile">
+  
+  <div class="menu-main-mobile-top">
+    <div id="close-overlay" class="menu-main-close">
+      <div class="hamburger"></div>
+    </div>
+  </div>
+
+  <div class="menu-main-mobile-center">
+    
+      <ul class="menu">
+        
+          <li class="menu-item-home">
+            <a href="/">Home</a>
+          </li>
+        
+          <li class="menu-item-projects">
+            <a href="/projects/">Projects</a>
+          </li>
+        
+          <li class="menu-item-blog">
+            <a href="/blog/">Blog</a>
+          </li>
+        
+          <li class="menu-item-about">
+            <a href="/about/">About</a>
+          </li>
+        
+          <li class="menu-item-contact">
+            <a href="/contact/">Contact</a>
+          </li>
+        
+      </ul>
+    
+  </div>
+
+  <div class="menu-main-mobile-bottom">
+    
+      
+
+<div class="social" id="social">
+  
+  <a href="https://www.zerostatic.io" target="blank" title="Twitter">
+    <i class="fab fa-twitter"></i>
+  </a>
+  
+  <a href="https://www.zerostatic.io" target="blank" title="Github">
+    <i class="fab fa-github"></i>
+  </a>
+  
+  <a href="https://www.zerostatic.io" target="blank" title="Discord">
+    <i class="fab fa-discord"></i>
+  </a>
+  
+</div>
+
+
+    
+    
+      <div class="dark-mode-switcher " id="dark-mode-container">
+  <div class="dark-mode-switch">
+    <svg class="dark-mode-icon-dark" data-name="Layer 1" fill="#000000" height="20px" viewbox="0 0 64 64" width="20px" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <title>essential</title>
+      <path d="M33.28,58.24A26.95,26.95,0,0,1,24,6l.39-.13a2,2,0,0,1,2.4,2.87,22.42,22.42,0,0,0-1.51,18.75h0A22.47,22.47,0,0,0,54.09,40.8l.76-.3a2,2,0,0,1,2.24.48,2,2,0,0,1,.35,2.24,27,27,0,0,1-24.16,15ZM21.11,11.85a22.94,22.94,0,1,0,30,33.91A26.46,26.46,0,0,1,21.53,28.87h0A26.4,26.4,0,0,1,21.11,11.85Z"></path>
+    </svg>
+    <svg class="dark-mode-icon-light" fill="#000000" height="20px" style="enable-background: new 0 0 100 100;" version="1.1" viewbox="0 0 100 100" width="20px" x="0px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <g>
+        <path d="M50,75c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S63.8,75,50,75z M50,33.3c-9.2,0-16.7,7.5-16.7,16.7   c0,9.2,7.5,16.7,16.7,16.7c9.2,0,16.7-7.5,16.7-16.7C66.7,40.8,59.2,33.3,50,33.3z"></path>
+      </g>
+      <g>
+        <path d="M50,100c-2.3,0-4.2-1.9-4.2-4.2v-8.3c0-2.3,1.9-4.2,4.2-4.2c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,98.1,52.3,100,50,100z    M17.5,86.7c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8   C19.6,86.3,18.6,86.7,17.5,86.7z M82.5,86.7c-1.1,0-2.1-0.4-2.9-1.2l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9s4.3-1.6,5.9,0l5.8,5.8   c1.6,1.6,1.6,4.3,0,5.9C84.6,86.3,83.6,86.7,82.5,86.7z M95.8,54.2h-8.3c-2.3,0-4.2-1.9-4.2-4.2c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C100,52.3,98.1,54.2,95.8,54.2z M12.5,54.2H4.2C1.9,54.2,0,52.3,0,50c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C16.7,52.3,14.8,54.2,12.5,54.2z M76.7,27.5c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8   c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8C78.8,27.1,77.7,27.5,76.7,27.5z M23.3,27.5c-1.1,0-2.1-0.4-2.9-1.2   l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9c1.6-1.6,4.3-1.6,5.9,0l5.8,5.8c1.6,1.6,1.6,4.3,0,5.9C25.5,27.1,24.4,27.5,23.3,27.5z M50,16.7   c-2.3,0-4.2-1.9-4.2-4.2V4.2C45.8,1.9,47.7,0,50,0c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,14.8,52.3,16.7,50,16.7z"></path>
+      </g>
+    </svg>
+    <div class="ball"></div>
+  </div>
+</div>
+    
+  </div>
+
+</div>
+
+
+
+
+<div id="header" class='header '>
+  <div class="container">
+    <div class="logos">
+  <div class="logo logo-desktop">
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo.png"/>
+        </a>
+      </div>
+    
+  
+    
+    
+  </div>
+
+  <div class="logo logo-desktop-invert">
+    
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo-invert.png"/>
+        </a>
+      </div>
+    
+  
+    
+    
+  </div>
+
+  <div class="logo logo-mobile">
+    
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo-mobile.png"/>
+        </a>
+      </div>
+    
+  
+    
+    
+  </div>
+
+
+  <div class="logo logo-mobile-invert">
+    
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo-invert-mobile.png"/>
+        </a>
+      </div>
+    
+  
+    
+
+  </div>
+
+</div>
+
+
+    <div class="menu-main">
+  <ul>
+    
+      
+        
+        <li class=" ">
+          <a href="/" >Home</a>
+        </li>
+      
+    
+      
+
+        
+        
+
+        <li class="menu-item-dropdown menu-item-Projects ">
+          <a href="/projects/">Projects <i class="fa-solid fa-chevron-down"></i></a>
+          
+          <div class="dropdown-menu">
+            
+              <a href="/projects/project-1/" class="dropdown-item ">
+                
+                  <div class="dropdown-item-icon"><img src="/assets/images/icons/wireframe-7.svg" /></div>
+                
+                
+                  <div class="dropdown-item-icon icon-invert"><img src="/assets/images/icons/wireframe-7-white.svg" /></div>
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Project Layout 1</div>
+                  <div class="dropdown-item-description">Default Project layout</div>
+                </div>
+              </a>
+            
+              <a href="/projects/project-2/" class="dropdown-item ">
+                
+                  <div class="dropdown-item-icon"><img src="/assets/images/icons/wireframe-5.svg" /></div>
+                
+                
+                  <div class="dropdown-item-icon icon-invert"><img src="/assets/images/icons/wireframe-5-white.svg" /></div>
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Project Layout 2</div>
+                  <div class="dropdown-item-description">Right side layout</div>
+                </div>
+              </a>
+            
+              <a href="/projects/project-3/" class="dropdown-item ">
+                
+                  <div class="dropdown-item-icon"><img src="/assets/images/icons/wireframe-6.svg" /></div>
+                
+                
+                  <div class="dropdown-item-icon icon-invert"><img src="/assets/images/icons/wireframe-6-white.svg" /></div>
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Project Layout 3</div>
+                  <div class="dropdown-item-description">Left side layout</div>
+                </div>
+              </a>
+            
+              <a href="/projects/project-4/" class="dropdown-item ">
+                
+                  <div class="dropdown-item-icon"><img src="/assets/images/icons/wireframe-8.svg" /></div>
+                
+                
+                  <div class="dropdown-item-icon icon-invert"><img src="/assets/images/icons/wireframe-8-white.svg" /></div>
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Project Layout 4</div>
+                  <div class="dropdown-item-description">Top layout</div>
+                </div>
+              </a>
+            
+          </div>
+
+        </li>
+      
+    
+      
+        
+        <li class=" ">
+          <a href="/blog/" >Blog</a>
+        </li>
+      
+    
+      
+        
+        <li class=" ">
+          <a href="/about/" >About</a>
+        </li>
+      
+    
+      
+        
+        <li class=" ">
+          <a href="/contact/" >Contact</a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+    
+      <div class="dark-mode-switcher " id="dark-mode-container">
+  <div class="dark-mode-switch">
+    <svg class="dark-mode-icon-dark" data-name="Layer 1" fill="#000000" height="20px" viewbox="0 0 64 64" width="20px" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <title>essential</title>
+      <path d="M33.28,58.24A26.95,26.95,0,0,1,24,6l.39-.13a2,2,0,0,1,2.4,2.87,22.42,22.42,0,0,0-1.51,18.75h0A22.47,22.47,0,0,0,54.09,40.8l.76-.3a2,2,0,0,1,2.24.48,2,2,0,0,1,.35,2.24,27,27,0,0,1-24.16,15ZM21.11,11.85a22.94,22.94,0,1,0,30,33.91A26.46,26.46,0,0,1,21.53,28.87h0A26.4,26.4,0,0,1,21.11,11.85Z"></path>
+    </svg>
+    <svg class="dark-mode-icon-light" fill="#000000" height="20px" style="enable-background: new 0 0 100 100;" version="1.1" viewbox="0 0 100 100" width="20px" x="0px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <g>
+        <path d="M50,75c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S63.8,75,50,75z M50,33.3c-9.2,0-16.7,7.5-16.7,16.7   c0,9.2,7.5,16.7,16.7,16.7c9.2,0,16.7-7.5,16.7-16.7C66.7,40.8,59.2,33.3,50,33.3z"></path>
+      </g>
+      <g>
+        <path d="M50,100c-2.3,0-4.2-1.9-4.2-4.2v-8.3c0-2.3,1.9-4.2,4.2-4.2c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,98.1,52.3,100,50,100z    M17.5,86.7c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8   C19.6,86.3,18.6,86.7,17.5,86.7z M82.5,86.7c-1.1,0-2.1-0.4-2.9-1.2l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9s4.3-1.6,5.9,0l5.8,5.8   c1.6,1.6,1.6,4.3,0,5.9C84.6,86.3,83.6,86.7,82.5,86.7z M95.8,54.2h-8.3c-2.3,0-4.2-1.9-4.2-4.2c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C100,52.3,98.1,54.2,95.8,54.2z M12.5,54.2H4.2C1.9,54.2,0,52.3,0,50c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C16.7,52.3,14.8,54.2,12.5,54.2z M76.7,27.5c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8   c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8C78.8,27.1,77.7,27.5,76.7,27.5z M23.3,27.5c-1.1,0-2.1-0.4-2.9-1.2   l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9c1.6-1.6,4.3-1.6,5.9,0l5.8,5.8c1.6,1.6,1.6,4.3,0,5.9C25.5,27.1,24.4,27.5,23.3,27.5z M50,16.7   c-2.3,0-4.2-1.9-4.2-4.2V4.2C45.8,1.9,47.7,0,50,0c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,14.8,52.3,16.7,50,16.7z"></path>
+      </g>
+    </svg>
+    <div class="ball"></div>
+  </div>
+</div>
+    
+    <div class="hamburger-trigger" id="toggle-menu-main-mobile">
+  <button class="hamburger">Menu</button>
+</div>
+  </div>
+</div>
+
+<div id="wrapper" class="wrapper">     
+  <div class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-12">
+        
+
+
+
+
+
+
+
+
+
+<div class="heading heading-left">
+  
+  
+  
+  <div class="heading-heading">
+    <h1>Blog</h1>
+  </div>
+  
+  
+  
+
+  
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section pt-0">
+  <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-12">
+          <div class="row">
+            
+            
+            
+              
+                <div class="col-12">
+                  
+  
+    <div class="col-12">
+      <div class="pagination-count">
+        <h3>Page 2</h3>
+      </div>
+    </div>
+  
+
+                </div>
+              
+
+              
+                <div class="col-12 col-md-12 col-lg-10 mb-6">
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card card-post card-row card-has-thumbnail ">
+
+  
+    <div class="card-thumbnail ">
+      <a href="/blog/2020-09-10-reaching-your-audience/"><img alt="Reaching your audience with the right content strategy" src="/assets/images/gen/blog/blog-12-thumbnail.webp"/></a>
+    </div>
+  
+
+  <div class="card-content">
+    
+      <div class="card-meta">
+
+        
+
+        
+          <div class="card-date">
+            <span class="post-date-date">10 September 2020</span>
+          </div>
+        
+
+      </div>
+    
+
+    <div class="card-title">
+      <h3>
+        <a href="/blog/2020-09-10-reaching-your-audience/">Reaching your audience with the right content strategy</a>
+      </h3>
+    </div>
+
+    
+
+    
+      <div class="card-description">
+        <p>Branding is an intrinsic part of your companies success, learn why your brand matters.</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+                </div>
+              
+                <div class="col-12 col-md-12 col-lg-10 mb-6">
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card card-post card-row card-has-thumbnail ">
+
+  
+    <div class="card-thumbnail ">
+      <a href="/blog/2020-08-09-using-liquid-templates/"><img alt="Using liquid templates" src="/assets/images/gen/blog/blog-11-thumbnail.webp"/></a>
+    </div>
+  
+
+  <div class="card-content">
+    
+      <div class="card-meta">
+
+        
+
+        
+          <div class="card-date">
+            <span class="post-date-date">09 August 2020</span>
+          </div>
+        
+
+      </div>
+    
+
+    <div class="card-title">
+      <h3>
+        <a href="/blog/2020-08-09-using-liquid-templates/">Using liquid templates</a>
+      </h3>
+    </div>
+
+    
+
+    
+      <div class="card-description">
+        <p>Branding is an intrinsic part of your companies success, learn why your brand matters.</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+                </div>
+              
+                <div class="col-12 col-md-12 col-lg-10 mb-6">
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card card-post card-row card-has-thumbnail ">
+
+  
+    <div class="card-thumbnail ">
+      <a href="/blog/2020-06-22-css-html/"><img alt="Customizing themes with CSS & HTML" src="/assets/images/gen/blog/blog-10-thumbnail.webp"/></a>
+    </div>
+  
+
+  <div class="card-content">
+    
+      <div class="card-meta">
+
+        
+
+        
+          <div class="card-date">
+            <span class="post-date-date">22 June 2020</span>
+          </div>
+        
+
+      </div>
+    
+
+    <div class="card-title">
+      <h3>
+        <a href="/blog/2020-06-22-css-html/">Customizing themes with CSS & HTML</a>
+      </h3>
+    </div>
+
+    
+
+    
+      <div class="card-description">
+        <p>Branding is an intrinsic part of your companies success, learn why your brand matters.</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+                </div>
+              
+                <div class="col-12 col-md-12 col-lg-10 mb-6">
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card card-post card-row card-has-thumbnail ">
+
+  
+    <div class="card-thumbnail ">
+      <a href="/blog/2020-02-14-creative-ideas-for-writing/"><img alt="Creative ideas to improve your writing" src="/assets/images/gen/blog/blog-9-thumbnail.webp"/></a>
+    </div>
+  
+
+  <div class="card-content">
+    
+      <div class="card-meta">
+
+        
+
+        
+          <div class="card-date">
+            <span class="post-date-date">14 February 2020</span>
+          </div>
+        
+
+      </div>
+    
+
+    <div class="card-title">
+      <h3>
+        <a href="/blog/2020-02-14-creative-ideas-for-writing/">Creative ideas to improve your writing</a>
+      </h3>
+    </div>
+
+    
+
+    
+      <div class="card-description">
+        <p>Marketing a startup isn't easy, it takes a unique set of skills and a whole lot of determination</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+                </div>
+              
+                <div class="col-12 col-md-12 col-lg-10 mb-6">
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card card-post card-row card-has-thumbnail ">
+
+  
+    <div class="card-thumbnail ">
+      <a href="/blog/2020-01-15-market-your-startup/"><img alt="Learn how to market your next startup" src="/assets/images/gen/blog/blog-8-thumbnail.webp"/></a>
+    </div>
+  
+
+  <div class="card-content">
+    
+      <div class="card-meta">
+
+        
+
+        
+          <div class="card-date">
+            <span class="post-date-date">15 January 2020</span>
+          </div>
+        
+
+      </div>
+    
+
+    <div class="card-title">
+      <h3>
+        <a href="/blog/2020-01-15-market-your-startup/">Learn how to market your next startup</a>
+      </h3>
+    </div>
+
+    
+
+    
+      <div class="card-description">
+        <p>Marketing a startup isn't easy, it takes a unique set of skills and a whole lot of determination</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+                </div>
+              
+                <div class="col-12 col-md-12 col-lg-10 mb-6">
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card card-post card-row card-has-thumbnail ">
+
+  
+    <div class="card-thumbnail ">
+      <a href="/blog/2019-12-20-building-jamstack-sites/"><img alt="Building websites with the Jamstack" src="/assets/images/gen/blog/blog-7-thumbnail.webp"/></a>
+    </div>
+  
+
+  <div class="card-content">
+    
+      <div class="card-meta">
+
+        
+
+        
+          <div class="card-date">
+            <span class="post-date-date">20 December 2019</span>
+          </div>
+        
+
+      </div>
+    
+
+    <div class="card-title">
+      <h3>
+        <a href="/blog/2019-12-20-building-jamstack-sites/">Building websites with the Jamstack</a>
+      </h3>
+    </div>
+
+    
+
+    
+      <div class="card-description">
+        <p>Making sure your website runs fast and loads quickly is a fundamental part of the web design and seo process.</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+                </div>
+              
+          </div>
+        </div>
+      </div>
+      
+      <div class="row justify-content-center mt-4">
+        <div class="col-auto">
+          <!-- Pagination links -->
+
+<div class="pagination">
+  <ul>
+    
+      <li><a href="/blog/"><i class="fa fa-chevron-left"></i></a></li>
+    
+
+    
+      
+        <li><a href="/blog">1</a></li>
+      
+    
+      
+        <li class="active"><span>2</span></li>
+      
+    
+      
+        <li><a href="/blog/page/3">3</a></li>
+      
+    
+  
+  
+    <li><a href="/blog/page/3"><i class="fa fa-chevron-right"></i></a></li>
+  
+  </ul>
+</div>
+
+        </div>
+      </div>
+      
+  </div>
+</div>
+
+</div>
+
+
+  <div class="footer">
+  <div class="container">
+    <div class="row">
+
+        <div class="col-12 col-md-4">
+          <div class="footer-info">
+            
+              <h2>Jekyll Curate</h2>
+            
+
+            
+              <p>Curate is a creative portfolio for Jekyll by Zerostatic Themes.</p>
+            
+          </div>
+
+          
+            
+
+<div class="social" id="social">
+  
+  <a href="https://www.zerostatic.io" target="blank" title="Twitter">
+    <i class="fab fa-twitter"></i>
+  </a>
+  
+  <a href="https://www.zerostatic.io" target="blank" title="Github">
+    <i class="fab fa-github"></i>
+  </a>
+  
+  <a href="https://www.zerostatic.io" target="blank" title="Discord">
+    <i class="fab fa-discord"></i>
+  </a>
+  
+  <a href="https://www.zerostatic.io" target="blank" title="Tiktok">
+    <i class="fab fa-tiktok"></i>
+  </a>
+  
+  <a href="https://www.zerostatic.io" target="blank" title="Facebook">
+    <i class="fab fa-facebook-square"></i>
+  </a>
+  
+  <a href="https://www.zerostatic.io" target="blank" title="Instagram">
+    <i class="fab fa-instagram-square"></i>
+  </a>
+  
+  <a href="https://www.zerostatic.io" target="blank" title="Linkedin">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  
+  <a href="https://www.zerostatic.io" target="blank" title="Mailchimp">
+    <i class="fab fa-mailchimp"></i>
+  </a>
+  
+</div>
+
+
+          
+          
+        </div>
+
+        <div class="col-12 col-md-8 mt-gutter mt-md-0">
+          <div class="row justify-content-end">
+
+            
+              <div class="col-12 col-md-3 mt-gutter mt-md-0">
+                <div class="footer-menu">
+                  
+                    <h3>Our Projects</h3>
+                  
+                  
+<div class="menu-footer">
+  <ul>
+    
+      <li class="">
+        <a href="/projects/project-1/">Project 1</a>
+      </li>
+    
+      <li class="">
+        <a href="/projects/project-2/">Project 2</a>
+      </li>
+    
+      <li class="">
+        <a href="/projects/project-3/">Project 3</a>
+      </li>
+    
+      <li class="">
+        <a href="/projects/project-4/">Project 4</a>
+      </li>
+    
+  </ul>
+</div>
+
+                </div>
+              </div>
+            
+
+            
+              <div class="col-12 col-md-3 mt-gutter mt-md-0">
+                <div class="footer-menu">
+                
+                  <h3>Company</h3>
+                
+                
+<div class="menu-footer">
+  <ul>
+    
+      <li class="">
+        <a href="/blog/">Blog</a>
+      </li>
+    
+      <li class="">
+        <a href="/about/">About</a>
+      </li>
+    
+      <li class="">
+        <a href="/contact/">Contact</a>
+      </li>
+    
+      <li class="">
+        <a href="/privacy-policy/">Privacy Policy</a>
+      </li>
+    
+      <li class="">
+        <a href="/terms-and-conditions/">Terms and Conditions</a>
+      </li>
+    
+  </ul>
+</div>
+
+                </div>
+              </div>
+            
+
+            
+        
+          </div>
+        </div>
+      
+    </div>
+    
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript" src="/assets/js/scripts.js"></script>
+
+<script type="text/javascript" src="/assets/js/hamburger.js"></script>
+<script type="text/javascript" src="/assets/js/darkModeSwitch.js"></script>
+
+
+
+
+
+</body>
+</html>

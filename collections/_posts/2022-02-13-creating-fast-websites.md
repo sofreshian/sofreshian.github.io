@@ -1,66 +1,64 @@
 ---
 layout: post
-title: "How to make your website page load speed fast"
-date: 2022-02-13T09:49:03Z
-authors: ["Mike Vance"]
-categories: ["Branding"]
-description: Branding is an intrinsic part of your companies success, learn why your brand matters.
-thumbnail: "/assets/images/gen/blog/blog-18-thumbnail.webp"
-image: "/assets/images/gen/blog/blog-18.webp"
+title: "1. Variable(변수)"
+date: 2024-08-11
+authors: ["Jay Tak"]
+categories: ["Development", "Javascript"]
+description: 변수란 무엇이며, 왜 존재하는지, 엔진은 변수를 어떻게 선언하는지를 통해 변수를 이해해보자.
+thumbnail: "/assets/images/gen/blog/javascript.webp"
 comments: false
-subscribe: true
+subscribe: false
 ---
 
-Markdown is a lightweight markup language with plain-text-formatting syntax. Its design allows it to be converted to many output formats, but the original tool by the same name only supports HTML. Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor.
+## 1) 변수란 무엇인가? 
 
-Since the initial description of Markdown contained ambiguities and unanswered questions, the implementations that appeared over the years have subtle differences and many come with syntax extensions.
+- 변수는 하나의 값을 저장하기 위해 확보한 [메모리 공간](#) 자체 또는 그 [메모리 공간을 식별하기 위해](#) 붙인 이름이다.
+- 상징적 이름인 [변수](#)는 프로그래밍 언어의 컴파일러 또는 인터프리터에 의해 [값이 저장된 메모리 공간의 주소로 치환되어 실행](#)된다.따라서 개발자가 직접 메모리 주소를 통해 값을 저장하고 참조할 필요가 없고 변수를 통해 안전하게 접근할 수 있다.
+- 식별자는 <span style="color:grey">(값이 아니라)</span> [메모리 주소](#)를 기억하고 있다. 즉, 식별자는 값이 저장되어 있는 메모리 주소와 매핑 관계를 맺으며, 이 매핑 정보도 메모리에 저장된다.
 
-## History
+<br>
 
-John Gruber created the [Markdown](#) language in 2004 in collaboration with Aaron Swartz on the syntax, with the goal of enabling people "to write using an easy-to-read and easy-to-write plain text format". Its key design goal is readability. That the language be readable as-is.
+## 2) 변수는 왜 필요한가?
 
-> "Markdown is a lightweight markup language with plain-text-formatting syntax"
+메모리 주소를 통해 값에 접근하는 것은 치명적인 오류를 발생시킬 가능성이 높은 매우 위험한 일이다.<br> 
+만약 실수로 운영체제가 사용하고 있는 값을 변경하면 시스템을 멈추게 하는 치명적인 오류가 발생할 수도 있기 때문이다.
 
-To this end, its main inspiration is the existing conventions for marking up plain text in email, though it also draws from earlier markup languages, notably setext, Textile, and reStructuredText.
+<br>
 
-## Markdown Flavours
+## 3) 식별자(identifier)는 어떠한 의미가 있을까?
 
-From 2012, a group of people including Jeff Atwood and John MacFarlane launched what Atwood characterized as a standardization effort. A community website now aims to "document various tools and resources available to document authors and developers, as well as implementors of the various markdown implementations".
+코드는 컴퓨터에게 내리는 명령이면서, 개발자를 위한 문서이기에 개발자의 의도를 나타내는 명확한 네이밍은 코드를 이해하기 쉽게 만들며, 이는 협업과 품질 향상에 도움을 준다.
 
-{% include framework/shortcodes/figure.html src="/assets/images/gen/content/content-1.webp" title="There are many popular text editors for Markdown" caption="VSCode Editor" alt="Photo of designing a website in Figma" link="https://figma.com" target="\_blank" %}
+> "신중하게 네이밍을 만들자"
 
-### GitHub Flavored Markdown (GFM)
+<br>
 
-In 2017, GitHub released a formal specification of their GitHub Flavored Markdown (GFM) that is based on CommonMark. It follows the CommonMark specification exactly except for tables, strikethrough, autolinks and task lists, which the GitHub spec has added as extensions. GitHub also changed the parser used on their sites accordingly, which required that some documents be changed. For instance, GFM now requires that the hash symbol that creates a heading be separated from the heading text by a space character.he user to create their own.
+## 4) 자바스크립트 엔진의 변수 선언 과정을 이해해보자
 
-{% include framework/shortcodes/figure.html src="/assets/images/gen/content/content-2.webp" title="There are many popular text editors for Markdown" caption="VSCode Editor" alt="Photo of designing a website in Figma" link="https://figma.com" target="\_blank" %}
+- ① 선언단계: 변수 이름을 등록해서 자바스크립트 엔진에 변수의 존재를 알린다.
+- ② 초기화단계: 값을 저장하기 위한 메모리 공간을 확보하고 암묵적으로 undefined를 할당해 초기화한다.
 
-### Markdown Extra
-
-Markdown Extra is a lightweight markup language based on Markdown implemented in PHP (originally), [Python](#) and [Ruby](#). It adds features not available with plain Markdown syntax. Markdown Extra is supported in some content management systems such as, for example, Drupal.
-
-### MDX
-
-At the same time, a number of ambiguities in the informal specification had attracted attention.These issues spurred the creation of tools such as Babelmark to compare the output of various implementations, and an effort by some developers of Markdown parsers for standardisation. However, Gruber has argued that complete standardization would be a mistake:
-
-```js
-$(window).scroll(function () {
-  // this will work when your window scrolled.
-  var scroll = $(window).scrollTop();
-  if (scroll > 100) {
-    $(".header").addClass("header-scrolled");
-  } else {
-    $(".header").removeClass("header-scrolled");
-  }
-});
+```javascript
+console.log(score); // undefined
+let score;
 ```
 
-Gruber avoided using curly braces in Markdown to unofficially reserve them for implementation-specific extensions. Markdown Extra adds the following features to Markdown:
+변수선언(선언단계, 초기화단계)이 소스코드가 순차적으로 실행되는 런타임 이전 단계에서 먼저 실행된다. 
+이처럼 변수 선언문이 코드의 선두로 끌어 올려진 것처럼 동작하는 자바스크립트 고유의 특징을 변수 호이스팅(variable hoisting)이라 한다.
 
-- markdown markup inside HTML blocks
-- elements with id/class attribute
-- fenced code blocks that span multiple lines of code
-- tables
-- definition lists
-- footnotes
-- abbreviations
+### Q. 변수 선언과 값의 할당은 어느시점에 이뤄지는가?
+
+- ① 변수 선언은 <span style="color:#e74c3c">런타임 이전</span>
+- ② 값의 할당은 <span style="color:#3498db">런타임 이후</span>
+
+```javascript
+cosole.log(score); // undefined
+let score; // ① 변수 선언
+score = 80; // ② 값의 할당
+console.log(score); // 80
+```
+
+<br>
+<br>
+
+#### <span style="color:grey">reference: 모던자바스크립트 Deep Dive 04장.변수</span> 
