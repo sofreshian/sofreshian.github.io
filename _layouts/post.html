@@ -1,0 +1,64 @@
+---
+layout: default
+body_classes: page-post
+---
+
+<div class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        {% include framework/heading.html
+          title=page.title
+          description=page.description
+          image=page.image
+        %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section pt-0">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        
+        {% if page.authors %}
+          <div class="mb-2">
+          {% for author in page.authors %}
+            {% include framework/author.html 
+            author=author
+            style='row'
+            show_author_name=true
+          %}
+          {% endfor %}
+          </div>
+        {% endif %}
+        
+        <div class="content">{{ content }}</div>
+
+        {% if page.categories %}
+        <div class="categories">
+        {% include framework/categories-badges.html 
+            categories=page.categories
+        %}
+        {% endif %}
+        </div>
+
+        {% include framework/comments.html %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if site.newsletter.mailchimp.form_action_url and site.newsletter.mailchimp.form_action_url != '' %}
+  <div class="section section-base-bg-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"></div>
+        {% include framework/subscribe.html %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
