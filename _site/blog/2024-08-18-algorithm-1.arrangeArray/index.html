@@ -5,26 +5,24 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <title>Working With Jekyll - Jekyll Curate</title>
+    <title>1. ArrangeArray - Jekyll Curate</title>
 
 
-  <meta name="description" content="Branding is an intrinsic part of your companies success, learn why your brand matters."/>
+  <meta name="description" content="배열 정렬하기, 제약조건의 중요성과 sort 메서드 이해하기"/>
 
 
 
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="http://localhost:4000/blog/2021-07-23-working-with-jekyll/"/>
+<meta property="og:url" content="http://localhost:4000/blog/2024-08-18-algorithm-1.arrangeArray/"/>
 
 
-  <meta property="og:title" content="Working With Jekyll"/>
-
-
-
-  <meta property="og:description" content="Branding is an intrinsic part of your companies success, learn why your brand matters."/>
+  <meta property="og:title" content="1. ArrangeArray"/>
 
 
 
-  <meta property="og:image" content="http://localhost:4000/assets/images/gen/blog/blog-15.webp"/>
+  <meta property="og:description" content="배열 정렬하기, 제약조건의 중요성과 sort 메서드 이해하기"/>
+
+
 
 
 <meta name="twitter:card" content="summary"/>
@@ -459,20 +457,16 @@
   
   
   <div class="heading-heading">
-    <h1>Working With Jekyll</h1>
+    <h1>1. ArrangeArray</h1>
   </div>
   
   
   
     <div class="heading-description">
-      <p>Branding is an intrinsic part of your companies success, learn why your brand matters.</p>
+      <p>배열 정렬하기, 제약조건의 중요성과 sort 메서드 이해하기</p>
     </div>
   
 
-  
-    <div class="heading-image">
-      <img  alt="Working With Jekyll"  src="/assets/images/gen/blog/blog-15.webp"/>
-    </div>
   
 </div>
       </div>
@@ -502,78 +496,165 @@
           </div>
         
         
-        <div class="content"><p>Markdown is a lightweight markup language with plain-text-formatting syntax. Its design allows it to be converted to many output formats, but the original tool by the same name only supports HTML. Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor.</p>
-
-<p>Since the initial description of Markdown contained ambiguities and unanswered questions, the implementations that appeared over the years have subtle differences and many come with syntax extensions.</p>
-
-<h2 id="history">History</h2>
-
-<p>John Gruber created the <a href="#">Markdown</a> language in 2004 in collaboration with Aaron Swartz on the syntax, with the goal of enabling people “to write using an easy-to-read and easy-to-write plain text format”. Its key design goal is readability. That the language be readable as-is.</p>
-
-<blockquote>
-  <p>“Markdown is a lightweight markup language with plain-text-formatting syntax”</p>
-</blockquote>
-
-<p>To this end, its main inspiration is the existing conventions for marking up plain text in email, though it also draws from earlier markup languages, notably setext, Textile, and reStructuredText.</p>
-
-<h2 id="markdown-flavours">Markdown Flavours</h2>
-
-<p>From 2012, a group of people including Jeff Atwood and John MacFarlane launched what Atwood characterized as a standardization effort. A community website now aims to “document various tools and resources available to document authors and developers, as well as implementors of the various markdown implementations”.</p>
-
-<figure>
-  <a href="https://figma.com" target="\_blank">
-    <img src="/assets/images/gen/content/content-1.webp" alt="Photo of designing a website in Figma" />
+        <div class="content"><figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/algorithm/algorithm_1.webp" alt="algorithm test" />
   </a>
   <figcaption>
-    <h4>There are many popular text editors for Markdown</h4>
-    <p>VSCode Editor</p>
+    <h4>01. ArrangeArray</h4>
+    <p>Sunhyup Lee. (2024). To be a successful candidate for the coding test. goldenrabbit. p.108.</p>
   </figcaption>
 </figure>
 
-<h3 id="github-flavored-markdown-gfm">GitHub Flavored Markdown (GFM)</h3>
+<p><br /></p>
 
-<p>In 2017, GitHub released a formal specification of their GitHub Flavored Markdown (GFM) that is based on CommonMark. It follows the CommonMark specification exactly except for tables, strikethrough, autolinks and task lists, which the GitHub spec has added as extensions. GitHub also changed the parser used on their sites accordingly, which required that some documents be changed. For instance, GFM now requires that the hash symbol that creates a heading be separated from the heading text by a space character.he user to create their own.</p>
+<h2 id="problem-solving">Problem solving</h2>
 
-<figure>
-  <a href="https://figma.com" target="\_blank">
-    <img src="/assets/images/gen/content/content-2.webp" alt="Photo of designing a website in Figma" />
-  </a>
-  <figcaption>
-    <h4>There are many popular text editors for Markdown</h4>
-    <p>VSCode Editor</p>
-  </figcaption>
-</figure>
+<p>제약조건을 보면 데이터 개수는 최대 10<sup>5</sup> 입니다. 만약 정수 배열의 최대 길이가 10이라면 O(N<sup>2</sup>)알고리즘을 사용해도 됩니다. 단순히 O(N<sup>2</sup>) 정렬 알고리즘으로 정렬하면 이 문제는 통과할 수 없다.</p>
 
-<h3 id="markdown-extra">Markdown Extra</h3>
+<p><br /></p>
 
-<p>Markdown Extra is a lightweight markup language based on Markdown implemented in PHP (originally), <a href="#">Python</a> and <a href="#">Ruby</a>. It adds features not available with plain Markdown syntax. Markdown Extra is supported in some content management systems such as, for example, Drupal.</p>
+<h3 id="-catch-point---시간-복잡도를-고려하라">① catch point :  <a href="#">시간 복잡도를 고려하라!</a></h3>
 
-<h3 id="mdx">MDX</h3>
+<p>버블정렬로 해당 문제를 풀어보자</p>
 
-<p>At the same time, a number of ambiguities in the informal specification had attracted attention.These issues spurred the creation of tools such as Babelmark to compare the output of various implementations, and an effort by some developers of Markdown parsers for standardisation. However, Gruber has argued that complete standardization would be a mistake:</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nf">scroll</span><span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// this will work when your window scrolled.</span>
-  <span class="kd">var</span> <span class="nx">scroll</span> <span class="o">=</span> <span class="nf">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nf">scrollTop</span><span class="p">();</span>
-  <span class="nf">if </span><span class="p">(</span><span class="nx">scroll</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nf">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">.header</span><span class="dl">"</span><span class="p">).</span><span class="nf">addClass</span><span class="p">(</span><span class="dl">"</span><span class="s2">header-scrolled</span><span class="dl">"</span><span class="p">);</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="nf">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">.header</span><span class="dl">"</span><span class="p">).</span><span class="nf">removeClass</span><span class="p">(</span><span class="dl">"</span><span class="s2">header-scrolled</span><span class="dl">"</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">bubblesort</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">if </span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+        <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span>
+        <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nx">tmp</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
   <span class="p">}</span>
-<span class="p">});</span>
+  <span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nf">measureTime</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">start</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nf">now</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nf">callback</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">end</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nf">now</span><span class="p">();</span>
+  <span class="k">return</span> <span class="p">[</span><span class="nx">end</span> <span class="o">-</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">result</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nf">from</span><span class="p">({</span> <span class="na">length</span><span class="p">:</span> <span class="mi">10000</span> <span class="p">},</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">k</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="mi">10000</span> <span class="o">-</span> <span class="nx">k</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="p">[</span><span class="nx">bubbleTime</span><span class="p">,</span> <span class="nx">bubbleResult</span><span class="p">]</span> <span class="o">=</span> <span class="nf">measureTime</span><span class="p">(</span><span class="nx">bubblesort</span><span class="p">,</span> <span class="nx">arr</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`첫번째 코드 실행시간: </span><span class="p">${</span><span class="nx">bubbleTime</span><span class="p">}</span><span class="s2">ms`</span><span class="p">);</span>
+<span class="c1">// 첫 번째 코드 시간 측정</span>
+<span class="c1">// 첫 번째 코드 실행 시간: 2081ms</span>
 </code></pre></div></div>
 
-<p>Gruber avoided using curly braces in Markdown to unofficially reserve them for implementation-specific extensions. Markdown Extra adds the following features to Markdown:</p>
+<p><br /></p>
 
-<ul>
-  <li>markdown markup inside HTML blocks</li>
-  <li>elements with id/class attribute</li>
-  <li>fenced code blocks that span multiple lines of code</li>
-  <li>tables</li>
-  <li>definition lists</li>
-  <li>footnotes</li>
-  <li>abbreviations</li>
-</ul>
+<p>sort(  ) 메서드를 사용하여 풀면</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">arr</span><span class="p">.</span><span class="nf">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nf">from</span><span class="p">({</span> <span class="na">length</span><span class="p">:</span> <span class="mi">10000</span> <span class="p">},</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">k</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="mi">10000</span> <span class="o">-</span> <span class="nx">k</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="p">[</span><span class="nx">bubbleTime</span><span class="p">,</span> <span class="nx">bubbleResult</span><span class="p">]</span> <span class="o">=</span> <span class="nf">measureTime</span><span class="p">(</span><span class="nx">bubblesort</span><span class="p">,</span> <span class="nx">arr</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`첫번째 코드 실행시간: </span><span class="p">${</span><span class="nx">bubbleTime</span><span class="p">}</span><span class="s2">ms`</span><span class="p">);</span>
+<span class="c1">// 두 번째 코드 시간 측정</span>
+<span class="c1">// 두 번째 코드 실행 시간: 1ms</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="-catch-point---sort-메서드를-이해해보자">② catch point :  <a href="#">sort 메서드를 이해해보자!</a></h3>
+
+<p>sort 메서드는 배열의 요소를 정렬한다. <a href="#">원본 배열을 직접 변경</a>하여 정렬된 배열을 반환한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Banana</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Orange</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Apple</span><span class="dl">'</span><span class="p">];</span>
+
+<span class="nx">fruits</span><span class="p">.</span><span class="nf">sort</span><span class="p">();</span> <span class="c1">// 오름차순(ascending)으로 정렬</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span> <span class="c1">// ['Apple', 'Banana', 'Orange'] sort 메서드는 원본배열을 직접변경</span>
+
+<span class="nx">fruits</span><span class="p">.</span><span class="nf">reverse</span><span class="p">()</span> <span class="c1">// 내림차순(descending)으로 정렬</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">)</span><span class="nx">l</span> <span class="c1">// ['Orange', 'Banana', 'Apple'] reverse 메서드도 원본배열을 직접변경</span>
+</code></pre></div></div>
+
+<p>하지만, <a href="#">숫자로 이루어진 배열을 정렬할 때는 주의가 필요</a>하다!</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">points</span> <span class="o">=</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">];</span>
+
+<span class="nx">points</span><span class="p">.</span><span class="nf">sort</span><span class="p">();</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">points</span><span class="p">);</span> <span class="c1">// [1, 10, 100, 2, 25, 40, 5]</span>
+</code></pre></div></div>
+
+<p>sort 메서드의 기본 정렬 순서는 <a href="#">유니 코드 포인트</a>의 순서를 따른다. 배열의 요소가 숫자 타입이라 할 지라도 배열의 요소를 일시적으로 문자열로 변환한 후 유니코드 포인트의 순서를 기준으로 정렬한다. <br /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">].</span><span class="nf">sort</span><span class="p">();</span> <span class="c1">// ["1", "2"]</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">].</span><span class="nf">sort</span><span class="p">();</span> <span class="c1">// [1, 2]</span>
+
+<span class="p">[</span><span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">10</span><span class="dl">'</span><span class="p">].</span><span class="nf">sort</span><span class="p">();</span> <span class="c1">// ["10", "2"]</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">].</span><span class="nf">sort</span><span class="p">();</span> <span class="c1">// [10, 2]</span>
+</code></pre></div></div>
+
+<p>예를 들어,</p>
+
+<p><span style="color:#e74c3c">문자열 ‘1’</span>의 유니코드 포인트는  <span style="color:#e74c3c; font-weight: bold">U+0031</span></p>
+
+<p><span style="color:#3498db">문자열 ‘2’</span>의 유니코드 코드 포인트는 <span style="color:#3498db; font-weight: bold">U+0032</span>다.</p>
+
+<p><span style="color:#239b56">문자열 ‘10’</span>의 유니코드 코드 포인트는 <span style="color:#239b56; font-weight: bold">U+0031U+0030</span>이다. <br /></p>
+
+<p>따라서 문자열 배열 [‘2’, ‘10’]을 sort 메서드로 정렬하면 문자열 ‘10’의 유니코드 코드 포인트 <span style="color:#239b56; font-weight: bold">U+0031U+0030</span>이 문자열 ‘2’의 유니코드 코드 포인트 <span style="color:#3498db; font-weight: bold">U+0032</span>보다 앞서므로 [‘10’, ‘2’]로 정렬된다. <br /></p>
+
+<p>따라서 숫자 요소를 정렬할 때 sort 메서드는 정렬 순서를 정의하는 비교함수를 인수로 전달해야 한다.<br />비교함수는 양수나 음수 또는 0을 반환해야 한다. <br />비교함수의 반환값이 0보다 작으면 비교함수의 첫 뺀재 인수를 우선하여 정렬하고, 0이면 정렬하지 않으며, 0보다 크면 두 번째 인수를 우선하여 정렬한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">points</span> <span class="o">=</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">];</span>
+
+<span class="nx">points</span><span class="p">.</span><span class="nf">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">points</span><span class="p">);</span> <span class="c1">// [1, 2, 5, 10, 25, 40, 100]</span>
+
+<span class="nx">points</span><span class="p">.</span><span class="nf">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">points</span><span class="p">);</span> <span class="c1">// [100, 40, 25, 10, 5, 2, 1]</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h5 id="-plus-객체를-요소로-갖는-배열을-정렬하는-예제">🚀 plus) 객체를 요소로 갖는 배열을 정렬하는 예제</h5>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">todos</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="na">content</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Javascript</span><span class="dl">'</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">content</span><span class="p">:</span> <span class="dl">'</span><span class="s1">HTML</span><span class="dl">'</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">content</span><span class="p">:</span> <span class="dl">'</span><span class="s1">CSS</span><span class="dl">'</span> <span class="p">},</span>
+<span class="p">];</span>
+
+<span class="kd">function</span> <span class="nf">compare</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">return </span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">b</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="p">?</span> <span class="o">-</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">0</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="nx">todos</span><span class="p">.</span><span class="nf">sort</span><span class="p">(</span><span class="nf">compare</span><span class="p">(</span><span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">));</span> <span class="c1">// sort 메서드에 비교함수를 인자로 전달</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">todos</span><span class="p">);</span>
+<span class="cm">/*
+[
+  { id: 1, content: 'HTML' },
+  { id: 2, content: 'CSS' },
+  { id: 4, content: 'Javascript' }
+]
+*/</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h5 id="q-arrayprototypesort-함수는-on2-시간복잡도를-갖진-않을까-">Q. Array.prototype.sort 함수는 O(n<sup>2</sup>) 시간복잡도를 갖진 않을까? <br /></h5>
+
+<p>sort메서드는 Quicksort 알고리즘을 사용했었다. Quicksort알고리즘은 동일한 값의 요소가 중복되어 있을 때 초기 순서와 변경 될 수 있는 불안정한 정렬 알고리즘으로 알려져있다. <br /> 
+ECMAScript 2019(ES10)에서 sort 메서드는 <a href="#">Timesort알고리즘</a>을 사용하도록 바뀌게 되면서<br /> <a href="#">최악의 경우에도 O(NlogN) 시간 복잡도를 유지</a>한다.</p>
+
+<p><br /></p>
+
+<p><br /></p>
 </div>
 
         
@@ -588,8 +669,32 @@
 
 
 <div class="category-link">
-<a href="/category/branding">
-  Branding
+<a href="/category/development">
+  Development
+</a>
+
+</div>
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/javascript">
+  Javascript
+</a>
+
+</div>
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/algorithm">
+  Algorithm
 </a>
 
 </div>
@@ -599,17 +704,6 @@
         </div>
 
         
-
-    
-        <div class="comments">
-            <script defer src="https://cdn.commento.io/js/commento.js"></script>
-<div id="commento"></div>
-        </div>
-    
-
-    
-
-
 
       </div>
     </div>
