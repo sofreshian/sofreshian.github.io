@@ -5,26 +5,24 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <title>Hosting Your Static Site - Jekyll Curate</title>
+    <title>2. ControlArray - Jekyll Curate</title>
 
 
-  <meta name="description" content="Hosting your website as a static site will improve performance and improve security."/>
+  <meta name="description" content="배열 중복값을 제거하고 내림차순 정렬해보자"/>
 
 
 
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="http://localhost:4000/blog/2018-09-13-hosting-your-static-site/"/>
+<meta property="og:url" content="http://localhost:4000/blog/2024-09-01-algorithm-2.controlArray/"/>
 
 
-  <meta property="og:title" content="Hosting Your Static Site"/>
-
-
-
-  <meta property="og:description" content="Hosting your website as a static site will improve performance and improve security."/>
+  <meta property="og:title" content="2. ControlArray"/>
 
 
 
-  <meta property="og:image" content="http://localhost:4000/assets/images/gen/blog/blog-1.webp"/>
+  <meta property="og:description" content="배열 중복값을 제거하고 내림차순 정렬해보자"/>
+
+
 
 
 <meta name="twitter:card" content="summary"/>
@@ -459,20 +457,16 @@
   
   
   <div class="heading-heading">
-    <h1>Hosting Your Static Site</h1>
+    <h1>2. ControlArray</h1>
   </div>
   
   
   
     <div class="heading-description">
-      <p>Hosting your website as a static site will improve performance and improve security.</p>
+      <p>배열 중복값을 제거하고 내림차순 정렬해보자</p>
     </div>
   
 
-  
-    <div class="heading-image">
-      <img  alt="Hosting Your Static Site"  src="/assets/images/gen/blog/blog-1.webp"/>
-    </div>
   
 </div>
       </div>
@@ -499,92 +493,175 @@
   
 </div>
           
-            
-
-
-
-
-<div class="author">
-  
-
-  
-</div>
-          
           </div>
         
         
-        <div class="content"><p>Markdown is a lightweight markup language with plain-text-formatting syntax. Its design allows it to be converted to many output formats, but the original tool by the same name only supports HTML. Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor.</p>
-
-<p>Since the initial description of Markdown contained ambiguities and unanswered questions, the implementations that appeared over the years have subtle differences and many come with syntax extensions.</p>
-
-<h2 id="history">History</h2>
-
-<p>John Gruber created the <a href="#">Markdown</a> language in 2004 in collaboration with Aaron Swartz on the syntax, with the goal of enabling people “to write using an easy-to-read and easy-to-write plain text format”. Its key design goal is readability. That the language be readable as-is.</p>
-
-<blockquote>
-  <p>“Markdown is a lightweight markup language with plain-text-formatting syntax”</p>
-</blockquote>
-
-<p>To this end, its main inspiration is the existing conventions for marking up plain text in email, though it also draws from earlier markup languages, notably setext, Textile, and reStructuredText.</p>
-
-<h2 id="markdown-flavours">Markdown Flavours</h2>
-
-<p>From 2012, a group of people including Jeff Atwood and John MacFarlane launched what Atwood characterized as a standardization effort. A community website now aims to “document various tools and resources available to document authors and developers, as well as implementors of the various markdown implementations”.</p>
-
-<figure>
-  <a href="https://figma.com" target="\_blank">
-    <img src="/assets/images/gen/content/content-1.webp" alt="Photo of designing a website in Figma" />
+        <div class="content"><figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/algorithm/algorithm_2.webp" alt="algorithm test" />
   </a>
   <figcaption>
-    <h4>There are many popular text editors for Markdown</h4>
-    <p>VSCode Editor</p>
+    <h4>02. ControlArray</h4>
+    <p>Sunhyup Lee. (2024). To be a successful candidate for the coding test. goldenrabbit. p.112.</p>
   </figcaption>
 </figure>
 
-<h3 id="github-flavored-markdown-gfm">GitHub Flavored Markdown (GFM)</h3>
+<p><br /></p>
 
-<p>In 2017, GitHub released a formal specification of their GitHub Flavored Markdown (GFM) that is based on CommonMark. It follows the CommonMark specification exactly except for tables, strikethrough, autolinks and task lists, which the GitHub spec has added as extensions. GitHub also changed the parser used on their sites accordingly, which required that some documents be changed. For instance, GFM now requires that the hash symbol that creates a heading be separated from the heading text by a space character.he user to create their own.</p>
+<h2 id="problem-solving">Problem solving</h2>
 
-<figure>
-  <a href="https://figma.com" target="\_blank">
-    <img src="/assets/images/gen/content/content-2.webp" alt="Photo of designing a website in Figma" />
-  </a>
-  <figcaption>
-    <h4>There are many popular text editors for Markdown</h4>
-    <p>VSCode Editor</p>
-  </figcaption>
-</figure>
+<p>다양한 방식으로 배열을 제어해보자</p>
 
-<h3 id="markdown-extra">Markdown Extra</h3>
+<p><br /></p>
 
-<p>Markdown Extra is a lightweight markup language based on Markdown implemented in PHP (originally), <a href="#">Python</a> and <a href="#">Ruby</a>. It adds features not available with plain Markdown syntax. Markdown Extra is supported in some content management systems such as, for example, Drupal.</p>
+<h3 id="-the-first-way-to-solve-the-problem---내장된-빌트엔-메서드set를-사용해보자">① The first way to solve the problem :  <a href="#">내장된 빌트엔 메서드(set)를 사용해보자!</a></h3>
 
-<h3 id="mdx">MDX</h3>
-
-<p>At the same time, a number of ambiguities in the informal specification had attracted attention.These issues spurred the creation of tools such as Babelmark to compare the output of various implementations, and an effort by some developers of Markdown parsers for standardisation. However, Gruber has argued that complete standardization would be a mistake:</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nf">scroll</span><span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// this will work when your window scrolled.</span>
-  <span class="kd">var</span> <span class="nx">scroll</span> <span class="o">=</span> <span class="nf">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nf">scrollTop</span><span class="p">();</span>
-  <span class="nf">if </span><span class="p">(</span><span class="nx">scroll</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nf">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">.header</span><span class="dl">"</span><span class="p">).</span><span class="nf">addClass</span><span class="p">(</span><span class="dl">"</span><span class="s2">header-scrolled</span><span class="dl">"</span><span class="p">);</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="nf">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">.header</span><span class="dl">"</span><span class="p">).</span><span class="nf">removeClass</span><span class="p">(</span><span class="dl">"</span><span class="s2">header-scrolled</span><span class="dl">"</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">});</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">uniqueArr</span> <span class="o">=</span> <span class="p">[...</span><span class="k">new</span> <span class="nc">Set</span><span class="p">(</span><span class="nx">arr</span><span class="p">)];</span>
+  <span class="nx">uniqueArr</span><span class="p">.</span><span class="nf">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">uniqueArr</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
-<p>Gruber avoided using curly braces in Markdown to unofficially reserve them for implementation-specific extensions. Markdown Extra adds the following features to Markdown:</p>
+<p>🧐 <a href="#">시간복잡도</a>는 어떨까?</p>
 
-<ul>
-  <li>markdown markup inside HTML blocks</li>
-  <li>elements with id/class attribute</li>
-  <li>fenced code blocks that span multiple lines of code</li>
-  <li>tables</li>
-  <li>definition lists</li>
-  <li>footnotes</li>
-  <li>abbreviations</li>
-</ul>
+<p>1) new Set(arr) 중복제거: <span style="color: #ffff">O(n)</span> <br />
+2) […new Set(arr)] 배열변환 <span style="color: #ffff">O(n)</span> <br />
+3) uniqueArr.sort((a, b) =&gt; b - a) 정렬: <span style="color: #ffff">O(n log n)</span> (일반적으로 소요) <br />
+<span style="color: #ffff">최종 시간 복잡도:</span> O(n) + O(n) + O(n log n) = <a href="#">O(n log n)</a></p>
+
+<p><br /><br /></p>
+
+<h3 id="-the-second-way-to-solve-the-problem---filter--indexof를-이용해보자">② The second way to solve the problem :  <a href="#">filter + indexOf를 이용해보자!</a></h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">uniqueArr</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nf">filter</span><span class="p">((</span><span class="nx">value</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nf">indexOf</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="o">===</span> <span class="nx">index</span><span class="p">);</span>
+  <span class="nx">uniqueArr</span><span class="p">.</span><span class="nf">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">uniqueArr</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>🧐 <a href="#">시간복잡도</a>는 어떨까?</p>
+
+<p>1) filter 와 indexOf 메서드 결합하여 호출: <span style="color: #ffff">O(n<sup>2</sup>)</span> <br />
+2) sort 메서드는 일반적으로 <span style="color: #ffff">O(n log n)</span> 소요<br /></p>
+
+<p><span style="color: #ffff">최종 시간 복잡도:</span>  O(n) + O(n) + O(n log n) = <a href="#">O(n<sup>2</sup>)</a><br /></p>
+
+<p><br /><br /></p>
+
+<h3 id="-the-third-way-to-solve-the-problem---map을-사용하여-중복제거">③ The third way to solve the problem :  <a href="#">map을 사용하여 중복제거</a></h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">uniqueObj</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="nx">arr</span><span class="p">.</span><span class="nf">forEach</span><span class="p">(</span><span class="nx">value</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">uniqueObj</span><span class="p">[</span><span class="nx">value</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">// value를 uniqueObj 객체의 키로 설정하고, 그값을 true로 지정</span>
+  <span class="p">});</span>
+  
+  <span class="kd">const</span> <span class="nx">uniqueArr</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nf">keys</span><span class="p">(</span><span class="nx">uniqueObj</span><span class="p">).</span><span class="nf">map</span><span class="p">(</span><span class="nb">Number</span><span class="p">);</span> <span class="c1">// key를 배열로 만들고 숫자로 타입변환</span>
+  <span class="nx">uniqueArr</span><span class="p">.</span><span class="nf">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+  
+  <span class="k">return</span> <span class="nx">uniqueArr</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>🧐 <a href="#">시간복잡도</a>는 어떨까?</p>
+
+<p>1) forEach 메서드: <span style="color: #ffff">최종 시간 복잡도:</span>O(n)&lt;/span&gt;<br />
+2) Object.keys 메서드: <span style="color: #ffff">최종 시간 복잡도:</span>O(n)&lt;/span&gt;<br />
+3) sort 메서드: <span style="color: #ffff">최종 시간 복잡도:</span>O(n log n)&lt;/span&gt;<br /></p>
+
+<p><span style="color: #ffff">최종 시간 복잡도:</span>  O(n) + O(n) + O(n log n) = <a href="#">O(n log n)</a></p>
+
+<p><br /><br /></p>
+
+<h3 id="-the-fourth-way-to-solve-the-problem---reduce를-사용하여-중복제거">④ The fourth way to solve the problem :  <a href="#">reduce를 사용하여 중복제거</a></h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">uniqueArr</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nf">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nx">acc</span><span class="p">.</span><span class="nf">includes</span><span class="p">(</span><span class="nx">value</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">acc</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">acc</span><span class="p">;</span>
+  <span class="p">},</span> <span class="p">[]);</span>
+  
+  <span class="nx">uniqueArr</span><span class="p">.</span><span class="nf">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">uniqueArr</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>🧐 <a href="#">시간복잡도</a>는 어떨까?</p>
+
+<p>1) reduce 메서드는 배열의 각 요소에 대해  include 메서드를 호출 : <span style="color: #ffff">O(n<sup>2</sup>)</span><br />
+2) sort 메서드: <span style="color: #ffff">O(n log n)</span><br />
+<span style="color: #ffff">최종 시간 복잡도:</span>  O(n) + O(n) + O(n log n) = <a href="#">O(n<sup>2</sup>)</a></p>
+
+<p><br /><br /></p>
+
+<h3 id="-the-fifth-way-to-solve-the-problem---정렬-후-중복제거">⑤ The fifth way to solve the problem :  <a href="#">정렬 후 중복제거</a></h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">arr</span><span class="p">.</span><span class="nf">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+  
+  <span class="kd">const</span> <span class="nx">uniqueArr</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!==</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span> 
+    <span class="c1">// 배열의 첫 번째 요소(arr[0])는 항상 고유한 값으로 간주되며, 비교할 이전 요소가 없기 때문에 				무조건 uniqueArr에 추가 + arr[i]가 이전 요소 arr[i - 1]와 다른지를 확인합니다.</span>
+      
+      <span class="nx">uniqueArr</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">return</span> <span class="nx">uniqueArr</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>🧐 <a href="#">시간복잡도</a>는 어떨까?</p>
+
+<p>1) sort 메서드: <span style="color: #ffff">O(n log n)</span><br />
+2) 중복 제거 루프: <span style="color: #ffff">O(n)</span><br /></p>
+
+<p><span style="color: #ffff">최종 시간 복잡도:</span>  O(n) + O(n log n) = <a href="#">O(n log n)</a></p>
+
+<p><br /><br /></p>
+
+<p>⑥  The sixth way to solve the problem :  <a href="#">두 포인터 사용</a></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">arr</span><span class="p">.</span><span class="nf">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+
+  <span class="kd">const</span> <span class="nx">uniqueArr</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="nf">while </span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">uniqueArr</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nf">while </span><span class="p">(</span><span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">&amp;&amp;</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">===</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="p">{</span>
+      <span class="nx">j</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">i</span> <span class="o">=</span> <span class="nx">j</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">uniqueArr</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/* 
+1) i와 j의 상호작용을 통해 중복된 값들을 효율적으로 건너뛰면서 배열을 탐색합니다. i는 고유한 값을 가리키고, j는 중복된 값을 건너뛰어 다음 고유한 값의 위치로 i를 이동시킵니다.
+
+2) 이 과정에서 i는 중복된 값들을 건너뛰고 j가 가리키는 새로운 위치로 점프합니다. 이렇게 함으로써, 배열을 한 번만 순회하면서 중복을 제거할 수 있습니다.
+*/</span>
+
+</code></pre></div></div>
+
+<p>🧐 <a href="#">시간복잡도</a>는 어떨까?</p>
+
+<p>1) sort 메서드: <span style="color: #ffff">O(n log n)</span><br />
+2) 두 포인터 루프: <span style="color: #ffff">O(n)</span><br /></p>
+
+<p><span style="color: #ffff">최종 시간 복잡도:</span>  O(n log n) + O(n) = <a href="#">O(n log n)</a></p>
+
+<p><br /><br /></p>
 </div>
 
         
@@ -599,8 +676,8 @@
 
 
 <div class="category-link">
-<a href="/category/hosting">
-  Hosting
+<a href="/category/development">
+  Development
 </a>
 
 </div>
@@ -611,8 +688,8 @@
 
 
 <div class="category-link">
-<a href="/category/development">
-  Development
+<a href="/category/algorithm">
+  Algorithm
 </a>
 
 </div>
@@ -622,17 +699,6 @@
         </div>
 
         
-
-    
-        <div class="comments">
-            <script defer src="https://cdn.commento.io/js/commento.js"></script>
-<div id="commento"></div>
-        </div>
-    
-
-    
-
-
 
       </div>
     </div>

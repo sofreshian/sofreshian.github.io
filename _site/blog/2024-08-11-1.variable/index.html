@@ -5,10 +5,10 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <title>1. Variable(변수) - Jekyll Curate</title>
+    <title>2. ControlArray - Jekyll Curate</title>
 
 
-  <meta name="description" content="변수란 무엇이며, 왜 존재하는지, 엔진은 변수를 어떻게 선언하는지를 통해 변수를 이해해보자."/>
+  <meta name="description" content="배열 중복값을 제거하고 내림차순 정렬해보자"/>
 
 
 
@@ -16,11 +16,11 @@
 <meta property="og:url" content="http://localhost:4000/blog/2024-08-11-1.variable/"/>
 
 
-  <meta property="og:title" content="1. Variable(변수)"/>
+  <meta property="og:title" content="2. ControlArray"/>
 
 
 
-  <meta property="og:description" content="변수란 무엇이며, 왜 존재하는지, 엔진은 변수를 어떻게 선언하는지를 통해 변수를 이해해보자."/>
+  <meta property="og:description" content="배열 중복값을 제거하고 내림차순 정렬해보자"/>
 
 
 
@@ -457,13 +457,13 @@
   
   
   <div class="heading-heading">
-    <h1>1. Variable(변수)</h1>
+    <h1>2. ControlArray</h1>
   </div>
   
   
   
     <div class="heading-description">
-      <p>변수란 무엇이며, 왜 존재하는지, 엔진은 변수를 어떻게 선언하는지를 통해 변수를 이해해보자.</p>
+      <p>배열 중복값을 제거하고 내림차순 정렬해보자</p>
     </div>
   
 
@@ -496,64 +496,174 @@
           </div>
         
         
-        <div class="content"><h2 id="1-변수란-무엇인가">1) 변수란 무엇인가?</h2>
-
-<ul>
-  <li>변수는 하나의 값을 저장하기 위해 확보한 <a href="#">메모리 공간</a> 자체 또는 그 <a href="#">메모리 공간을 식별하기 위해</a> 붙인 이름이다.</li>
-  <li>상징적 이름인 <a href="#">변수</a>는 프로그래밍 언어의 컴파일러 또는 인터프리터에 의해 <a href="#">값이 저장된 메모리 공간의 주소로 치환되어 실행</a>된다.따라서 개발자가 직접 메모리 주소를 통해 값을 저장하고 참조할 필요가 없고 변수를 통해 안전하게 접근할 수 있다.</li>
-  <li>식별자는 <span style="color:grey">(값이 아니라)</span> <a href="#">메모리 주소</a>를 기억하고 있다. 즉, 식별자는 값이 저장되어 있는 메모리 주소와 매핑 관계를 맺으며, 이 매핑 정보도 메모리에 저장된다.</li>
-</ul>
-
-<p><br /></p>
-
-<h2 id="2-변수는-왜-필요한가">2) 변수는 왜 필요한가?</h2>
-
-<p>메모리 주소를 통해 값에 접근하는 것은 치명적인 오류를 발생시킬 가능성이 높은 매우 위험한 일이다.<br /> 
-만약 실수로 운영체제가 사용하고 있는 값을 변경하면 시스템을 멈추게 하는 치명적인 오류가 발생할 수도 있기 때문이다.</p>
+        <div class="content"><figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/algorithm/algorithm_2.webp" alt="algorithm test" />
+  </a>
+  <figcaption>
+    <h4>02. ControlArray</h4>
+    <p>Sunhyup Lee. (2024). To be a successful candidate for the coding test. goldenrabbit. p.108.</p>
+  </figcaption>
+</figure>
 
 <p><br /></p>
 
-<h2 id="3-식별자identifier는-어떠한-의미가-있을까">3) 식별자(identifier)는 어떠한 의미가 있을까?</h2>
+<h2 id="problem-solving">Problem solving</h2>
 
-<p>코드는 컴퓨터에게 내리는 명령이면서, 개발자를 위한 문서이기에 개발자의 의도를 나타내는 명확한 네이밍은 코드를 이해하기 쉽게 만들며, 이는 협업과 품질 향상에 도움을 준다.</p>
-
-<blockquote>
-  <p>“신중하게 네이밍을 만들자”</p>
-</blockquote>
+<p>다양한 방식으로 배열을 제어해보자</p>
 
 <p><br /></p>
 
-<h2 id="4-자바스크립트-엔진의-변수-선언-과정을-이해해보자">4) 자바스크립트 엔진의 변수 선언 과정을 이해해보자</h2>
+<h3 id="-the-first-way-to-solve-the-problem---내장된-빌트엔-메서드set를-사용해보자">① The first way to solve the problem :  <a href="#">내장된 빌트엔 메서드(set)를 사용해보자!</a></h3>
 
-<ul>
-  <li>① 선언단계: 변수 이름을 등록해서 자바스크립트 엔진에 변수의 존재를 알린다.</li>
-  <li>② 초기화단계: 값을 저장하기 위한 메모리 공간을 확보하고 암묵적으로 undefined를 할당해 초기화한다.</li>
-</ul>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">score</span><span class="p">);</span> <span class="c1">// undefined</span>
-<span class="kd">let</span> <span class="nx">score</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">uniqueArr</span> <span class="o">=</span> <span class="p">[...</span><span class="k">new</span> <span class="nc">Set</span><span class="p">(</span><span class="nx">arr</span><span class="p">)];</span>
+  <span class="nx">uniqueArr</span><span class="p">.</span><span class="nf">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">uniqueArr</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
-<p>변수선언(선언단계, 초기화단계)이 소스코드가 순차적으로 실행되는 런타임 이전 단계에서 먼저 실행된다. 
-이처럼 변수 선언문이 코드의 선두로 끌어 올려진 것처럼 동작하는 자바스크립트 고유의 특징을 변수 호이스팅(variable hoisting)이라 한다.</p>
+<p>🧐 <a href="#">시간복잡도</a>는 어떨까?</p>
 
-<h3 id="q-변수-선언과-값의-할당은-어느시점에-이뤄지는가">Q. 변수 선언과 값의 할당은 어느시점에 이뤄지는가?</h3>
+<p>1) new Set(arr) 중복제거: O(n)
+2) […new Set(arr)] 배열변환 O(n)
+3) uniqueArr.sort((a, b) =&gt; b - a) 정렬: O(n log n) (일반적으로 소요)</p>
 
-<ul>
-  <li>① 변수 선언은 <span style="color:#e74c3c">런타임 이전</span></li>
-  <li>② 값의 할당은 <span style="color:#3498db">런타임 이후</span></li>
-</ul>
+<p>최종 시간 복잡도:  O(n) + O(n) + O(n log n) = <a href="#">O(n log n)</a></p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">cosole</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">score</span><span class="p">);</span> <span class="c1">// undefined</span>
-<span class="kd">let</span> <span class="nx">score</span><span class="p">;</span> <span class="c1">// ① 변수 선언</span>
-<span class="nx">score</span> <span class="o">=</span> <span class="mi">80</span><span class="p">;</span> <span class="c1">// ② 값의 할당</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">score</span><span class="p">);</span> <span class="c1">// 80</span>
+<p><br /><br /></p>
+
+<h3 id="-the-second-way-to-solve-the-problem---filter--indexof를-이용해보자">② The second way to solve the problem :  <a href="#">filter + indexOf를 이용해보자!</a></h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">uniqueArr</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nf">filter</span><span class="p">((</span><span class="nx">value</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nf">indexOf</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="o">===</span> <span class="nx">index</span><span class="p">);</span>
+  <span class="nx">uniqueArr</span><span class="p">.</span><span class="nf">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">uniqueArr</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
-<p><br />
-<br /></p>
+<p>🧐 <a href="#">시간복잡도</a>는 어떨까?</p>
 
-<h4 id="reference-모던자바스크립트-deep-dive-04장변수"><span style="color:grey">reference: 모던자바스크립트 Deep Dive 04장.변수</span></h4>
+<p>1) filter 와 indexOf 메서드 결합하여 호출: O(n<sup>2<sup>)
+2) sort 메서드는 일반적으로 O(n log n) 소요</sup></sup></p>
+
+<p>최종 시간 복잡도:  O(n) + O(n) + O(n log n) = [O(n<sup>2<sup>)](#)</sup></sup></p>
+
+<p><br /><br /></p>
+
+<h3 id="-the-third-way-to-solve-the-problem---map을-사용하여-중복제거">③ The third way to solve the problem :  <a href="#">map을 사용하여 중복제거</a></h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">uniqueObj</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="nx">arr</span><span class="p">.</span><span class="nf">forEach</span><span class="p">(</span><span class="nx">value</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">uniqueObj</span><span class="p">[</span><span class="nx">value</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">// value를 uniqueObj 객체의 키로 설정하고, 그값을 true로 지정</span>
+  <span class="p">});</span>
+  
+  <span class="kd">const</span> <span class="nx">uniqueArr</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nf">keys</span><span class="p">(</span><span class="nx">uniqueObj</span><span class="p">).</span><span class="nf">map</span><span class="p">(</span><span class="nb">Number</span><span class="p">);</span> <span class="c1">// key를 배열로 만들고 숫자로 타입변환</span>
+  <span class="nx">uniqueArr</span><span class="p">.</span><span class="nf">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+  
+  <span class="k">return</span> <span class="nx">uniqueArr</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>🧐 <a href="#">시간복잡도</a>는 어떨까?</p>
+
+<p>1) forEach 메서드: O(n)
+2) Object.keys 메서드: O(n)
+3) sort 메서드: O(n log n)</p>
+
+<p>최종 시간 복잡도:  O(n) + O(n) + O(n log n) = <a href="#">O(n log n)</a></p>
+
+<p><br /><br /></p>
+
+<h3 id="-the-fourth-way-to-solve-the-problem---reduce를-사용하여-중복제거">④ The fourth way to solve the problem :  <a href="#">reduce를 사용하여 중복제거</a></h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">uniqueArr</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nf">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nx">acc</span><span class="p">.</span><span class="nf">includes</span><span class="p">(</span><span class="nx">value</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">acc</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">acc</span><span class="p">;</span>
+  <span class="p">},</span> <span class="p">[]);</span>
+  
+  <span class="nx">uniqueArr</span><span class="p">.</span><span class="nf">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">uniqueArr</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>🧐 <a href="#">시간복잡도</a>는 어떨까?</p>
+
+<p>1) reduce 메서드는 배열의 각 요소에 대해  include 메서드를 호출 : O(n<sup>2<sup>)
+2) sort 메서드: O(n log n)</sup></sup></p>
+
+<p>최종 시간 복잡도:  O(n) + O(n) + O(n log n) = [O(n<sup>2<sup>)](#)</sup></sup></p>
+
+<p><br /><br /></p>
+
+<h3 id="-the-fifth-way-to-solve-the-problem---정렬-후-중복제거">⑤ The fifth way to solve the problem :  <a href="#">정렬 후 중복제거</a></h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">arr</span><span class="p">.</span><span class="nf">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+  
+  <span class="kd">const</span> <span class="nx">uniqueArr</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!==</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span> 
+    <span class="c1">// 배열의 첫 번째 요소(arr[0])는 항상 고유한 값으로 간주되며, 비교할 이전 요소가 없기 때문에 				무조건 uniqueArr에 추가 + arr[i]가 이전 요소 arr[i - 1]와 다른지를 확인합니다.</span>
+      
+      <span class="nx">uniqueArr</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">return</span> <span class="nx">uniqueArr</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>🧐 <a href="#">시간복잡도</a>는 어떨까?</p>
+
+<p>1) sort 메서드: O(n log n)
+2) 중복 제거 루프: O(n)</p>
+
+<p>최종 시간 복잡도:  O(n) + O(n log n) = <a href="#">O(n log n)</a></p>
+
+<p><br /><br /></p>
+
+<p>⑥  The sixth way to solve the problem :  <a href="#">두 포인터 사용</a></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">arr</span><span class="p">.</span><span class="nf">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+
+  <span class="kd">const</span> <span class="nx">uniqueArr</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="nf">while </span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">uniqueArr</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nf">while </span><span class="p">(</span><span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">&amp;&amp;</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">===</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="p">{</span>
+      <span class="nx">j</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">i</span> <span class="o">=</span> <span class="nx">j</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">uniqueArr</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/* 
+1) i와 j의 상호작용을 통해 중복된 값들을 효율적으로 건너뛰면서 배열을 탐색합니다. i는 고유한 값을 가리키고, j는 중복된 값을 건너뛰어 다음 고유한 값의 위치로 i를 이동시킵니다.
+
+2) 이 과정에서 i는 중복된 값들을 건너뛰고 j가 가리키는 새로운 위치로 점프합니다. 이렇게 함으로써, 배열을 한 번만 순회하면서 중복을 제거할 수 있습니다.
+*/</span>
+
+</code></pre></div></div>
+
+<p>🧐 <a href="#">시간복잡도</a>는 어떨까?</p>
+
+<p>1) sort 메서드: O(n log n)
+2) 두 포인터 루프: O(n)</p>
+
+<p>최종 시간 복잡도:  O(n log n) + O(n) = <a href="#">O(n log n)</a></p>
+
+<p><br /><br /></p>
 </div>
 
         
@@ -582,6 +692,18 @@
 <div class="category-link">
 <a href="/category/javascript">
   Javascript
+</a>
+
+</div>
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/algorithm">
+  Algorithm
 </a>
 
 </div>
