@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <title>4. Operator(연산자) - Jekyll Curate</title>
+
+
+  <meta name="description" content="다양한 연산자에 대해 살펴보자"/>
+
+
+
+    <meta property="og:type" content="website"/>
+<meta property="og:url" content="http://localhost:4000/blog/2024-09-01-4.operation/"/>
+
+
+  <meta property="og:title" content="4. Operator(연산자)"/>
+
+
+
+  <meta property="og:description" content="다양한 연산자에 대해 살펴보자"/>
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@zerostaticio" />
+<meta name="twitter:creator" content="@zerostaticio" />
+    <link rel="alternate" type="application/atom+xml" title="Jekyll Curate" href="/feed.xml">
+    <link rel="icon" href="/assets/images/favicon/favicon.png">
+
+
+    <link href="/assets/css/main.css" rel="stylesheet">
+
+    
+      <script>
+          localStorage.getItem('darkMode') === 'true' && document.documentElement.setAttribute('data-bs-theme', 'dark');
+      </script>
+    
+
+    
+      <!-- https://github.com/orestbida/cookieconsent -->
+
+<link rel="stylesheet" href="/assets/css/cookieconsent.css">
+<script defer src="/assets/js/cookieconsent.js"></script>
+
+<!-- Inline script -->
+<script>
+    window.addEventListener('load', function () {
+
+        // obtain plugin
+        var cc = initCookieConsent();
+
+        // run plugin with your configuration
+        cc.run({
+            current_lang: 'en',
+            autoclear_cookies: true,                   // default: false
+            page_scripts: true,                        // default: false
+
+            // mode: 'opt-in'                          // default: 'opt-in'; value: 'opt-in' or 'opt-out'
+            // delay: 0,                               // default: 0
+            // auto_language: '',                      // default: null; could also be 'browser' or 'document'
+            // autorun: true,                          // default: true
+            // force_consent: false,                   // default: false
+            // hide_from_bots: true,                   // default: true
+            // remove_cookie_tables: false             // default: false
+            // cookie_name: 'cc_cookie',               // default: 'cc_cookie'
+            // cookie_expiration: 182,                 // default: 182 (days)
+            // cookie_necessary_only_expiration: 182   // default: disabled
+            // cookie_domain: location.hostname,       // default: current domain
+            // cookie_path: '/',                       // default: root
+            // cookie_same_site: 'Lax',                // default: 'Lax'
+            // use_rfc_cookie: false,                  // default: false
+            // revision: 0,                            // default: 0
+
+            onFirstAction: function (user_preferences, cookie) {
+                // callback triggered only once on the first accept/reject action
+            },
+
+            onAccept: function (cookie) {
+                // callback triggered on the first accept/reject action, and after each page load
+            },
+
+            onChange: function (cookie, changed_preferences) { 
+                // If analytics category is disabled => disable google analytics 
+                if (!cc.allowedCategory('analytics')) { 
+                    typeof gtag === 'function' && gtag('consent', 'update', { 
+                        'analytics_storage': 'denied' 
+                    }); 
+                } 
+            }, 
+
+            languages: {
+                'en': {
+                    consent_modal: {
+                        title: 'We use cookies!',
+                        description: 'Hi, this website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
+                        primary_btn: {
+                            text: 'Accept all',
+                            role: 'accept_all'              // 'accept_selected' or 'accept_all'
+                        },
+                        secondary_btn: {
+                            text: 'Reject all',
+                            role: 'accept_necessary'        // 'settings' or 'accept_necessary'
+                        }
+                    },
+                    settings_modal: {
+                        title: 'Cookie preferences',
+                        save_settings_btn: 'Save settings',
+                        accept_all_btn: 'Accept all',
+                        reject_all_btn: 'Reject all',
+                        close_btn_label: 'Close',
+                        // cookie_table_caption: 'Cookie list',
+                        cookie_table_headers: [
+                            { col1: 'Name' },
+                            { col2: 'Domain' },
+                            { col3: 'Expiration' },
+                            { col4: 'Description' }
+                        ],
+                        blocks: [
+                            {
+                                title: 'Cookie usage 📢',
+                                description: 'I use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want. For more details relative to cookies and other sensitive data, please read the full <a href="#" class="cc-link">privacy policy</a>.'
+                            }, {
+                                title: 'Strictly necessary cookies',
+                                description: 'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly',
+                                toggle: {
+                                    value: 'necessary',
+                                    enabled: true,
+                                    readonly: true          // cookie categories with readonly=true are all treated as "necessary cookies"
+                                }
+                            }, {
+                                title: 'Performance and Analytics cookies',
+                                description: 'These cookies allow the website to remember the choices you have made in the past',
+                                toggle: {
+                                    value: 'analytics',     // your cookie category
+                                    enabled: false,
+                                    readonly: false
+                                },
+                                cookie_table: [             // list of all expected cookies
+                                    {
+                                        col1: '^_ga',       // match all cookies starting with "_ga"
+                                        col2: 'google.com',
+                                        col3: '2 years',
+                                        col4: 'description ...',
+                                        is_regex: true
+                                    },
+                                    {
+                                        col1: '_gid',
+                                        col2: 'google.com',
+                                        col3: '1 day',
+                                        col4: 'description ...',
+                                    }
+                                ]
+                            },
+                            {
+                                title: 'More information',
+                                description: 'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="#yourcontactpage">contact us</a>.',
+                            }
+                        ]
+                    }
+                }
+            }
+        });
+    });
+</script>
+    
+
+    
+
+    <link href="/assets/css/fonts.css" rel="stylesheet">
+
+
+
+
+    
+
+  </head>
+<body class="page page-post has-static-header">
+
+
+<div class="menu-main-mobile " id="menu-main-mobile">
+  
+  <div class="menu-main-mobile-top">
+    <div id="close-overlay" class="menu-main-close">
+      <div class="hamburger"></div>
+    </div>
+  </div>
+
+  <div class="menu-main-mobile-center">
+    
+      <ul class="menu">
+        
+          <li class="menu-item-home">
+            <a href="/">Home</a>
+          </li>
+        
+          <li class="menu-item-projects">
+            <a href="/projects/">Projects</a>
+          </li>
+        
+          <li class="menu-item-blog">
+            <a href="/blog/">Blog</a>
+          </li>
+        
+          <li class="menu-item-about">
+            <a href="/about/">About</a>
+          </li>
+        
+          <li class="menu-item-contact">
+            <a href="/contact/">Contact</a>
+          </li>
+        
+      </ul>
+    
+  </div>
+
+  <div class="menu-main-mobile-bottom">
+    
+    
+      <div class="dark-mode-switcher " id="dark-mode-container">
+  <div class="dark-mode-switch">
+    <svg class="dark-mode-icon-dark" data-name="Layer 1" fill="#000000" height="20px" viewbox="0 0 64 64" width="20px" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <title>essential</title>
+      <path d="M33.28,58.24A26.95,26.95,0,0,1,24,6l.39-.13a2,2,0,0,1,2.4,2.87,22.42,22.42,0,0,0-1.51,18.75h0A22.47,22.47,0,0,0,54.09,40.8l.76-.3a2,2,0,0,1,2.24.48,2,2,0,0,1,.35,2.24,27,27,0,0,1-24.16,15ZM21.11,11.85a22.94,22.94,0,1,0,30,33.91A26.46,26.46,0,0,1,21.53,28.87h0A26.4,26.4,0,0,1,21.11,11.85Z"></path>
+    </svg>
+    <svg class="dark-mode-icon-light" fill="#000000" height="20px" style="enable-background: new 0 0 100 100;" version="1.1" viewbox="0 0 100 100" width="20px" x="0px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <g>
+        <path d="M50,75c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S63.8,75,50,75z M50,33.3c-9.2,0-16.7,7.5-16.7,16.7   c0,9.2,7.5,16.7,16.7,16.7c9.2,0,16.7-7.5,16.7-16.7C66.7,40.8,59.2,33.3,50,33.3z"></path>
+      </g>
+      <g>
+        <path d="M50,100c-2.3,0-4.2-1.9-4.2-4.2v-8.3c0-2.3,1.9-4.2,4.2-4.2c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,98.1,52.3,100,50,100z    M17.5,86.7c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8   C19.6,86.3,18.6,86.7,17.5,86.7z M82.5,86.7c-1.1,0-2.1-0.4-2.9-1.2l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9s4.3-1.6,5.9,0l5.8,5.8   c1.6,1.6,1.6,4.3,0,5.9C84.6,86.3,83.6,86.7,82.5,86.7z M95.8,54.2h-8.3c-2.3,0-4.2-1.9-4.2-4.2c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C100,52.3,98.1,54.2,95.8,54.2z M12.5,54.2H4.2C1.9,54.2,0,52.3,0,50c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C16.7,52.3,14.8,54.2,12.5,54.2z M76.7,27.5c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8   c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8C78.8,27.1,77.7,27.5,76.7,27.5z M23.3,27.5c-1.1,0-2.1-0.4-2.9-1.2   l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9c1.6-1.6,4.3-1.6,5.9,0l5.8,5.8c1.6,1.6,1.6,4.3,0,5.9C25.5,27.1,24.4,27.5,23.3,27.5z M50,16.7   c-2.3,0-4.2-1.9-4.2-4.2V4.2C45.8,1.9,47.7,0,50,0c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,14.8,52.3,16.7,50,16.7z"></path>
+      </g>
+    </svg>
+    <div class="ball"></div>
+  </div>
+</div>
+    
+  </div>
+
+</div>
+
+
+
+
+<div id="header" class='header '>
+  <div class="container">
+    <div class="logos">
+  <div class="logo logo-desktop">
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo.png"/>
+        </a>
+      </div>
+    
+  
+    
+    
+  </div>
+
+  <div class="logo logo-desktop-invert">
+    
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo-invert.png"/>
+        </a>
+      </div>
+    
+  
+    
+    
+  </div>
+
+  <div class="logo logo-mobile">
+    
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo-mobile.png"/>
+        </a>
+      </div>
+    
+  
+    
+    
+  </div>
+
+
+  <div class="logo logo-mobile-invert">
+    
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo-invert-mobile.png"/>
+        </a>
+      </div>
+    
+  
+    
+
+  </div>
+
+</div>
+
+
+    <div class="menu-main">
+  <ul>
+    
+      
+        
+        <li class=" ">
+          <a href="/" >Home</a>
+        </li>
+      
+    
+      
+
+        
+        
+
+        <li class="menu-item-dropdown menu-item-Projects ">
+          <a href="/projects/">Projects <i class="fa-solid fa-chevron-down"></i></a>
+          
+          <div class="dropdown-menu">
+            
+              <a href="/projects/project-1/" class="dropdown-item ">
+                
+                  <div class="dropdown-item-icon"><img src="/assets/images/icons/wireframe-7.svg" /></div>
+                
+                
+                  <div class="dropdown-item-icon icon-invert"><img src="/assets/images/icons/wireframe-7-white.svg" /></div>
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Project Layout 1</div>
+                  <div class="dropdown-item-description">Default Project layout</div>
+                </div>
+              </a>
+            
+              <a href="/projects/project-2/" class="dropdown-item ">
+                
+                  <div class="dropdown-item-icon"><img src="/assets/images/icons/wireframe-5.svg" /></div>
+                
+                
+                  <div class="dropdown-item-icon icon-invert"><img src="/assets/images/icons/wireframe-5-white.svg" /></div>
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Project Layout 2</div>
+                  <div class="dropdown-item-description">Right side layout</div>
+                </div>
+              </a>
+            
+              <a href="/projects/project-3/" class="dropdown-item ">
+                
+                  <div class="dropdown-item-icon"><img src="/assets/images/icons/wireframe-6.svg" /></div>
+                
+                
+                  <div class="dropdown-item-icon icon-invert"><img src="/assets/images/icons/wireframe-6-white.svg" /></div>
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Project Layout 3</div>
+                  <div class="dropdown-item-description">Left side layout</div>
+                </div>
+              </a>
+            
+              <a href="/projects/project-4/" class="dropdown-item ">
+                
+                  <div class="dropdown-item-icon"><img src="/assets/images/icons/wireframe-8.svg" /></div>
+                
+                
+                  <div class="dropdown-item-icon icon-invert"><img src="/assets/images/icons/wireframe-8-white.svg" /></div>
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Project Layout 4</div>
+                  <div class="dropdown-item-description">Top layout</div>
+                </div>
+              </a>
+            
+          </div>
+
+        </li>
+      
+    
+      
+        
+        <li class=" ">
+          <a href="/blog/" >Blog</a>
+        </li>
+      
+    
+      
+        
+        <li class=" ">
+          <a href="/about/" >About</a>
+        </li>
+      
+    
+      
+        
+        <li class=" ">
+          <a href="/contact/" >Contact</a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+    
+      <div class="dark-mode-switcher " id="dark-mode-container">
+  <div class="dark-mode-switch">
+    <svg class="dark-mode-icon-dark" data-name="Layer 1" fill="#000000" height="20px" viewbox="0 0 64 64" width="20px" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <title>essential</title>
+      <path d="M33.28,58.24A26.95,26.95,0,0,1,24,6l.39-.13a2,2,0,0,1,2.4,2.87,22.42,22.42,0,0,0-1.51,18.75h0A22.47,22.47,0,0,0,54.09,40.8l.76-.3a2,2,0,0,1,2.24.48,2,2,0,0,1,.35,2.24,27,27,0,0,1-24.16,15ZM21.11,11.85a22.94,22.94,0,1,0,30,33.91A26.46,26.46,0,0,1,21.53,28.87h0A26.4,26.4,0,0,1,21.11,11.85Z"></path>
+    </svg>
+    <svg class="dark-mode-icon-light" fill="#000000" height="20px" style="enable-background: new 0 0 100 100;" version="1.1" viewbox="0 0 100 100" width="20px" x="0px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <g>
+        <path d="M50,75c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S63.8,75,50,75z M50,33.3c-9.2,0-16.7,7.5-16.7,16.7   c0,9.2,7.5,16.7,16.7,16.7c9.2,0,16.7-7.5,16.7-16.7C66.7,40.8,59.2,33.3,50,33.3z"></path>
+      </g>
+      <g>
+        <path d="M50,100c-2.3,0-4.2-1.9-4.2-4.2v-8.3c0-2.3,1.9-4.2,4.2-4.2c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,98.1,52.3,100,50,100z    M17.5,86.7c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8   C19.6,86.3,18.6,86.7,17.5,86.7z M82.5,86.7c-1.1,0-2.1-0.4-2.9-1.2l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9s4.3-1.6,5.9,0l5.8,5.8   c1.6,1.6,1.6,4.3,0,5.9C84.6,86.3,83.6,86.7,82.5,86.7z M95.8,54.2h-8.3c-2.3,0-4.2-1.9-4.2-4.2c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C100,52.3,98.1,54.2,95.8,54.2z M12.5,54.2H4.2C1.9,54.2,0,52.3,0,50c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C16.7,52.3,14.8,54.2,12.5,54.2z M76.7,27.5c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8   c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8C78.8,27.1,77.7,27.5,76.7,27.5z M23.3,27.5c-1.1,0-2.1-0.4-2.9-1.2   l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9c1.6-1.6,4.3-1.6,5.9,0l5.8,5.8c1.6,1.6,1.6,4.3,0,5.9C25.5,27.1,24.4,27.5,23.3,27.5z M50,16.7   c-2.3,0-4.2-1.9-4.2-4.2V4.2C45.8,1.9,47.7,0,50,0c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,14.8,52.3,16.7,50,16.7z"></path>
+      </g>
+    </svg>
+    <div class="ball"></div>
+  </div>
+</div>
+    
+    <div class="hamburger-trigger" id="toggle-menu-main-mobile">
+  <button class="hamburger">Menu</button>
+</div>
+  </div>
+</div>
+
+<div id="wrapper" class="wrapper">     
+  <div class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        
+
+
+
+
+
+
+
+
+
+<div class="heading heading-left">
+  
+  
+  
+  <div class="heading-heading">
+    <h1>4. Operator(연산자)</h1>
+  </div>
+  
+  
+  
+    <div class="heading-description">
+      <p>다양한 연산자에 대해 살펴보자</p>
+    </div>
+  
+
+  
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section pt-0">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        
+        
+          <div class="mb-2">
+          
+            
+
+
+
+
+<div class="author">
+  
+
+  
+</div>
+          
+          </div>
+        
+        
+        <div class="content"><h2 id="1-연산자operator는-무엇인가">1) 연산자(operator)는 무엇인가?</h2>
+
+<p>연산자는 하나 이상의 표현식을 대상으로 <a href="#">산술</a>, <a href="#">할당</a>, <a href="#">비교</a>, <a href="#">논리</a>, <a href="#">타입</a>, <a href="#">지수</a>연산 등을 수행해 하나의 값을 만든다. <br /></p>
+
+<p><span style="color:#e74c3c">피연산자</span>가 <a href="#">값으로 평가될 수 있는 표현식</a></p>
+
+<p><span style="color:#3498db">연산자</span>는 피연산자를 연산하여 <a href="#">새로운 값으로 만드는 동사</a></p>
+
+<p><br /></p>
+
+<h3 id="1-1-산술-연산자arithmetic-operator">1-1) 산술 연산자(arithmetic operator)</h3>
+
+<p>산술 연산자는 피연산자를 대상으로 수학적 계산을 수행해 새로운 숫자 값을 만든다.</p>
+
+<h4 id="1-1-1-이항-산술-연산자-binary">1-1-1) 이항 산술 연산자 (binary)</h4>
+
+<p><strong>이항 산술 연산자</strong>는 두 개의 피연산자를 다룹니다. <a href="#">연산자가 두 개의 값을 취하고</a>, <a href="#">이 두 값 사이에서 연산을 수행하기 때문</a>에 “이항(binary)”이라고 부릅니다. “이”는 두 개를 의미하며, “항”은 연산에 사용되는 피연산자를 의미합니다.</p>
+
+<h4 id="1-1-2-단항-산술-연산자-unary">1-1-2) 단항 산술 연산자 (Unary)</h4>
+
+<p><strong>단항 산술 연산자</strong>는 단 하나의 피연산자만을 다룹니다. “<a href="#">단(unary)”은 하나를 의미</a>하며, 따라서 단항 연산자는 <a href="#">하나의 피연산자에 대해 연산을 수행</a>합니다. <br /></p>
+
+<p>⭐️ 증가/감소(++/–) 연산자는  <span style="color:#f7dc6f">피연산자의 값을 변경하는 부수효과가 있다!</span></p>
+
+<p><span style="color:#a569bd">전위</span> 증가 / 감소 연산자(Prefix increment, decrement operator)는 먼저 피연산자의 값을 증가 · 감소 시킨 후, 다른 연산 수행</p>
+
+<p><span style="color:#48c9b0">후위</span> 증가 / 감소 연산자(Prefix increment, decrement operator)는 먼저 다른 연산을 수행한 후, 피연산자의 값을 증가 · 감소시킨다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">result</span><span class="p">;</span>
+
+<span class="c1">// 선할당 후증가postfix increment operator)</span>
+<span class="nx">result</span> <span class="o">=</span> <span class="nx">x</span><span class="o">++</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">x</span><span class="p">);</span> <span class="c1">// 5 6, 일단 result에 할당! + x값 증가</span>
+
+<span class="c1">// 선증가 후할당(prefix increment operator)</span>
+<span class="nx">result</span> <span class="o">=</span> <span class="o">++</span><span class="nx">x</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">x</span><span class="p">);</span> <span class="c1">// 7 7, 일단 x값 증가 + result에 재할당</span>
+
+<span class="c1">// 선할당 후감소(postfix decrement operator)</span>
+<span class="nx">result</span> <span class="o">=</span> <span class="nx">x</span><span class="o">--</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">x</span><span class="p">);</span> <span class="c1">// 7 6, 일단 result에 할당! + x값 감소</span>
+
+<span class="c1">// 선감소 후할당(prefix decrement operator)</span>
+<span class="nx">result</span> <span class="o">=</span> <span class="o">--</span><span class="nx">x</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">x</span><span class="p">);</span> <span class="c1">// 5 5, 일단 x값 감소 + result에 재할당</span>
+
+</code></pre></div></div>
+
+<h4 id="1-1-3-문자열-연결-연산자">1-1-3) 문자열 연결 연산자</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 문자열 연결 연산자</span>
+<span class="dl">'</span><span class="s1">1</span><span class="dl">'</span> <span class="o">+</span> <span class="mi">2</span> <span class="c1">// → '12'</span>
+
+<span class="c1">// 산술 연산자</span>
+<span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// → 3</span>
+
+<span class="c1">// true는 1로 타입 변환한다.</span>
+<span class="mi">1</span> <span class="o">+</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">// → 2</span>
+
+<span class="c1">// false는 0으로 타입 변환한다.</span>
+<span class="mi">1</span> <span class="o">+</span> <span class="kc">false</span> <span class="c1">// → 1</span>
+
+<span class="c1">// null은 0으로 타입 변환한다.</span>
+<span class="mi">1</span> <span class="o">+</span> <span class="kc">null</span> <span class="c1">// → 1</span>
+
+<span class="c1">// undefined는 숫자로 타입 변환되지 않는다.</span>
+<span class="o">+</span> <span class="kc">undefined</span> <span class="c1">// → NaN</span>
+<span class="mi">1</span> <span class="o">+</span> <span class="kc">undefined</span> <span class="c1">// → NaN</span>
+</code></pre></div></div>
+
+<p>1+ true를 연산하면 자바스크립트 엔진은 암묵적으로 불리언 타입의 값인 true를 숫자 타입인 1로 강제로 변환한 후 연산하는데 이를 <a href="#">암묵적 타입변환(Implicit coercion)</a> 또는 <a href="#">타입 강제변환(type coercion)</a>이라고 한다.</p>
+
+<p><br /></p>
+
+<h4 id="-여기서-부수효과side-effect란-무엇일까">🧐 여기서 <a href="#">부수효과(side effect)</a>란 무엇일까?</h4>
+
+<p>자바스크립트에서 “부수효과”란 특정 코드(주로 함수나 연산자)를 실행할 때, 그 코드가 명시적으로 반환하는 값 이외에 추가적으로 발생하는 상태 변화나 외부 영향력을 의미합니다. 이런 부수효과는 코드의 다른 부분에 영향을 줄 수 있습니다.</p>
+
+<h4 id="--1-부수효과의-예시"><strong>📌  1) 부수효과의 예시</strong></h4>
+
+<p>부수효과는 다음과 같은 상황에서 발생할 수 있습니다:</p>
+
+<h5 id="-변수-값의-변경">① 변수 값의 변경</h5>
+
+<ul>
+  <li>
+    <p>예를 들어, 변수 <code class="language-plaintext highlighter-rouge">x</code>의 값을 증가시키는 연산자 <code class="language-plaintext highlighter-rouge">++</code>는 그 자체로 부수효과를 일으킵니다.</p>
+  </li>
+  <li>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nx">x</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// x의 값이 6으로 변경됨</span>
+</code></pre></div>    </div>
+  </li>
+  <li>여기서 <code class="language-plaintext highlighter-rouge">x++</code>는 <code class="language-plaintext highlighter-rouge">x</code>의 값을 1 증가시키며, 이 자체가 <code class="language-plaintext highlighter-rouge">x</code>의 상태를 변경하는 부수효과입니다.</li>
+</ul>
+
+<h5 id="-전역-변수나-외부-변수의-변경">② 전역 변수나 외부 변수의 변경</h5>
+
+<ul>
+  <li>
+    <p>함수 내부에서 전역 변수를 변경하는 것도 부수효과입니다.</p>
+  </li>
+  <li>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">globalVar</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  
+<span class="kd">function</span> <span class="nf">changeGlobal</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">globalVar</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="p">}</span>
+  
+<span class="nf">changeGlobal</span><span class="p">();</span>  <span class="c1">// globalVar의 값이 20으로 변경됨</span>
+  
+</code></pre></div>    </div>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">changeGlobal</code> 함수는 <code class="language-plaintext highlighter-rouge">globalVar</code>의 값을 변경하는 부수효과를 발생시킵니다.</li>
+</ul>
+
+<h5 id="-외부-상태의-변경">③ 외부 상태의 변경</h5>
+
+<ul>
+  <li>
+    <p>객체나 배열 같은 데이터 구조를 함수에서 변경할 때도 부수효과가 발생합니다.</p>
+  </li>
+  <li>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="mi">10</span> <span class="p">};</span>
+  
+<span class="kd">function</span> <span class="nf">modifyObj</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">o</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="p">}</span>
+  
+<span class="nf">modifyObj</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>  <span class="c1">// obj.value가 20으로 변경됨</span>
+  
+</code></pre></div>    </div>
+  </li>
+  <li>이 함수는 <code class="language-plaintext highlighter-rouge">obj</code> 객체의 <code class="language-plaintext highlighter-rouge">value</code> 속성을 변경하는 부수효과를 일으킵니다.</li>
+</ul>
+
+<h4 id="2-부수효과의-중요성"><strong>2) 부수효과의 중요성</strong></h4>
+
+<p>부수효과는 때로는 코드에서 필요한 경우도 있지만, 예측하지 못한 방식으로 작동하여 버그를 일으킬 수 있습니다. 예를 들어, 함수가 호출될 때마다 외부 상태를 변경하면, 이 함수가 여러 곳에서 호출되었을 때 예기치 않은 결과를 초래할 수 있습니다. 이 때문에 함수형 프로그래밍에서는 부수효과가 없는 <a href="#">순수 함수를 권장</a>합니다. 순수 함수는 입력값만을 가지고 결과를 반환하며, 외부 상태를 변경하지 않기 때문에 부수효과가 없습니다.</p>
+
+<h4 id="3-정리"><strong>3) 정리</strong></h4>
+
+<ul>
+  <li><strong>부수효과</strong>: 코드 실행 중에 반환 값 이외에 추가적으로 발생하는 상태 변화나 외부 영향.</li>
+  <li><strong>부수효과의 예시</strong>: 변수 값의 변경, 전역 변수의 수정, 객체나 배열 등의 외부 데이터 구조 변경.</li>
+  <li><strong>함수형 프로그래밍</strong>: 부수효과를 최소화하여 코드의 예측 가능성을 높이고, 디버깅을 쉽게 하려는 프로그래밍 패러다임.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h3 id="1-2-할당-연산자assignment-operator">1-2) 할당 연산자(assignment operator)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">할당 연산자</th>
+      <th style="text-align: center">예</th>
+      <th style="text-align: center">동일 표현</th>
+      <th style="text-align: center">부수 효과</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">=</td>
+      <td style="text-align: center">x = 5</td>
+      <td style="text-align: center">x = 5</td>
+      <td style="text-align: center">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">+=</td>
+      <td style="text-align: center">x += 5</td>
+      <td style="text-align: center">x = x + 5</td>
+      <td style="text-align: center">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">-=</td>
+      <td style="text-align: center">x -= 5</td>
+      <td style="text-align: center">x = x - 5</td>
+      <td style="text-align: center">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">*=</td>
+      <td style="text-align: center">x *= 5</td>
+      <td style="text-align: center">x = x * 5</td>
+      <td style="text-align: center">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">/=</td>
+      <td style="text-align: center">x /= 5</td>
+      <td style="text-align: center">x = x / 5</td>
+      <td style="text-align: center">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">%=</td>
+      <td style="text-align: center">x %= 5</td>
+      <td style="text-align: center">x = x % 5</td>
+      <td style="text-align: center">O</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /><br /></p>
+
+<h3 id="1-3-비교-연산자comparison-operator">1-3) 비교 연산자(comparison operator)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">비교 연산자</th>
+      <th style="text-align: center">의미</th>
+      <th style="text-align: center">사례</th>
+      <th style="text-align: center">설명</th>
+      <th style="text-align: center">부수 효과</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">==</td>
+      <td style="text-align: center">동등 비교</td>
+      <td style="text-align: center">x == y</td>
+      <td style="text-align: center">x와 y의 <a href="#">값</a>이 같음</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">===</td>
+      <td style="text-align: center">일치 비교</td>
+      <td style="text-align: center">x === y</td>
+      <td style="text-align: center">x와 y의 <a href="#">값과 타입</a>이이 같음</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">!=</td>
+      <td style="text-align: center">부동등 비교</td>
+      <td style="text-align: center">x != y</td>
+      <td style="text-align: center">x와 y의 <a href="#">값</a>이 다름</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">!==</td>
+      <td style="text-align: center">불일치 비교</td>
+      <td style="text-align: center">x !== y</td>
+      <td style="text-align: center">x와 y의 <a href="#">값과 타입</a>이이 다름</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">&gt;</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">x &gt; y</td>
+      <td style="text-align: center">x가 y보다 크다</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">&lt;</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">x &lt; y</td>
+      <td style="text-align: center">x가 y보다 작다</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">&gt;=</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">x &gt;= y</td>
+      <td style="text-align: center">x가 y보다 크거나 같다</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">&lt;=</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">x &lt;= y</td>
+      <td style="text-align: center">x가 y보다 작거나 같다</td>
+      <td style="text-align: center">X</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /><br /></p>
+
+<h3 id="1-4-삼항-조건-연산자ternary-operator">1-4) 삼항 조건 연산자(ternary operator)</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="c1">// 삼항 조건 연산자 표현식은 표현식인 문이다. 따라서 값처럼 사용할 수 있다.</span>
+<span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">odd num</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">even num</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// 짝수;</span>
+
+
+<span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="c1">// if...else 문은 표현식이 아닌 문이다. 따라서 값처럼 사용할 수 없다.</span>
+<span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nf">if </span><span class="p">(</span><span class="nx">x</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span><span class="nx">result</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">홀수</span><span class="dl">'</span><span class="p">;}</span> <span class="k">else</span> <span class="p">{</span><span class="nx">result</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">짝수</span><span class="dl">'</span><span class="p">;</span> <span class="p">};</span>
+<span class="c1">// SyntaxErro: unexpected token if</span>
+</code></pre></div></div>
+
+<h4 id="--ifelse-문은-왜-값처럼-사용할-수-없을까">🧐  if…else 문은 왜 값처럼 사용할 수 없을까?</h4>
+
+<p><span style="color:#e74c3c">if … else 문</span>은 <span style="color:#e74c3c; font-weight: bold;">보다 복잡한 제어 흐름을 제공하기 위해</span> 문으로 설계된 것입니다.</p>
+
+<p><span style="color:#3498db">삼항 조건 연산자</span>는 <span style="color:#3498db; font-weight: bold;">간단하게 값을 반환하는 구조를 표현하기 위해</span> 표현식으로 설계되었기 때문</p>
+
+<p><br /><br /></p>
+
+<h3 id="1-5-논리-연산자logical-operator">1-5) 논리 연산자(logical operator)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">논리 연산자</th>
+      <th style="text-align: center">의미</th>
+      <th style="text-align: center">부수 효과</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">||</td>
+      <td style="text-align: center">논리합(OR)</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">&amp;&amp;</td>
+      <td style="text-align: center">논리곱(AND)</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">!</td>
+      <td style="text-align: center">부정(NOT)</td>
+      <td style="text-align: center">X</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /><br /></p>
+
+<h3 id="1-6-쉼표-연산자comma-operator">1-6) 쉼표 연산자(comma operator)</h3>
+
+<p>쉽표(,) 연산자는 왼쪽 피연산자부터 차례대로 피연산자를 평가하고 마지막 피연산자의 평가가 끝나면 마지막 피연산자의 평가 결과를 반환한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">z</span><span class="p">;</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">z</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// 3</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="1-7-그룹-연산자group-operator">1-7) 그룹 연산자(group operator)</h3>
+
+<p>소괄호(‘( )’)로 피연산자를 감싸는 그룹연산자는 자신의 피연산자인 표현식을 가장 먼저 평가한다. 따라서 그룹 연산자를 사용하면 연산자의 우선순위를 조절할 수 있다. 그룹 연산자는 연산자 우선순위가 가장 높다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">10</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="c1">// → 23</span>
+
+<span class="c1">// 그룹 연산자를 사용하여 우선순위를 조절</span>
+<span class="mi">10</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">// → 50</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="1-8-typeof-연산자typeof-operator">1-8) typeof 연산자(typeof operator)</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typeof</span> <span class="dl">''</span>           <span class="c1">// — "string"</span>
+<span class="k">typeof</span> <span class="mi">1</span>            <span class="c1">// — "number"</span>
+<span class="k">typeof</span> <span class="kc">NaN</span>          <span class="c1">// — "number"</span>
+<span class="k">typeof</span> <span class="kc">true</span>         <span class="c1">// — "boolean"</span>
+<span class="k">typeof</span> <span class="kc">undefined</span>    <span class="c1">// — "undefined"</span>
+<span class="k">typeof</span> <span class="nc">Symbol</span><span class="p">()</span>     <span class="c1">// — "symbol"</span>
+<span class="k">typeof</span> <span class="kc">null</span>         <span class="c1">// — "object"  (자바스크립트 버그)</span>
+<span class="k">typeof</span> <span class="p">[]</span>           <span class="c1">// — "object"</span>
+<span class="k">typeof</span> <span class="p">{}</span>           <span class="c1">// — "object"</span>
+<span class="k">typeof</span> <span class="k">new</span> <span class="nc">Date</span><span class="p">()</span>   <span class="c1">// — "object"</span>
+<span class="k">typeof</span> <span class="sr">/test/gi</span>     <span class="c1">// — "object"</span>
+<span class="k">typeof</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{}</span> <span class="c1">// — "function"</span>
+
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// // null 타입인지 확인을 위해서는 일치 연산자(===)를 사용하자</span>
+<span class="kd">let</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="k">typeof</span> <span class="nx">foo</span> <span class="o">===</span> <span class="kc">null</span><span class="p">;</span> <span class="c1">// false</span>
+<span class="nx">foo</span> <span class="o">===</span> <span class="kc">null</span><span class="p">;</span> <span class="c1">// true</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="1-9-지수-연산자exponent-operator">1-9) 지수 연산자(exponent operator)</h3>
+
+<p>좌항의 피연산자를 밑(base)으로, 우항의 피연산자를 지수(exponent)로 거듭 제곱하여 숫자값을 반환한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">2</span> <span class="o">**</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// → 4</span>
+<span class="mi">2</span> <span class="o">**</span> <span class="mf">2.5</span><span class="p">;</span> <span class="c1">// → 5.65685424949238</span>
+<span class="mi">2</span> <span class="o">**</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// → 1</span>
+<span class="mi">2</span> <span class="o">**</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span> <span class="c1">// → 0.5</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="1-10-연산자-결합-순서">1-10) 연산자 결합 순서</h3>
+
+<p>연산자의 <a href="#">결합 순서(Associativity)</a>는 동일한 우선순위를 가진 연산자들이 한 식(expression)에서 여러 번 등장할 때, 그 연산자들이 어떤 순서로 계산되는지를 결정하는 규칙입니다. 이는 연산자들이 어떻게 결합되며, 어떤 순서로 평가되는지를 이해하는 데 매우 중요합니다.</p>
+
+<h4 id="1-좌결합left-associativity"><span style="color:#af7ac5"><strong>1. 좌결합(Left-Associativity)</strong></span></h4>
+
+<p>좌결합성(Left-Associativity)을 가진 연산자는 <strong>왼쪽에서 오른쪽</strong>으로 평가됩니다. 즉, 동일한 우선순위를 가진 연산자들이 연속해서 나타날 때, <strong>왼쪽부터</strong> 차례대로 계산됩니다.</p>
+
+<p><span style="color:#af7ac5">주로 산술 연산자, 대부분의 비트 연산자 등이 좌결합성을 가집니다.</span></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">-</span> <span class="mi">2</span><span class="p">;</span>
+<span class="cm">/* &lt;계산 과정&gt;
+	10 - 5가 먼저 계산됩니다. 결과는 5입니다.
+	그런 다음 5 - 2가 계산됩니다. 결과는 3입니다.
+*/</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="2-우결합left-associativity"><span style="color:#76d7c4"><strong>2. 우결합(Left-Associativity)</strong></span></h4>
+
+<p>우결합성(Right-Associativity)을 가진 연산자는 <strong>오른쪽에서 왼쪽</strong>으로 평가됩니다. 즉, 동일한 우선순위를 가진 연산자들이 연속해서 나타날 때, <strong>오른쪽부터</strong> 차례대로 계산됩니다.</p>
+
+<p><span style="color:#76d7c4">주로 할당 연산자, 지수 연산자 등이 우결합성을 가집니다.</span></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="mi">3</span> <span class="o">**</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 결과는 512</span>
+<span class="cm">/* &lt;계산 과정&gt;
+3 ** 2가 먼저 계산됩니다. 결과는 9입니다.
+그런 다음 2 ** 9가 계산됩니다. 결과는 512입니다.
+*/</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h4 id="reference-모던자바스크립트-deep-dive-06장데이터-타입"><span style="color:grey">reference: 모던자바스크립트 Deep Dive 06장.데이터 타입</span></h4>
+</div>
+
+        
+        <div class="categories">
+        
+
+
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/development">
+  Development
+</a>
+
+</div>
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/javascript">
+  Javascript
+</a>
+
+</div>
+  
+
+        
+        </div>
+
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="section section-base-bg-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"></div>
+        <div class="subscribe">
+  <div class="row">
+    <div class="col-12 col-md-4 mb-2 mb-md-0">
+      <h2 class="">Let's keep in touch</h2>
+    </div>
+
+    <div class="co-12 col-md-8">
+      <div id="mc_embed_signup">
+        <form action="https://zerostatic.us21.list-manage.com/subscribe/post?u=798e19886b83aaab346734382&amp;id=f1c526a772&amp;f_id=0027e3e6f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="subscribe-form" target="_blank" novalidate>
+          <div class="subscribe-fields">
+            <input class="required email" id="mce-EMAIL" name="EMAIL" placeholder="Your email address" type="email" value="" />
+            <div aria-hidden="true" style="position: absolute; left: -5000px"><input name="b_675276692aebec1c007f8156d_3e3da720c2" tabindex="-1" type="text" value="" /></div>
+            <input type="submit" value="Submit" />
+          </div>
+          <div class="subscribe-responses" id="mce-responses">
+            <div class="response response-error" id="mce-error-response" style="display: none"></div>
+            <div class="response response-success" id="mce-success-response" style="display: none"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+<script type="text/javascript" src="/assets/js/scripts.js"></script>
+
+<script type="text/javascript" src="/assets/js/hamburger.js"></script>
+<script type="text/javascript" src="/assets/js/darkModeSwitch.js"></script>
+
+
+
+
+
+</body>
+</html>
