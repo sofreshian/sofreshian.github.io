@@ -5,18 +5,22 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <title>Algorithm - Jekyll Curate</title>
+    <title>5. Multiplication of Matrices - Jekyll Curate</title>
 
+
+  <meta name="description" content="행렬의 곱셈을 통해 행렬의 구조를 이해"/>
 
 
 
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="http://localhost:4000/category/algorithm/"/>
+<meta property="og:url" content="http://localhost:4000/blog/2024-09-16-algorithm-5.MultiplicationOfMatrices/"/>
 
 
-  <meta property="og:title" content="Algorithm"/>
+  <meta property="og:title" content="5. Multiplication of Matrices"/>
 
 
+
+  <meta property="og:description" content="행렬의 곱셈을 통해 행렬의 구조를 이해"/>
 
 
 
@@ -174,7 +178,7 @@
     
 
   </head>
-<body class="page page-category has-static-header">
+<body class="page page-post has-static-header">
 
 
 <div class="menu-main-mobile " id="menu-main-mobile">
@@ -450,17 +454,17 @@
 
 <div class="heading heading-left">
   
-    <div class="heading-badge">
-      <span>category</span>
-    </div>
-  
   
   
   <div class="heading-heading">
-    <h1>Algorithm</h1>
+    <h1>5. Multiplication of Matrices</h1>
   </div>
   
   
+  
+    <div class="heading-description">
+      <p>행렬의 곱셈을 통해 행렬의 구조를 이해</p>
+    </div>
   
 
   
@@ -472,320 +476,200 @@
 
 <div class="section pt-0">
   <div class="container">
-    
-    
-      <div class="row">
-        <div class="col-12 col-md-8 mb-2">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        
+        
+          <div class="mb-2">
           
+            
 
 
 
 
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-list card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-16-algorithm-5.MultiplicationOfMatrices/"><img alt="5. Multiplication of Matrices" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
+<div class="author">
   
 
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">16 September 2024</span>
+  
+</div>
+          
           </div>
         
+        
+        <div class="content"><figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/algorithm/algorithm_5.webp" alt="algorithm test" />
+  </a>
+  <figcaption>
+    <h4>05. Multiplication of matrices</h4>
+    <p>Sunhyup Lee. (2024). To be a successful candidate for the coding test. goldenrabbit. p.122.</p>
+  </figcaption>
+</figure>
 
-      </div>
+<p><br /></p>
+
+<h2 id="problem-solving">Problem solving</h2>
+
+<p>2차원 행렬 arr1과 arr2를 입력받아 arr1에 arr2를 곱한 결과를 반환하는 solution( ) 함수를 완성</p>
+
+<p><br /></p>
+
+<h3 id="-the-first-way-to-solve-the-problem---for문-이용해서-풀기">① The first way to solve the problem :  <a href="#">for문 이용해서 풀기</a></h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">arr1</span><span class="p">,</span> <span class="nx">arr2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">r1</span> <span class="o">=</span> <span class="nx">arr1</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">c1</span> <span class="o">=</span> <span class="nx">arr1</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">c2</span> <span class="o">=</span> <span class="nx">arr2</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span>
+
+  <span class="kd">const</span> <span class="nx">ret</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">r1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ret</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="k">new</span> <span class="nc">Array</span><span class="p">(</span><span class="nx">c2</span><span class="p">).</span><span class="nf">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+  <span class="p">}</span>
+  <span class="c1">// ⬇ 이러한 방식은 어떨까? 좀 더 명확하게 각 변수의 역할을 강조</span>
+  <span class="kd">const</span> <span class="nx">ret</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nf">from</span><span class="p">({</span> <span class="na">length</span><span class="p">:</span> <span class="nx">r1</span> <span class="p">},</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nc">Array</span><span class="p">(</span><span class="nx">c2</span><span class="p">).</span><span class="nf">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+
+  <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">r1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">c2</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">k</span> <span class="o">&lt;</span> <span class="nx">c1</span><span class="p">;</span> <span class="nx">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">ret</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">arr1</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">k</span><span class="p">]</span> <span class="o">*</span> <span class="nx">arr2</span><span class="p">[</span><span class="nx">k</span><span class="p">][</span><span class="nx">j</span><span class="p">];</span> 
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">ret</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>🧐 <a href="#">시간복잡도</a>는 어떨까?</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nx">Done</span><span class="p">]</span> <span class="nx">exited</span> <span class="kd">with</span> <span class="nx">code</span><span class="o">=</span><span class="mi">0</span> <span class="k">in</span> <span class="mf">0.063</span> <span class="nx">seconds</span>
+</code></pre></div></div>
+
+<p><span style="color: #ffff">최종 시간 복잡도:</span> <span style="color: #ffff">O(n<sup>3</sup>)</span> <br /></p>
+
+<p><br /><br /></p>
+
+<h3 id="-the-second-way-to-solve-the-problem---map과-reduce를-사용한-풀이">② The second way to solve the problem :  <a href="#"><code class="language-plaintext highlighter-rouge">map</code>과 <code class="language-plaintext highlighter-rouge">reduce</code>를 사용한 풀이</a></h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">arr1</span><span class="p">,</span> <span class="nx">arr2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">r1</span> <span class="o">=</span> <span class="nx">arr1</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">c1</span> <span class="o">=</span> <span class="nx">arr1</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">c2</span> <span class="o">=</span> <span class="nx">arr2</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="nx">arr1</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">row</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span>
+    <span class="nx">arr2</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">map</span><span class="p">((</span><span class="nx">_</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span> <span class="o">=&gt;</span>
+      <span class="nx">row</span><span class="p">.</span><span class="nf">reduce</span><span class="p">((</span><span class="nx">sum</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">k</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">sum</span> <span class="o">+</span> <span class="nx">arr1</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">k</span><span class="p">]</span> <span class="o">*</span> <span class="nx">arr2</span><span class="p">[</span><span class="nx">k</span><span class="p">][</span><span class="nx">j</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">)</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">좀더</span> <span class="nx">직관적으로</span> <span class="nx">표현해보자면</span><span class="p">,</span> 
+<span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">arr1</span><span class="p">,</span> <span class="nx">arr2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">arr1</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">row</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span>
+    <span class="nx">arr2</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">map</span><span class="p">((</span><span class="nx">_</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span> <span class="o">=&gt;</span>
+      <span class="nx">arr1</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nf">reduce</span><span class="p">((</span><span class="nx">sum</span><span class="p">,</span> <span class="nx">val</span><span class="p">,</span> <span class="nx">k</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">sum</span> <span class="o">+</span> <span class="nx">val</span> <span class="o">*</span> <span class="nx">arr2</span><span class="p">[</span><span class="nx">k</span><span class="p">][</span><span class="nx">j</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">)</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="o">&lt;</span><span class="nx">특징</span><span class="o">&gt;</span>
+<span class="nx">이</span> <span class="nx">방법도</span> <span class="nx">함수형</span> <span class="nx">스타일로</span> <span class="nx">작성되어</span> <span class="nx">있지만</span><span class="p">,</span> 
+<span class="nx">배열</span> <span class="nx">전개</span> <span class="nf">방식</span><span class="p">(</span><span class="nx">즉</span><span class="p">,</span> <span class="nx">각</span> <span class="nx">배열의</span> <span class="nx">요소를</span> <span class="nx">명확하게</span> <span class="nx">펼쳐서</span> <span class="nx">처리</span><span class="p">)</span><span class="nx">을</span> <span class="nx">더</span> <span class="nx">명시적으로</span> <span class="nx">사용한다</span><span class="p">.</span> 
+<span class="nx">여기서</span> <span class="nx">arr1</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nf">reduce</span><span class="p">()</span><span class="nx">를</span> <span class="nx">사용하여</span> <span class="nx">첫</span> <span class="nx">번째</span> <span class="nx">행렬의</span> <span class="nx">𝑖번째</span> <span class="nx">행의</span> <span class="nx">값을</span> <span class="nx">더</span> <span class="nx">직접적으로</span> <span class="nx">순회합니다</span><span class="p">.</span>
+
+<span class="o">&lt;</span><span class="nx">차이</span><span class="o">&gt;</span>
+<span class="nx">첫</span> <span class="nx">번째</span> <span class="nx">방식에서는</span> <span class="nx">row</span><span class="p">.</span><span class="nf">reduce</span><span class="p">()</span><span class="nx">에서</span> <span class="nx">arr1</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">k</span><span class="p">]</span><span class="nx">를</span> <span class="nx">다시</span> <span class="nx">참조했지만</span><span class="p">,</span> 
+<span class="nx">이</span> <span class="nx">방식에서는</span> <span class="nx">명시적으로</span> <span class="nx">val을</span> <span class="nx">곱셈에</span> <span class="nx">사용합니다</span><span class="p">.</span>
+
+</code></pre></div></div>
+
+<p>🧐 <a href="#">시간복잡도</a>는 어떨까?</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nx">Done</span><span class="p">]</span> <span class="nx">exited</span> <span class="kd">with</span> <span class="nx">code</span><span class="o">=</span><span class="mi">0</span> <span class="k">in</span> <span class="mf">0.068</span> <span class="nx">seconds</span>
+</code></pre></div></div>
+
+<p>1) r1의 시간 복잡도:  <span style="color: #ffff">arr1의 행의 개수</span> <br />
+2) c1의 시간 복잡도:  <span style="color: #ffff">arr1의 열의 개수</span> 소요<br />
+3) c2의 시간 복잡도:   <span style="color: #ffff">arr2의 열의 개수</span> 소요<br /></p>
+
+<p><span style="color: #ffff">최종 시간 복잡도:</span>  <a href="#">O(r1 x c1 x c2)</a></p>
+
+<p><br /><br /></p>
+</div>
+
+        
+        <div class="categories">
+        
+
+
+  
     
 
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-16-algorithm-5.MultiplicationOfMatrices/">5. Multiplication of Matrices</a>
-      </h3>
+
+
+
+<div class="category-link">
+<a href="/category/development">
+  Development
+</a>
+
+</div>
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/algorithm">
+  Algorithm
+</a>
+
+</div>
+  
+
+        
+        </div>
+
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="section section-base-bg-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"></div>
+        <div class="subscribe">
+  <div class="row">
+    <div class="col-12 col-md-4 mb-2 mb-md-0">
+      <h2 class="">Let's keep in touch</h2>
     </div>
 
-    
-
-    
-      <div class="card-description">
-        <p>행렬의 곱셈을 통해 행렬의 구조를 이해</p>
+    <div class="co-12 col-md-8">
+      <div id="mc_embed_signup">
+        <form action="https://zerostatic.us21.list-manage.com/subscribe/post?u=798e19886b83aaab346734382&amp;id=f1c526a772&amp;f_id=0027e3e6f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="subscribe-form" target="_blank" novalidate>
+          <div class="subscribe-fields">
+            <input class="required email" id="mce-EMAIL" name="EMAIL" placeholder="Your email address" type="email" value="" />
+            <div aria-hidden="true" style="position: absolute; left: -5000px"><input name="b_675276692aebec1c007f8156d_3e3da720c2" tabindex="-1" type="text" value="" /></div>
+            <input type="submit" value="Submit" />
+          </div>
+          <div class="subscribe-responses" id="mce-responses">
+            <div class="response response-error" id="mce-error-response" style="display: none"></div>
+            <div class="response response-success" id="mce-success-response" style="display: none"></div>
+          </div>
+        </form>
       </div>
-    
-
-    
-
-    
-
+    </div>
   </div>
 </div>
         </div>
       </div>
-    
-      <div class="row">
-        <div class="col-12 col-md-8 mb-2">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-list card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-05-algorithm-4.trialExam/"><img alt="4. trialExamination" src="/assets/images/gen/blog/algorithm.webp"/></a>
     </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">05 September 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-05-algorithm-4.trialExam/">4. trialExamination</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>패턴과 일치 불일치 확인</p>
-      </div>
-    
-
-    
-
-    
-
   </div>
-</div>
-        </div>
-      </div>
-    
-      <div class="row">
-        <div class="col-12 col-md-8 mb-2">
-          
 
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-list card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-02-algorithm-3.PickTwoAddMore/"><img alt="3. PickTwoAddMore" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">02 September 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-02-algorithm-3.PickTwoAddMore/">3. PickTwoAddMore</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>숫자배열에서 서로 다른 두 수를 더해서 오름차순 정렬하기</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-        </div>
-      </div>
-    
-      <div class="row">
-        <div class="col-12 col-md-8 mb-2">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-list card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-01-algorithm-2.controlArray/"><img alt="2. ControlArray" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">01 September 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-01-algorithm-2.controlArray/">2. ControlArray</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>배열 중복값을 제거하고 내림차순 정렬해보자</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-        </div>
-      </div>
-    
-      <div class="row">
-        <div class="col-12 col-md-8 mb-2">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-list card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-08-18-algorithm-1.arrangeArray/"><img alt="1. ArrangeArray" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">18 August 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-08-18-algorithm-1.arrangeArray/">1. ArrangeArray</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>배열 정렬하기, 제약조건의 중요성과 sort 메서드 이해하기</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-        </div>
-      </div>
-    
-  </div>
-</div>
 
 </div>
 
