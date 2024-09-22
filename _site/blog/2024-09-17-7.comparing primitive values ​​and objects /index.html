@@ -5,18 +5,22 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <title>Algorithm - Jekyll Curate</title>
+    <title>6. Comparing primitive values ​​and objects(원시값과 객체의 비교) - Jekyll Curate</title>
 
+
+  <meta name="description" content="원시 타입과 객체 타입은 구체적으로 어떻게 다를까?"/>
 
 
 
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="http://localhost:4000/category/algorithm/"/>
+<meta property="og:url" content="http://localhost:4000/blog/2024-09-17-7.comparing%20primitive%20values%20%E2%80%8B%E2%80%8Band%20objects%20/"/>
 
 
-  <meta property="og:title" content="Algorithm"/>
+  <meta property="og:title" content="6. Comparing primitive values ​​and objects(원시값과 객체의 비교)"/>
 
 
+
+  <meta property="og:description" content="원시 타입과 객체 타입은 구체적으로 어떻게 다를까?"/>
 
 
 
@@ -174,7 +178,7 @@
     
 
   </head>
-<body class="page page-category has-static-header">
+<body class="page page-post has-static-header">
 
 
 <div class="menu-main-mobile " id="menu-main-mobile">
@@ -450,17 +454,17 @@
 
 <div class="heading heading-left">
   
-    <div class="heading-badge">
-      <span>category</span>
-    </div>
-  
   
   
   <div class="heading-heading">
-    <h1>Algorithm</h1>
+    <h1>6. Comparing primitive values ​​and objects(원시값과 객체의 비교)</h1>
   </div>
   
   
+  
+    <div class="heading-description">
+      <p>원시 타입과 객체 타입은 구체적으로 어떻게 다를까?</p>
+    </div>
   
 
   
@@ -472,382 +476,155 @@
 
 <div class="section pt-0">
   <div class="container">
-    
-    
-      <div class="row">
-        <div class="col-12 col-md-8 mb-2">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        
+        
+          <div class="mb-2">
           
+            
 
 
 
 
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-list card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-20-algorithm-6.FailureRate/"><img alt="6. Failure rate" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
+<div class="author">
   
 
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">20 September 2024</span>
+  
+</div>
+          
           </div>
         
+        
+        <div class="content"><h2 id="1-원시primitive-type-타입">1) 원시(primitive type) 타입</h2>
 
-      </div>
+<p>원시타입(primitive type)의 값은 변경 불가능한 값(immutable value)이다. 한번 생성된 원시값은 읽기 전용 값으로서 변경할 수 없다.  <br /></p>
+
+<p>🧐 <a href="#"> Q. 변경이 불가능하다는 말은 무슨 의미일까?</a> <br /></p>
+
+<p>변수와 값은 구분해서 생각해야 한다. <br /></p>
+
+<p><span style="color:#f5b7b1"><strong>변수</strong>는 하나의 값을 저장하기 위해 확보한 <strong>메모리 공간 자체 또는 그 메모리 공간을 식별하기 위해 붙인 이름</strong>이고,</span> <br /></p>
+
+<p><span style="color:#aed6f1"><strong>값</strong>은 변수에 저장한 데이터로서 <strong>표현식이 평가되어 생성된 결과</strong>를 말한다. </span> <br /></p>
+
+<p>=&gt; <a href="#">변경 불가능하다는 것은 변수가 아니라 <strong>동일한 메모리 공간에 대한 값에 대한 진술</strong>이다. </a> <br /></p>
+
+<figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/post_7/DeliverybyValue.webp" alt="Photo of object oriented language difference explanation" />
+  </a>
+  <figcaption>
+    <h4>DeliverybyValue</h4>
+    <p>Jay Tak.</p>
+  </figcaption>
+</figure>
+
+<p><span style="color: #d7bde2">만약 원시값이 변경 가능한 값이라면 변수에 새로운 원시 값을 재할당했을 때 변수가 가리키던 메모리 공간의 주소를 바꿀 필요없이 원시 값 자체를 변경이 가능해야 한다. </span> <br /></p>
+
+<p><span style="color: #d7bde2">그러나 변수 값을 변경하기 위해 원시값을 재할당하면, 새로운 메모리 공간을 확보하고 재할당한 값을 저장한 후, <strong>변수에 참조하던 메모리 공간의 주소를 변경해야 한다</strong>. 값의 이러한 특성은 <a href="#">‘불변성(immutability)’</a>]라 한다. </span></p>
+
+<p><br /><br /></p>
+
+<h2 id="2-객체object-type-타입">2) 객체(object type) 타입</h2>
+
+<p>객체타입(object type)의 값은 변경 가능한 값(mutable value)이다.</p>
+
+<p>🧐 <a href="#"> Q. 변경이 가능하다는 말은 무슨 의미일까?</a> <br /></p>
+
+<p>객체를 할당한 변수는 해당 객체의 참조값을 가리키고 있기 때문이다. <br /></p>
+
+<figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/post_7/CommunicationbyReference.webp" alt="Photo of object oriented language difference explanation" />
+  </a>
+  <figcaption>
+    <h4>CommunicationbyReference</h4>
+    <p>Jay Tak.</p>
+  </figcaption>
+</figure>
+
+<p><span style="color: #a3e4d7">객체는 원시값과 다르게 여러개의 식별자가 <strong>하나의 객체를 공유할 수 있다</strong>. 따라서 원본 또는 사본 중 어느 한쪽에서 객체를 변경(객체의 프로퍼티 값을 변경하거나 프로퍼티를 추가, 삭제)하면 <strong>서로 영향을 주고 받는다</strong>. 객체의 이러한 특성은 <a href="#">‘가변성(mutability)’</a>]라 한다.  </span> <br /></p>
+
+<p><br /><br /><br /></p>
+
+<h4 id="reference-모던자바스크립트-deep-dive-11장-원시값과-객체의-비교"><span style="color:grey">reference: 모던자바스크립트 Deep Dive 11장. 원시값과 객체의 비교</span></h4>
+</div>
+
+        
+        <div class="categories">
+        
+
+
+  
     
 
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-20-algorithm-6.FailureRate/">6. Failure rate</a>
-      </h3>
+
+
+
+<div class="category-link">
+<a href="/category/development">
+  Development
+</a>
+
+</div>
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/javascript">
+  Javascript
+</a>
+
+</div>
+  
+
+        
+        </div>
+
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="section section-base-bg-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"></div>
+        <div class="subscribe">
+  <div class="row">
+    <div class="col-12 col-md-4 mb-2 mb-md-0">
+      <h2 class="">Let's keep in touch</h2>
     </div>
 
-    
-
-    
-      <div class="card-description">
-        <p>도달한 사용자 수와 실패율을 정확하게 계산하고, 이를 효율적으로 정렬하여 올바른 순서로 스테이지를 반환</p>
+    <div class="co-12 col-md-8">
+      <div id="mc_embed_signup">
+        <form action="https://zerostatic.us21.list-manage.com/subscribe/post?u=798e19886b83aaab346734382&amp;id=f1c526a772&amp;f_id=0027e3e6f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="subscribe-form" target="_blank" novalidate>
+          <div class="subscribe-fields">
+            <input class="required email" id="mce-EMAIL" name="EMAIL" placeholder="Your email address" type="email" value="" />
+            <div aria-hidden="true" style="position: absolute; left: -5000px"><input name="b_675276692aebec1c007f8156d_3e3da720c2" tabindex="-1" type="text" value="" /></div>
+            <input type="submit" value="Submit" />
+          </div>
+          <div class="subscribe-responses" id="mce-responses">
+            <div class="response response-error" id="mce-error-response" style="display: none"></div>
+            <div class="response response-success" id="mce-success-response" style="display: none"></div>
+          </div>
+        </form>
       </div>
-    
-
-    
-
-    
-
+    </div>
   </div>
 </div>
         </div>
       </div>
-    
-      <div class="row">
-        <div class="col-12 col-md-8 mb-2">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-list card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-16-algorithm-5.MultiplicationOfMatrices/"><img alt="5. Multiplication of Matrices" src="/assets/images/gen/blog/algorithm.webp"/></a>
     </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">16 September 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-16-algorithm-5.MultiplicationOfMatrices/">5. Multiplication of Matrices</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>행렬의 곱셈을 통해 행렬의 구조를 이해</p>
-      </div>
-    
-
-    
-
-    
-
   </div>
-</div>
-        </div>
-      </div>
-    
-      <div class="row">
-        <div class="col-12 col-md-8 mb-2">
-          
 
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-list card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-05-algorithm-4.trialExam/"><img alt="4. trialExamination" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">05 September 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-05-algorithm-4.trialExam/">4. trialExamination</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>패턴과 일치 불일치 확인</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-        </div>
-      </div>
-    
-      <div class="row">
-        <div class="col-12 col-md-8 mb-2">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-list card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-02-algorithm-3.PickTwoAddMore/"><img alt="3. PickTwoAddMore" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">02 September 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-02-algorithm-3.PickTwoAddMore/">3. PickTwoAddMore</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>숫자배열에서 서로 다른 두 수를 더해서 오름차순 정렬하기</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-        </div>
-      </div>
-    
-      <div class="row">
-        <div class="col-12 col-md-8 mb-2">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-list card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-01-algorithm-2.controlArray/"><img alt="2. ControlArray" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">01 September 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-01-algorithm-2.controlArray/">2. ControlArray</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>배열 중복값을 제거하고 내림차순 정렬해보자</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-        </div>
-      </div>
-    
-      <div class="row">
-        <div class="col-12 col-md-8 mb-2">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-list card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-08-18-algorithm-1.arrangeArray/"><img alt="1. ArrangeArray" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">18 August 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-08-18-algorithm-1.arrangeArray/">1. ArrangeArray</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>배열 정렬하기, 제약조건의 중요성과 sort 메서드 이해하기</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-        </div>
-      </div>
-    
-  </div>
-</div>
 
 </div>
 
