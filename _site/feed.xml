@@ -5,12 +5,12 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 22 Sep 2024 23:44:51 +0900</pubDate>
-    <lastBuildDate>Sun, 22 Sep 2024 23:44:51 +0900</lastBuildDate>
+    <pubDate>Sun, 22 Sep 2024 23:57:39 +0900</pubDate>
+    <lastBuildDate>Sun, 22 Sep 2024 23:57:39 +0900</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
-        <title>7. Comparing primitive values ​​and objects(원시값과 객체의 비교)</title>
+        <title>7. Comparing primitive values ​​and objects</title>
         <description>&lt;h2 id=&quot;1-원시primitive-type-타입&quot;&gt;1) 원시(primitive type) 타입&lt;/h2&gt;
 
 &lt;p&gt;원시타입(primitive type)의 값은 변경 불가능한 값(immutable value)이다. 한번 생성된 원시값은 읽기 전용 값으로서 변경할 수 없다.  &lt;br /&gt;&lt;/p&gt;
@@ -444,7 +444,7 @@
       </item>
     
       <item>
-        <title>6. Object(객체 리터럴)</title>
+        <title>6. Object</title>
         <description>&lt;h2 id=&quot;1-객체object란-무엇일까&quot;&gt;1) 객체(object)란 무엇일까?&lt;/h2&gt;
 
 &lt;p&gt;자바스크립트는 객체(object)기반의 프로그래밍 언어이며, 자바스크립트를 구성하는 거의 “모든 것”이 객체다. 원시 값을 제외한 나머지 값(함수, 배열, 정규표현식 등)은 모두 객체다. &lt;br /&gt;&lt;/p&gt;
@@ -835,7 +835,7 @@
       </item>
     
       <item>
-        <title>5. Type Conversion &amp; Shortening Evaluation &lt;/br&gt;(타입 변환과 단축평가)</title>
+        <title>5. Type Conversion &amp; Shortening Evaluation</title>
         <description>&lt;h2 id=&quot;1-명시적-타입변환과-암묵적-타입변환-차이는-무엇일까&quot;&gt;1. 명시적 타입변환과 암묵적 타입변환 차이는 무엇일까?&lt;/h2&gt;
 
 &lt;h3 id=&quot;명시적-타입변환-type-casting-vs-암묵적-타입변환type-coercion&quot;&gt;&lt;span style=&quot;color:#e74c3c&quot;&gt;명시적 타입변환 (Type Casting)&lt;/span&gt; vs &lt;span style=&quot;color:#3498db&quot;&gt;암묵적 타입변환 (Type Coercion)&lt;/span&gt;&lt;/h3&gt;
@@ -1747,7 +1747,7 @@
       </item>
     
       <item>
-        <title>4. Operator(연산자)</title>
+        <title>4. Operator</title>
         <description>&lt;h2 id=&quot;1-연산자operator는-무엇인가&quot;&gt;1) 연산자(operator)는 무엇인가?&lt;/h2&gt;
 
 &lt;p&gt;연산자는 하나 이상의 표현식을 대상으로 &lt;a href=&quot;#&quot;&gt;산술&lt;/a&gt;, &lt;a href=&quot;#&quot;&gt;할당&lt;/a&gt;, &lt;a href=&quot;#&quot;&gt;비교&lt;/a&gt;, &lt;a href=&quot;#&quot;&gt;논리&lt;/a&gt;, &lt;a href=&quot;#&quot;&gt;타입&lt;/a&gt;, &lt;a href=&quot;#&quot;&gt;지수&lt;/a&gt;연산 등을 수행해 하나의 값을 만든다. &lt;br /&gt;&lt;/p&gt;
