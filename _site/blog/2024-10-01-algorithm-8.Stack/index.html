@@ -5,22 +5,22 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <title>Jay Tak's Blog</title>
+    <title>8. Stack - Jekyll Curate</title>
 
 
-  <meta name="description" content="Jay Tak's Blog"/>
+  <meta name="description" content="스택을 이해하고 스택을 이용하여 괄호짝 맞추기"/>
 
 
 
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="http://localhost:4000/"/>
+<meta property="og:url" content="http://localhost:4000/blog/2024-10-01-algorithm-8.Stack/"/>
 
 
-  <meta property="og:title" content="Jay Tak's Blog"/>
+  <meta property="og:title" content="8. Stack"/>
 
 
 
-  <meta property="og:description" content="Jay Tak's Blog"/>
+  <meta property="og:description" content="스택을 이해하고 스택을 이용하여 괄호짝 맞추기"/>
 
 
 
@@ -178,7 +178,7 @@
     
 
   </head>
-<body class="page page-home has-static-header">
+<body class="page page-post has-static-header">
 
 
 <div class="menu-main-mobile " id="menu-main-mobile">
@@ -193,7 +193,7 @@
     
       <ul class="menu">
         
-          <li class="menu-item-home active ">
+          <li class="menu-item-home">
             <a href="/">Home</a>
           </li>
         
@@ -312,7 +312,7 @@
     
       
         
-        <li class="active ">
+        <li class=" ">
           <a href="/" >Home</a>
         </li>
       
@@ -440,7 +440,7 @@
 <div id="wrapper" class="wrapper">     
   <div class="section">
   <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-12">
         
 
@@ -457,13 +457,13 @@
   
   
   <div class="heading-heading">
-    <h1>This is a portfolio of <br> <strong>Jay Tak.</strong></h1>
+    <h1>8. Stack</h1>
   </div>
   
   
   
     <div class="heading-description">
-      <p>I believe that the best content is due to the context. After understanding the given contents, I transform them into a relevant form of the right context.</p>
+      <p>스택을 이해하고 스택을 이용하여 괄호짝 맞추기</p>
     </div>
   
 
@@ -473,376 +473,269 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 <div class="section pt-0">
   <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        
+        
+          <div class="mb-2">
+          
+            
 
-      
 
 
 
+<div class="author">
+  
 
+  
+</div>
+          
+          </div>
+        
+        
+        <div class="content"><h2 id="definition-of-stack-스택의-정의">Definition of Stack (스택의 정의)</h2>
 
-<div class="col-12">
-  <div class="grid-header grid-header-align-left">
-    
-    
-  </div>
+<p>스택은 <a href="#">데이터를 차곡차곡 쌓는 구조</a>로, 마지막에 추가된 데이터가 가장 먼저 제거되는 <a href="#">후입선출(LIFO)</a> 원칙에 따라 동작하는 <a href="#">자료 구조</a>입니다. <br /></p>
+
+<p>🧐 Q. 스택의 <a href="#">“ADT (추상 자료형)” </a> 무엇인가? <br /></p>
+
+<p>스택의 ADT(Abstract Data Type)는 <a href="#">스택이 제공해야 하는 연산</a>과 그 <a href="#">동작 방식을 추상적으로 정의한 것</a>입니다. 즉, 스택 ADT는 <a href="#">스택이 어떻게 동작해야 하는지에 대한 규칙과 연산을 설명</a>하는 것이지, <del>그 구현방식에 대해 구체적인 내용을 다루지는 않는다.</del></p>
+
+<p><br /><br /></p>
+
+<p>🧐 Q. 자료형과 추상자료형의 차이는 무엇일까?  <br /></p>
+
+<ol>
+  <li><span style="color:#e74c3c"><strong>자료형(Data Type)</strong> 구체적인 구현 동반</span>
+    <ul>
+      <li>자료형은 <span style="color:#e74c3c">구체적인 구현에 대한 정의</span>하는 구체적인 방식이다.</li>
+      <li>데이터가 메모리에서 <span style="color:#e74c3c">어떻게 저장되고, 처리되는지를 정의</span></li>
+      <li>ex) 정수형(int), 문자열(string), 부동소수점(float) etc</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> 
+<span class="cm">/* 
+
+① Javascript에서 정수형 데이터
+
+② 정수형 자료형은 메모리에서 어떻게 정의되어 있으며, 
+허용범위(ex. 32비트 정수에서 -2^32 ~ 2^31-1)나 연산방식(덧셈, 뺄셈 등)도 명확하게 정의되어 있다.
+
+③ 구체적인 정의: 정수형 자료형은 실제로 메모리에서 정수값이 어떻게 표현되는지 구체적인 메모리 크기와 범위를 정의하고 있다.
+
+*/</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ol>
+  <li><span style="color:#3498db"><strong>추상 자료형(Abstract Data Type)</strong> 동작하는 것만 정의</span>
+    <ul>
+      <li>추상 자료형은 <span style="color:#3498db">데이터 동작 방식과 기능을 정의</span></li>
+      <li>구체적인 구현 방법과 무관하며, <span style="color:#3498db">구현 방식에 관계없이 동일한 동작 보장</span></li>
+      <li>스택(Stack), 큐(Queue), 리스트(List), 트리(Tree) etc</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Stack</span> <span class="p">{</span>
+    <span class="nf">constructor</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="p">}</span>
+
+    <span class="nf">push</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nf">pop</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">if </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nf">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nc">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">Stack is empty</span><span class="dl">"</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nf">pop</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nf">peek</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">if </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nf">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nc">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">Stack is empty</span><span class="dl">"</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="nf">isEmpty</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nf">size</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<p>🧐 Q. 스택의 세부 동작에 대해 조금 더 자세히 알아보자!  <br /></p>
+
+<figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/algorithm/algorithm_8_1.webp" alt="" />
+  </a>
+  <figcaption>
+    <h4>Detailed operation of the stack</h4>
+    <p>Jay Tak</p>
+  </figcaption>
+</figure>
+
+<p><br /></p>
+
+<h2 id="problem-solving">Problem solving</h2>
+
+<figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/algorithm/algorithm_8_2.webp" alt="algorithm test" />
+  </a>
+  <figcaption>
+    <h4>08. Pairing parentheses</h4>
+    <p>Sunhyup Lee. (2024). To be a successful candidate for the coding test. goldenrabbit. p.146.</p>
+  </figcaption>
+</figure>
+
+<p><br /></p>
+
+<h3 id="-the-first-way-to-solve-the-problem---스택을-이용한-괄호-짝-검사-방식-">① The first way to solve the problem :  <a href="#">스택을 이용한 괄호 짝 검사 방식 </a></h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">stack</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// 빈 배열 stack 선언</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">parenthesis</span> <span class="k">of</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="c1">// string의 각 문자를 순회하며 parenthesis 변수에 담는다. 즉, 문자열의 각 문자를 하나씩 처리</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">parenthesis</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">(</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span> 
+      <span class="c1">// 현재 문자가 '여는괄호'라면 stack 배열에 해당 괄호 추가</span>
+      <span class="nx">stack</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">parenthesis</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="nf">if </span><span class="p">(</span><span class="nx">parenthesis</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">)</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span> 
+      <span class="cm">/* 현재 문자가 '닫는괄호'라면 
+      1) 스택이 비어 있는지 확인후 비어있을 경우, 괄호가 짝을 이루지 못하므로 false를 반환
+      2) 스택이 비어 있는지 확인후 비어있지 않을 경우, 여는 괄호와 짝을 맞춰 스택에서 여는 괄호를 pop
+      */</span> 
+      <span class="nf">if </span><span class="p">(</span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="p">}</span> <span class="nx">stack</span><span class="p">.</span><span class="nf">pop</span><span class="p">();</span> 
+      <span class="c1">// 닫힌 괄호는 바로 pop</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">stack</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="c1">// 루프가 끝나면 스택에 남아있는 괄호 여부를 판단해서 true, false 값 반환</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>그외에도 다음과 같은 방식으로도 해결 가능하다 <br /></p>
+
+<h3 id="-the-second-way-to-solve-the-problem----재귀-함수를-이용한-방식-">② The second way to solve the problem :  <a href="#"> 재귀 함수를 이용한 방식 </a></h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">isBalanced</span><span class="p">(</span><span class="nx">string</span><span class="p">,</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// string: 괄호가 포함된 문자열</span>
+  <span class="c1">// index: 현재 처리하고 있는 문자열의 인덱스. 기본값은 0으로 설정되어 처음부터 시작</span>
+  <span class="c1">// count: '여는 괄호'의 개수를 추적하기 위한 변수. 기본값은 0으로 설정됩니다.</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nx">index</span> <span class="o">===</span> <span class="nx">string</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">count</span> <span class="o">===</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 여는 괄호일 경우 count 증가</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nx">string</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">(</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nf">isBalanced</span><span class="p">(</span><span class="nx">string</span><span class="p">,</span> <span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 닫는 괄호일 경우 count 감소</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nx">string</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">)</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 닫는 괄호가 여는 괄호보다 많으면 false 반환</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">count</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// '여는 괄호' 있는지 확인후 없으면 false 반환</span>
+      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nf">isBalanced</span><span class="p">(</span><span class="nx">string</span><span class="p">,</span> <span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 다른 문자일 경우 그냥 다음 문자로 넘어감</span>
+  <span class="k">return</span> <span class="nf">isBalanced</span><span class="p">(</span><span class="nx">string</span><span class="p">,</span> <span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">count</span><span class="p">);</span>
+<span class="p">}</span>
+
+	<span class="c1">// 함수 사용 예시</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">isBalanced</span><span class="p">(</span><span class="dl">"</span><span class="s2">()()</span><span class="dl">"</span><span class="p">));</span>  <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">isBalanced</span><span class="p">(</span><span class="dl">"</span><span class="s2">(())</span><span class="dl">"</span><span class="p">));</span>  <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">isBalanced</span><span class="p">(</span><span class="dl">"</span><span class="s2">(()</span><span class="dl">"</span><span class="p">))</span>    <span class="c1">// false</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="-the-third-way-to-solve-the-problem----정규식을-이용한-방식-">③ The third way to solve the problem :  <a href="#"> 정규식을 이용한 방식 </a></h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 정규식으로 () 쌍을 반복적으로 제거</span>
+  <span class="nf">while </span><span class="p">(</span><span class="nx">string</span><span class="p">.</span><span class="nf">includes</span><span class="p">(</span><span class="dl">'</span><span class="s1">()</span><span class="dl">'</span><span class="p">))</span> <span class="p">{</span>
+  <span class="c1">// ()쌍을 ''(빈문자열)로 대체</span>
+    <span class="nx">string</span> <span class="o">=</span> <span class="nx">string</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\(\)</span><span class="sr">/g</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// 남아 있는 문자열이 있으면 false, 없으면 true</span>
+  <span class="k">return</span> <span class="nx">string</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 함수 사용 예시</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">solution</span><span class="p">(</span><span class="dl">"</span><span class="s2">()()</span><span class="dl">"</span><span class="p">));</span>  <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">solution</span><span class="p">(</span><span class="dl">"</span><span class="s2">(())</span><span class="dl">"</span><span class="p">));</span>  <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">solution</span><span class="p">(</span><span class="dl">"</span><span class="s2">(()</span><span class="dl">"</span><span class="p">))</span>    <span class="c1">// false</span>
+
+</code></pre></div></div>
+
+<p><br /><br /></p>
 </div>
 
-     
-      
-      <div
-        class="col-12 col-md-6 col-lg-6 mb-gutter mt-gutter mt-0  mt-md-0">
+        
+        <div class="categories">
         
 
 
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-project card-column card-has-thumbnail ">
-
   
-    <div class="card-thumbnail ">
-      <a href="/projects/project-2/"><img alt="Brutalist Office Building" src="/assets/images/gen/projects/project-1-1-thumbnail.webp"/></a>
-    </div>
-  
+    
 
-  <div class="card-content">
-    <div class="card-title">
-      <h2>
-        <a href="/projects/project-2/">Brutalist Office Building</a>
-      </h2>
-    </div>
-    
-      <div class="card-client">
-        Dubai Star
-      </div>
-    
-  </div>
+
+
+
+<div class="category-link">
+<a href="/category/development">
+  Development
+</a>
+
 </div>
-      </div>
-      
-      <div
-        class="col-12 col-md-6 col-lg-6 mb-gutter mt-gutter   mt-md-0">
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/algorithm">
+  Algorithm
+</a>
+
+</div>
+  
+
+        
+        </div>
+
         
 
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-project card-column card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/projects/project-1/"><img alt="Water Works Revitalisation" src="/assets/images/gen/projects/project-2-1-thumbnail.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    <div class="card-title">
-      <h2>
-        <a href="/projects/project-1/">Water Works Revitalisation</a>
-      </h2>
-    </div>
-    
-      <div class="card-client">
-        Brisbane City Council
       </div>
-    
-  </div>
-</div>
-      </div>
-      
-      <div
-        class="col-12 col-md-6 col-lg-6 mb-gutter mt-gutter   mt-md-0">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-project card-column card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/projects/project-3/"><img alt="Cubist Urban Home" src="/assets/images/gen/projects/project-3-1-thumbnail.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    <div class="card-title">
-      <h2>
-        <a href="/projects/project-3/">Cubist Urban Home</a>
-      </h2>
-    </div>
-    
-      <div class="card-client">
-        Region of Valencia
-      </div>
-    
-  </div>
-</div>
-      </div>
-      
-      <div
-        class="col-12 col-md-6 col-lg-6 mb-gutter mt-gutter  mb-0 mt-md-0">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-project card-column card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/projects/project-4"><img alt="Subway" src="/assets/images/gen/projects/project-4-6-thumbnail.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    <div class="card-title">
-      <h2>
-        <a href="/projects/project-4">Subway</a>
-      </h2>
-    </div>
-    
-      <div class="card-client">
-        RGA Agency
-      </div>
-    
-  </div>
-</div>
-      </div>
-      
-
-      
-
-
-
-
-
-
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-<div class="section section-base-bg-2">
-  <div class="container">
-    <div class="row">
-
-      
-
-
-
-
-
-<div class="col-12">
-  <div class="grid-header grid-header-align-left">
-    <h2>Recent Posts</h2>
-    
-  </div>
-</div>
-
-
-      
-      <div class="col-12 col-md-4 col-lg-4 mt-0  mb-3 mb-md-6">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-column  ">
-
-  
-
-  <div class="card-content">
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-10-01-algorithm-8.Stack/">8. Stack</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>스택을 이해하고 스택을 이용하여 괄호짝 맞추기</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-      </div>
-      
-      <div class="col-12 col-md-4 col-lg-4   mb-3 mb-md-6">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-column  ">
-
-  
-
-  <div class="card-content">
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-20-algorithm-7.CharacterMovementPath/">7. Character Movement Path</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>방문한 고유한 경로의 수를 계산</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-      </div>
-      
-      <div class="col-12 col-md-4 col-lg-4  mb-0 mb-3 mb-md-6">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-column  ">
-
-  
-
-  <div class="card-content">
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-10-01-8.function/">8. Function</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>원시값과 객체 비교, 원시 타입과 객체 타입은 구체적으로 어떻게 다를까?</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-      </div>
-      
-
-      
-
-
-
-
-
-
-    </div>
-  </div>
-</div>
-
 
 
   <div class="section section-base-bg-2">

@@ -5,18 +5,22 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <title>Blog - Jekyll Curate</title>
+    <title>7. Character Movement Path - Jekyll Curate</title>
 
+
+  <meta name="description" content="방문한 고유한 경로의 수를 계산"/>
 
 
 
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="http://localhost:4000/blog/page/2/"/>
+<meta property="og:url" content="http://localhost:4000/blog/2024-09-20-algorithm-7.CharacterMovementPath/"/>
 
 
-  <meta property="og:title" content="Blog"/>
+  <meta property="og:title" content="7. Character Movement Path"/>
 
 
+
+  <meta property="og:description" content="방문한 고유한 경로의 수를 계산"/>
 
 
 
@@ -174,7 +178,7 @@
     
 
   </head>
-<body class="page page-blog has-static-header">
+<body class="page page-post has-static-header">
 
 
 <div class="menu-main-mobile " id="menu-main-mobile">
@@ -437,7 +441,7 @@
   <div class="section">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-12 col-md-12">
+      <div class="col-12">
         
 
 
@@ -453,10 +457,14 @@
   
   
   <div class="heading-heading">
-    <h1>Blog</h1>
+    <h1>7. Character Movement Path</h1>
   </div>
   
   
+  
+    <div class="heading-description">
+      <p>방문한 고유한 경로의 수를 계산</p>
+    </div>
   
 
   
@@ -468,426 +476,176 @@
 
 <div class="section pt-0">
   <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-12">
-          <div class="row">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        
+        
+          <div class="mb-2">
+          
             
-            
-            
-              
-                <div class="col-12">
-                  
-  
-    <div class="col-12">
-      <div class="pagination-count">
-        <h3>Page 2</h3>
-      </div>
-    </div>
+
+
+
+
+<div class="author">
   
 
-                </div>
-              
-
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
   
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-16-algorithm-5.MultiplicationOfMatrices/"><img alt="5. Multiplication of Matrices" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">16 September 2024</span>
+</div>
+          
           </div>
         
+        
+        <div class="content"><figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/algorithm/algorithm_7.webp" alt="algorithm test" />
+  </a>
+  <figcaption>
+    <h4>07. Unique Movement Path</h4>
+    <p>Sunhyup Lee. (2024). To be a successful candidate for the coding test. goldenrabbit. p.130.</p>
+  </figcaption>
+</figure>
 
-      </div>
+<p><br /></p>
+
+<h2 id="problem-solving">Problem solving</h2>
+
+<p><br /></p>
+
+<h3 id="-the-first-way-to-solve-the-problem---단계별-사용자-수-계산-후-직접-실패율-계산">① The first way to solve the problem :  <a href="#">단계별 사용자 수 계산 후, 직접 실패율 계산</a></h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">isValidMove</span><span class="p">(</span><span class="nx">nx</span><span class="p">,</span> <span class="nx">ny</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">nx</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="nx">nx</span> <span class="o">&lt;=</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="nx">ny</span> <span class="o">&gt;=-</span><span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="nx">ny</span> <span class="o">&lt;=</span><span class="mi">5</span><span class="p">;</span>
+  <span class="c1">// 좌표는 -5, 5 사이의 값을 가질 수 있습니다. 이 범위를 벗어날 경우, 유효하지 않은 이동으로 간주됩니다.</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nf">updateLocation</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">dir</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">switch </span><span class="p">((</span><span class="nx">dir</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="dl">"</span><span class="s2">U</span><span class="dl">"</span><span class="p">:</span>
+      <span class="k">return</span> <span class="p">[</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="k">case</span> <span class="dl">"</span><span class="s2">D</span><span class="dl">"</span><span class="p">:</span>
+      <span class="k">return</span> <span class="p">[</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="k">case</span> <span class="dl">"</span><span class="s2">R</span><span class="dl">"</span><span class="p">:</span>
+      <span class="k">return</span> <span class="p">[</span><span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">y</span><span class="p">];</span>
+    <span class="k">case</span> <span class="dl">"</span><span class="s2">L</span><span class="dl">"</span><span class="p">:</span>
+      <span class="k">return</span> <span class="p">[</span><span class="nx">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">y</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="c1">// 이 함수는 현재위치(x, y)와 주어진 방향(dir)에 따라 새로운 좌표를 계산하여 반환합니다.</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">dirs</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="c1">// (x, y)는 시작 위치 (0, 0)입니다.</span>
+  <span class="kd">const</span> <span class="nx">visited</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Set</span><span class="p">();</span>
+  <span class="c1">// 이미 방문한 경롤르 저장할 Set 객체를 생성 </span>
+  <span class="c1">// Set: 중복된 경로를 저장하지 않기 위해 사용됩니다. Set은 동일한 값을 여러번 저장하지 않으므로, 방문한 경로를 고유하게 관리할 수 있습니다.</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">dir</span> <span class="k">of</span> <span class="nx">dirs</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 주어진 dirs 문자열의 각 문자(방향)를 하나씩 순회합니다.</span>
+  <span class="c1">// dir: 현재 반복 중인 방향을 나타냅니다. 방향은 "U", "D", "R", "L"중 하나일 수 있습니다. </span>
+    <span class="kd">const</span> <span class="p">[</span><span class="nx">nx</span><span class="p">,</span> <span class="nx">ny</span><span class="p">]</span> <span class="o">=</span> <span class="nf">updateLocation</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">dir</span><span class="p">);</span>
+  <span class="c1">// updateLocation 함수를 호출하여, 현재 위치(x, y)에서 dir 방향으로 이동한 후의 새로운 위치(nx, ny)를 계산합니다. </span>
+  <span class="c1">// nx, ny: 새로운 위치의 좌표입니다. updateLocation 함수는 입력된 방향에 따라 새로운 좌표를 반환합니다. </span>
+  <span class="nf">if</span><span class="p">(</span><span class="nf">isValidMove</span><span class="p">(</span><span class="nx">nx</span><span class="p">,</span> <span class="nx">ny</span><span class="p">))</span> <span class="p">{</span>
+  <span class="c1">// isValidMove(nx, ny) 이 함수는 주어진 좌표(nx, ny)가 -5에서 5 사이의 범위 내에 있는지 확인합니다.</span>
+      <span class="k">continue</span><span class="p">;</span>
+  <span class="c1">// 범위를 벗어나면 continue 문을 실행하여, 현재 반복을 건너뛰고 다음 방향으로 넘어갑니다. 이 경우, 위치가 업데이트되지 않고 다음 방향으로 진행합니다.</span>
+    <span class="p">}</span>
+    <span class="nx">visited</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">x</span><span class="p">}${</span><span class="nx">y</span><span class="p">}${</span><span class="nx">nx</span><span class="p">}${</span><span class="nx">ny</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="nx">visited</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">nx</span><span class="p">}${</span><span class="nx">ny</span><span class="p">}${</span><span class="nx">x</span><span class="p">}${</span><span class="nx">y</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="c1">// visited.add(): 경로를 문자열로 결합하여 Set에 저장합니다. 이때, 두 가지 방향을 모두 저장하영 경로의 양방향을 고려합니다. </span>
+  <span class="c1">// ex) (0. 0)에서 (0, 1)로 이동했다면, visited에는 "0001"과 "0100"이 모두 저장됩니다. 이를 통해 경로의 양방향을 모두 고려합니다. </span>
+    <span class="p">[</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">nx</span><span class="p">,</span> <span class="nx">ny</span><span class="p">];</span>
+  <span class="c1">// [x, y] = [nx, ny], 배열구조분해 할당을 사용하여, 새로운 좌표로 현재 위치를 업데이트합니다. </span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">visited</span><span class="p">.</span><span class="nx">size</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+  <span class="c1">// visited.size / 2: visited Set의 크기를 2로 나누는 이유는, 각 경로를 양방향으로 저장했기 때문입니다. 실제 고유 경로의 수는 Set의 크기를 반으로 나눈 값이 됩니다. </span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>🧐 <a href="#">시간복잡도</a>는 어떨까?</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nx">Done</span><span class="p">]</span> <span class="nx">exited</span> <span class="kd">with</span> <span class="nx">code</span><span class="o">=</span><span class="mi">0</span> <span class="k">in</span> <span class="mf">0.063</span> <span class="nx">seconds</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+</div>
+
+        
+        <div class="categories">
+        
+
+
+  
     
 
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-16-algorithm-5.MultiplicationOfMatrices/">5. Multiplication of Matrices</a>
-      </h3>
+
+
+
+<div class="category-link">
+<a href="/category/development">
+  Development
+</a>
+
+</div>
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/algorithm">
+  Algorithm
+</a>
+
+</div>
+  
+
+        
+        </div>
+
+        
+
+      </div>
     </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>행렬의 곱셈을 통해 행렬의 구조를 이해</p>
-      </div>
-    
-
-    
-
-    
-
   </div>
 </div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
 
 
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-15-5.controlflowexpression/"><img alt="5. Type Conversion & Shortening Evaluation" src="/assets/images/gen/blog/javascript.webp"/></a>
+  <div class="section section-base-bg-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"></div>
+        <div class="subscribe">
+  <div class="row">
+    <div class="col-12 col-md-4 mb-2 mb-md-0">
+      <h2 class="">Let's keep in touch</h2>
     </div>
-  
 
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">15 September 2024</span>
+    <div class="co-12 col-md-8">
+      <div id="mc_embed_signup">
+        <form action="https://zerostatic.us21.list-manage.com/subscribe/post?u=798e19886b83aaab346734382&amp;id=f1c526a772&amp;f_id=0027e3e6f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="subscribe-form" target="_blank" novalidate>
+          <div class="subscribe-fields">
+            <input class="required email" id="mce-EMAIL" name="EMAIL" placeholder="Your email address" type="email" value="" />
+            <div aria-hidden="true" style="position: absolute; left: -5000px"><input name="b_675276692aebec1c007f8156d_3e3da720c2" tabindex="-1" type="text" value="" /></div>
+            <input type="submit" value="Submit" />
           </div>
-        
-
+          <div class="subscribe-responses" id="mce-responses">
+            <div class="response response-error" id="mce-error-response" style="display: none"></div>
+            <div class="response response-success" id="mce-success-response" style="display: none"></div>
+          </div>
+        </form>
       </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-15-5.controlflowexpression/">5. Type Conversion & Shortening Evaluation</a>
-      </h3>
     </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>타입 변환과 단축평가, 자바스크립트의 타입변환과 단축평가에 대해서 알아보자</p>
-      </div>
-    
-
-    
-
-    
-
   </div>
 </div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-05-algorithm-4.trialExam/"><img alt="4. trialExamination" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">05 September 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-05-algorithm-4.trialExam/">4. trialExamination</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>패턴과 일치 불일치 확인</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-02-algorithm-3.PickTwoAddMore/"><img alt="3. PickTwoAddMore" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">02 September 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-02-algorithm-3.PickTwoAddMore/">3. PickTwoAddMore</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>숫자배열에서 서로 다른 두 수를 더해서 오름차순 정렬하기</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-01-algorithm-2.controlArray/"><img alt="2. ControlArray" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">01 September 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-01-algorithm-2.controlArray/">2. ControlArray</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>배열 중복값을 제거하고 내림차순 정렬해보자</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-01-4.operation/"><img alt="4. Operator" src="/assets/images/gen/blog/javascript.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">01 September 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-01-4.operation/">4. Operator</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>연산자, 다양한 연산자에 대해 살펴보자</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-                </div>
-              
-          </div>
         </div>
       </div>
-      
-      <div class="row justify-content-center mt-4">
-        <div class="col-auto">
-          <!-- Pagination links -->
-
-<div class="pagination">
-  <ul>
-    
-      <li><a href="/blog/"><i class="fa fa-chevron-left"></i></a></li>
-    
-
-    
-      
-        <li><a href="/blog">1</a></li>
-      
-    
-      
-        <li class="active"><span>2</span></li>
-      
-    
-      
-        <li><a href="/blog/page/3">3</a></li>
-      
-    
-  
-  
-    <li><a href="/blog/page/3"><i class="fa fa-chevron-right"></i></a></li>
-  
-  </ul>
-</div>
-
-        </div>
-      </div>
-      
+    </div>
   </div>
-</div>
+
 
 </div>
 
