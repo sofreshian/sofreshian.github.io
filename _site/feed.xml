@@ -5,8 +5,8 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 07 Oct 2024 22:06:34 +0900</pubDate>
-    <lastBuildDate>Mon, 07 Oct 2024 22:06:34 +0900</lastBuildDate>
+    <pubDate>Mon, 07 Oct 2024 22:12:50 +0900</pubDate>
+    <lastBuildDate>Mon, 07 Oct 2024 22:12:50 +0900</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
@@ -201,13 +201,13 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;문자열 문제를 처음 보는 많은 사람들이 이중 반복문으로 문제를 해결하려는 경우가 많으나 문자열의 길이를 봐야 한다. 문자열의 길이가 최대 100만이므로 이중 반복문, 즉, 시간복잡도가 O(N&lt;sup&gt;2&lt;/sup&gt;&amp;gt;)인 알고리즘으로 접근하면 무조건 시간 초과가 발생한다. &lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;문자열 문제를 처음 보는 많은 사람들이 이중 반복문으로 문제를 해결하려는 경우가 많으나 문자열의 길이를 봐야 한다.&lt;br /&gt; 문자열의 길이가 최대 100만이므로 이중 반복문, 즉, 시간복잡도가 O(N&lt;sup&gt;2&lt;/sup&gt;&amp;gt;)인 알고리즘으로 접근하면 무조건 시간 초과가 발생한다. &lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;시간복잡도가 &lt;a href=&quot;#&quot;&gt;O(N)&lt;/a&gt;인 알고리즘을 적용해야 한다!&lt;br /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;문자열의 각 문자를 차례로 확인하면서, 중복된 문자가 있으면 스택에서 제거하고, 중복되지 않은 문자는 스택에 추가합니다.&lt;/li&gt;
-  &lt;li&gt;모든 문자를 처리한 후, 스택이 비어 있으면 문자열이 모두 제거되었다는 의미이므로 1을 반환합니다. 그렇지 않으면 남은 문자가 있으므로 0을 반환합니다.&lt;/li&gt;
+  &lt;li&gt;문자열의 각 문자를 차례로 확인하면서, 중복된 문자가 있으면 스택에서 제거하고, 중복되지 않은 문자는 스택에 추가한다.&lt;/li&gt;
+  &lt;li&gt;모든 문자를 처리한 후, 스택이 비어 있으면 문자열이 모두 제거되었다는 의미이므로 1을 반환합니다. 그렇지 않으면 남은 문자가 있으므로 0을 반환한다.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
@@ -239,20 +239,10 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;removeAdjacent 함수를 사용해 인접한 중복된 문자를 제거한 새로운 문자열을 얻습니다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;중복 문자가 모두 제거되어 문자열이 빈 경우 1을 반환합니다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;중복 문자가 더 이상 없으면 0을 반환합니다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;중복이 제거되었지만 문자열이 남아 있다면, 그 남은 문자열로 다시 같은 작업을 재귀적으로 반복합니다.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;recursiveSolution(result);&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;removeAdjacent 함수를 사용해 인접한 중복된 문자를 제거한 새로운 문자열을 얻는다.&lt;/li&gt;
+  &lt;li&gt;중복 문자가 모두 제거되어 문자열이 빈 경우 1을 반환한다.&lt;/li&gt;
+  &lt;li&gt;중복 문자가 더 이상 없으면 0을 반환한다.&lt;/li&gt;
+  &lt;li&gt;중복이 제거되었지만 문자열이 남아 있다면, 그 남은 문자열로 다시 같은 작업을 재귀적으로 반복한다. &lt;strong&gt;recursiveSolution(result);&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
@@ -312,9 +302,9 @@
 &lt;ul&gt;
   &lt;li&gt;문자열을 배열로 변환한다.&lt;/li&gt;
   &lt;li&gt;reduce 함수를 사용하여 각 문자를 하나씩 스택에 넣거나, 중복되면 스택에서 제거한다.&lt;/li&gt;
-  &lt;li&gt;스택의 마지막 문자와 현재 문자가 같으면 중복된 것이므로, 스택에서 제거(pop)합니다.&lt;/li&gt;
-  &lt;li&gt;그렇지 않으면 스택에 푸시합니다.&lt;/li&gt;
-  &lt;li&gt;모든 문자를 처리한 후, 스택에 문자가 남아 있는지 확인하여 문자열이 모두 제거되었는지 여부를 반환합니다.&lt;/li&gt;
+  &lt;li&gt;스택의 마지막 문자와 현재 문자가 같으면 중복된 것이므로, 스택에서 제거(pop)한다.&lt;/li&gt;
+  &lt;li&gt;그렇지 않으면 스택에 푸시한다.&lt;/li&gt;
+  &lt;li&gt;모든 문자를 처리한 후, 스택에 문자가 남아 있는지 확인하여 문자열이 모두 제거되었는지 여부를 반환한다.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
