@@ -5,18 +5,22 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <title>Blog - Jekyll Curate</title>
+    <title>10. Rotate Parenthesis - Jekyll Curate</title>
 
+
+  <meta name="description" content="스택을 활용하여 괄호의 짝을 맞추는 방법"/>
 
 
 
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="http://localhost:4000/blog/page/2/"/>
+<meta property="og:url" content="http://localhost:4000/blog/2024-10-08-algorithm-11.RemovePairs/"/>
 
 
-  <meta property="og:title" content="Blog"/>
+  <meta property="og:title" content="10. Rotate Parenthesis"/>
 
 
+
+  <meta property="og:description" content="스택을 활용하여 괄호의 짝을 맞추는 방법"/>
 
 
 
@@ -174,7 +178,7 @@
     
 
   </head>
-<body class="page page-blog has-static-header">
+<body class="page page-post has-static-header">
 
 
 <div class="menu-main-mobile " id="menu-main-mobile">
@@ -437,7 +441,7 @@
   <div class="section">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-12 col-md-12">
+      <div class="col-12">
         
 
 
@@ -453,10 +457,14 @@
   
   
   <div class="heading-heading">
-    <h1>Blog</h1>
+    <h1>10. Rotate Parenthesis</h1>
   </div>
   
   
+  
+    <div class="heading-description">
+      <p>스택을 활용하여 괄호의 짝을 맞추는 방법</p>
+    </div>
   
 
   
@@ -468,430 +476,251 @@
 
 <div class="section pt-0">
   <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-12">
-          <div class="row">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        
+        
+          <div class="mb-2">
+          
             
-            
-            
-              
-                <div class="col-12">
-                  
-  
-    <div class="col-12">
-      <div class="pagination-count">
-        <h3>Page 2</h3>
-      </div>
-    </div>
+
+
+
+
+<div class="author">
   
 
-                </div>
-              
-
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
   
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-20-algorithm-7.CharacterMovementPath/"><img alt="7. Character Movement Path" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">25 September 2024</span>
+</div>
+          
           </div>
         
+        
+        <div class="content"><figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/algorithm/algorithm_11.webp" alt="algorithm test" />
+  </a>
+  <figcaption>
+    <h4>11. Remove Pairs</h4>
+    <p>Sunhyup Lee. (2024). To be a successful candidate for the coding test. goldenrabbit. p.161.</p>
+  </figcaption>
+</figure>
 
-      </div>
+<h2 id="problem-solving">Problem solving</h2>
+
+<h3 id="1-스택을-이용한-접근법">1. 스택을 이용한 접근법</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">stack</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">c</span> <span class="k">of</span> <span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ① 스택이 비어있지 않고 현재 문자와 스택의 맨 위(뒤) 문자가 같으면</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">stack</span><span class="p">[</span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">===</span> <span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ② 스택의 모든 문자 제거</span>
+      <span class="nx">stack</span><span class="p">.</span><span class="nf">pop</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// ③ 스택의 현재문자 추가</span>
+      <span class="nx">stack</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">c</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+    <span class="c1">// ④ 스택이 비어 있으면 1, 그렇지 않으면 0 반환</span>
+  <span class="k">return</span> <span class="nx">stack</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>문자열 문제를 처음 보는 많은 사람들이 이중 반복문으로 문제를 해결하려는 경우가 많으나 문자열의 길이를 봐야 한다. 문자열의 길이가 최대 100만이므로 이중 반복문, 즉, 시간복잡도가 O(N<sup>2</sup>&gt;)인 알고리즘으로 접근하면 무조건 시간 초과가 발생한다. <br /></p>
+
+<p>시간복잡도가 <a href="#">O(N)</a>인 알고리즘을 적용해야 한다!<br /></p>
+
+<ul>
+  <li>문자열의 각 문자를 차례로 확인하면서, 중복된 문자가 있으면 스택에서 제거하고, 중복되지 않은 문자는 스택에 추가합니다.</li>
+  <li>모든 문자를 처리한 후, 스택이 비어 있으면 문자열이 모두 제거되었다는 의미이므로 1을 반환합니다. 그렇지 않으면 남은 문자가 있으므로 0을 반환합니다.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h3 id="2-재귀적-접근법">2. 재귀적 접근법</h3>
+
+<p>재귀를 사용해서 인접한 중복된 문자를 반복적으로 제거하는 방법도 있다. 이 방식은 문자열을 재귀적으로 처리하며, 중복된 문자들이 제거되면 다시 남은 문자열얼 처리한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">recursiveSolution</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nf">removeAdjacent</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">newStr</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nf">while </span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">if </span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span> <span class="o">&amp;&amp;</span> <span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="nx">str</span><span class="p">[</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">i</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>  <span class="c1">// 중복된 문자들을 건너뜀</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">newStr</span> <span class="o">+=</span> <span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">newStr</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nf">removeAdjacent</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+  
+  <span class="c1">// 더 이상 제거할 것이 없으면 종료</span>
+  <span class="k">return</span> <span class="nx">result</span> <span class="o">===</span> <span class="dl">''</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="nx">result</span> <span class="o">===</span> <span class="nx">s</span> <span class="p">?</span> <span class="mi">0</span> <span class="p">:</span> <span class="nf">recursiveSolution</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>removeAdjacent 함수를 사용해 인접한 중복된 문자를 제거한 새로운 문자열을 얻습니다.</p>
+  </li>
+  <li>
+    <p>중복 문자가 모두 제거되어 문자열이 빈 경우 1을 반환합니다.</p>
+  </li>
+  <li>
+    <p>중복 문자가 더 이상 없으면 0을 반환합니다.</p>
+  </li>
+  <li>
+    <p>중복이 제거되었지만 문자열이 남아 있다면, 그 남은 문자열로 다시 같은 작업을 재귀적으로 반복합니다.</p>
+
+    <p><strong>recursiveSolution(result);</strong></p>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h3 id="3-투-포인터-방법">3. 투 포인터 방법</h3>
+
+<p>투 포인터 알고리즘을 사용하여 배열을 직접 수정하면서 중복된 문자를 제거하는 방법도 가능하다. 이방식은 스택 대신 포인터를 이용하여 효율적으로 문자열을 처리한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">twoPointerSolution</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>  <span class="c1">// 현재 배열의 마지막 인덱스를 추적하는 포인터</span>
+
+  <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">===</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="p">{</span>
+      <span class="c1">// 만약 포인터가 가리키는 문자와 현재 문자가 같으면, 포인터를 감소시켜 중복을 제거</span>
+      <span class="nx">j</span><span class="o">--</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// 다르면 포인터를 증가시키고 그 자리에 현재 문자를 저장</span>
+      <span class="nx">j</span><span class="o">++</span><span class="p">;</span>
+      <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 포인터가 -1일 때는 문자열이 모두 제거된 상태</span>
+  <span class="k">return</span> <span class="nx">j</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>j 포인터는 중복되지 않은 문자의 위치를 추적하고, i 는 배열의 모든 문자를 탐색한다.</li>
+  <li>중복된 문자를 만나면 j 를 줄여서 배열에서 해당 문자들을 제거하는 방식으로 동작한다.</li>
+  <li>결과적으로 남은 문자가 없으면 1, 남은 문자가 있으면 0을 반환한다.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h3 id="4-reduce를-이용한-함수형-프로그래밍-스타일">4. Reduce를 이용한 함수형 프로그래밍 스타일</h3>
+
+<p>Array.prototype.reduce() 를 사용한 함수형 프로그래밍 접근법도 가능하다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">functionalSolution</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">stack</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="dl">''</span><span class="p">).</span><span class="nf">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">acc</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">acc</span><span class="p">[</span><span class="nx">acc</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">===</span> <span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">acc</span><span class="p">.</span><span class="nf">pop</span><span class="p">();</span>  <span class="c1">// 현재 문자가 스택의 마지막 문자와 같으면 제거</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">acc</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">c</span><span class="p">);</span>  <span class="c1">// 다르면 스택에 추가</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">acc</span><span class="p">;</span>
+  <span class="p">},</span> <span class="p">[]);</span>
+
+  <span class="k">return</span> <span class="nx">stack</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>문자열을 배열로 변환한다.</li>
+  <li>reduce 함수를 사용하여 각 문자를 하나씩 스택에 넣거나, 중복되면 스택에서 제거한다.</li>
+  <li>스택의 마지막 문자와 현재 문자가 같으면 중복된 것이므로, 스택에서 제거(pop)합니다.</li>
+  <li>그렇지 않으면 스택에 푸시합니다.</li>
+  <li>모든 문자를 처리한 후, 스택에 문자가 남아 있는지 확인하여 문자열이 모두 제거되었는지 여부를 반환합니다.</li>
+</ul>
+
+<p><br /><br /><br /></p>
+</div>
+
+        
+        <div class="categories">
+        
+
+
+  
     
 
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-20-algorithm-7.CharacterMovementPath/">7. Character Movement Path</a>
-      </h3>
+
+
+
+<div class="category-link">
+<a href="/category/development">
+  Development
+</a>
+
+</div>
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/algorithm">
+  Algorithm
+</a>
+
+</div>
+  
+
+        
+        </div>
+
+        
+
+      </div>
     </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>방문한 고유한 경로의 수를 계산</p>
-      </div>
-    
-
-    
-
-    
-
   </div>
 </div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
 
 
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-10-01-8.function/"><img alt="8. Function" src="/assets/images/gen/blog/javascript.webp"/></a>
+  <div class="section section-base-bg-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"></div>
+        <div class="subscribe">
+  <div class="row">
+    <div class="col-12 col-md-4 mb-2 mb-md-0">
+      <h2 class="">Let's keep in touch</h2>
     </div>
-  
 
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">24 September 2024</span>
+    <div class="co-12 col-md-8">
+      <div id="mc_embed_signup">
+        <form action="https://zerostatic.us21.list-manage.com/subscribe/post?u=798e19886b83aaab346734382&amp;id=f1c526a772&amp;f_id=0027e3e6f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="subscribe-form" target="_blank" novalidate>
+          <div class="subscribe-fields">
+            <input class="required email" id="mce-EMAIL" name="EMAIL" placeholder="Your email address" type="email" value="" />
+            <div aria-hidden="true" style="position: absolute; left: -5000px"><input name="b_675276692aebec1c007f8156d_3e3da720c2" tabindex="-1" type="text" value="" /></div>
+            <input type="submit" value="Submit" />
           </div>
-        
-
+          <div class="subscribe-responses" id="mce-responses">
+            <div class="response response-error" id="mce-error-response" style="display: none"></div>
+            <div class="response response-success" id="mce-success-response" style="display: none"></div>
+          </div>
+        </form>
       </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-10-01-8.function/">8. Function</a>
-      </h3>
     </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>원시값과 객체 비교, 원시 타입과 객체 타입은 구체적으로 어떻게 다를까?</p>
-      </div>
-    
-
-    
-
-    
-
   </div>
 </div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-17-7.comparing%20primitive%20values%20%E2%80%8B%E2%80%8Band%20objects%20/"><img alt="7. Comparing primitive values ​​and objects" src="/assets/images/gen/blog/javascript.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">22 September 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-17-7.comparing%20primitive%20values%20%E2%80%8B%E2%80%8Band%20objects%20/">7. Comparing primitive values ​​and objects</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>원시값과 객체 비교, 원시 타입과 객체 타입은 구체적으로 어떻게 다를까?</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-20-algorithm-6.FailureRate/"><img alt="6. Failure rate" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">20 September 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-20-algorithm-6.FailureRate/">6. Failure rate</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>도달한 사용자 수와 실패율을 정확하게 계산하고, 이를 효율적으로 정렬하여 올바른 순서로 스테이지를 반환</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-17-6.object/"><img alt="6. Object" src="/assets/images/gen/blog/javascript.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">17 September 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-17-6.object/">6. Object</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>객체 리터럴, 객체란 무엇인지 찬찬히 음미해보고자 한다.</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-09-16-algorithm-5.MultiplicationOfMatrices/"><img alt="5. Multiplication of Matrices" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">16 September 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-09-16-algorithm-5.MultiplicationOfMatrices/">5. Multiplication of Matrices</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>행렬의 곱셈을 통해 행렬의 구조를 이해</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-                </div>
-              
-          </div>
         </div>
       </div>
-      
-      <div class="row justify-content-center mt-4">
-        <div class="col-auto">
-          <!-- Pagination links -->
-
-<div class="pagination">
-  <ul>
-    
-      <li><a href="/blog/"><i class="fa fa-chevron-left"></i></a></li>
-    
-
-    
-      
-        <li><a href="/blog">1</a></li>
-      
-    
-      
-        <li class="active"><span>2</span></li>
-      
-    
-      
-        <li><a href="/blog/page/3">3</a></li>
-      
-    
-      
-        <li><a href="/blog/page/4">4</a></li>
-      
-    
-  
-  
-    <li><a href="/blog/page/3"><i class="fa fa-chevron-right"></i></a></li>
-  
-  </ul>
-</div>
-
-        </div>
-      </div>
-      
+    </div>
   </div>
-</div>
+
 
 </div>
 
