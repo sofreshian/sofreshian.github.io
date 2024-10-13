@@ -5,22 +5,22 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <title>Jay Tak's Blog</title>
+    <title>10. Problems with global variables - Jekyll Curate</title>
 
 
-  <meta name="description" content="Jay Tak's Blog"/>
+  <meta name="description" content="전역변수의 문제점과 대응 방안 탐구"/>
 
 
 
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="http://localhost:4000/"/>
+<meta property="og:url" content="http://localhost:4000/blog/2024-10-13-10.ProblemsWithGlobalVariables/"/>
 
 
-  <meta property="og:title" content="Jay Tak's Blog"/>
+  <meta property="og:title" content="10. Problems with global variables"/>
 
 
 
-  <meta property="og:description" content="Jay Tak's Blog"/>
+  <meta property="og:description" content="전역변수의 문제점과 대응 방안 탐구"/>
 
 
 
@@ -178,7 +178,7 @@
     
 
   </head>
-<body class="page page-home has-static-header">
+<body class="page page-post has-static-header">
 
 
 <div class="menu-main-mobile " id="menu-main-mobile">
@@ -193,7 +193,7 @@
     
       <ul class="menu">
         
-          <li class="menu-item-home active ">
+          <li class="menu-item-home">
             <a href="/">Home</a>
           </li>
         
@@ -312,7 +312,7 @@
     
       
         
-        <li class="active ">
+        <li class=" ">
           <a href="/" >Home</a>
         </li>
       
@@ -440,7 +440,7 @@
 <div id="wrapper" class="wrapper">     
   <div class="section">
   <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-12">
         
 
@@ -457,13 +457,13 @@
   
   
   <div class="heading-heading">
-    <h1>This is a portfolio of <br> <strong>Jay Tak.</strong></h1>
+    <h1>10. Problems with global variables</h1>
   </div>
   
   
   
     <div class="heading-description">
-      <p>I believe that the best content is due to the context. After understanding the given contents, I transform them into a relevant form of the right context.</p>
+      <p>전역변수의 문제점과 대응 방안 탐구</p>
     </div>
   
 
@@ -473,376 +473,309 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 <div class="section pt-0">
   <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        
+        
+          <div class="mb-2">
+          
+            
 
-      
 
 
 
+<div class="author">
+  
+
+  
+</div>
+          
+          </div>
+        
+        
+        <div class="content"><h2 id="1-전역-변수의-문제점">1) 전역 변수의 문제점</h2>
+
+<h3 id="1-암묵적-결합implicit-binding">1. 암묵적 결합(implicit binding)</h3>
+
+<p>전역 변수를 선언한 의도는 전역, 즉 코드 어디서든 참조하고 할당할 수 있는 변수를 사용하겠다는 것이다. 이는 모든 코드가 전역변수를 참조하고 변경할 수 있는 암묵적 결합(implicit binding)을 허용하는 것이다. <br /></p>
+
+<p><span style="color:#e74c3c">🤓 WatchOut! (Potential Problems) </span><br /></p>
+
+<p>그러나, <span style="color:#e74c3c">변수의 유효범위가 크면 클수록 코드의 가독성은 나빠지고 <strong>의도하지 않게 상태가 변경될 수 있는 위험성도 높아진다</strong>.</span></p>
+
+<p><br /><br /></p>
+
+<h3 id="2-긴-생명주기long-life-cycle-of-variables">2. 긴 생명주기(Long life cycle of variables)</h3>
+
+<p>전역 변수는 생명 주기가 길다. 따라서 메모리 리소스도 오랜 시간 소비한다. <br /></p>
+
+<p><span style="color:#e74c3c">🤓 WatchOut! (Potential Problems) </span><br /></p>
+
+<p>그러나, <span style="color:#e74c3c">변수의 생명주기가 길수록 변수 이름이 중복될 가능성이 있다. 변수 이름이 중복되면 <strong>의도치 않은 재할당이 이뤄진다.</strong></span></p>
+
+<p><br /><br /></p>
+
+<h3 id="3-스코프-체인상에서-종점에-존재">3. 스코프 체인상에서 종점에 존재</h3>
+
+<p>전역 변수는 스코프 체인 상에서 종점에 존재한다. 이는 변수를 검색할 때 전역 변수가 가장 마지막에 검색된다는 것을 말한다. <br /></p>
+
+<p><span style="color:#e74c3c">🤓 WatchOut! (Potential Problems) </span><br /></p>
+
+<p>그러나, <span style="color:#e74c3c"> 전역변수의 <strong>검색속도가 가장 느리다.</strong> </span></p>
+
+<p><br /><br /></p>
+
+<h3 id="4-네임스페이스-오염">4. 네임스페이스 오염</h3>
+
+<p>파일이 분리되어 있다 해도 하나의 전역 스코프를 공유한다는 것이다.</p>
+
+<p><span style="color:#e74c3c">🤓 WatchOut! (Potential Problems) </span><br /></p>
+
+<p>그러나, <span style="color:#e74c3c"> <strong>다른 파일 내에서 동일한 이름으로 명명된 전역변수나 전역함수가 같은 스코프 내에 존재할 경우 예상치 못한 결과를 가져올 수 있다.</strong> </span></p>
+
+<p><br /><br /><br /></p>
+
+<h2 id="2-전역변수-사용을-억제하는-방법">2) 전역변수 사용을 억제하는 방법</h2>
+
+<h3 id="1-즉시-실행-함수">1. 즉시 실행 함수</h3>
+
+<p>함수 정의와 동시에 호출되는 즉시 실행 함수는 단 한 번만 호출된다.<br /></p>
+
+<p><span style="color:#3498db"><strong>모든 코드는 즉시 실행 함수로 감싸면 모든 변수는 즉시 실행 함수의 지역변수가 된다.</strong></span></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// 즉시 실행 함수의 지역 변수</span>
+  <span class="p">...</span>
+<span class="p">}());</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span> <span class="c1">// ReferenceError: foo is not defined</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="2-네임스페이스-객체">2. 네임스페이스 객체</h3>
+
+<p>전역에 네임스페이스 역할을 담당할 객체를 생성하고 전역 변수처럼 사용하고 싶은 변수를 프로퍼티로 추가하는 방법 <br /></p>
+
+<p><span style="color:#3498db">네임스페이스 객체 생성 시 <strong>전역변수 오염방지</strong>, <strong>코드 구조화</strong>, <strong>이름 충돌방지</strong>, <strong>유지보수성 향상</strong> 이라는 장점이 있다.</span></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">.</span> <span class="nx">네임스페이스</span> <span class="nx">역할</span> <span class="nx">담당할</span> <span class="nx">객체</span> <span class="nx">생성</span>
+
+<span class="kd">var</span> <span class="nx">MYAPP</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">// 전역 네임스페이스 객체</span>
+
+<span class="nx">MYAPP</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Lee</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">MYAPP</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// Lee</span>
 
 
-<div class="col-12">
-  <div class="grid-header grid-header-align-left">
-    
-    
-  </div>
+
+<span class="mi">2</span><span class="p">.</span> <span class="nx">네임스패이스</span> <span class="nx">객체에</span> <span class="nx">또</span> <span class="nx">다른</span> <span class="nx">네임스페이스</span> <span class="nx">객체를</span> <span class="nx">프로퍼티로</span> <span class="nx">추가</span>
+
+<span class="kd">var</span> <span class="nx">MYAPP</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">// 전역 네임스페이스 객체</span>
+
+<span class="nx">MYAPP</span><span class="p">.</span><span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Lee</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">address</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Seoul</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">MYAPP</span><span class="p">.</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// Lee</span>
+
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="3-모듈패턴">3. 모듈패턴</h3>
+
+<p>모듈패턴은 클래스를 모방해서 관련이 있는 변수와 함수를 모아 즉시 실행함수로 감싸 하나의 모듈을 만든다. 모듈 패턴의 특징은 전역 변수의 억제는 물론 캡슐화까지 구현할 수 있다. <br /></p>
+
+<blockquote>
+  <p>캡슐화(encapsulation)는 객체의 상태를 나타내는 프로퍼티와 프로퍼티를 참조하고 조작할 수 있는 동작(behavior)인 메서드를 하나로 묶는 것을 말한다. 캡슐화는 객체의 특정 프로퍼티나 메서드를 감출 목적으로 사용하기도 하는데 이를 정보 은닉(information hiding)이라 한다.</p>
+</blockquote>
+
+<p><span style="color:#3498db">모듈패턴은 전역 네임스페이스의 오염을 막는 기능은 물론 한정적이기는 하지만 정보 은닉을 구현하기 위해 사용한다. </span></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Counter</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nf">increase</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="o">++</span><span class="nx">number</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nf">decrease</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="o">--</span><span class="nx">number</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>  
+<span class="p">}());</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">Counter</span><span class="p">.</span><span class="nx">num</span><span class="p">);</span> <span class="c1">// undefined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">Counter</span><span class="p">.</span><span class="nf">increase</span><span class="p">());</span> <span class="c1">// 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">Counter</span><span class="p">.</span><span class="nf">increase</span><span class="p">());</span> <span class="c1">// 2</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">Counter</span><span class="p">.</span><span class="nf">decrease</span><span class="p">());</span> <span class="c1">// 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">Counter</span><span class="p">.</span><span class="nf">decrease</span><span class="p">());</span> <span class="c1">// 0</span>
+
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="4-es6-모듈">4. ES6 모듈</h3>
+
+<p>ES6 모듈은 파일 자체의 독자적인 모듈 스코프를 제공한다.</p>
+
+<ul>
+  <li>
+    <p><span style="color:#3498db">모듈 스코프를 가져 전역 네임스페이스 오염을 방지</span></p>
+  </li>
+  <li>
+    <p><span style="color:#3498db"><code class="language-plaintext highlighter-rouge">import</code>/<code class="language-plaintext highlighter-rouge">export</code>를 통해 모듈 간에 코드 공유 가능</span></p>
+  </li>
+  <li>
+    <p><span style="color:#3498db">비동기 로딩 및 자동 지연 실행</span></p>
+  </li>
+  <li>
+    <p><span style="color:#3498db">자동으로 엄격 모드 적용</span></p>
+  </li>
+  <li>
+    <p><span style="color:#3498db">동일한 모듈의 중복 실행 방지</span></p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="1-모듈스코프">1. 모듈스코프</h4>
+
+<p>모듈은 기본적으로 <strong>자체적인 스코프</strong>를 가집니다. 즉, 모듈 내에서 정의된 변수, 함수, 클래스 등은 기본적으로 전역 스코프에 등록되지 않고, 모듈 내부에서만 유효합니다.</p>
+
+<p>이는 <strong>전역 네임스페이스 오염</strong>을 방지하여, 다른 모듈에서 동일한 변수나 함수 이름을 사용해도 충돌이 발생하지 않도록 합니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span> <span class="na">src=</span><span class="s">"module.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">secret</span><span class="p">);</span>  <span class="c1">// Error: secret is not defined</span>
+<span class="nt">&lt;/script&gt;</span>
+
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// module.js</span>
+<span class="kd">const</span> <span class="nx">secret</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">비밀</span><span class="dl">"</span><span class="p">;</span>  <span class="c1">// 모듈 내부에서만 접근 가능</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="2-import--export-지원">2. import / export 지원</h4>
+
+<p>모듈은 <strong>다른 모듈에서 코드를 가져오거나(<code class="language-plaintext highlighter-rouge">import</code>)</strong>, 자신의 <strong>코드를 다른 모듈에 내보낼 수 있습니다(<code class="language-plaintext highlighter-rouge">export</code>)</strong>.</p>
+
+<p>이를 통해 모듈 간에 재사용 가능한 코드 조각을 쉽게 공유할 수 있습니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span> <span class="na">src=</span><span class="s">"main.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// math.js</span>
+<span class="k">export</span> <span class="kd">function</span> <span class="nf">add</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// main.js</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">add</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./math.js</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span> <span class="c1">// 5</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="3-모듈-간의-비동기-로딩">3. 모듈 간의 비동기 로딩</h4>
+
+<p>모듈은 비동기적으로 로드됩니다. 즉, <code class="language-plaintext highlighter-rouge">&lt;script type="module"&gt;</code> 태그로 불러온 자바스크립트 파일은 <strong>비동기적으로</strong> 처리되어 페이지가 먼저 로드되는 것을 차단하지 않습니다. 이는 <code class="language-plaintext highlighter-rouge">defer</code> 속성을 가진 스크립트와 비슷한 방식으로 동작합니다.</p>
+
+<p>모듈 파일은 자동으로 <strong>지연 실행</strong>됩니다. 즉, HTML 문서가 모두 파싱된 후 실행됩니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span> <span class="na">src=</span><span class="s">"app.js"</span><span class="nt">&gt;&lt;/script&gt;</span>  <span class="c">&lt;!-- 자동으로 비동기 로드 --&gt;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="4-엄격모드strict-mode">4. 엄격모드(strict mode)</h4>
+
+<p>모든 모듈은 자동으로 <strong>엄격 모드(strict mode)</strong>로 실행됩니다. 즉, 모듈 내부에서는 <code class="language-plaintext highlighter-rouge">use strict</code>를 명시하지 않아도 자동으로 엄격 모드가 적용됩니다. 엄격 모드는 오류를 줄이고 더 안전한 코드 작성을 유도합니다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// module.js (자동으로 엄격 모드 적용)</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>  <span class="c1">// Error: x is not defined (엄격 모드에서 전역 변수 선언이 허용되지 않음)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="5-html에서-중복된-모듈-실행-방지">5. HTML에서 중복된 모듈 실행 방지</h4>
+
+<p>두 번째 <code class="language-plaintext highlighter-rouge">module.js</code>는 실행되지 않고 캐싱된 모듈을 사용합니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span> <span class="na">src=</span><span class="s">"module.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span> <span class="na">src=</span><span class="s">"module.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="6-브라우저-환경에서의-파일경로">6. 브라우저 환경에서의 파일경로</h4>
+
+<p><code class="language-plaintext highlighter-rouge">type="module"</code>을 사용하면 <code class="language-plaintext highlighter-rouge">import</code>할 때 파일 경로를 명시해야 하며, <strong>상대 경로</strong> 또는 <strong>절대 경로</strong>를 사용해야 합니다. <br /></p>
+
+<p>파일 이름에 확장자 <code class="language-plaintext highlighter-rouge">.js</code>를 반드시 명시해야 합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 올바른 사용</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">func</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./utils.js</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// 잘못된 사용 (확장자 생략 불가)</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">func</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./utils</span><span class="dl">'</span><span class="p">;</span>  <span class="c1">// Error</span>
+
+</code></pre></div></div>
+
+<p><br /><br /><br /></p>
+
+<h4 id="reference-모던자바스크립트-deep-dive-14장-전역스코프의-문제점"><span style="color:grey">reference: 모던자바스크립트 Deep Dive 14장. 전역스코프의 문제점</span></h4>
 </div>
 
-     
-      
-      <div
-        class="col-12 col-md-6 col-lg-6 mb-gutter mt-gutter mt-0  mt-md-0">
+        
+        <div class="categories">
         
 
 
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-project card-column card-has-thumbnail ">
-
   
-    <div class="card-thumbnail ">
-      <a href="/projects/project-2/"><img alt="Brutalist Office Building" src="/assets/images/gen/projects/project-1-1-thumbnail.webp"/></a>
-    </div>
-  
+    
 
-  <div class="card-content">
-    <div class="card-title">
-      <h2>
-        <a href="/projects/project-2/">Brutalist Office Building</a>
-      </h2>
-    </div>
-    
-      <div class="card-client">
-        Dubai Star
-      </div>
-    
-  </div>
+
+
+
+<div class="category-link">
+<a href="/category/development">
+  Development
+</a>
+
 </div>
-      </div>
-      
-      <div
-        class="col-12 col-md-6 col-lg-6 mb-gutter mt-gutter   mt-md-0">
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/javascript">
+  Javascript
+</a>
+
+</div>
+  
+
+        
+        </div>
+
         
 
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-project card-column card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/projects/project-1/"><img alt="Water Works Revitalisation" src="/assets/images/gen/projects/project-2-1-thumbnail.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    <div class="card-title">
-      <h2>
-        <a href="/projects/project-1/">Water Works Revitalisation</a>
-      </h2>
-    </div>
-    
-      <div class="card-client">
-        Brisbane City Council
       </div>
-    
-  </div>
-</div>
-      </div>
-      
-      <div
-        class="col-12 col-md-6 col-lg-6 mb-gutter mt-gutter   mt-md-0">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-project card-column card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/projects/project-3/"><img alt="Cubist Urban Home" src="/assets/images/gen/projects/project-3-1-thumbnail.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    <div class="card-title">
-      <h2>
-        <a href="/projects/project-3/">Cubist Urban Home</a>
-      </h2>
-    </div>
-    
-      <div class="card-client">
-        Region of Valencia
-      </div>
-    
-  </div>
-</div>
-      </div>
-      
-      <div
-        class="col-12 col-md-6 col-lg-6 mb-gutter mt-gutter  mb-0 mt-md-0">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-project card-column card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/projects/project-4"><img alt="Subway" src="/assets/images/gen/projects/project-4-6-thumbnail.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    <div class="card-title">
-      <h2>
-        <a href="/projects/project-4">Subway</a>
-      </h2>
-    </div>
-    
-      <div class="card-client">
-        RGA Agency
-      </div>
-    
-  </div>
-</div>
-      </div>
-      
-
-      
-
-
-
-
-
-
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-<div class="section section-base-bg-2">
-  <div class="container">
-    <div class="row">
-
-      
-
-
-
-
-
-<div class="col-12">
-  <div class="grid-header grid-header-align-left">
-    <h2>Recent Posts</h2>
-    
-  </div>
-</div>
-
-
-      
-      <div class="col-12 col-md-4 col-lg-4 mt-0  mb-3 mb-md-6">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-column  ">
-
-  
-
-  <div class="card-content">
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-10-13-algorithm-13.CraneClawMachineGame/">13. Crane claw machine game</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>스택의 LIFO 구조의 이해를 바탕으로 데이터의 상태 변화와 효율적인 처리 방법</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-      </div>
-      
-      <div class="col-12 col-md-4 col-lg-4   mb-3 mb-md-6">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-column  ">
-
-  
-
-  <div class="card-content">
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-10-13-10.ProblemsWithGlobalVariables/">10. Problems with global variables</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>전역변수의 문제점과 대응 방안 탐구</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-      </div>
-      
-      <div class="col-12 col-md-4 col-lg-4  mb-0 mb-3 mb-md-6">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-column  ">
-
-  
-
-  <div class="card-content">
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-10-07-algorithm-12.StockPrice/">12. Stock Prices</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>효율적인 시간복잡도를 고려한 문제해결방법(feat. 스택)</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-      </div>
-      
-
-      
-
-
-
-
-
-
-    </div>
-  </div>
-</div>
-
 
 
   <div class="section section-base-bg-2">

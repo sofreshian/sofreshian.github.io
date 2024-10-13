@@ -5,22 +5,22 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <title>12. Stock Prices - Jekyll Curate</title>
+    <title>13. Crane claw machine game - Jekyll Curate</title>
 
 
-  <meta name="description" content="효율적인 시간복잡도를 고려한 문제해결방법(feat. 스택)"/>
+  <meta name="description" content="스택의 LIFO 구조의 이해를 바탕으로 데이터의 상태 변화와 효율적인 처리 방법"/>
 
 
 
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="http://localhost:4000/blog/2024-10-07-algorithm-12.Stockrice/"/>
+<meta property="og:url" content="http://localhost:4000/blog/2024-10-13-algorithm-13.CraneClawMachineGame/"/>
 
 
-  <meta property="og:title" content="12. Stock Prices"/>
+  <meta property="og:title" content="13. Crane claw machine game"/>
 
 
 
-  <meta property="og:description" content="효율적인 시간복잡도를 고려한 문제해결방법(feat. 스택)"/>
+  <meta property="og:description" content="스택의 LIFO 구조의 이해를 바탕으로 데이터의 상태 변화와 효율적인 처리 방법"/>
 
 
 
@@ -457,13 +457,13 @@
   
   
   <div class="heading-heading">
-    <h1>12. Stock Prices</h1>
+    <h1>13. Crane claw machine game</h1>
   </div>
   
   
   
     <div class="heading-description">
-      <p>효율적인 시간복잡도를 고려한 문제해결방법(feat. 스택)</p>
+      <p>스택의 LIFO 구조의 이해를 바탕으로 데이터의 상태 변화와 효율적인 처리 방법</p>
     </div>
   
 
@@ -498,146 +498,156 @@
         
         <div class="content"><figure>
   <a href="" target="">
-    <img src="/assets/images/gen/content/algorithm/algorithm_12.webp" alt="algorithm test" />
+    <img src="/assets/images/gen/content/algorithm/algorithm_13_1.webp" alt="algorithm test" />
   </a>
   <figcaption>
-    <h4>12. Stock prices</h4>
-    <p>Sunhyup Lee. (2024). To be a successful candidate for the coding test. goldenrabbit. p.165.</p>
+    <h4>13. Crane claw machine game</h4>
+    <p>Sunhyup Lee. (2024). To be a successful candidate for the coding test. goldenrabbit. p.173.</p>
   </figcaption>
 </figure>
 
 <h2 id="problem-solving">Problem solving</h2>
 
+<figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/algorithm/algorithm_13_2.webp" alt="algorithm solving strategy" />
+  </a>
+  <figcaption>
+    <h4>Converted stack due to input value</h4>
+    <p>Jay Tak</p>
+  </figcaption>
+</figure>
+
 <h3 id="1-스택을-이용한-접근법">1. 스택을 이용한 접근법</h3>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">prices</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">prices</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>                <span class="c1">// ① 주가 배열의 길이 저장</span>
-  <span class="kd">const</span> <span class="nx">answer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Array</span><span class="p">(</span><span class="nx">n</span><span class="p">).</span><span class="nf">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>    <span class="c1">// ② 결과 배열을 0으로 초기화</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">board</span><span class="p">,</span> <span class="nx">moves</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">lanes</span> <span class="o">=</span> <span class="p">[...</span><span class="nc">Array</span><span class="p">(</span><span class="nx">board</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">length</span><span class="p">)].</span><span class="nf">map</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">[]);</span>
 
-  <span class="kd">const</span> <span class="nx">stack</span> <span class="o">=</span> <span class="p">[];</span>                       <span class="c1">// ③ 주가의 인덱스를 저장할 스택</span>
-  <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>           <span class="c1">// ④ 모든 주가를 순회하는 반복문</span>
-    <span class="nf">while </span><span class="p">(</span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">prices</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">prices</span><span class="p">[</span><span class="nx">stack</span><span class="p">[</span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]])</span> <span class="p">{</span> <span class="c1">// ⑤ 현재 주가가 이전 주가보다 작으면</span>
-      <span class="kd">const</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">stack</span><span class="p">.</span><span class="nf">pop</span><span class="p">();</span>              <span class="c1">// ⑥ 스택에서 주가 인덱스를 꺼냄</span>
-      <span class="nx">answer</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">-</span> <span class="nx">j</span><span class="p">;</span>                  <span class="c1">// ⑦ 주가가 얼마나 유지되었는지 계산</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">board</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">board</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">if </span><span class="p">(</span><span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">lanes</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nf">push</span><span class="p">(</span><span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]);</span>
+      <span class="p">}</span>
     <span class="p">}</span>
-    <span class="nx">stack</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>                        <span class="c1">// ⑧ 현재 인덱스를 스택에 저장</span>
   <span class="p">}</span>
-  <span class="nf">while </span><span class="p">(</span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>              <span class="c1">// ⑨ 남아 있는 인덱스는 끝까지 주가가 유지된 경우</span>
-    <span class="kd">const</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">stack</span><span class="p">.</span><span class="nf">pop</span><span class="p">();</span>                <span class="c1">// ⑩ 스택에서 인덱스를 꺼내어</span>
-    <span class="nx">answer</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="nx">j</span><span class="p">;</span>                <span class="c1">// ⑪ 마지막까지 유지된 시간을 계산</span>
-  <span class="p">}</span>
+  <span class="kd">const</span> <span class="nx">bucket</span> <span class="o">=</span> <span class="p">[];</span>
 
-  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>                          <span class="c1">// ⑫ 최종적으로 유지 시간을 반환</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">m</span> <span class="k">of</span> <span class="nx">moves</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">lanes</span><span class="p">[</span><span class="nx">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">doll</span> <span class="o">=</span> <span class="nx">lanes</span><span class="p">[</span><span class="nx">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nf">pop</span><span class="p">();</span>
+
+      <span class="nf">if </span><span class="p">(</span><span class="nx">bucket</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">bucket</span><span class="p">[</span><span class="nx">bucket</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">===</span> <span class="nx">doll</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">bucket</span><span class="p">.</span><span class="nf">pop</span><span class="p">();</span>
+        <span class="nx">answer</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">bucket</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">doll</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
 <span class="p">}</span>
 
 </code></pre></div></div>
 
-<p>① <code class="language-plaintext highlighter-rouge">const n = prices.length;</code></p>
+<p><br /></p>
+
+<p>🧐 Q. lanes 배열이 형성되는 과정에 대해서 살펴보면,  <br /></p>
+
+<p>① 첫 번째 열 (<code class="language-plaintext highlighter-rouge">lanes[0]</code>):</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">n</code>은 <code class="language-plaintext highlighter-rouge">prices</code> 배열의 길이입니다. 즉, 주가가 몇 초 동안 기록되었는지를 의미합니다. 이 값을 통해 전체 주가 데이터를 순회할 준비를 합니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">board[4][0] = 3</code> → <code class="language-plaintext highlighter-rouge">lanes[0].push(3)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">board[3][0] = 4</code> → <code class="language-plaintext highlighter-rouge">lanes[0].push(4)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">board[2][0] = 0</code> → 아무 것도 안함.</li>
+  <li><code class="language-plaintext highlighter-rouge">board[1][0] = 0</code> → 아무 것도 안함.</li>
+  <li><code class="language-plaintext highlighter-rouge">board[0][0] = 0</code> → 아무 것도 안함.</li>
 </ul>
 
 <p><br /></p>
 
-<p>② <code class="language-plaintext highlighter-rouge">const answer = new Array(n).fill(0);</code></p>
+<p>② 두 번째 열 (<code class="language-plaintext highlighter-rouge">lanes[1]</code>):</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">answer</code>는 결과를 저장할 배열입니다. 각 주가가 유지된 시간을 기록할 공간을 만들고, 초기값은 모두 0으로 채웁니다.</li>
-  <li>이 배열의 인덱스는 주가가 기록된 시점과 일치하며, 각 시점에서 주가가 몇 초 동안 유지되었는지를 저장할 것입니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">board[4][1] = 5</code> → <code class="language-plaintext highlighter-rouge">lanes[1].push(5)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">board[3][1] = 2</code> → <code class="language-plaintext highlighter-rouge">lanes[1].push(2)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">board[2][1] = 2</code> → <code class="language-plaintext highlighter-rouge">lanes[1].push(2)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">board[1][1] = 0</code> → 아무 것도 안함.</li>
+  <li><code class="language-plaintext highlighter-rouge">board[0][1] = 0</code> → 아무 것도 안함.</li>
 </ul>
 
 <p><br /></p>
 
-<p>③ <code class="language-plaintext highlighter-rouge">const stack = [];</code></p>
+<p>③ 세 번째 열 (<code class="language-plaintext highlighter-rouge">lanes[2]</code>):</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">stack</code>은 주가가 떨어지지 않은 시점의 인덱스를 저장하는 배열입니다. 즉, 주가가 하락하지 않은 시점(초)을 기록하는 역할을 합니다.</li>
-  <li>스택은 인덱스 값만을 저장하며, 나중에 해당 인덱스에서 주가가 얼마나 유지되었는지 계산할 때 사용됩니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">board[4][2] = 1 → lanes[2].push(1)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">board[3][2] = 4 → lanes[2].push(4)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">board[2][2] = 5 → lanes[2].push(5)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">board[1][2] = 1 → lanes[2].push(1)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">board[0][2] = 0 → 아무 것도 안함.</code></li>
 </ul>
 
 <p><br /></p>
 
-<p>④ <code class="language-plaintext highlighter-rouge">for (let i = 0; i &lt; n; i++) {</code></p>
+<p>④ 네 번째 열 (<code class="language-plaintext highlighter-rouge">lanes[3]</code>):</p>
 
 <ul>
-  <li>이 <code class="language-plaintext highlighter-rouge">for</code> 루프는 배열 <code class="language-plaintext highlighter-rouge">prices</code>를 처음부터 끝까지 한 번 순회하면서, 각 주가가 얼마나 유지되었는지를 계산합니다.</li>
-  <li><code class="language-plaintext highlighter-rouge">i</code>는 현재 시점을 나타내는 인덱스입니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">board[4][3] = 3</code> → <code class="language-plaintext highlighter-rouge">lanes[3].push(3)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">board[3][3] = 4</code> → <code class="language-plaintext highlighter-rouge">lanes[3].push(4)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">board[2][3] = 0</code> → 아무 것도 안함.</li>
+  <li><code class="language-plaintext highlighter-rouge">board[1][3] = 0</code> → 아무 것도 안함.</li>
+  <li><code class="language-plaintext highlighter-rouge">board[0][3] = 0</code> → 아무 것도 안함.</li>
 </ul>
 
 <p><br /></p>
 
-<p>⑤ <code class="language-plaintext highlighter-rouge">while (stack.length &gt; 0 &amp;&amp; prices[i] &lt; prices[stack[stack.length - 1]]) {</code></p>
+<p>⑤ 다섯 번째 열 (<code class="language-plaintext highlighter-rouge">lanes[4]</code>):</p>
 
 <ul>
-  <li>이 <code class="language-plaintext highlighter-rouge">while</code> 문은 스택에 값이 있고, <strong>현재 주가(<code class="language-plaintext highlighter-rouge">prices[i]</code>)가 스택에 있는 마지막 인덱스의 주가(<code class="language-plaintext highlighter-rouge">prices[stack[stack.length - 1]]</code>)보다 작을 때</strong> 실행됩니다.</li>
-  <li>즉, 현재 시점의 주가가 이전 시점의 주가보다 낮아졌을 때 그 이전의 주가들이 더 이상 유지되지 않았다는 것을 의미합니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">board[4][4] = 1</code> → <code class="language-plaintext highlighter-rouge">lanes[4].push(1)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">board[3][4] = 2</code> → <code class="language-plaintext highlighter-rouge">lanes[4].push(2)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">board[2][4] = 1</code> → <code class="language-plaintext highlighter-rouge">lanes[4].push(1)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">board[1][4] = 3</code> → <code class="language-plaintext highlighter-rouge">lanes[4].push(3)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">board[0][4] = 0</code> → 아무 것도 안함.</li>
 </ul>
 
 <p><br /></p>
 
-<p>⑥ <code class="language-plaintext highlighter-rouge">const j = stack.pop();</code></p>
+<p>⑥  최종 lane 배열 상태</p>
 
-<ul>
-  <li>스택에서 가장 최근에 저장된 주가의 인덱스를 꺼냅니다. 이 인덱스 <code class="language-plaintext highlighter-rouge">j</code>는 이전 주가가 떨어지지 않던 시점(초)를 의미합니다.</li>
-</ul>
-
-<p><br /></p>
-
-<p>⑦ <code class="language-plaintext highlighter-rouge">answer[j] = i - j;</code></p>
-
-<ul>
-  <li>현재 주가 <code class="language-plaintext highlighter-rouge">prices[i]</code>가 더 낮아졌으므로, 스택에서 꺼낸 인덱스 <code class="language-plaintext highlighter-rouge">j</code>에 해당하는 주가는 <strong>현재 시점 <code class="language-plaintext highlighter-rouge">i</code>에서 주가가 떨어졌음</strong>을 의미합니다.</li>
-  <li><code class="language-plaintext highlighter-rouge">i - j</code>는 <strong><code class="language-plaintext highlighter-rouge">j</code>번 주가가 몇 초 동안 유지되었는지</strong>를 계산합니다. 이 값을 <code class="language-plaintext highlighter-rouge">answer[j]</code>에 저장합니다.</li>
-</ul>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">lanes</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>       <span class="c1">// 1열</span>
+  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>    <span class="c1">// 2열</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="c1">// 3열</span>
+  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>       <span class="c1">// 4열</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1">// 5열</span>
+<span class="p">]</span>
+</code></pre></div></div>
 
 <p><br /></p>
 
-<p>⑧ <code class="language-plaintext highlighter-rouge">stack.push(i);</code></p>
+<p>🧐 Q. 왜 board의 마지막 줄을 한번에 쫙 깔지 않았을까??  <br /></p>
 
-<ul>
-  <li>현재 인덱스 <code class="language-plaintext highlighter-rouge">i</code>를 스택에 추가합니다. 이는 <strong>현재 주가가 이후 시점에서 얼마나 유지될지를 나중에 계산하기 위해</strong> 추가하는 것입니다.</li>
-</ul>
+<p>만약 <code class="language-plaintext highlighter-rouge">board</code>의 마지막 행 전체를 한 번에 <code class="language-plaintext highlighter-rouge">lanes</code> 배열에 쫙 깔면, 이는 인형뽑기 기계의 <strong>가로형 구조</strong> 를 의미하게 됩니다. 즉, 각 열이 아니라 마지막 행의 모든 인형들이 동시에 꺼내질 수 있는 구조가 됩니다. 하지만 실제 인형뽑기 기계는 <strong>세로형 구조</strong>로, 사용자가 1열, 2열 등 <strong>특정 열을 선택하여 그 열에서만 인형이 위에서부터 하나씩 차례로 나오는 방식</strong>이죠.</p>
 
-<p><br /></p>
+<p>이런 방식으로 구현한 이유는 다음과 같습니다:</p>
 
-<p>⑨ <code class="language-plaintext highlighter-rouge">while (stack.length &gt; 0) {</code></p>
-
-<ul>
-  <li>배열 <code class="language-plaintext highlighter-rouge">prices</code>의 순회를 다 마쳤을 때, 스택에 남아 있는 인덱스는 <strong>끝까지 주가가 떨어지지 않은 경우</strong>입니다.</li>
-  <li>따라서 스택에 남아 있는 주가 인덱스들을 처리해줍니다.</li>
-</ul>
-
-<p><br /></p>
-
-<p>⑩ <code class="language-plaintext highlighter-rouge">const j = stack.pop();</code></p>
-
-<ul>
-  <li>스택에서 인덱스를 하나씩 꺼냅니다. 이 인덱스 <code class="language-plaintext highlighter-rouge">j</code>는 끝까지 가격이 떨어지지 않은 주가의 시점을 의미합니다.</li>
-</ul>
-
-<p><br /></p>
-
-<p>⑪ <code class="language-plaintext highlighter-rouge">answer[j] = n - 1 - j;</code></p>
-
-<ul>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">n - 1</code>은 <strong>마지막 시점</strong>(즉, 주가 배열의 끝)을 나타냅니다.</p>
+<ol>
+  <li><strong>인형뽑기 기계의 현실적인 동작을 모방하기 위해</strong>:
+    <ul>
+      <li>각 열은 독립적인 스택처럼 쌓이고, 사용자는 특정 열에서 인형을 꺼내게 됩니다.</li>
+      <li>만약 <code class="language-plaintext highlighter-rouge">board</code>의 마지막 행의 인형을 <code class="language-plaintext highlighter-rouge">lanes</code> 배열의 한 줄에 쫙 깔면, 열 단위로 인형을 처리할 수 없게 되고, 문제의 요구 사항과 맞지 않게 됩니다.</li>
+    </ul>
   </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">n - 1 - j</code>는 <code class="language-plaintext highlighter-rouge">j</code>번 주가가 <strong>끝까지 유지된 시간</strong>을 의미합니다.</p>
-
-    <p>예를 들어, 마지막 주가가 떨어지지 않았다면 <code class="language-plaintext highlighter-rouge">answer[j]</code>에 이 값을 저장합니다.</p>
+  <li><strong>선택된 열에서만 인형을 꺼내기 위해</strong>:
+    <ul>
+      <li>각 열에 쌓인 인형들만 선택된 순서대로 꺼내야 하므로, 각 열마다 스택을 만들어 인형을 쌓고 관리하는 것이 더 적합합니다.</li>
+      <li>인형을 꺼낼 때는 다른 열에는 영향을 주지 않고, 오직 선택된 열에서만 인형이 나오게 하는 구조가 필요합니다.</li>
+    </ul>
   </li>
-</ul>
-
-<p><br /></p>
-
-<p>⑫ <code class="language-plaintext highlighter-rouge">return answer;</code></p>
-
-<ul>
-  <li>최종적으로 각 시점에서 주가가 유지된 시간을 담고 있는 <code class="language-plaintext highlighter-rouge">answer</code> 배열을 반환합니다.</li>
-</ul>
+</ol>
 
 <p><br /><br /><br /></p>
 </div>
