@@ -5,22 +5,22 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <title>Jay Tak's Blog</title>
+    <title>11. Blocklevel scope of the let, const keyword - Jekyll Curate</title>
 
 
-  <meta name="description" content="Jay Tak's Blog"/>
+  <meta name="description" content="변수 선언에 const, let을 사용해야 하는 이유"/>
 
 
 
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="http://localhost:4000/"/>
+<meta property="og:url" content="http://localhost:4000/blog/2024-10-27-11.%20KeywordAndBlockLevelScope.md/"/>
 
 
-  <meta property="og:title" content="Jay Tak's Blog"/>
+  <meta property="og:title" content="11. Blocklevel scope of the let, const keyword"/>
 
 
 
-  <meta property="og:description" content="Jay Tak's Blog"/>
+  <meta property="og:description" content="변수 선언에 const, let을 사용해야 하는 이유"/>
 
 
 
@@ -178,7 +178,7 @@
     
 
   </head>
-<body class="page page-home has-static-header">
+<body class="page page-post has-static-header">
 
 
 <div class="menu-main-mobile " id="menu-main-mobile">
@@ -193,7 +193,7 @@
     
       <ul class="menu">
         
-          <li class="menu-item-home active ">
+          <li class="menu-item-home">
             <a href="/">Home</a>
           </li>
         
@@ -312,7 +312,7 @@
     
       
         
-        <li class="active ">
+        <li class=" ">
           <a href="/" >Home</a>
         </li>
       
@@ -440,7 +440,7 @@
 <div id="wrapper" class="wrapper">     
   <div class="section">
   <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-12">
         
 
@@ -457,13 +457,13 @@
   
   
   <div class="heading-heading">
-    <h1>This is a portfolio of <br> <strong>Jay Tak.</strong></h1>
+    <h1>11. Blocklevel scope of the let, const keyword</h1>
   </div>
   
   
   
     <div class="heading-description">
-      <p>I believe that the best content is due to the context. After understanding the given contents, I transform them into a relevant form of the right context.</p>
+      <p>변수 선언에 const, let을 사용해야 하는 이유</p>
     </div>
   
 
@@ -473,376 +473,271 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 <div class="section pt-0">
   <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        
+        
+          <div class="mb-2">
+          
+            
 
-      
 
 
 
+<div class="author">
+  
 
+  
+</div>
+          
+          </div>
+        
+        
+        <div class="content"><h2 id="1-var-키워드로-선언한-변수의-문제점">1) var 키워드로 선언한 변수의 문제점</h2>
 
-<div class="col-12">
-  <div class="grid-header grid-header-align-left">
-    
-    
-  </div>
+<h3 id="-1-변수-중복-선언-허용"><span style="color:#e74c3c">🤪 1. 변수 중복 선언 허용</span></h3>
+
+<p>var 키워드로 선언한 변수는 <span style="color:#e74c3c">중복 선언이 가능</span>하다. <br /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">// var 키워드로 선언된 변수는 스코프 내 중복 선언을 허용한다.</span>
+<span class="c1">// 초기화 문이 있는 변수 선언문은 자바스크립트 엔진에 의해 var 키워드가 없는 것처럼 동작한다. </span>
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="c1">// 자바스크립트 엔진이 변수를 다시 선언하지만, 값의 변경이 없으면 무시한다.</span>
+<span class="kd">var</span> <span class="nx">y</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="c1">// 100</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span> <span class="c1">// 1</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="-2-함수-레벨-스코프"><span style="color:#e74c3c">🤪 2. 함수 레벨 스코프</span></h3>
+
+<p>var 키워드로 선언한 변수는<span style="color:#e74c3c"> 오로지 함수의 코드 블록만을 지역 스코프로 인정</span>한다. 따라서 함수 외부에서 var 키워드로 선언한 변수는 코드 블록 내에서 선언해도 모두 전역변수가 된다.  <br /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">.</span> <span class="k">if</span> <span class="nx">문</span>
+
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="nf">if </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="c1">// 10</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">2</span><span class="p">.</span> <span class="k">for</span> <span class="nx">문</span>
+
+<span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="c1">// 0 1 2 3 4</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="c1">// 5</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="-3-변수-호이스팅"><span style="color:#e74c3c">🤪 3. 변수 호이스팅</span></h3>
+
+<p>var 키워드로 변수를 선언하면 <span style="color:#e74c3c">변수 호이스팅에 의해 변수 선언문이 스코프의 선두로 끌어 올려진 것처럼 동작</span>한다. <br />즉, 변수 호이스팅에 의해 var 키워드로 선언한 변수는 변수 선언문 이전에 참조할 수 있다.<br />단, 할당문은 이전에 변수를 참조하면 언제나 undefined를 반환한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//1. 선언단계, 이 시점에는 변수 호이스팅에 의해 이미 foo 변수가 선언되었다. </span>
+<span class="c1">// 2. 초기화 단계, 변수 foo는 undefined로 초기화된다.</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span>
+
+<span class="c1">// 3. 할당단계, 변수에 값을 할당한다.</span>
+<span class="nx">foo</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">foo</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="-4-var-키워드로-선언한-전역변수와-전역함수-암묵적-전역"><span style="color:#e74c3c">🤪 4. var 키워드로 선언한 전역변수와 전역함수, 암묵적 전역</span></h3>
+
+<p>var 키워드로 선언한 전역변수와 전역함수, 그리고 선언하지 않은 변수에 값을 할당한 암묵적 전역은 전역 객체 window의 프로퍼티가 된다. <br /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// var 키워드로 선언한 전역변수</span>
+<span class="nx">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// 선언하지 않은 변수에 값을 할당한 암묵적 전약</span>
+<span class="kd">function</span> <span class="nf">foo</span><span class="p">(){}</span> <span class="c1">// 전역함수</span>
+
+<span class="c1">// var 키워드로 선언한 전역변수는 전역 객체 window의 프로퍼티다.</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span> <span class="c1">// 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="c1">// 1</span>
+
+<span class="c1">// 암묵적 전역은 전역 객체 window의 프로퍼티다.</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>
+
+<span class="c1">// 전역함수는 전역 객체 window의 프로퍼티다.</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">foo</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span>
+
+</code></pre></div></div>
+
+<p><br /><br /><br /></p>
+
+<h2 id="2-let-키워드">2. let 키워드</h2>
+
+<h3 id="-1-변수-중복-선언-금지"><span style="color:#3498db">😁 1. 변수 중복 선언 금지</span></h3>
+
+<p>let 키워드로 이름이 같은 변수를 중복 선언하면 문법에러(syntaxError)가 발생한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+
+<span class="kd">let</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">456</span><span class="p">;</span> <span class="c1">// syntaxError: Identifier 'foo' has already been defined</span>
+<span class="c1">// let이나 cosnt 키워드로 선언된 변수는 같은 스코프 내에서 중복 선언을 허용되지 않는다.</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="-2-블록-레벨-스코프"><span style="color:#3498db">😁 2. 블록 레벨 스코프</span></h3>
+
+<p>let 키워드로 선언한 변수는 모든 코드 블록(함수, if문, for문, while문, try/catch문 등)을 지역 스코프로 인정하는 블록 레벨 스코프를 따른다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 전역변수</span>
+
+<span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// 지역변수</span>
+  <span class="kd">let</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// 지역변수</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span> <span class="c1">// 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">bar</span><span class="p">);</span> <span class="c1">// ReferenceError: bar is not defined</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="--3-변수-호이스팅"><span style="color:#3498db">😁  3. 변수 호이스팅</span></h3>
+
+<p>let 키워드로 선언한 변수는 변수 호이스팅이 발생하지 않는다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span> <span class="c1">// undefined</span>
+
+<span class="kd">var</span> <span class="nx">foo</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">bar</span><span class="p">);</span> <span class="c1">// ReferenceError: bar is not defined</span>
+
+<span class="kd">let</span> <span class="nx">foo</span><span class="p">;</span>
+</code></pre></div></div>
+
+<figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/post_11/keyword.webp" alt="Photo of difference of Keyword declaration" />
+  </a>
+  <figcaption>
+    <h4>The life cycle of a variable declared with the var,let keyword</h4>
+    <p>Jay Tak.</p>
+  </figcaption>
+</figure>
+
+<p><br /><br /></p>
+
+<h2 id="3-const-키워드">3. const 키워드</h2>
+
+<h3 id="--1-선언과-초기화"><span style="color:#3498db">😁  1. 선언과 초기화</span></h3>
+
+<p>const 키워드로 선언한 변수는 반드시 선언과 동시에 초기화해야 한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">foo</span><span class="p">;</span> <span class="c1">// syntaxError: Missing initializer in const declaration</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="--2-재할당-금지"><span style="color:#3498db">😁  2. 재할당 금지</span></h3>
+
+<p>const 키워드로 선언한 변수는 재할당이 금지된다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">foo</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// TypeError: Assignment t constant variable</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="-2-1-대문자로-상수임을-명확하게"><strong><span style="color:#3498db">😁 2-1. 대문자로 상수임을 명확하게</span></strong></h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">TAX_RATE</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+
+<span class="kd">let</span> <span class="nx">preTaxPrice</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+
+<span class="kd">let</span> <span class="nx">afterTaxPrice</span> <span class="o">=</span> <span class="nx">preTaxPrice</span> <span class="o">+</span> <span class="p">(</span><span class="nx">preTaxPrice</span> <span class="o">=</span> <span class="nx">TAX_RATE</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">afterTaxPrice</span><span class="p">);</span> <span class="c1">// 110</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="-2-2-객체일-경우-변경가능"><strong><span style="color:#3498db">😁 2-2. 객체일 경우 변경가능</span></strong></h4>
+
+<p>변경 불가능한 값인 원시 값은 재할당 없이 변경 할 수 있는 방법이 없지만 변경가능한 객체는 재할당 없이도 직접 변경이 가능</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Lee</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="nx">person</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Kim</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span> <span class="c1">// {name: "Kim"}</span>
+
+</code></pre></div></div>
+
+<p><br /><br /><br /></p>
+
+<h4 id="reference-모던자바스크립트-deep-dive-15장-let-const-키워드의-블록-레벨-스코프"><span style="color:grey">reference: 모던자바스크립트 Deep Dive 15장. let, const 키워드의 블록 레벨 스코프</span></h4>
 </div>
 
-     
-      
-      <div
-        class="col-12 col-md-6 col-lg-6 mb-gutter mt-gutter mt-0  mt-md-0">
+        
+        <div class="categories">
         
 
 
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-project card-column card-has-thumbnail ">
-
   
-    <div class="card-thumbnail ">
-      <a href="/projects/project-2/"><img alt="Brutalist Office Building" src="/assets/images/gen/projects/project-1-1-thumbnail.webp"/></a>
-    </div>
-  
+    
 
-  <div class="card-content">
-    <div class="card-title">
-      <h2>
-        <a href="/projects/project-2/">Brutalist Office Building</a>
-      </h2>
-    </div>
-    
-      <div class="card-client">
-        Dubai Star
-      </div>
-    
-  </div>
+
+
+
+<div class="category-link">
+<a href="/category/development">
+  Development
+</a>
+
 </div>
-      </div>
-      
-      <div
-        class="col-12 col-md-6 col-lg-6 mb-gutter mt-gutter   mt-md-0">
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/javascript">
+  Javascript
+</a>
+
+</div>
+  
+
+        
+        </div>
+
         
 
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-project card-column card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/projects/project-1/"><img alt="Water Works Revitalisation" src="/assets/images/gen/projects/project-2-1-thumbnail.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    <div class="card-title">
-      <h2>
-        <a href="/projects/project-1/">Water Works Revitalisation</a>
-      </h2>
-    </div>
-    
-      <div class="card-client">
-        Brisbane City Council
       </div>
-    
-  </div>
-</div>
-      </div>
-      
-      <div
-        class="col-12 col-md-6 col-lg-6 mb-gutter mt-gutter   mt-md-0">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-project card-column card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/projects/project-3/"><img alt="Cubist Urban Home" src="/assets/images/gen/projects/project-3-1-thumbnail.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    <div class="card-title">
-      <h2>
-        <a href="/projects/project-3/">Cubist Urban Home</a>
-      </h2>
-    </div>
-    
-      <div class="card-client">
-        Region of Valencia
-      </div>
-    
-  </div>
-</div>
-      </div>
-      
-      <div
-        class="col-12 col-md-6 col-lg-6 mb-gutter mt-gutter  mb-0 mt-md-0">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-project card-column card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/projects/project-4"><img alt="Subway" src="/assets/images/gen/projects/project-4-6-thumbnail.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    <div class="card-title">
-      <h2>
-        <a href="/projects/project-4">Subway</a>
-      </h2>
-    </div>
-    
-      <div class="card-client">
-        RGA Agency
-      </div>
-    
-  </div>
-</div>
-      </div>
-      
-
-      
-
-
-
-
-
-
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-<div class="section section-base-bg-2">
-  <div class="container">
-    <div class="row">
-
-      
-
-
-
-
-
-<div class="col-12">
-  <div class="grid-header grid-header-align-left">
-    <h2>Recent Posts</h2>
-    
-  </div>
-</div>
-
-
-      
-      <div class="col-12 col-md-4 col-lg-4 mt-0  mb-3 mb-md-6">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-column  ">
-
-  
-
-  <div class="card-content">
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-10-27-12.%20PropertyAttribute.md/">12. Property attribute</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>내부 슬롯과 내부 메서드를 통해 프로퍼티 어트리뷰트를 이해해보자</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-      </div>
-      
-      <div class="col-12 col-md-4 col-lg-4   mb-3 mb-md-6">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-column  ">
-
-  
-
-  <div class="card-content">
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-10-27-11.%20KeywordAndBlockLevelScope.md/">11. Blocklevel scope of the let, const keyword</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>변수 선언에 const, let을 사용해야 하는 이유</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-      </div>
-      
-      <div class="col-12 col-md-4 col-lg-4  mb-0 mb-3 mb-md-6">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-column  ">
-
-  
-
-  <div class="card-content">
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-10-13-algorithm-13.CraneClawMachineGame/">13. Crane claw machine game</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>스택의 LIFO 구조의 이해를 바탕으로 데이터의 상태 변화와 효율적인 처리 방법</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-      </div>
-      
-
-      
-
-
-
-
-
-
-    </div>
-  </div>
-</div>
-
 
 
   <div class="section section-base-bg-2">
