@@ -5,7 +5,7 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <title>14. Edit Table - Jekyll Curate</title>
+    <title>15. Josephus - Jekyll Curate</title>
 
 
   <meta name="description" content="링크드 리스트와 스택을 활용해 대량 데이터의 삭제, 복원, 이동 작업을 효율적으로 처리하는 설계 이해"/>
@@ -13,10 +13,10 @@
 
 
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="http://localhost:4000/blog/2024-10-13-algorithm-14.EditTable/"/>
+<meta property="og:url" content="http://localhost:4000/blog/2024-11-24-algorithm-15.%20Josephus/"/>
 
 
-  <meta property="og:title" content="14. Edit Table"/>
+  <meta property="og:title" content="15. Josephus"/>
 
 
 
@@ -457,7 +457,7 @@
   
   
   <div class="heading-heading">
-    <h1>14. Edit Table</h1>
+    <h1>15. Josephus</h1>
   </div>
   
   
@@ -498,119 +498,70 @@
         
         <div class="content"><figure>
   <a href="" target="">
-    <img src="/assets/images/gen/content/algorithm/algorithm_14_1.webp" alt="algorithm test" />
+    <img src="/assets/images/gen/content/algorithm/algorithm_15_1.webp" alt="algorithm test" />
   </a>
   <figcaption>
-    <h4>14. Edit Table</h4>
+    <h4>15. Josephus</h4>
     <p>Sunhyup Lee. (2024). To be a successful candidate for the coding test. goldenrabbit. p.173.</p>
   </figcaption>
 </figure>
 
 <h2 id="problem-solving">Problem solving</h2>
 
-<h3 id="1-linkedlist를-이용한-접근법">1. LinkedList를 이용한 접근법</h3>
+<h3 id="1-queue를-이용하여-풀기">1. Queue를 이용하여 풀기</h3>
 
 <figure>
   <a href="" target="">
-    <img src="/assets/images/gen/content/algorithm/algorithm_14_2.webp" alt="algorithm solving strategy" />
+    <img src="/assets/images/gen/content/algorithm/algorithm_15_2.webp" alt="algorithm solving strategy" />
   </a>
   <figcaption>
-    <h4>linkedList solving</h4>
+    <h4>Queue solving</h4>
     <p>Jay Tak</p>
   </figcaption>
 </figure>
 
-<h4 id="1-인덱스만으로-연산하기">1. 인덱스만으로 연산하기</h4>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Queue</span> <span class="p">{</span>
+  <span class="nx">items</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="nx">front</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="nx">rear</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-<p>cmd의 명령어를 수행할 때마다 해당 행의 위와 아래에 위치한 행의 번호를 계속 업데이트한다.  <br /></p>
-
-<p>즉, 실제 배열을 삽입, 삭제 연산을 하는 대신 인접한 행의 정보를 활용한다.</p>
-
-<h4><br /></h4>
-
-<h4 id="2-삭제하는-경우">2. 삭제하는 경우</h4>
-
-<p>삭제는 다음 세 가지를 고민해야 한다. <br /></p>
-
-<p>1) 삭제된 행을 저장하는 방법 <br /></p>
-
-<p>2) 마지막 행이 삭제되었을 때, 바로 위의 행을 선택하는 방법 <br /></p>
-
-<p>3) 배열을 삭제하지 않고도 인덱스를 활용해서 삭제가 된 것처럼 만드는 방법</p>
-
-<p><br /></p>
-
-<h4 id="3-복구하는-경우">3. 복구하는 경우</h4>
-
-<p>복구 동작의 핵심은 기존 삭제 위치에 행을 삽입해야 한다.  <br /></p>
-
-<p>1) 스택에서 최근에 삭제한 행을 팝하고, 삭제한 원소를 restore에 보관합니다. <br /></p>
-
-<p>2) 행 번호 restore를 기준으로 윗 행의 다음과 아래행의 이전은 restore가 되어야 합니다. 즉, down[up[restore]]와 		   up[down[restore]]가 restore여야 합니다.</p>
-
-<p><br /></p>
-
-<h4 id="4-테이블-양-끝에서-연산하는-경우">4. 테이블 양 끝에서 연산하는 경우</h4>
-
-<p>테이블 양 끝에서도 추가와 삭제를 할 수 있다. 그러니 앞서 정의한 삭제 연산과 복구 연산은 양 끝에서도 정상 동작해야 한다. 맨 위의 행이 삭제된다고 가정하면 다음 식을 그대로 적용할 수 있어야 한다. <br /></p>
-
-<p>up[down[0]] = up[0]이므로, up[0] - 1 <br /></p>
-
-<p>down[up[0]] = down[k]이므로, down[-1] = down[0] <br /></p>
-
-<p>개념상 up, down 배열을 적용해 상대 인덱스를 활용하는 건 좋은 생각이지만, 맨 위의 위는 지금까지 생각한 테이블 상에는 없었습니다. 그래서 식을 적용하자니 이상하다. 그렇다고 이 좋은 생각을 버리기에는 너무 아깝다. 해결책은 간단합니다. 양 끝에서 명령어를 수행할 때도 정상적으로 위 식이 적용되게 가상의 공간을 도입하면 된다.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">cmd</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// ➊ 삭제된 행의 인덱스를 저장하는 리스트</span>
-  <span class="kd">const</span> <span class="nx">deleted</span> <span class="o">=</span> <span class="p">[];</span>
-
-  <span class="c1">// ➋ 링크드 리스트에서 각 행 위아래의 행의 인덱스를 저장하는 리스트</span>
-  <span class="kd">const</span> <span class="nx">up</span> <span class="o">=</span> <span class="p">[...</span><span class="k">new</span> <span class="nc">Array</span><span class="p">(</span><span class="nx">n</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)].</span><span class="nf">map</span><span class="p">((</span><span class="nx">_</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="kd">const</span> <span class="nx">down</span> <span class="o">=</span> <span class="p">[...</span><span class="k">new</span> <span class="nc">Array</span><span class="p">(</span><span class="nx">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)].</span><span class="nf">map</span><span class="p">((</span><span class="nx">_</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-
-  <span class="c1">// ➌ 현재 위치를 나타내는 인덱스</span>
-  <span class="nx">k</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
-
-  <span class="c1">// ➍ 주어진 명령어(cmd) 리스트를 하나씩 처리</span>
-  <span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">item</span> <span class="k">of</span> <span class="nx">cmd</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// ➎ 현재 위치를 삭제하고 그다음 위치로 이동</span>
-    <span class="nf">if </span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nf">startsWith</span><span class="p">(</span><span class="dl">"</span><span class="s2">C</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
-      <span class="nx">deleted</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">k</span><span class="p">);</span>
-      <span class="nx">up</span><span class="p">[</span><span class="nx">down</span><span class="p">[</span><span class="nx">k</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">up</span><span class="p">[</span><span class="nx">k</span><span class="p">];</span>
-      <span class="nx">down</span><span class="p">[</span><span class="nx">up</span><span class="p">[</span><span class="nx">k</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">down</span><span class="p">[</span><span class="nx">k</span><span class="p">];</span>
-      <span class="nx">k</span> <span class="o">=</span> <span class="nx">n</span> <span class="o">&lt;</span> <span class="nx">down</span><span class="p">[</span><span class="nx">k</span><span class="p">]</span> <span class="p">?</span> <span class="nx">up</span><span class="p">[</span><span class="nx">k</span><span class="p">]</span> <span class="p">:</span> <span class="nx">down</span><span class="p">[</span><span class="nx">k</span><span class="p">];</span>
-    <span class="p">}</span>
-
-    <span class="c1">// ➏ 가장 최근에 삭제된 행을 복원</span>
-    <span class="k">else</span> <span class="nf">if </span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nf">startsWith</span><span class="p">(</span><span class="dl">"</span><span class="s2">Z</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
-      <span class="kd">const</span> <span class="nx">restore</span> <span class="o">=</span> <span class="nx">deleted</span><span class="p">.</span><span class="nf">pop</span><span class="p">();</span>
-      <span class="nx">down</span><span class="p">[</span><span class="nx">up</span><span class="p">[</span><span class="nx">restore</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">restore</span><span class="p">;</span>
-      <span class="nx">up</span><span class="p">[</span><span class="nx">down</span><span class="p">[</span><span class="nx">restore</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">restore</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="c1">// ➐ U 또는 D를 사용해 현재 위치를 위아래로 이동</span>
-    <span class="k">else</span> <span class="p">{</span>
-      <span class="kd">const</span> <span class="p">[</span><span class="nx">action</span><span class="p">,</span> <span class="nx">num</span><span class="p">]</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
-      <span class="nf">if </span><span class="p">(</span><span class="nx">action</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">U</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">num</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">k</span> <span class="o">=</span> <span class="nx">up</span><span class="p">[</span><span class="nx">k</span><span class="p">];</span>
-        <span class="p">}</span>
-      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">num</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">k</span> <span class="o">=</span> <span class="nx">down</span><span class="p">[</span><span class="nx">k</span><span class="p">];</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
+  <span class="nf">push</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span> <span class="c1">// 수정: this.items로 오타 수정</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">rear</span><span class="o">++</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="c1">// ➑ 삭제된 행의 위치에 'X'를, 그렇지 않은 행의 위치에 'O'를 포함하는 문자열 반환</span>
-  <span class="kd">const</span> <span class="nx">answer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Array</span><span class="p">(</span><span class="nx">n</span><span class="p">).</span><span class="nf">fill</span><span class="p">(</span><span class="dl">"</span><span class="s2">O</span><span class="dl">"</span><span class="p">);</span>
-  <span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">i</span> <span class="k">of</span> <span class="nx">deleted</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">answer</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">X</span><span class="dl">"</span><span class="p">;</span>
+  <span class="nf">size</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">rear</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">front</span><span class="p">;</span>
   <span class="p">}</span>
-  <span class="k">return</span> <span class="nx">answer</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+
+  <span class="nf">pop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">front</span><span class="o">++</span><span class="p">];</span> <span class="c1">// front 값 증가</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 
+<span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">N</span><span class="p">,</span> <span class="nx">K</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Queue</span><span class="p">();</span>
+
+  <span class="c1">// 1부터 N까지 큐에 삽입</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">N</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">queue</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 요제푸스 알고리즘 수행</span>
+  <span class="nf">while </span><span class="p">(</span><span class="nx">queue</span><span class="p">.</span><span class="nf">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// K-1번 pop하고 push</span>
+    <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">K</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">queue</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">queue</span><span class="p">.</span><span class="nf">pop</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="c1">// K번째 원소 제거</span>
+    <span class="nx">queue</span><span class="p">.</span><span class="nf">pop</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 마지막 원소 반환</span>
+  <span class="k">return</span> <span class="nx">queue</span><span class="p">.</span><span class="nf">pop</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">solution</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// 출력: 3</span>
 
 </code></pre></div></div>
 

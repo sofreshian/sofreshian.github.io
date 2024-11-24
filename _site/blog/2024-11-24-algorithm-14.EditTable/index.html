@@ -5,22 +5,22 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <title>Jay Tak's Blog</title>
+    <title>14. Edit Table - Jekyll Curate</title>
 
 
-  <meta name="description" content="Jay Tak's Blog"/>
+  <meta name="description" content="링크드 리스트와 스택을 활용해 대량 데이터의 삭제, 복원, 이동 작업을 효율적으로 처리하는 설계 이해"/>
 
 
 
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="http://localhost:4000/"/>
+<meta property="og:url" content="http://localhost:4000/blog/2024-11-24-algorithm-14.EditTable/"/>
 
 
-  <meta property="og:title" content="Jay Tak's Blog"/>
+  <meta property="og:title" content="14. Edit Table"/>
 
 
 
-  <meta property="og:description" content="Jay Tak's Blog"/>
+  <meta property="og:description" content="링크드 리스트와 스택을 활용해 대량 데이터의 삭제, 복원, 이동 작업을 효율적으로 처리하는 설계 이해"/>
 
 
 
@@ -178,7 +178,7 @@
     
 
   </head>
-<body class="page page-home has-static-header">
+<body class="page page-post has-static-header">
 
 
 <div class="menu-main-mobile " id="menu-main-mobile">
@@ -193,7 +193,7 @@
     
       <ul class="menu">
         
-          <li class="menu-item-home active ">
+          <li class="menu-item-home">
             <a href="/">Home</a>
           </li>
         
@@ -312,7 +312,7 @@
     
       
         
-        <li class="active ">
+        <li class=" ">
           <a href="/" >Home</a>
         </li>
       
@@ -440,7 +440,7 @@
 <div id="wrapper" class="wrapper">     
   <div class="section">
   <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-12">
         
 
@@ -457,13 +457,13 @@
   
   
   <div class="heading-heading">
-    <h1>This is a portfolio of <br> <strong>Jay Tak.</strong></h1>
+    <h1>14. Edit Table</h1>
   </div>
   
   
   
     <div class="heading-description">
-      <p>I believe that the best content is due to the context. After understanding the given contents, I transform them into a relevant form of the right context.</p>
+      <p>링크드 리스트와 스택을 활용해 대량 데이터의 삭제, 복원, 이동 작업을 효율적으로 처리하는 설계 이해</p>
     </div>
   
 
@@ -473,376 +473,190 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 <div class="section pt-0">
   <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        
+        
+          <div class="mb-2">
+          
+            
 
-      
 
 
 
+<div class="author">
+  
+
+  
+</div>
+          
+          </div>
+        
+        
+        <div class="content"><figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/algorithm/algorithm_14_1.webp" alt="algorithm test" />
+  </a>
+  <figcaption>
+    <h4>14. Edit Table</h4>
+    <p>Sunhyup Lee. (2024). To be a successful candidate for the coding test. goldenrabbit. p.173.</p>
+  </figcaption>
+</figure>
+
+<h2 id="problem-solving">Problem solving</h2>
+
+<h3 id="1-linkedlist를-이용한-접근법">1. LinkedList를 이용한 접근법</h3>
+
+<figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/algorithm/algorithm_14_2.webp" alt="algorithm solving strategy" />
+  </a>
+  <figcaption>
+    <h4>linkedList solving</h4>
+    <p>Jay Tak</p>
+  </figcaption>
+</figure>
+
+<h4 id="1-인덱스만으로-연산하기">1. 인덱스만으로 연산하기</h4>
+
+<p>cmd의 명령어를 수행할 때마다 해당 행의 위와 아래에 위치한 행의 번호를 계속 업데이트한다.  <br /></p>
+
+<p>즉, 실제 배열을 삽입, 삭제 연산을 하는 대신 인접한 행의 정보를 활용한다.</p>
+
+<h4><br /></h4>
+
+<h4 id="2-삭제하는-경우">2. 삭제하는 경우</h4>
+
+<p>삭제는 다음 세 가지를 고민해야 한다. <br /></p>
+
+<p>1) 삭제된 행을 저장하는 방법 <br /></p>
+
+<p>2) 마지막 행이 삭제되었을 때, 바로 위의 행을 선택하는 방법 <br /></p>
+
+<p>3) 배열을 삭제하지 않고도 인덱스를 활용해서 삭제가 된 것처럼 만드는 방법</p>
+
+<p><br /></p>
+
+<h4 id="3-복구하는-경우">3. 복구하는 경우</h4>
+
+<p>복구 동작의 핵심은 기존 삭제 위치에 행을 삽입해야 한다.  <br /></p>
+
+<p>1) 스택에서 최근에 삭제한 행을 팝하고, 삭제한 원소를 restore에 보관합니다. <br /></p>
+
+<p>2) 행 번호 restore를 기준으로 윗 행의 다음과 아래행의 이전은 restore가 되어야 합니다. 즉, down[up[restore]]와 		   up[down[restore]]가 restore여야 합니다.</p>
+
+<p><br /></p>
+
+<h4 id="4-테이블-양-끝에서-연산하는-경우">4. 테이블 양 끝에서 연산하는 경우</h4>
+
+<p>테이블 양 끝에서도 추가와 삭제를 할 수 있다. 그러니 앞서 정의한 삭제 연산과 복구 연산은 양 끝에서도 정상 동작해야 한다. 맨 위의 행이 삭제된다고 가정하면 다음 식을 그대로 적용할 수 있어야 한다. <br /></p>
+
+<p>up[down[0]] = up[0]이므로, up[0] - 1 <br /></p>
+
+<p>down[up[0]] = down[k]이므로, down[-1] = down[0] <br /></p>
+
+<p>개념상 up, down 배열을 적용해 상대 인덱스를 활용하는 건 좋은 생각이지만, 맨 위의 위는 지금까지 생각한 테이블 상에는 없었습니다. 그래서 식을 적용하자니 이상하다. 그렇다고 이 좋은 생각을 버리기에는 너무 아깝다. 해결책은 간단합니다. 양 끝에서 명령어를 수행할 때도 정상적으로 위 식이 적용되게 가상의 공간을 도입하면 된다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">cmd</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ➊ 삭제된 행의 인덱스를 저장하는 리스트</span>
+  <span class="kd">const</span> <span class="nx">deleted</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="c1">// ➋ 링크드 리스트에서 각 행 위아래의 행의 인덱스를 저장하는 리스트</span>
+  <span class="kd">const</span> <span class="nx">up</span> <span class="o">=</span> <span class="p">[...</span><span class="k">new</span> <span class="nc">Array</span><span class="p">(</span><span class="nx">n</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)].</span><span class="nf">map</span><span class="p">((</span><span class="nx">_</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">down</span> <span class="o">=</span> <span class="p">[...</span><span class="k">new</span> <span class="nc">Array</span><span class="p">(</span><span class="nx">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)].</span><span class="nf">map</span><span class="p">((</span><span class="nx">_</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="c1">// ➌ 현재 위치를 나타내는 인덱스</span>
+  <span class="nx">k</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="c1">// ➍ 주어진 명령어(cmd) 리스트를 하나씩 처리</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">item</span> <span class="k">of</span> <span class="nx">cmd</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ➎ 현재 위치를 삭제하고 그다음 위치로 이동</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nf">startsWith</span><span class="p">(</span><span class="dl">"</span><span class="s2">C</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">deleted</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">k</span><span class="p">);</span>
+      <span class="nx">up</span><span class="p">[</span><span class="nx">down</span><span class="p">[</span><span class="nx">k</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">up</span><span class="p">[</span><span class="nx">k</span><span class="p">];</span>
+      <span class="nx">down</span><span class="p">[</span><span class="nx">up</span><span class="p">[</span><span class="nx">k</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">down</span><span class="p">[</span><span class="nx">k</span><span class="p">];</span>
+      <span class="nx">k</span> <span class="o">=</span> <span class="nx">n</span> <span class="o">&lt;</span> <span class="nx">down</span><span class="p">[</span><span class="nx">k</span><span class="p">]</span> <span class="p">?</span> <span class="nx">up</span><span class="p">[</span><span class="nx">k</span><span class="p">]</span> <span class="p">:</span> <span class="nx">down</span><span class="p">[</span><span class="nx">k</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ➏ 가장 최근에 삭제된 행을 복원</span>
+    <span class="k">else</span> <span class="nf">if </span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nf">startsWith</span><span class="p">(</span><span class="dl">"</span><span class="s2">Z</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">restore</span> <span class="o">=</span> <span class="nx">deleted</span><span class="p">.</span><span class="nf">pop</span><span class="p">();</span>
+      <span class="nx">down</span><span class="p">[</span><span class="nx">up</span><span class="p">[</span><span class="nx">restore</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">restore</span><span class="p">;</span>
+      <span class="nx">up</span><span class="p">[</span><span class="nx">down</span><span class="p">[</span><span class="nx">restore</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">restore</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ➐ U 또는 D를 사용해 현재 위치를 위아래로 이동</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="p">[</span><span class="nx">action</span><span class="p">,</span> <span class="nx">num</span><span class="p">]</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
+      <span class="nf">if </span><span class="p">(</span><span class="nx">action</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">U</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">num</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">k</span> <span class="o">=</span> <span class="nx">up</span><span class="p">[</span><span class="nx">k</span><span class="p">];</span>
+        <span class="p">}</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">num</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">k</span> <span class="o">=</span> <span class="nx">down</span><span class="p">[</span><span class="nx">k</span><span class="p">];</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ➑ 삭제된 행의 위치에 'X'를, 그렇지 않은 행의 위치에 'O'를 포함하는 문자열 반환</span>
+  <span class="kd">const</span> <span class="nx">answer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Array</span><span class="p">(</span><span class="nx">n</span><span class="p">).</span><span class="nf">fill</span><span class="p">(</span><span class="dl">"</span><span class="s2">O</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">i</span> <span class="k">of</span> <span class="nx">deleted</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">answer</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">X</span><span class="dl">"</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+<span class="p">}</span>
 
 
-<div class="col-12">
-  <div class="grid-header grid-header-align-left">
-    
-    
-  </div>
+</code></pre></div></div>
+
+<p><br /><br /><br /></p>
 </div>
 
-     
-      
-      <div
-        class="col-12 col-md-6 col-lg-6 mb-gutter mt-gutter mt-0  mt-md-0">
+        
+        <div class="categories">
         
 
 
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-project card-column card-has-thumbnail ">
-
   
-    <div class="card-thumbnail ">
-      <a href="/projects/project-2/"><img alt="Brutalist Office Building" src="/assets/images/gen/projects/project-1-1-thumbnail.webp"/></a>
-    </div>
-  
+    
 
-  <div class="card-content">
-    <div class="card-title">
-      <h2>
-        <a href="/projects/project-2/">Brutalist Office Building</a>
-      </h2>
-    </div>
-    
-      <div class="card-client">
-        Dubai Star
-      </div>
-    
-  </div>
+
+
+
+<div class="category-link">
+<a href="/category/development">
+  Development
+</a>
+
 </div>
-      </div>
-      
-      <div
-        class="col-12 col-md-6 col-lg-6 mb-gutter mt-gutter   mt-md-0">
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/algorithm">
+  Algorithm
+</a>
+
+</div>
+  
+
+        
+        </div>
+
         
 
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-project card-column card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/projects/project-1/"><img alt="Water Works Revitalisation" src="/assets/images/gen/projects/project-2-1-thumbnail.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    <div class="card-title">
-      <h2>
-        <a href="/projects/project-1/">Water Works Revitalisation</a>
-      </h2>
-    </div>
-    
-      <div class="card-client">
-        Brisbane City Council
       </div>
-    
-  </div>
-</div>
-      </div>
-      
-      <div
-        class="col-12 col-md-6 col-lg-6 mb-gutter mt-gutter   mt-md-0">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-project card-column card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/projects/project-3/"><img alt="Cubist Urban Home" src="/assets/images/gen/projects/project-3-1-thumbnail.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    <div class="card-title">
-      <h2>
-        <a href="/projects/project-3/">Cubist Urban Home</a>
-      </h2>
-    </div>
-    
-      <div class="card-client">
-        Region of Valencia
-      </div>
-    
-  </div>
-</div>
-      </div>
-      
-      <div
-        class="col-12 col-md-6 col-lg-6 mb-gutter mt-gutter  mb-0 mt-md-0">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-project card-column card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/projects/project-4"><img alt="Subway" src="/assets/images/gen/projects/project-4-6-thumbnail.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    <div class="card-title">
-      <h2>
-        <a href="/projects/project-4">Subway</a>
-      </h2>
-    </div>
-    
-      <div class="card-client">
-        RGA Agency
-      </div>
-    
-  </div>
-</div>
-      </div>
-      
-
-      
-
-
-
-
-
-
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-<div class="section section-base-bg-2">
-  <div class="container">
-    <div class="row">
-
-      
-
-
-
-
-
-<div class="col-12">
-  <div class="grid-header grid-header-align-left">
-    <h2>Recent Posts</h2>
-    
-  </div>
-</div>
-
-
-      
-      <div class="col-12 col-md-4 col-lg-4 mt-0  mb-3 mb-md-6">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-column  ">
-
-  
-
-  <div class="card-content">
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-11-24-algorithm-15.%20Josephus/">15. Josephus</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>링크드 리스트와 스택을 활용해 대량 데이터의 삭제, 복원, 이동 작업을 효율적으로 처리하는 설계 이해</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-      </div>
-      
-      <div class="col-12 col-md-4 col-lg-4   mb-3 mb-md-6">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-column  ">
-
-  
-
-  <div class="card-content">
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-11-24-algorithm-14.EditTable/">14. Edit Table</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>링크드 리스트와 스택을 활용해 대량 데이터의 삭제, 복원, 이동 작업을 효율적으로 처리하는 설계 이해</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-      </div>
-      
-      <div class="col-12 col-md-4 col-lg-4  mb-0 mb-3 mb-md-6">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-column  ">
-
-  
-
-  <div class="card-content">
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-10-27-12.%20PropertyAttribute.md/">12. Property attribute</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>내부 슬롯과 내부 메서드를 통해 프로퍼티 어트리뷰트를 이해해보자</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-      </div>
-      
-
-      
-
-
-
-
-
-
-    </div>
-  </div>
-</div>
-
 
 
   <div class="section section-base-bg-2">
