@@ -5,18 +5,22 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <title>Blog - Jekyll Curate</title>
+    <title>18. Creating a Specific Value with TwoNumbers - Jekyll Curate</title>
 
+
+  <meta name="description" content="효율적인 해시 기반 접근을 통해 두 숫자의 합이 특정 값(target)이 되는지를 빠르게 판단"/>
 
 
 
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="http://localhost:4000/blog/"/>
+<meta property="og:url" content="http://localhost:4000/blog/2024-12-26-algorithm-18.CreatingSpecificValueWithTwoNumbers/"/>
 
 
-  <meta property="og:title" content="Blog"/>
+  <meta property="og:title" content="18. Creating a Specific Value with TwoNumbers"/>
 
 
+
+  <meta property="og:description" content="효율적인 해시 기반 접근을 통해 두 숫자의 합이 특정 값(target)이 되는지를 빠르게 판단"/>
 
 
 
@@ -174,7 +178,7 @@
     
 
   </head>
-<body class="page page-blog has-static-header">
+<body class="page page-post has-static-header">
 
 
 <div class="menu-main-mobile " id="menu-main-mobile">
@@ -197,7 +201,7 @@
             <a href="/projects/">Projects</a>
           </li>
         
-          <li class="menu-item-blog active ">
+          <li class="menu-item-blog">
             <a href="/blog/">Blog</a>
           </li>
         
@@ -386,7 +390,7 @@
     
       
         
-        <li class="active ">
+        <li class=" ">
           <a href="/blog/" >Blog</a>
         </li>
       
@@ -437,7 +441,7 @@
   <div class="section">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-12 col-md-12">
+      <div class="col-12">
         
 
 
@@ -453,10 +457,14 @@
   
   
   <div class="heading-heading">
-    <h1>Blog</h1>
+    <h1>18. Creating a Specific Value with TwoNumbers</h1>
   </div>
   
   
+  
+    <div class="heading-description">
+      <p>효율적인 해시 기반 접근을 통해 두 숫자의 합이 특정 값(target)이 되는지를 빠르게 판단</p>
+    </div>
   
 
   
@@ -468,434 +476,232 @@
 
 <div class="section pt-0">
   <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-12">
-          <div class="row">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        
+        
+          <div class="mb-2">
+          
             
-            
-            
-              
-                <div class="col-12">
-                  
+
+
+
+
+<div class="author">
   
 
-                </div>
-              
-
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
   
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-12-30-algorithm-19.CreatingSearchFunctionUsingStringHashing/"><img alt="19. Creating a Search Function Using String Hashing" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">31 December 2024</span>
+</div>
+          
           </div>
         
+        
+        <div class="content"><figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/algorithm/algorithm_18.webp" alt="algorithm test" />
+  </a>
+  <figcaption>
+    <h4>17. Deck of Cards</h4>
+    <p>Sunhyup Lee. (2024). To be a successful candidate for the coding test. goldenrabbit. p.215.</p>
+  </figcaption>
+</figure>
 
-      </div>
+<h2 id="problem-solving">Problem solving</h2>
+
+<h3 id="1-hash를-이용하여-풀기">1. Hash를 이용하여 풀기</h3>
+
+<p>(1) <code class="language-plaintext highlighter-rouge">target</code>에서<code class="language-plaintext highlighter-rouge"> num</code>을 뺐을 경우, 동일한 <code class="language-plaintext highlighter-rouge">num</code>이 나와서는 안됨 (동일 숫자 안됨)</p>
+
+<p>(2) <code class="language-plaintext highlighter-rouge">target</code>에서<code class="language-plaintext highlighter-rouge"> num</code>을 뺐을 경우, 0보다 크거나 같아야 함 (어떤 num이든 target보다 커서는 안됨)</p>
+
+<p>(3) hashtable에서 해당 값이 존재 해야함 (해당 num이 테이블 내 존재)</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">countSort</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">k</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">hashtable</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Array</span><span class="p">(</span><span class="nx">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">).</span><span class="nf">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">num</span> <span class="k">of</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">num</span> <span class="o">&lt;=</span> <span class="nx">k</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">hashtable</span><span class="p">[</span><span class="nx">num</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">hashtable</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">hashtable</span> <span class="o">=</span> <span class="nf">countSort</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">num</span> <span class="k">of</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">complement</span> <span class="o">=</span> <span class="nx">target</span> <span class="o">-</span> <span class="nx">num</span><span class="p">;</span>
+
+    <span class="nf">if </span><span class="p">(</span>
+      <span class="nx">complement</span> <span class="o">!==</span> <span class="nx">num</span> <span class="o">&amp;&amp;</span>
+      <span class="c1">// `target`에서` num`을 뺐을 경우, 동일한 `num`이 나와서는 안됨 (동일 숫자 안됨)</span>
+      <span class="nx">complement</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span>
+      <span class="c1">// `target`에서` num`을 뺐을 경우, 0보다 크거나 같아야 함 (어떤 num이든 target보다 커서는 안됨)</span>
+      <span class="nx">hashtable</span><span class="p">[</span><span class="nx">complement</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
+      <span class="c1">// hashtable에서 해당 값이 존재 해야함 (해당 num이 테이블 내 존재)</span>
+    <span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">solution</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="mi">6</span><span class="p">));</span> <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">solution</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="mi">10</span><span class="p">));</span> <span class="c1">// false</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="2-hashmap-활용하여-풀기">2. HashMap 활용하여 풀기</h2>
+
+<p>🧐Q. arr의 값이 커질경우, 배열이 너무 커지는 문제는 어떻게 해결할 수 있을까?</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">hashmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Map</span><span class="p">();</span>
+
+  <span class="c1">// 해시맵에 배열의 값과 빈도를 저장</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">num</span> <span class="k">of</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">hashmap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="nx">num</span><span class="p">,</span> <span class="p">(</span><span class="nx">hashmap</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="o">||</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 타겟 값을 만족하는 쌍이 있는지 확인</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">num</span> <span class="k">of</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">complement</span> <span class="o">=</span> <span class="nx">target</span> <span class="o">-</span> <span class="nx">num</span><span class="p">;</span>
+
+    <span class="c1">// 타겟 값을 만족하는 쌍이 있는 경우</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">hashmap</span><span class="p">.</span><span class="nf">has</span><span class="p">(</span><span class="nx">complement</span><span class="p">))</span> <span class="p">{</span>
+      <span class="c1">// 자기 자신과 짝이 되는 경우를 처리할 필요 없음</span>
+      <span class="nf">if </span><span class="p">(</span><span class="nx">complement</span> <span class="o">!==</span> <span class="nx">num</span> <span class="o">||</span> <span class="nx">hashmap</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">solution</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="mi">6</span><span class="p">));</span> <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">solution</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="mi">10</span><span class="p">));</span> <span class="c1">// false</span>
+</code></pre></div></div>
+
+<h3 id="개선된-방식의-장점">개선된 방식의 장점</h3>
+
+<ol>
+  <li><strong>공간 효율성:</strong>
+    <ul>
+      <li>해시맵을 사용하므로 배열 크기와 상관없이 실제로 등장하는 숫자만 저장.</li>
+      <li>공간 복잡도: <code class="language-plaintext highlighter-rouge">O(n)</code> (배열 크기 <code class="language-plaintext highlighter-rouge">n</code>에 비례).</li>
+    </ul>
+  </li>
+  <li><strong>시간 효율성:</strong>
+    <ul>
+      <li>숫자를 해시맵에 저장: <code class="language-plaintext highlighter-rouge">O(n)</code> (한 번 순회).</li>
+      <li>숫자의 존재 여부 확인: <code class="language-plaintext highlighter-rouge">O(1)</code> (평균적으로 해시맵의 조회는 상수 시간).</li>
+      <li>시간 복잡도: 전체적으로 <code class="language-plaintext highlighter-rouge">O(n)</code>.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<p>예제) 입력: [1, 2, 3, 4, 8], target = 6</p>
+
+<h4 id="1-해시맵-생성">1. 해시맵 생성:</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">hashmap</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="mi">1</span> <span class="p">};</span>
+</code></pre></div></div>
+
+<h4 id="2-첫-번째-숫자-num--1일-때">2. 첫 번째 숫자 <code class="language-plaintext highlighter-rouge">num = 1</code>일 때:</h4>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">complement = 6 - 1 = 5</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">hashmap</code>에 <code class="language-plaintext highlighter-rouge">5</code>가 없음. 다음 숫자로 진행.</li>
+</ul>
+
+<h4 id="3-두-번째-숫자-num--2일-때">3. 두 번째 숫자 <code class="language-plaintext highlighter-rouge">num = 2</code>일 때:</h4>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">complement = 6 - 2 = 4</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">hashmap</code>에 <code class="language-plaintext highlighter-rouge">4</code> 있음. <code class="language-plaintext highlighter-rouge">true</code> 반환.</li>
+</ul>
+
+<p><br /><br /><br /></p>
+</div>
+
+        
+        <div class="categories">
+        
+
+
+  
     
 
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-12-30-algorithm-19.CreatingSearchFunctionUsingStringHashing/">19. Creating a Search Function Using String Hashing</a>
-      </h3>
+
+
+
+<div class="category-link">
+<a href="/category/development">
+  Development
+</a>
+
+</div>
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/algorithm">
+  Algorithm
+</a>
+
+</div>
+  
+
+        
+        </div>
+
+        
+
+      </div>
     </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>문자열의 해시값을 이용해 효율적으로 문자열 포함 여부를 확인하는 방법을 학습</p>
-      </div>
-    
-
-    
-
-    
-
   </div>
 </div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
 
 
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-12-29-19.%20Class/"><img alt="19. Class" src="/assets/images/gen/blog/javascript.webp"/></a>
+  <div class="section section-base-bg-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"></div>
+        <div class="subscribe">
+  <div class="row">
+    <div class="col-12 col-md-4 mb-2 mb-md-0">
+      <h2 class="">Let's keep in touch</h2>
     </div>
-  
 
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">29 December 2024</span>
+    <div class="co-12 col-md-8">
+      <div id="mc_embed_signup">
+        <form action="https://zerostatic.us21.list-manage.com/subscribe/post?u=798e19886b83aaab346734382&amp;id=f1c526a772&amp;f_id=0027e3e6f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="subscribe-form" target="_blank" novalidate>
+          <div class="subscribe-fields">
+            <input class="required email" id="mce-EMAIL" name="EMAIL" placeholder="Your email address" type="email" value="" />
+            <div aria-hidden="true" style="position: absolute; left: -5000px"><input name="b_675276692aebec1c007f8156d_3e3da720c2" tabindex="-1" type="text" value="" /></div>
+            <input type="submit" value="Submit" />
           </div>
-        
-
+          <div class="subscribe-responses" id="mce-responses">
+            <div class="response response-error" id="mce-error-response" style="display: none"></div>
+            <div class="response response-success" id="mce-success-response" style="display: none"></div>
+          </div>
+        </form>
       </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-12-29-19.%20Class/">19. Class</a>
-      </h3>
     </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>객체를 생성하고 상속을 관리하기 위한 간결한 문법적 표현이자 프로토타입 기반 상속을 추상화하여 객체 지향 프로그래밍(OOP), 클래스</p>
-      </div>
-    
-
-    
-
-    
-
   </div>
 </div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-12-28-18.%20Closure/"><img alt="18. Closure" src="/assets/images/gen/blog/javascript.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">28 December 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-12-28-18.%20Closure/">18. Closure</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>함수와 그 함수가 선언한 렉시컬 환경의 조합, 클로저</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-12-26-algorithm-18.CreatingSpecificValueWithTwoNumbers/"><img alt="18. Creating a Specific Value with TwoNumbers" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">26 December 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-12-26-algorithm-18.CreatingSpecificValueWithTwoNumbers/">18. Creating a Specific Value with TwoNumbers</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>효율적인 해시 기반 접근을 통해 두 숫자의 합이 특정 값(target)이 되는지를 빠르게 판단</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-12-26-algorithm-17.%20DeckOfCards/"><img alt="17. Deck of Cards" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">26 December 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-12-26-algorithm-17.%20DeckOfCards/">17. Deck of Cards</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>큐를 활용한 규칙과 순서를 정확히 이해하고, 이를 효율적으로 구현</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-12-22-17.%20ExecutionContext/"><img alt="17. Execution context" src="/assets/images/gen/blog/javascript.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">20 December 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-12-22-17.%20ExecutionContext/">17. Execution context</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>함수의 호출 방식에 따라 this가 참조하는 값이 결정되는 this 바인딩</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-                </div>
-              
-          </div>
         </div>
       </div>
-      
-      <div class="row justify-content-center mt-4">
-        <div class="col-auto">
-          <!-- Pagination links -->
-
-<div class="pagination">
-  <ul>
-    
-
-    
-      
-        <li class="active"><span>1</span></li>
-      
-    
-      
-        <li><a href="/blog/page/2">2</a></li>
-      
-    
-      
-        <li><a href="/blog/page/3">3</a></li>
-      
-    
-      
-        <li><a href="/blog/page/4">4</a></li>
-      
-    
-      
-        <li><a href="/blog/page/5">5</a></li>
-      
-    
-      
-        <li><a href="/blog/page/6">6</a></li>
-      
-    
-      
-        <li><a href="/blog/page/7">7</a></li>
-      
-    
-  
-  
-    <li><a href="/blog/page/2"><i class="fa fa-chevron-right"></i></a></li>
-  
-  </ul>
-</div>
-
-        </div>
-      </div>
-      
+    </div>
   </div>
-</div>
+
 
 </div>
 

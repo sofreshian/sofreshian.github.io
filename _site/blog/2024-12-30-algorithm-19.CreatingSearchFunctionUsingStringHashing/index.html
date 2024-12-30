@@ -5,18 +5,22 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <title>Blog - Jekyll Curate</title>
+    <title>19. Creating a Search Function Using String Hashing - Jekyll Curate</title>
 
+
+  <meta name="description" content="문자열의 해시값을 이용해 효율적으로 문자열 포함 여부를 확인하는 방법을 학습"/>
 
 
 
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="http://localhost:4000/blog/"/>
+<meta property="og:url" content="http://localhost:4000/blog/2024-12-30-algorithm-19.CreatingSearchFunctionUsingStringHashing/"/>
 
 
-  <meta property="og:title" content="Blog"/>
+  <meta property="og:title" content="19. Creating a Search Function Using String Hashing"/>
 
 
+
+  <meta property="og:description" content="문자열의 해시값을 이용해 효율적으로 문자열 포함 여부를 확인하는 방법을 학습"/>
 
 
 
@@ -174,7 +178,7 @@
     
 
   </head>
-<body class="page page-blog has-static-header">
+<body class="page page-post has-static-header">
 
 
 <div class="menu-main-mobile " id="menu-main-mobile">
@@ -197,7 +201,7 @@
             <a href="/projects/">Projects</a>
           </li>
         
-          <li class="menu-item-blog active ">
+          <li class="menu-item-blog">
             <a href="/blog/">Blog</a>
           </li>
         
@@ -386,7 +390,7 @@
     
       
         
-        <li class="active ">
+        <li class=" ">
           <a href="/blog/" >Blog</a>
         </li>
       
@@ -437,7 +441,7 @@
   <div class="section">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-12 col-md-12">
+      <div class="col-12">
         
 
 
@@ -453,10 +457,14 @@
   
   
   <div class="heading-heading">
-    <h1>Blog</h1>
+    <h1>19. Creating a Search Function Using String Hashing</h1>
   </div>
   
   
+  
+    <div class="heading-description">
+      <p>문자열의 해시값을 이용해 효율적으로 문자열 포함 여부를 확인하는 방법을 학습</p>
+    </div>
   
 
   
@@ -468,434 +476,243 @@
 
 <div class="section pt-0">
   <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-12">
-          <div class="row">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        
+        
+          <div class="mb-2">
+          
             
-            
-            
-              
-                <div class="col-12">
-                  
+
+
+
+
+<div class="author">
   
 
-                </div>
-              
-
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
   
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-12-30-algorithm-19.CreatingSearchFunctionUsingStringHashing/"><img alt="19. Creating a Search Function Using String Hashing" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">31 December 2024</span>
+</div>
+          
           </div>
         
+        
+        <div class="content"><figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/algorithm/algorithm_19.webp" alt="algorithm test" />
+  </a>
+  <figcaption>
+    <h4>19. Creating a Search Function Using String Hashing</h4>
+    <p>Sunhyup Lee. (2024). To be a successful candidate for the coding test. goldenrabbit. p.244.</p>
+  </figcaption>
+</figure>
 
-      </div>
+<h2 id="problem-solving">Problem solving</h2>
+
+<h3 id="1-hash를-이용하여-풀기">1. Hash를 이용하여 풀기</h3>
+
+<p>🧐 Q. 해시값으로 변환하면 비교횟수를 크게 줄일 수 있나요?</p>
+
+<p>Answer)</p>
+
+<h3 id="1-문자열-비교와-해싱-비교의-차이">1. <strong>문자열 비교와 해싱 비교의 차이</strong></h3>
+
+<ul>
+  <li>문자열 비교는 <strong>문자 하나씩 순차적으로 비교</strong>해야 하므로 시간 복잡도는 O(L)O(L)O(L)입니다. (여기서 LLL은 문자열의 길이)</li>
+  <li>해시 비교는 두 정수(해시값)를 비교하는 작업이므로 시간 복잡도는 O(1)O(1)O(1)입니다.</li>
+</ul>
+
+<h4 id="예시">예시:</h4>
+
+<ul>
+  <li>문자열 리스트: <code class="language-plaintext highlighter-rouge">['apple', 'banana', 'cherry']</code></li>
+  <li>쿼리 문자열: <code class="language-plaintext highlighter-rouge">'banana'</code></li>
+</ul>
+
+<p><strong>문자열 비교의 경우</strong>:</p>
+
+<ul>
+  <li>첫 번째 문자열 <code class="language-plaintext highlighter-rouge">'apple'</code>과 비교: 모든 문자를 비교 →<span style="font-family: Times New Roman;"> O(L)</span></li>
+  <li>두 번째 문자열 <code class="language-plaintext highlighter-rouge">'banana'</code>와 비교: 모든 문자를 비교 → <span style="font-family: Times New Roman;"> O(L)</span></li>
+  <li>총 비교 횟수: <span style="font-family: Times New Roman;"> O(N×L), N</span>은 리스트의 크기.</li>
+</ul>
+
+<p><strong>해시 비교의 경우</strong>:</p>
+
+<ul>
+  <li>해시값을 미리 계산한 후 쿼리의 해시값과 비교:
+    <ul>
+      <li>해시값 비교는 숫자 비교로 <span style="font-family: Times New Roman;"> O(1)</span></li>
+    </ul>
+  </li>
+  <li>총 비교 횟수: <span style="font-family: Times New Roman;"> O(N)</span></li>
+</ul>
+
+<p>결론적으로, <strong>해싱은 문자열이 길어질수록 효율적</strong>입니다.</p>
+
+<p><br /></p>
+
+<p>🧐 Q. 해시비교도 문자열비교와 마찬가지로 각각 개별로 모두 비교할텐데, 상수시간 복잡도가 O(1) 이죠?</p>
+
+<p>Answer)</p>
+
+<p>해싱의 핵심 이점은 다음 두 가지로 나뉩니다:</p>
+
+<ol>
+  <li>정수 비교는 문자열 비교보다 빠르다.
+    <ul>
+      <li>정수(해시값)를 비교하는 비용은 <strong>상수 시간</strong> <span style="font-family: Times New Roman;"> O(1)</span>입니다.</li>
+      <li>반면 문자열 비교는 문자열 길이에 따라 시간이 달라집니다.</li>
+    </ul>
+  </li>
+  <li>사전 계산(Pre-computation)
+    <ul>
+      <li>해시값은 문자열을 사전에 정수로 변환해 두기 때문에, 비교할 때는 이미 계산된 정수만 비교합니다.</li>
+      <li>이 과정에서 문자열 길이에 비례하는 비용<span style="font-family: Times New Roman;"> O(L)</span>은 <strong>한 번만 발생</strong>하며, 이후의 비교는 항상 <span style="font-family: Times New Roman;"> O(1)</span>입니다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="예시-1">예시:</h4>
+
+<ul>
+  <li>
+    <p>문자열 비교:</p>
+
+    <ul>
+      <li>두 문자열 <code class="language-plaintext highlighter-rouge">apple</code>과 <code class="language-plaintext highlighter-rouge">apple</code>을 비교 → 각 문자를 비교: <span style="font-family: Times New Roman;">a == a, p == p → O(L)</span></li>
+    </ul>
+  </li>
+  <li>
+    <p>해시 비교:</p>
+
+    <ul>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">apple</code>의 해시값 <span style="font-family: Times New Roman;">h<sub>1</sub>=123456</span> 비교 대상 해시값 <span style="font-family: Times New Roman;">h<sub>2</sub>=123456</span></p>
+      </li>
+      <li>
+        <p>정수 <span style="font-family: Times New Roman;">h<sub>1</sub></span>과 <span style="font-family: Times New Roman;">h<sub>2</sub></span>를 비교 → <span style="font-family: Times New Roman;">O(1)</span></p>
+
+        <p>여기서 상수시간 복잡도란? <span style="background-color: #fff5b1"><strong>해시값이 미리 계산된 상태에서, 단순히 두 정수(해시값)를 비교</strong>하는 작업을 의미</span></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">polynomialHash</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">p</span> <span class="o">=</span> <span class="mi">31</span><span class="p">;</span> <span class="c1">// 해시 계산에 사용할 소수</span>
+  <span class="kd">const</span> <span class="nx">m</span> <span class="o">=</span> <span class="mi">1</span><span class="nx">_000_000_007</span><span class="p">;</span> <span class="c1">// 큰 소수 모듈러 값</span>
+  <span class="kd">let</span> <span class="nx">hashValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">hashValue</span> <span class="o">=</span> <span class="p">(</span><span class="nx">hashValue</span> <span class="o">*</span> <span class="nx">p</span> <span class="o">+</span> <span class="nx">str</span><span class="p">.</span><span class="nf">charCodeAt</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span> <span class="o">%</span> <span class="nx">m</span><span class="p">;</span> <span class="c1">// 올바른 모듈로 연산 적용</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">hashValue</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">stringList</span><span class="p">,</span> <span class="nx">queryList</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">hashList</span> <span class="o">=</span> <span class="nx">stringList</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">str</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nf">polynomialHash</span><span class="p">(</span><span class="nx">str</span><span class="p">));</span> <span class="c1">// stringList의 해시값 계산</span>
+
+  <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">query</span> <span class="k">of</span> <span class="nx">queryList</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// queryList를 순회하며 검사</span>
+    <span class="kd">const</span> <span class="nx">queryHash</span> <span class="o">=</span> <span class="nf">polynomialHash</span><span class="p">(</span><span class="nx">query</span><span class="p">);</span> <span class="c1">// query의 해시값 계산</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">hashList</span><span class="p">.</span><span class="nf">includes</span><span class="p">(</span><span class="nx">queryHash</span><span class="p">))</span> <span class="p">{</span>
+      <span class="c1">// 해시값이 존재하는지 확인</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span> <span class="c1">// 결과 배열 반환</span>
+<span class="p">}</span>
+
+<span class="c1">// 테스트 실행</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span>
+  <span class="nf">solution</span><span class="p">([</span><span class="dl">"</span><span class="s2">apple</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">banana</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">cherry</span><span class="dl">"</span><span class="p">],</span> <span class="p">[</span><span class="dl">"</span><span class="s2">banana</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">kiwi</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">melon</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">apple</span><span class="dl">"</span><span class="p">])</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p>🧐 Q. <code class="language-plaintext highlighter-rouge">hashValue = (hashValue * p + str.charCodeAt(i)) % m;</code>를 반복문에서 사용하는 것은 왜 그런것일까?</p>
+
+<p>Answer) <strong>모든 문자를 포함</strong>하고, <strong>순서를 반영하며</strong>, <strong>효율적으로 해시값을 계산</strong>하기 위해 필수적입니다. 초기값이 0이라도, 반복문을 통해 각 문자를 차례로 처리하여 최종 해시값을 얻는 과정이 필요합니다.</p>
+
+<p><br /><br /><br /></p>
+</div>
+
+        
+        <div class="categories">
+        
+
+
+  
     
 
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-12-30-algorithm-19.CreatingSearchFunctionUsingStringHashing/">19. Creating a Search Function Using String Hashing</a>
-      </h3>
+
+
+
+<div class="category-link">
+<a href="/category/development">
+  Development
+</a>
+
+</div>
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/algorithm">
+  Algorithm
+</a>
+
+</div>
+  
+
+        
+        </div>
+
+        
+
+      </div>
     </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>문자열의 해시값을 이용해 효율적으로 문자열 포함 여부를 확인하는 방법을 학습</p>
-      </div>
-    
-
-    
-
-    
-
   </div>
 </div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
 
 
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-12-29-19.%20Class/"><img alt="19. Class" src="/assets/images/gen/blog/javascript.webp"/></a>
+  <div class="section section-base-bg-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"></div>
+        <div class="subscribe">
+  <div class="row">
+    <div class="col-12 col-md-4 mb-2 mb-md-0">
+      <h2 class="">Let's keep in touch</h2>
     </div>
-  
 
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">29 December 2024</span>
+    <div class="co-12 col-md-8">
+      <div id="mc_embed_signup">
+        <form action="https://zerostatic.us21.list-manage.com/subscribe/post?u=798e19886b83aaab346734382&amp;id=f1c526a772&amp;f_id=0027e3e6f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="subscribe-form" target="_blank" novalidate>
+          <div class="subscribe-fields">
+            <input class="required email" id="mce-EMAIL" name="EMAIL" placeholder="Your email address" type="email" value="" />
+            <div aria-hidden="true" style="position: absolute; left: -5000px"><input name="b_675276692aebec1c007f8156d_3e3da720c2" tabindex="-1" type="text" value="" /></div>
+            <input type="submit" value="Submit" />
           </div>
-        
-
+          <div class="subscribe-responses" id="mce-responses">
+            <div class="response response-error" id="mce-error-response" style="display: none"></div>
+            <div class="response response-success" id="mce-success-response" style="display: none"></div>
+          </div>
+        </form>
       </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-12-29-19.%20Class/">19. Class</a>
-      </h3>
     </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>객체를 생성하고 상속을 관리하기 위한 간결한 문법적 표현이자 프로토타입 기반 상속을 추상화하여 객체 지향 프로그래밍(OOP), 클래스</p>
-      </div>
-    
-
-    
-
-    
-
   </div>
 </div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-12-28-18.%20Closure/"><img alt="18. Closure" src="/assets/images/gen/blog/javascript.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">28 December 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-12-28-18.%20Closure/">18. Closure</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>함수와 그 함수가 선언한 렉시컬 환경의 조합, 클로저</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-12-26-algorithm-18.CreatingSpecificValueWithTwoNumbers/"><img alt="18. Creating a Specific Value with TwoNumbers" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">26 December 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-12-26-algorithm-18.CreatingSpecificValueWithTwoNumbers/">18. Creating a Specific Value with TwoNumbers</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>효율적인 해시 기반 접근을 통해 두 숫자의 합이 특정 값(target)이 되는지를 빠르게 판단</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-12-26-algorithm-17.%20DeckOfCards/"><img alt="17. Deck of Cards" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">26 December 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-12-26-algorithm-17.%20DeckOfCards/">17. Deck of Cards</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>큐를 활용한 규칙과 순서를 정확히 이해하고, 이를 효율적으로 구현</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-12-22-17.%20ExecutionContext/"><img alt="17. Execution context" src="/assets/images/gen/blog/javascript.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">20 December 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-12-22-17.%20ExecutionContext/">17. Execution context</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>함수의 호출 방식에 따라 this가 참조하는 값이 결정되는 this 바인딩</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-                </div>
-              
-          </div>
         </div>
       </div>
-      
-      <div class="row justify-content-center mt-4">
-        <div class="col-auto">
-          <!-- Pagination links -->
-
-<div class="pagination">
-  <ul>
-    
-
-    
-      
-        <li class="active"><span>1</span></li>
-      
-    
-      
-        <li><a href="/blog/page/2">2</a></li>
-      
-    
-      
-        <li><a href="/blog/page/3">3</a></li>
-      
-    
-      
-        <li><a href="/blog/page/4">4</a></li>
-      
-    
-      
-        <li><a href="/blog/page/5">5</a></li>
-      
-    
-      
-        <li><a href="/blog/page/6">6</a></li>
-      
-    
-      
-        <li><a href="/blog/page/7">7</a></li>
-      
-    
-  
-  
-    <li><a href="/blog/page/2"><i class="fa fa-chevron-right"></i></a></li>
-  
-  </ul>
-</div>
-
-        </div>
-      </div>
-      
+    </div>
   </div>
-</div>
+
 
 </div>
 
