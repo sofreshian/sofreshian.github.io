@@ -389,9 +389,37 @@
       
     
       
+
         
-        <li class=" ">
-          <a href="/blog/" >Blog</a>
+        
+
+        <li class="menu-item-dropdown menu-item-Blog ">
+          <a href="/blog/">Blog <i class="fa-solid fa-chevron-down"></i></a>
+          
+          <div class="dropdown-menu">
+            
+              <a href="/category/javascript/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Javascript</div>
+                  
+                </div>
+              </a>
+            
+              <a href="/category/algorithm/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Algorithm</div>
+                  
+                </div>
+              </a>
+            
+          </div>
+
         </li>
       
     
@@ -496,16 +524,32 @@
           </div>
         
         
-        <div class="content"><h2 id="1-값value이란-무엇인가">1) 값(value)이란 무엇인가?</h2>
+        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">index</span></p>
 
-<p><a href="#">값</a>은 <a href="#">식</a>(표현식, expression)이 <a href="#">평가</a>(evaluate)되어 생성된 결과를 말한다.</p>
+<p>① <a href="#1-값value이란-무엇인가">값(value)이란 무엇인가?</a><br /></p>
+
+<p>② <a href="#2-리터럴literal--표기법">리터럴(literal) ≒ 표기법</a><br /></p>
+
+<p>③ <a href="#3-문statement">문(statement)</a><br /></p>
+
+<p>④ <a href="#4-표현식expression">표현식(expression)</a></p>
 
 <p><br /></p>
 
-<h2 id="2-리터럴literal--표기법">2) 리터럴(literal) ≒ 표기법</h2>
+<hr />
 
-<p>리터럴은 사람이 이해할 수 있는 <a href="#">문자</a> 또는 <a href="#">약속된 기호</a>를 사용해 <a href="#">값을 생성하는 표기법</a>을 말한다. <br />
-자바스크립트 엔진은 코드가 실행되는 시점인 런타임(runtime)에 리터럴을 평가해 값을 생성한다.<br /> 
+<h2 id="1-값value이란-무엇인가">1. 값(value)이란 무엇인가?</h2>
+
+<p><span style="color: white;">값</span>은 <span style="color: white;">식</span>(표현식, expression)이 <span style="color: white;">평가</span>(evaluate)되어 생성된 결과를 말한다.</p>
+
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
+
+<h2 id="2-리터럴literal--표기법">2. 리터럴(literal) ≒ 표기법</h2>
+
+<p>리터럴은 사람이 이해할 수 있는 <span style="color: white;">문자</span> 또는 <span style="color: white;">약속된 기호</span>를 사용해 <span style="color: white;">값을 생성하는 표기법</span>을 말한다. <br />
+자바스크립트 엔진은 코드가 실행되는 시점인 런타임(runtime)에 리터럴을 평가해 값을 생성한다.<br />
 즉, 리터럴은 값을 생성하기 위해 미리 약속한 표기법</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">100</span>           <span class="c1">// 정수 리터럴</span>
@@ -525,12 +569,14 @@
 
 <p><br /></p>
 
-<h2 id="3-문statement">3) 문(statement)</h2>
+<hr style="border: 1px dashed #ccc;" />
+
+<h2 id="3-문statement">3. 문(statement)</h2>
 
 <p>문(statement)은 프로그램을 구성하는 기본 단위이자 최소 실행 단위다. 문의 집합으로 이뤄진 것이 바로 프로그램이며, 문을 작성하고 순서에 맞게 나열하는 것이 프로그래밍이다.</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// → 문 (let sum = 1 + 1)</span>
-<span class="c1">// ↑ 토큰 (let, sum, =, 1, +, 1)  </span>
+<span class="c1">// ↑ 토큰 (let, sum, =, 1, +, 1)</span>
 </code></pre></div></div>
 
 <p>토큰(token)이란 문법적인 의미를 가지며, 문법적으로 더 이상 나눌 수 없는 코드의 기본 요소를 의미한다. <br />
@@ -538,28 +584,30 @@
 
 <p><br /></p>
 
-<h2 id="4-표현식expression">4) 표현식(expression)</h2>
+<hr style="border: 1px dashed #ccc;" />
 
-<p>표현식은 <a href="#">값으로 평가될 수 있는 문</a>이다. 즉, 표현식이 평가되면 새로운 값을 생성하거나 기존 값을 참조한다.<br />
+<h2 id="4-표현식expression">4. 표현식(expression)</h2>
+
+<p>표현식은 <span style="color: white;">값으로 평가될 수 있는 문</span>이다. 즉, 표현식이 평가되면 새로운 값을 생성하거나 기존 값을 참조한다.<br />
 표현식은 리터럴, 식별자, 연산자, 함수호출 등의 조합으로 이뤄질 수 있다.</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 리터럴 표현식</span>
-<span class="mi">10</span>
-<span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span>
+<span class="mi">10</span><span class="p">;</span>
+<span class="p">(</span><span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="c1">// 식별자 표현식 (선언이 이미 존재한다고 가정)</span>
-<span class="nx">sum</span>
-<span class="nx">person</span><span class="p">.</span><span class="nx">name</span>
-<span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nx">sum</span><span class="p">;</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+<span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
 
 <span class="c1">// 연산자 표현식</span>
-<span class="mi">10</span> <span class="o">+</span> <span class="mi">20</span>
-<span class="nx">sum</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="nx">sum</span> <span class="o">!==</span> <span class="mi">10</span>
+<span class="mi">10</span> <span class="o">+</span> <span class="mi">20</span><span class="p">;</span>
+<span class="nx">sum</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">sum</span> <span class="o">!==</span> <span class="mi">10</span><span class="p">;</span>
 
 <span class="c1">// 함수/메서드 호출 표현식(선언이 이미 존재한다고 가정)</span>
-<span class="nf">square</span><span class="p">()</span>
-<span class="nx">person</span><span class="p">.</span><span class="nf">getName</span><span class="p">()</span>
+<span class="nf">square</span><span class="p">();</span>
+<span class="nx">person</span><span class="p">.</span><span class="nf">getName</span><span class="p">();</span>
 </code></pre></div></div>
 
 <p><br /></p>
@@ -575,7 +623,7 @@
   </li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">x</span><span class="p">;</span>  <span class="c1">//변수 선언문은 표현식이 아닌 문</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">x</span><span class="p">;</span> <span class="c1">//변수 선언문은 표현식이 아닌 문</span>
 <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// 할당문은 그 자체가 표현식이지만 완전한 문이기도 하다. 즉, 할당문은 표현식인 문이다.</span>
 </code></pre></div></div>
 
@@ -583,9 +631,9 @@
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">// 이 경우, '표현식'인가 '표현식이 아닌 문'인가?</span>
 
-<span class="o">=&gt;</span> <span class="dl">"</span><span class="s2">표현식이 아닌 문</span><span class="dl">"</span> 
-<span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;(</span><span class="nx">선언</span> <span class="nx">없이</span> <span class="nx">할당</span><span class="p">)</span> <span class="nx">같은</span> <span class="nx">경우에는</span> <span class="nx">값이</span> <span class="mi">10</span><span class="nx">으로</span> <span class="nx">평가되며</span><span class="p">,</span> 
-<span class="nx">표현식으로</span> <span class="nx">간주될</span> <span class="nx">수</span> <span class="nx">있습니다</span><span class="p">.</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="nx">표현식은</span> <span class="nx">할당된</span> <span class="nx">값</span> <span class="mi">10</span><span class="nx">을</span> <span class="nx">반환합니다</span><span class="p">.</span> 
+<span class="o">=&gt;</span> <span class="dl">"</span><span class="s2">표현식이 아닌 문</span><span class="dl">"</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;(</span><span class="nx">선언</span> <span class="nx">없이</span> <span class="nx">할당</span><span class="p">)</span> <span class="nx">같은</span> <span class="nx">경우에는</span> <span class="nx">값이</span> <span class="mi">10</span><span class="nx">으로</span> <span class="nx">평가되며</span><span class="p">,</span>
+<span class="nx">표현식으로</span> <span class="nx">간주될</span> <span class="nx">수</span> <span class="nx">있습니다</span><span class="p">.</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="nx">표현식은</span> <span class="nx">할당된</span> <span class="nx">값</span> <span class="mi">10</span><span class="nx">을</span> <span class="nx">반환합니다</span><span class="p">.</span>
 <span class="nx">하지만</span> <span class="kd">var</span> <span class="nx">키워드가</span> <span class="nx">포함된</span> <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">문장은</span> <span class="nx">값으로</span> <span class="nx">평가되지</span> <span class="nx">않는다</span><span class="p">.</span>
 </code></pre></div></div>
 

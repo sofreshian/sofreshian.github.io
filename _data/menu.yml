@@ -29,13 +29,23 @@ main:
   - name: Blog
     url: /blog/
     weight: 2
+    child:
+      - name: "Javascript"
+        # icon: "/assets/images/icons/wireframe-7.svg"
+        # icon_darkmode: "/assets/images/icons/wireframe-7-white.svg"
+        # description: "Javascript"
+        url: /category/javascript/
+      - name: "Algorithm"
+        # icon: "/assets/images/icons/wireframe-7.svg"
+        # icon_darkmode: "/assets/images/icons/wireframe-7-white.svg"
+        # description: "Javascript"
+        url: /category/algorithm/
   - name: About
     url: /about/
     weight: 3
   - name: Contact
     url: /contact/
     weight: 4
-  
 
 footer_primary:
   - name: "Project 1"

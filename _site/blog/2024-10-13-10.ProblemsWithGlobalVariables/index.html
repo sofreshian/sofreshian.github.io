@@ -389,9 +389,37 @@
       
     
       
+
         
-        <li class=" ">
-          <a href="/blog/" >Blog</a>
+        
+
+        <li class="menu-item-dropdown menu-item-Blog ">
+          <a href="/blog/">Blog <i class="fa-solid fa-chevron-down"></i></a>
+          
+          <div class="dropdown-menu">
+            
+              <a href="/category/javascript/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Javascript</div>
+                  
+                </div>
+              </a>
+            
+              <a href="/category/algorithm/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Algorithm</div>
+                  
+                </div>
+              </a>
+            
+          </div>
+
         </li>
       
     
@@ -496,9 +524,42 @@
           </div>
         
         
-        <div class="content"><h2 id="1-전역-변수의-문제점">1) 전역 변수의 문제점</h2>
+        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">index</span></p>
 
-<h3 id="1-암묵적-결합implicit-binding">1. 암묵적 결합(implicit binding)</h3>
+<p>① <a href="#1-전역-변수의-문제점">전역 변수의 문제점</a><br /></p>
+
+<ul>
+  <li><a href="#11-암묵적-결합implicit-binding">암묵적 결합(implicit binding)</a><br /></li>
+  <li><a href="#12-긴-생명주기long-life-cycle-of-variables">긴 생명주기(Long life cycle of variables)</a><br /></li>
+  <li><a href="#13-스코프-체인상에서-종점에-존재">스코프 체인상에서 종점에 존재</a><br /></li>
+  <li><a href="#14-네임스페이스-오염">네임스페이스 오염</a><br /></li>
+</ul>
+
+<p>② <a href="#2-전역변수-사용을-억제하는-방법">전역변수 사용을 억제하는 방법</a><br /></p>
+
+<ul>
+  <li><a href="#21-즉시-실행-함수">즉시 실행 함수</a><br /></li>
+  <li><a href="#22-네임스페이스-객체">네임스페이스 객체</a><br /></li>
+  <li><a href="#23-모듈패턴">모듈패턴</a><br /></li>
+  <li><a href="#24-es6-모듈">ES6 모듈</a><br />
+    <ul>
+      <li><a href="#241-모듈스코프">모듈스코프</a><br /></li>
+      <li><a href="#242-import--export-지원">import / export 지원</a><br /></li>
+      <li><a href="#243-모듈-간의-비동기-로딩">모듈 간의 비동기 로딩</a><br /></li>
+      <li><a href="#244-엄격모드strict-mode">엄격모드(strict mode)</a><br /></li>
+      <li><a href="#245-html에서-중복된-모듈-실행-방지">HTML에서 중복된 모듈 실행 방지</a><br /></li>
+      <li><a href="#246-브라우저-환경에서의-파일경로">브라우저 환경에서의 파일경로</a><br /></li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="1-전역-변수의-문제점">1. 전역 변수의 문제점</h2>
+
+<h3 id="11-암묵적-결합implicit-binding">1.1 암묵적 결합(implicit binding)</h3>
 
 <p>전역 변수를 선언한 의도는 전역, 즉 코드 어디서든 참조하고 할당할 수 있는 변수를 사용하겠다는 것이다. 이는 모든 코드가 전역변수를 참조하고 변경할 수 있는 암묵적 결합(implicit binding)을 허용하는 것이다. <br /></p>
 
@@ -508,7 +569,7 @@
 
 <p><br /><br /></p>
 
-<h3 id="2-긴-생명주기long-life-cycle-of-variables">2. 긴 생명주기(Long life cycle of variables)</h3>
+<h3 id="12-긴-생명주기long-life-cycle-of-variables">1.2 긴 생명주기(Long life cycle of variables)</h3>
 
 <p>전역 변수는 생명 주기가 길다. 따라서 메모리 리소스도 오랜 시간 소비한다. <br /></p>
 
@@ -518,7 +579,7 @@
 
 <p><br /><br /></p>
 
-<h3 id="3-스코프-체인상에서-종점에-존재">3. 스코프 체인상에서 종점에 존재</h3>
+<h3 id="13-스코프-체인상에서-종점에-존재">1.3 스코프 체인상에서 종점에 존재</h3>
 
 <p>전역 변수는 스코프 체인 상에서 종점에 존재한다. 이는 변수를 검색할 때 전역 변수가 가장 마지막에 검색된다는 것을 말한다. <br /></p>
 
@@ -528,7 +589,7 @@
 
 <p><br /><br /></p>
 
-<h3 id="4-네임스페이스-오염">4. 네임스페이스 오염</h3>
+<h3 id="14-네임스페이스-오염">1.4 네임스페이스 오염</h3>
 
 <p>파일이 분리되어 있다 해도 하나의 전역 스코프를 공유한다는 것이다.</p>
 
@@ -536,11 +597,13 @@
 
 <p>그러나, <span style="color:#e74c3c"> <strong>다른 파일 내에서 동일한 이름으로 명명된 전역변수나 전역함수가 같은 스코프 내에 존재할 경우 예상치 못한 결과를 가져올 수 있다.</strong> </span></p>
 
-<p><br /><br /><br /></p>
+<p><br /></p>
 
-<h2 id="2-전역변수-사용을-억제하는-방법">2) 전역변수 사용을 억제하는 방법</h2>
+<hr style="border: 1px dashed #ccc;" />
 
-<h3 id="1-즉시-실행-함수">1. 즉시 실행 함수</h3>
+<h2 id="2-전역변수-사용을-억제하는-방법">2. 전역변수 사용을 억제하는 방법</h2>
+
+<h3 id="21-즉시-실행-함수">2.1 즉시 실행 함수</h3>
 
 <p>함수 정의와 동시에 호출되는 즉시 실행 함수는 단 한 번만 호출된다.<br /></p>
 
@@ -556,7 +619,7 @@
 
 <p><br /><br /></p>
 
-<h3 id="2-네임스페이스-객체">2. 네임스페이스 객체</h3>
+<h3 id="22-네임스페이스-객체">2.2 네임스페이스 객체</h3>
 
 <p>전역에 네임스페이스 역할을 담당할 객체를 생성하고 전역 변수처럼 사용하고 싶은 변수를 프로퍼티로 추가하는 방법 <br /></p>
 
@@ -587,7 +650,7 @@
 
 <p><br /><br /></p>
 
-<h3 id="3-모듈패턴">3. 모듈패턴</h3>
+<h3 id="23-모듈패턴">2.3 모듈패턴</h3>
 
 <p>모듈패턴은 클래스를 모방해서 관련이 있는 변수와 함수를 모아 즉시 실행함수로 감싸 하나의 모듈을 만든다. 모듈 패턴의 특징은 전역 변수의 억제는 물론 캡슐화까지 구현할 수 있다. <br /></p>
 
@@ -597,8 +660,8 @@
 
 <p><span style="color:#3498db">모듈패턴은 전역 네임스페이스의 오염을 막는 기능은 물론 한정적이기는 하지만 정보 은닉을 구현하기 위해 사용한다. </span></p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Counter</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-	<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Counter</span> <span class="o">=</span> <span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
   <span class="k">return</span> <span class="p">{</span>
     <span class="nf">increase</span><span class="p">()</span> <span class="p">{</span>
@@ -606,21 +669,20 @@
     <span class="p">},</span>
     <span class="nf">decrease</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="o">--</span><span class="nx">number</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>  
-<span class="p">}());</span>
+    <span class="p">},</span>
+  <span class="p">};</span>
+<span class="p">})();</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">Counter</span><span class="p">.</span><span class="nx">num</span><span class="p">);</span> <span class="c1">// undefined</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">Counter</span><span class="p">.</span><span class="nf">increase</span><span class="p">());</span> <span class="c1">// 1</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">Counter</span><span class="p">.</span><span class="nf">increase</span><span class="p">());</span> <span class="c1">// 2</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">Counter</span><span class="p">.</span><span class="nf">decrease</span><span class="p">());</span> <span class="c1">// 1</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">Counter</span><span class="p">.</span><span class="nf">decrease</span><span class="p">());</span> <span class="c1">// 0</span>
-
 </code></pre></div></div>
 
 <p><br /><br /></p>
 
-<h3 id="4-es6-모듈">4. ES6 모듈</h3>
+<h3 id="24-es6-모듈">2.4 ES6 모듈</h3>
 
 <p>ES6 모듈은 파일 자체의 독자적인 모듈 스코프를 제공한다.</p>
 
@@ -644,7 +706,7 @@
 
 <p><br /></p>
 
-<h4 id="1-모듈스코프">1. 모듈스코프</h4>
+<h4 id="241-모듈스코프">2.4.1 모듈스코프</h4>
 
 <p>모듈은 기본적으로 <strong>자체적인 스코프</strong>를 가집니다. 즉, 모듈 내에서 정의된 변수, 함수, 클래스 등은 기본적으로 전역 스코프에 등록되지 않고, 모듈 내부에서만 유효합니다.</p>
 
@@ -652,18 +714,17 @@
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span> <span class="na">src=</span><span class="s">"module.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script&gt;</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">secret</span><span class="p">);</span>  <span class="c1">// Error: secret is not defined</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">secret</span><span class="p">);</span> <span class="c1">// Error: secret is not defined</span>
 <span class="nt">&lt;/script&gt;</span>
-
 </code></pre></div></div>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// module.js</span>
-<span class="kd">const</span> <span class="nx">secret</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">비밀</span><span class="dl">"</span><span class="p">;</span>  <span class="c1">// 모듈 내부에서만 접근 가능</span>
+<span class="kd">const</span> <span class="nx">secret</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">비밀</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// 모듈 내부에서만 접근 가능</span>
 </code></pre></div></div>
 
 <p><br /></p>
 
-<h4 id="2-import--export-지원">2. import / export 지원</h4>
+<h4 id="242-import--export-지원">2.4.2 import / export 지원</h4>
 
 <p>모듈은 <strong>다른 모듈에서 코드를 가져오거나(<code class="language-plaintext highlighter-rouge">import</code>)</strong>, 자신의 <strong>코드를 다른 모듈에 내보낼 수 있습니다(<code class="language-plaintext highlighter-rouge">export</code>)</strong>.</p>
 
@@ -679,35 +740,36 @@
 </code></pre></div></div>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// main.js</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">add</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./math.js</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">add</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./math.js</span><span class="dl">"</span><span class="p">;</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span> <span class="c1">// 5</span>
 </code></pre></div></div>
 
 <p><br /></p>
 
-<h4 id="3-모듈-간의-비동기-로딩">3. 모듈 간의 비동기 로딩</h4>
+<h4 id="243-모듈-간의-비동기-로딩">2.4.3 모듈 간의 비동기 로딩</h4>
 
 <p>모듈은 비동기적으로 로드됩니다. 즉, <code class="language-plaintext highlighter-rouge">&lt;script type="module"&gt;</code> 태그로 불러온 자바스크립트 파일은 <strong>비동기적으로</strong> 처리되어 페이지가 먼저 로드되는 것을 차단하지 않습니다. 이는 <code class="language-plaintext highlighter-rouge">defer</code> 속성을 가진 스크립트와 비슷한 방식으로 동작합니다.</p>
 
 <p>모듈 파일은 자동으로 <strong>지연 실행</strong>됩니다. 즉, HTML 문서가 모두 파싱된 후 실행됩니다.</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span> <span class="na">src=</span><span class="s">"app.js"</span><span class="nt">&gt;&lt;/script&gt;</span>  <span class="c">&lt;!-- 자동으로 비동기 로드 --&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span> <span class="na">src=</span><span class="s">"app.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="c">&lt;!-- 자동으로 비동기 로드 --&gt;</span>
 </code></pre></div></div>
 
 <p><br /></p>
 
-<h4 id="4-엄격모드strict-mode">4. 엄격모드(strict mode)</h4>
+<h4 id="244-엄격모드strict-mode">2.4.4 엄격모드(strict mode)</h4>
 
 <p>모든 모듈은 자동으로 <strong>엄격 모드(strict mode)</strong>로 실행됩니다. 즉, 모듈 내부에서는 <code class="language-plaintext highlighter-rouge">use strict</code>를 명시하지 않아도 자동으로 엄격 모드가 적용됩니다. 엄격 모드는 오류를 줄이고 더 안전한 코드 작성을 유도합니다.</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// module.js (자동으로 엄격 모드 적용)</span>
-<span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>  <span class="c1">// Error: x is not defined (엄격 모드에서 전역 변수 선언이 허용되지 않음)</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// Error: x is not defined (엄격 모드에서 전역 변수 선언이 허용되지 않음)</span>
 </code></pre></div></div>
 
 <p><br /></p>
 
-<h4 id="5-html에서-중복된-모듈-실행-방지">5. HTML에서 중복된 모듈 실행 방지</h4>
+<h4 id="245-html에서-중복된-모듈-실행-방지">2.4.5 HTML에서 중복된 모듈 실행 방지</h4>
 
 <p>두 번째 <code class="language-plaintext highlighter-rouge">module.js</code>는 실행되지 않고 캐싱된 모듈을 사용합니다.</p>
 
@@ -717,18 +779,17 @@
 
 <p><br /></p>
 
-<h4 id="6-브라우저-환경에서의-파일경로">6. 브라우저 환경에서의 파일경로</h4>
+<h4 id="246-브라우저-환경에서의-파일경로">2.4.6 브라우저 환경에서의 파일경로</h4>
 
 <p><code class="language-plaintext highlighter-rouge">type="module"</code>을 사용하면 <code class="language-plaintext highlighter-rouge">import</code>할 때 파일 경로를 명시해야 하며, <strong>상대 경로</strong> 또는 <strong>절대 경로</strong>를 사용해야 합니다. <br /></p>
 
 <p>파일 이름에 확장자 <code class="language-plaintext highlighter-rouge">.js</code>를 반드시 명시해야 합니다.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 올바른 사용</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">func</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./utils.js</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">func</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./utils.js</span><span class="dl">"</span><span class="p">;</span>
 
 <span class="c1">// 잘못된 사용 (확장자 생략 불가)</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">func</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./utils</span><span class="dl">'</span><span class="p">;</span>  <span class="c1">// Error</span>
-
+<span class="k">import</span> <span class="p">{</span> <span class="nx">func</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./utils</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// Error</span>
 </code></pre></div></div>
 
 <p><br /><br /><br /></p>

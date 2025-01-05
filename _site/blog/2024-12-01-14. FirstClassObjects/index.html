@@ -389,9 +389,37 @@
       
     
       
+
         
-        <li class=" ">
-          <a href="/blog/" >Blog</a>
+        
+
+        <li class="menu-item-dropdown menu-item-Blog ">
+          <a href="/blog/">Blog <i class="fa-solid fa-chevron-down"></i></a>
+          
+          <div class="dropdown-menu">
+            
+              <a href="/category/javascript/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Javascript</div>
+                  
+                </div>
+              </a>
+            
+              <a href="/category/algorithm/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Algorithm</div>
+                  
+                </div>
+              </a>
+            
+          </div>
+
         </li>
       
     
@@ -496,20 +524,57 @@
           </div>
         
         
-        <div class="content"><h2 id="1-일급-객체">1. 일급 객체</h2>
+        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">Index</span></p>
 
-<p>1) 무명의 리터럴로 생성할 수 있다. 즉, 런타임에 생성이 가능하다. <br />
-2) 변수나 자료구조(객체, 배열)에 저장할 수 있다. <br />
-3) 함수의 매개변수에 전달할 수 있다. <br />
-4) 함수의 반환값으로 사용할 수 있다. <br /></p>
+<p>① <a href="#1-일급-객체">일급 객체</a><br /></p>
 
-<p>여기서 핵심은 <strong>함수</strong>를  <span style="color:#e74c3c"><strong>'’값’‘</strong></span>처럼 사용할 수 있다는 점이다.</p>
+<ul>
+  <li><a href="#11-함수를-값처럼-사용하는-이유">함수를 값처럼 사용하는 이유</a><br /></li>
+  <li><a href="#12-함수와-객체의-차이">함수와 객체의 차이</a><br /></li>
+</ul>
 
-<p><br /><br /></p>
+<p>② <a href="#2-함수-객체의-프로퍼티">함수 객체의 프로퍼티</a><br /></p>
 
-<p>🤓 Q.   함수를 값처럼 사용한다는 점이 왜 중요할까?<br /></p>
+<ul>
+  <li><a href="#21-arguments-프로퍼티">arguments 프로퍼티</a><br />
+    <ul>
+      <li><a href="#211-가변-인자-함수-구현">가변 인자 함수 구현</a><br /></li>
+    </ul>
+  </li>
+  <li><a href="#22-객체와-유사-배열-객체">객체와 유사 배열 객체</a><br />
+    <ul>
+      <li><a href="#221-객체의-특징">객체의 특징</a><br /></li>
+      <li><a href="#222-유사-배열-객체의-특징">유사 배열 객체의 특징</a><br /></li>
+      <li><a href="#223-유사-배열-객체의-배열-변환">유사 배열 객체의 배열 변환</a><br /></li>
+    </ul>
+  </li>
+  <li><a href="#23-caller-프로퍼티">caller 프로퍼티</a><br /></li>
+  <li><a href="#24-length-프로퍼티">length 프로퍼티</a><br /></li>
+  <li><a href="#25-name-프로퍼티">name 프로퍼티</a><br /></li>
+  <li><a href="#26-__proto__-접근자-프로퍼티"><strong>proto</strong> 접근자 프로퍼티</a><br /></li>
+  <li><a href="#27-prototype-프로퍼티">prototype 프로퍼티</a><br /></li>
+</ul>
 
-<p>함수를 값처럼 사용하기 때문에 자바스크립트는 고차함수(Higher-Order-Functions)와 같은 패턴을 지원합니다. <br />이는 <strong>함수형 프로그래밍</strong>, <strong>비동기 처리</strong>(e.g., <code class="language-plaintext highlighter-rouge">setTimeout</code>, <code class="language-plaintext highlighter-rouge">Promise</code>), <strong>이벤트 핸들링</strong>등 현대적 프로그래밍을 가능하게 만듭니다.  예를 들어 콜백 함수는 <span style="color:#e74c3c"><strong>“함수를 값처럼 전달”</strong></span>할 수 있기 때문에 동작합니다. <br />함수를 값처럼 사용한다는 것은 자바스크립트의 강력한 유연성과 다양한 프로그래밍 스타일을 가능하게 만드는 기반입니다.  <br /></p>
+<p><br /></p>
+
+<hr />
+
+<h2 id="1-일급-객체">1. 일급 객체</h2>
+
+<ol>
+  <li>무명의 리터럴로 생성할 수 있다. 즉, 런타임에 생성이 가능하다. <br /></li>
+  <li>변수나 자료구조(객체, 배열)에 저장할 수 있다. <br /></li>
+  <li>함수의 매개변수에 전달할 수 있다. <br /></li>
+  <li>함수의 반환값으로 사용할 수 있다. <br /></li>
+</ol>
+
+<p>여기서 핵심은 <strong>함수</strong>를 <span style="color:#e74c3c"><strong>'’값’‘</strong></span>처럼 사용할 수 있다는 점이다.</p>
+
+<p><br /></p>
+
+<p>🤓 Q. 함수를 값처럼 사용한다는 점이 왜 중요할까?<br /></p>
+
+<p>함수를 값처럼 사용하기 때문에 자바스크립트는 고차함수(Higher-Order-Functions)와 같은 패턴을 지원합니다. <br />이는 <strong>함수형 프로그래밍</strong>, <strong>비동기 처리</strong>(e.g., <code class="language-plaintext highlighter-rouge">setTimeout</code>, <code class="language-plaintext highlighter-rouge">Promise</code>), <strong>이벤트 핸들링</strong>등 현대적 프로그래밍을 가능하게 만듭니다. 예를 들어 콜백 함수는 <span style="color:#e74c3c"><strong>“함수를 값처럼 전달”</strong></span>할 수 있기 때문에 동작합니다. <br />함수를 값처럼 사용한다는 것은 자바스크립트의 강력한 유연성과 다양한 프로그래밍 스타일을 가능하게 만드는 기반입니다. <br /></p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 1. 함수는 무명의 리터럴로 생성할 수 있다.</span>
 <span class="c1">// 2. 함수는 변수에 저장할 수 있다.</span>
@@ -522,10 +587,8 @@
   <span class="k">return</span> <span class="o">--</span><span class="nx">num</span><span class="p">;</span>
 <span class="p">};</span>
 
-
 <span class="c1">// 2.함수는 객체에 저장할 수 있다.</span>
 <span class="kd">const</span> <span class="nx">predicates</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">increase</span><span class="p">,</span> <span class="nx">decrease</span> <span class="p">};</span>
-
 
 <span class="c1">// 3. 함수의 매개변수에 전달할 수 있다.</span>
 <span class="c1">// 4. 함수의 반환값으로 사용할 수 있다.</span>
@@ -546,8 +609,6 @@
 <span class="kd">const</span> <span class="nx">decreaser</span> <span class="o">=</span> <span class="nf">makeCounter</span><span class="p">(</span><span class="nx">predicates</span><span class="p">.</span><span class="nx">decrease</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">decreaser</span><span class="p">());</span> <span class="c1">// -1</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">decreaser</span><span class="p">());</span> <span class="c1">// -2</span>
-
-
 </code></pre></div></div>
 
 <p>함수는 객체이지만 일반 객체와는 차이가 있다.</p>
@@ -556,7 +617,9 @@
 
 <p>그리고 함수 객체는 일반객체에는 없는 <span style="color:#3498db"><strong>함수 고유의</strong> <strong>프로퍼티를 소유</strong>한다.</span></p>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="2-함수-객체의-프로퍼티">2. 함수 객체의 프로퍼티</h2>
 
@@ -579,13 +642,15 @@
 
 <p>이처럼 arguments, caller, length, name, prototype 프로퍼티는 모두 함수 객체의 데이터 프로퍼티다. 이들 프로퍼티는 일반 객체에는 없는 함수 객체 고유의 프로퍼티다. 하지만 <code class="language-plaintext highlighter-rouge">__proto__</code> 는 접근자 프로퍼티이며, 함수 객체 고유의 프로퍼티가 아니다. <code class="language-plaintext highlighter-rouge">Object.prototype</code> 객체의 프로퍼티를 상속받은 것을 알 수 있다.</p>
 
-<p><br /><br /></p>
+<p><br /></p>
 
-<h3 id="2-1-arguments-프로퍼티">2-1) arguments 프로퍼티</h3>
+<hr style="border: 1px dashed #ccc;" />
+
+<h3 id="21-arguments-프로퍼티">2.1 arguments 프로퍼티</h3>
 
 <p>함수를 정의할 때 선언한 매개변수는 함수 몸체 내부에서 변수와 동일하게 취급된다. 즉, 함수가 호출되면 함수 몸체 내에서 암묵적으로 매개변수가 선언되고 undefined로 초기화된 이후 인수가 할당된다.</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">multiply</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">multiply</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
   <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">y</span><span class="p">;</span>
 <span class="p">}</span>
@@ -614,15 +679,15 @@
 </ul>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">multiply</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
-	<span class="c1">// 이터레이터</span>
+  <span class="c1">// 이터레이터</span>
   <span class="kd">const</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nx">iterator</span><span class="p">]();</span>
-  
+
   <span class="c1">// 이터레이터의 next 메서드를 호출하여 이터러블 객체 arguments를 순회</span>
   <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nf">next</span><span class="p">());</span> <span class="c1">// {value: 1, done: false}</span>
   <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nf">next</span><span class="p">());</span> <span class="c1">// {value: 2, done: false}</span>
   <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nf">next</span><span class="p">());</span> <span class="c1">// {value: 3, done: false}</span>
   <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nf">next</span><span class="p">());</span> <span class="c1">// {value: undefined, done: true}</span>
-  
+
   <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">y</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -631,10 +696,10 @@
 
 <p>arguments 객체는 매개변수 개수를 확정할 수 없는 <strong>가변인자함수</strong>를 구현할 때 유용하다.</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">sum</span> <span class="p">()</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">sum</span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nx">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  
-  <span class="nf">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">res</span> <span class="o">+=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
   <span class="p">}</span>
   <span class="k">return</span> <span class="nx">res</span><span class="p">;</span>
@@ -643,16 +708,17 @@
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">sum</span><span class="p">());</span> <span class="c1">// 0</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// 3</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span> <span class="c1">// 6</span>
-
 </code></pre></div></div>
 
 <p><br /></p>
 
-<p>🤓 Q.   객체와 유사배열 객체는 어떠한 차이가 있을까?<br /></p>
+<hr style="border: 1px dashed #ccc;" />
 
-<h3 id="객체object-vs-유사배열객체array-like-object">객체(Object) vs 유사배열객체(Array-like Object)</h3>
+<h3 id="22-객체object-vs-유사배열객체array-like-object">2.2 객체(Object) vs 유사배열객체(Array-like Object)</h3>
 
-<h4 id="1-객체object">(1) 객체(object)</h4>
+<p>🤓 Q. 객체와 유사배열 객체는 어떠한 차이가 있을까?<br /></p>
+
+<h4 id="221-객체object">2.2.1 객체(object)</h4>
 
 <p>객체는 자바스크립트에서 키-값 쌍을 저장하는 데이터 구조입니다. 객체는 속성에 접근하거나 수정할 수 있는 유연한 구조를 가지고 있습니다.</p>
 
@@ -667,20 +733,19 @@
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">age</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="na">greet</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="na">greet</span><span class="p">:</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">);</span>
   <span class="p">},</span>
 <span class="p">};</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>  <span class="c1">// John</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// John</span>
 <span class="nx">obj</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mi">31</span><span class="p">;</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span> <span class="c1">// 31</span>
-
 </code></pre></div></div>
 
 <p><br /></p>
 
-<h4 id="2-유사-배열-객체-array-like-object">(2) 유사 배열 객체 (Array-like Object)</h4>
+<h4 id="222-유사-배열-객체-array-like-object">2.2.2 유사 배열 객체 (Array-like Object)</h4>
 
 <p>유사 배열 객체는 배열처럼 인덱싱된 요소와 <code class="language-plaintext highlighter-rouge">length</code> 속성을 가지지만, 실제 배열은 아닙니다.</p>
 
@@ -700,7 +765,6 @@
 <span class="p">};</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">arrayLike</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// a</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">arrayLike</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 3</span>
-
 </code></pre></div></div>
 
 <p><br /></p>
@@ -712,14 +776,13 @@
 <span class="kd">function</span> <span class="nf">sum</span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
   <span class="c1">// slice 메서드를 Array.prototype에서 빌려와 arguments 객체에 적용합니다.</span>
-  <span class="k">return</span> <span class="nx">array</span><span class="p">.</span><span class="nf">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">pre</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">array</span><span class="p">.</span><span class="nf">reduce</span><span class="p">(</span><span class="nf">function </span><span class="p">(</span><span class="nx">pre</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">pre</span> <span class="o">+</span> <span class="nx">cur</span><span class="p">;</span>
   <span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>
-
 </code></pre></div></div>
 
 <p><br /></p>
@@ -734,9 +797,11 @@
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
 
-<h3 id="2-2-caller-프로퍼티">2-2) caller 프로퍼티</h3>
+<hr style="border: 1px dashed #ccc;" />
+
+<h3 id="23-caller-프로퍼티">2.3 caller 프로퍼티</h3>
 
 <p>함수 객체의 <code class="language-plaintext highlighter-rouge">caller</code> 프로퍼티는 함수 자신을 호출한 함수를 가리킨다.</p>
 
@@ -745,18 +810,19 @@
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nf">bar</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="dl">'</span><span class="s1">caller : </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">bar</span><span class="p">.</span><span class="nx">caller</span><span class="p">;</span>
+  <span class="k">return</span> <span class="dl">"</span><span class="s2">caller : </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">bar</span><span class="p">.</span><span class="nx">caller</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// 브라우저에서의 실행한 결과</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">));</span>  <span class="c1">// caller : function foo(func) {...}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">));</span> <span class="c1">// caller : function foo(func) {...}</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">bar</span><span class="p">());</span> <span class="c1">// caller: null</span>
-
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
 
-<h4 id="2-3-length-프로퍼티">2-3) length 프로퍼티</h4>
+<hr style="border: 1px dashed #ccc;" />
+
+<h3 id="24-length-프로퍼티">2.4 length 프로퍼티</h3>
 
 <p><span style="color: #8e44ad">arguments 객체의 length 프로퍼티는 <strong><u>인자의 개수</u></strong>를 가리키고,</span></p>
 
@@ -768,22 +834,23 @@
 <span class="p">}</span>
 <span class="nf">baz</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// 3 (argument 객체의 인자의 개수)</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">baz</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2 (함수 객체의 매개변수의 개수)</span>
-
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
 
-<h3 id="2-4-name-프로퍼티">2-4) name 프로퍼티</h3>
+<hr style="border: 1px dashed #ccc;" />
+
+<h3 id="25-name-프로퍼티">2.5 name 프로퍼티</h3>
 
 <p>name 프로퍼티는 ES5와 ES6에서 동작을 달리한다. ES6에서는 함수 객체를 가르키는 식별자를 값으로 갖는다.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 기명 함수 표현식</span>
 <span class="kd">let</span> <span class="nx">namedFunc</span> <span class="o">=</span> <span class="kd">function</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">namedFunc</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// foo</span>
-<span class="p">}</span>
+<span class="p">};</span>
 
 <span class="c1">// 익명 함수 표현식</span>
-<span class="kd">let</span> <span class="nx">anonymousFunc</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{};</span>
+<span class="kd">let</span> <span class="nx">anonymousFunc</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{};</span>
 <span class="c1">// ES5: name 프로퍼티는 빈 문자열을 값으로 갖는다.</span>
 <span class="c1">// ES6: name 프로퍼티는 함수 객체를 가리키는 변수 이름을 값으로 갖는다.</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">anonymousFunc</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// annonymousFunc</span>
@@ -791,41 +858,42 @@
 <span class="c1">// 함수 선언문(Function declaration)</span>
 <span class="kd">function</span> <span class="nf">bar</span><span class="p">()</span> <span class="p">{}</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">bar</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// bar</span>
-
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
 
-<h3 id="2-5-__proto__-접근자-프로퍼티">2-5) <code class="language-plaintext highlighter-rouge">__proto__</code> 접근자 프로퍼티</h3>
+<hr style="border: 1px dashed #ccc;" />
+
+<h3 id="26-__proto__-접근자-프로퍼티">2.6 <code class="language-plaintext highlighter-rouge">__proto__</code> 접근자 프로퍼티</h3>
 
 <p><code class="language-plaintext highlighter-rouge">__proto__</code> 프로퍼티는 [[Prototype]] 내부 슬롯이 가리키는 프로토타입 객체에 접근하기 위해 사용하는 접근자 프로퍼티다. 내부 슬롯에는 직접 접근할 수 없고 간접적인 접근 방법을 제공하는 경우에 한하여 접근할 수 있다.</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">};</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">a</span><span class="p">:</span> <span class="mi">1</span> <span class="p">};</span>
 
 <span class="c1">// 객체 리터럴 방식으로 생성한 객체의 프로토타입 객체는 Object.prototype이다.</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">===</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span> <span class="c1">// true</span>
 
 <span class="c1">// 객체 리터럴 방식으로 생성한 객체는 프로토타입 객체인 Object.prototype의 프로퍼티를 상속받는다.</span>
 <span class="c1">// hasOwnProperty 메서드는 Object.prototype의 메서드다.</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nf">hasOwnProeprty</span><span class="p">(</span><span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">));</span> <span class="c1">// true</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nf">hasOwnProperty</span><span class="p">(</span><span class="dl">'</span><span class="s1">__proto__</span><span class="dl">'</span><span class="p">));</span> <span class="c1">// false</span>
-
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nf">hasOwnProeprty</span><span class="p">(</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nf">hasOwnProperty</span><span class="p">(</span><span class="dl">"</span><span class="s2">__proto__</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// false</span>
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
 
-<h3 id="2-6-prototype-프로퍼티">2-6) prototype 프로퍼티</h3>
+<hr style="border: 1px dashed #ccc;" />
+
+<h3 id="27-prototype-프로퍼티">2.7 prototype 프로퍼티</h3>
 
 <p><span style="color: #8e44ad">prototype 프로퍼티는 <strong><u>생성자 함수를 호출 할 수 있는 함수객체</u></strong>, 즉, constructor만이 소유하는 프로퍼티다.</span></p>
 
 <p><span style="color: #1abc9c">일반 객체와 <strong><u>생성자 함수를 호출 할 수 없는 non-constructor</u></strong>에는 prototype 프로퍼티가 없다.</span></p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 함수 객체는 prototype 프로퍼티를 소유한다.</span>
-<span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{}).</span><span class="nf">hasOwnProperty</span><span class="p">(</span><span class="dl">'</span><span class="s1">prototype</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// true</span>
+<span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{}).</span><span class="nf">hasOwnProperty</span><span class="p">(</span><span class="dl">"</span><span class="s2">prototype</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// true</span>
 
 <span class="c1">// 일반 객체는 prototype 프로퍼티를 소유하지 않는다.</span>
-<span class="p">({}).</span><span class="nf">hasOwnProperty</span><span class="p">(</span><span class="dl">'</span><span class="s1">prototype</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// false</span>
-
+<span class="p">({}).</span><span class="nf">hasOwnProperty</span><span class="p">(</span><span class="dl">"</span><span class="s2">prototype</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// false</span>
 </code></pre></div></div>
 
 <p><br /><br /><br /></p>

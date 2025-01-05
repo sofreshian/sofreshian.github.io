@@ -389,9 +389,37 @@
       
     
       
+
         
-        <li class=" ">
-          <a href="/blog/" >Blog</a>
+        
+
+        <li class="menu-item-dropdown menu-item-Blog ">
+          <a href="/blog/">Blog <i class="fa-solid fa-chevron-down"></i></a>
+          
+          <div class="dropdown-menu">
+            
+              <a href="/category/javascript/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Javascript</div>
+                  
+                </div>
+              </a>
+            
+              <a href="/category/algorithm/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Algorithm</div>
+                  
+                </div>
+              </a>
+            
+          </div>
+
         </li>
       
     
@@ -496,7 +524,32 @@
           </div>
         
         
-        <div class="content"><h2 id="1-함수function의-정의">1) 함수(Function)의 정의</h2>
+        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">index</span></p>
+
+<p>① <a href="#1-함수function의-정의">함수(Function)의 정의</a><br /></p>
+
+<p>② <a href="#2-함수의-종류">함수의 종류</a><br /></p>
+
+<p> 2.1 <a href="#21-함수-선언문">함수 선언문</a><br />
+ 2.2 <a href="#22-함수-표현식">함수 표현식</a><br />
+ 2.3 <a href="#23-function-생성자-함수">Function 생성자 함수</a><br />
+ 2.4 <a href="#24-화살표-함수">화살표 함수</a><br />
+ 2.5 <a href="#25-즉시-실행-함수">즉시 실행 함수</a><br />
+ 2.6 <a href="#26-재귀-함수">재귀 함수</a><br />
+ 2.7 <a href="#27-중첩-함수">중첩 함수</a><br />
+ 2.8 <a href="#28-콜백-함수">콜백 함수</a><br /></p>
+
+<p>③ <a href="#3-함수-생성-시점과-함수-호이스팅">함수 생성 시점과 함수 호이스팅</a><br /></p>
+
+<p>④ <a href="#4-참조에-의한-전달과-외부-상태의-변경">참조에 의한 전달과 외부 상태의 변경</a><br /></p>
+
+<p>⑤ <a href="#5-순수-함수와-비순수-함수">순수 함수와 비순수 함수</a></p>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="1-함수function의-정의">1. 함수(Function)의 정의</h2>
 
 <figure>
   <a href="" target="">
@@ -512,7 +565,7 @@
 
 <p>변수는 ‘선언(declaration)’한다고 했지만 함수는 ‘정의(definition)’한다고 표현한다. 함수선언문이 평가되면 식별자가 암묵적으로 생성되고 함수 객체가 할당된다. ECMAScript 사양에서도 변수에는 선언(declaration), 함수에는 정의(definition)라고 표현한다.</p>
 
-<p>🧐 <a href="#"> Q. 함수는 왜 사용할까?</a> <br /></p>
+<p>🧐 <span style="color: white">Q. 함수는 왜 사용할까?</span> <br /></p>
 
 <ol>
   <li>
@@ -532,9 +585,13 @@
   </li>
 </ol>
 
-<h2 id="2-함수의-종류">2) 함수의 종류</h2>
+<p><br /></p>
 
-<h3 id="2-1-함수-선언문">2-1) 함수 선언문</h3>
+<hr style="border: 1px dashed #ccc;" />
+
+<h2 id="2-함수의-종류">2. 함수의 종류</h2>
+
+<h3 id="21-함수-선언문">2.1 함수 선언문</h3>
 
 <p>• 함수선언문은 함수 이름을 생략할 수 없다. <br /></p>
 
@@ -542,19 +599,18 @@
 
 <p>• 함수선언문은 표현식이 아닌 문이다.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">add</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">add</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>🧐 <a href="#"> Q. 함수리터럴을 변수에 할당할 경우, 함수 리터럴 표현식으로 생성된 bar는 호출 할 수 있을까?</a> <br /></p>
+<p>🧐 <span style="color: white">Q. 함수리터럴을 변수에 할당할 경우, 함수 리터럴 표현식으로 생성된 bar는 호출 할 수 있을까?</span> <br /></p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 1. 기명 함수 리터럴</span>
 <span class="kd">function</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{}</span>
 
-
 <span class="c1">// 2. 기명 함수 표현식</span>
-<span class="kd">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span> <span class="nf">bar</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kd">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span> <span class="nf">bar</span><span class="p">()</span> <span class="p">{};</span>
 </code></pre></div></div>
 
 <figure>
@@ -569,41 +625,39 @@
 
 <p><br /></p>
 
-<h3 id="2-2-함수-표현식">2-2) 함수 표현식</h3>
+<h3 id="22-함수-표현식">2.2 함수 표현식</h3>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">add</span> <span class="o">=</span> <span class="nf">function </span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div></div>
 
 <p><br /></p>
 
-<h3 id="2-3-function-생성자-함수">2-3) function 생성자 함수</h3>
+<h3 id="23-function-생성자-함수">2.3 function 생성자 함수</h3>
 
-<p>Function 생성자 함수로 함수를 생성하는 방식은 일반적이지 않으며 바람직하지 않다.  Function 생성자 함수로 생성한 함수는 클로저를 생성하지 않는 등, 함수선언문이나 함수표현식으로 생성한 ㅎ마수와 다르게 동작한다.</p>
+<p>Function 생성자 함수로 함수를 생성하는 방식은 일반적이지 않으며 바람직하지 않다. Function 생성자 함수로 생성한 함수는 클로저를 생성하지 않는 등, 함수선언문이나 함수표현식으로 생성한 ㅎ마수와 다르게 동작한다.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">add1</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-	<span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-  <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">add1</span> <span class="o">=</span> <span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nf">function </span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span> <span class="o">+</span> <span class="nx">a</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}());</span>
+  <span class="p">};</span>
+<span class="p">})();</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">add1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// 13</span>
 
-
-<span class="kd">let</span> <span class="nx">add2</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<span class="kd">let</span> <span class="nx">add2</span> <span class="o">=</span> <span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-  <span class="k">return</span> <span class="k">new</span> <span class="nc">Function</span><span class="p">(</span><span class="dl">'</span><span class="s1">x</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">y</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">return x + y + a;</span><span class="dl">'</span><span class="p">);</span>
-<span class="p">}());</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nc">Function</span><span class="p">(</span><span class="dl">"</span><span class="s2">x</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">y</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">return x + y + a;</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">})();</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">add2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// ReferenceError: a is not defined</span>
-
 </code></pre></div></div>
 
 <p><br /></p>
 
-<h3 id="2-4-화살표-함수">2-4) 화살표 함수</h3>
+<h3 id="24-화살표-함수">2.4 화살표 함수</h3>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">add</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span> <span class="c1">// 5</span>
@@ -611,22 +665,21 @@
 
 <p><br /></p>
 
-<h3 id="2-5-즉시실행함수">2-5) 즉시실행함수</h3>
+<h3 id="25-즉시실행함수">2.5 즉시실행함수</h3>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
   <span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
   <span class="k">return</span> <span class="nx">a</span> <span class="o">*</span> <span class="nx">b</span><span class="p">;</span>
-<span class="p">}());</span>
+<span class="p">})();</span>
 </code></pre></div></div>
 
 <p><br /></p>
 
-<h3 id="2-6-재귀함수">2-6) 재귀함수</h3>
+<h3 id="26-재귀함수">2.6 재귀함수</h3>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">countdown</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> 
-   <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="nf">countdown</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
@@ -634,11 +687,11 @@
 
 <p><br /></p>
 
-<h3 id="2-7-중첩함수">2-7) 중첩함수</h3>
+<h3 id="27-중첩함수">2.7 중첩함수</h3>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">outer</span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-  
+
   <span class="kd">function</span> <span class="nf">inner</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
     <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">);</span>
@@ -651,27 +704,26 @@
 
 <p><br /></p>
 
-<h3 id="2-8-콜백함수">2-8) 콜백함수</h3>
+<h3 id="28-콜백함수">2.8 콜백함수</h3>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">reneat</span> <span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">f</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">reneat</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">f</span><span class="p">)</span> <span class="p">{</span>
   <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="nf">f</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">logAll</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">let</span> <span class="nx">logAll</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="p">};</span>
 
 <span class="nf">repeat</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nx">logAll</span><span class="p">);</span> <span class="c1">// 0 1 2 3 4</span>
-
 </code></pre></div></div>
 
 <p><br /></p>
 
-<p><br /></p>
+<hr style="border: 1px dashed #ccc;" />
 
-<h2 id="3-함수-생성시점과-함수호이스팅">3) 함수 생성시점과 함수호이스팅</h2>
+<h2 id="3-함수-생성시점과-함수호이스팅">3. 함수 생성시점과 함수호이스팅</h2>
 
 <p>함수선언문과 함수표현식을 엔진이 이해하는 방식에 있어서의 차이</p>
 
@@ -694,7 +746,7 @@
 <span class="p">};</span>
 
 <span class="err">🤓</span> <span class="nx">호이스팅</span><span class="p">:</span>
-<span class="o">-</span> <span class="nx">함수</span> <span class="nx">표현식</span> <span class="nx">자체는</span> <span class="nx">호이스팅되지</span> <span class="nx">않지만</span><span class="p">,</span> <span class="nx">함수가</span> <span class="nx">할당된</span> <span class="nx">변수는</span> <span class="nx">호이스팅됩니다</span><span class="p">.</span> 
+<span class="o">-</span> <span class="nx">함수</span> <span class="nx">표현식</span> <span class="nx">자체는</span> <span class="nx">호이스팅되지</span> <span class="nx">않지만</span><span class="p">,</span> <span class="nx">함수가</span> <span class="nx">할당된</span> <span class="nx">변수는</span> <span class="nx">호이스팅됩니다</span><span class="p">.</span>
 <span class="o">-</span> <span class="nx">변수</span> <span class="nx">자체는</span> <span class="nx">호이스팅</span> <span class="nx">되지만</span><span class="p">,</span> <span class="nx">초기화는</span> <span class="nx">실제</span> <span class="nx">코드가</span> <span class="nx">실행시점에</span> <span class="nx">이루어지므로</span> <span class="nx">변수에</span> <span class="nx">할당된</span> <span class="nx">함수는</span> <span class="nx">정의되기</span> <span class="nx">전에</span> <span class="nx">호출할</span> <span class="nx">수</span> <span class="nx">없다</span>
 
 
@@ -702,40 +754,38 @@
 
 <p><br /></p>
 
-<p>🧐 <a href="#"> Q. Function 생성자 함수가 클로저를 생성하지 않는 이유는 무엇인가?</a> <br /></p>
+<p>🧐 <span style="color: white">Q. Function 생성자 함수가 클로저를 생성하지 않는 이유는 무엇인가?</span> <br /></p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">add1</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">add1</span> <span class="o">=</span> <span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-  <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nf">function </span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span> <span class="o">+</span> <span class="nx">a</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}());</span>
+  <span class="p">};</span>
+<span class="p">})();</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">add1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// 13</span>
 
-
-<span class="kd">let</span> <span class="nx">add2</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">let</span> <span class="nx">add2</span> <span class="o">=</span> <span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-  <span class="k">return</span> <span class="k">new</span> <span class="nc">Function</span><span class="p">(</span><span class="dl">'</span><span class="s1">x</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">y</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">return x + y</span><span class="dl">'</span><span class="p">);</span>
-<span class="p">}());</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nc">Function</span><span class="p">(</span><span class="dl">"</span><span class="s2">x</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">y</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">return x + y</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">})();</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">add2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// ReferenceError: a is not defined</span>
-
 </code></pre></div></div>
 
 <p>Function 생성자는 함수를 생성할 때 그 함수의 렉시컬 환경(lexical environment)을 현재의 스코프가 아닌 전역 스코프에서 생성한다. 이는 Function 생성자가 <span style="color:#e74c3c">항상 전역 스코프를 참조하기 때문에</span> 클로저가 생성되지 않는다.</p>
 
 <p><br /></p>
 
-<p><br /></p>
+<hr style="border: 1px dashed #ccc;" />
 
-<h2 id="4-참조에-의한-전달과-외부-상태의-변경">4) 참조에 의한 전달과 외부 상태의 변경</h2>
+<h2 id="4-참조에-의한-전달과-외부-상태의-변경">4. 참조에 의한 전달과 외부 상태의 변경</h2>
 
-<p><span style="color:#e74c3c">원시 값은  ‘<strong>값에 의한 전달</strong>(pass by Value)’</span></p>
+<p><span style="color:#e74c3c">원시 값은 ‘<strong>값에 의한 전달</strong>(pass by Value)’</span></p>
 
 <p><span style="color:#3498db">객체는 ‘<strong>참조에 의한 전달</strong>(pass by Reference)’방식으로 동작한다.</span></p>
 
-<p>🧐 <a href="#"> Q. 매개변수로 원시값과 객체를 전달해서 함수몸체에서 변경한다면 원시값과 객체는 어떤 변화가 있을까?</a></p>
+<p>🧐 <span style="color: white">Q. 매개변수로 원시값과 객체를 전달해서 함수몸체에서 변경한다면 원시값과 객체는 어떤 변화가 있을까?</span></p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Kim</span><span class="dl">'</span><span class="p">};</span>
@@ -766,15 +816,15 @@
 
 <p><br /></p>
 
-<p><br /></p>
+<hr style="border: 1px dashed #ccc;" />
 
-<h2 id="5-순수함수와-비순수함수">5) 순수함수와 비순수함수</h2>
+<h2 id="5-순수함수와-비순수함수">5. 순수함수와 비순수함수</h2>
 
 <p>함수형 프로그래밍에서는 어떤 외부 상태에 의존하지도 않고 변경하지도 않는, 즉 부수 효과가 없는 함수를 순수함수(pure function)라 하고, 외부상태에 의존하거나 외부상태를 변경하는, 즉 부수효과가 있는 함수를 비순수함수(impure function)라고 한다. <br /></p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 현재 카운트를 나타내는 상태</span>
 
-<span class="c1">// 순수함수, increase는 동일한 인수가 전달되면 언제나 동일한 값을 반환한다. </span>
+<span class="c1">// 순수함수, increase는 동일한 인수가 전달되면 언제나 동일한 값을 반환한다.</span>
 <span class="kd">function</span> <span class="nf">increase</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="o">++</span><span class="nx">n</span><span class="p">;</span>
 <span class="p">}</span>
@@ -785,8 +835,6 @@
 
 <span class="nx">count</span> <span class="o">=</span> <span class="nf">increase</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span> <span class="c1">// 2</span>
-
-
 
 <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 현재 카운트를 나타내는 상태: increase 함수에 의해 변화한다.</span>
 

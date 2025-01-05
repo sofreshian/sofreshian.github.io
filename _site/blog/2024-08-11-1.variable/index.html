@@ -389,9 +389,37 @@
       
     
       
+
         
-        <li class=" ">
-          <a href="/blog/" >Blog</a>
+        
+
+        <li class="menu-item-dropdown menu-item-Blog ">
+          <a href="/blog/">Blog <i class="fa-solid fa-chevron-down"></i></a>
+          
+          <div class="dropdown-menu">
+            
+              <a href="/category/javascript/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Javascript</div>
+                  
+                </div>
+              </a>
+            
+              <a href="/category/algorithm/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Algorithm</div>
+                  
+                </div>
+              </a>
+            
+          </div>
+
         </li>
       
     
@@ -496,24 +524,40 @@
           </div>
         
         
-        <div class="content"><h2 id="1-변수란-무엇인가">1) 변수란 무엇인가?</h2>
+        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">index</span></p>
+
+<p>① <a href="#1-변수란-무엇인가">변수란 무엇인가?</a><br /></p>
+
+<p>② <a href="#2-변수는-왜-필요한가">변수는 왜 필요한가?</a><br /></p>
+
+<p>③ <a href="#3-식별자identifier는-어떠한-의미가-있을까">식별자(identifier)는 어떠한 의미가 있을까?</a><br /></p>
+
+<p>④ <a href="#4-자바스크립트-엔진의-변수-선언-과정을-이해해보자">자바스크립트 엔진의 변수 선언 과정을 이해해보자</a></p>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="1-변수란-무엇인가">1. 변수란 무엇인가?</h2>
 
 <ul>
-  <li>변수는 하나의 값을 저장하기 위해 확보한 <a href="#">메모리 공간</a> 자체 또는 그 <a href="#">메모리 공간을 식별하기 위해</a> 붙인 이름이다.</li>
-  <li>상징적 이름인 <a href="#">변수</a>는 프로그래밍 언어의 컴파일러 또는 인터프리터에 의해 <a href="#">값이 저장된 메모리 공간의 주소로 치환되어 실행</a>된다.따라서 개발자가 직접 메모리 주소를 통해 값을 저장하고 참조할 필요가 없고 변수를 통해 안전하게 접근할 수 있다.</li>
-  <li>식별자는 <span style="color:grey">(값이 아니라)</span> <a href="#">메모리 주소</a>를 기억하고 있다. 즉, 식별자는 값이 저장되어 있는 메모리 주소와 매핑 관계를 맺으며, 이 매핑 정보도 메모리에 저장된다.</li>
+  <li>변수는 하나의 값을 저장하기 위해 확보한 <span style="color: white;">메모리 공간</span> 자체 또는 그 <span style="color: white;">메모리 공간을 식별하기 위해</span> 붙인 이름이다.</li>
+  <li>상징적 이름인 <span style="color: white;">변수</span>&gt;는 프로그래밍 언어의 컴파일러 또는 인터프리터에 의해 <span style="color: white;">값이 저장된 메모리 공간의 주소로 치환되어 실행</span>된다.따라서 개발자가 직접 메모리 주소를 통해 값을 저장하고 참조할 필요가 없고 변수를 통해 안전하게 접근할 수 있다.</li>
+  <li>식별자는 <span style="color:grey">(값이 아니라)</span> <span style="color: white;">메모리 주소</span>를 기억하고 있다. 즉, 식별자는 값이 저장되어 있는 메모리 주소와 매핑 관계를 맺으며, 이 매핑 정보도 메모리에 저장된다.</li>
 </ul>
 
 <p><br /></p>
 
-<h2 id="2-변수는-왜-필요한가">2) 변수는 왜 필요한가?</h2>
+<hr style="border: 1px dashed #ccc;" />
 
-<p>메모리 주소를 통해 값에 접근하는 것은 치명적인 오류를 발생시킬 가능성이 높은 매우 위험한 일이다.<br /> 
-만약 실수로 운영체제가 사용하고 있는 값을 변경하면 시스템을 멈추게 하는 치명적인 오류가 발생할 수도 있기 때문이다.</p>
+<h2 id="2-변수는-왜-필요한가">2. 변수는 왜 필요한가?</h2>
+
+<p>메모리 주소를 통해 값에 접근하는 것은 치명적인 오류를 발생시킬 가능성이 높은 매우 위험한 일이다. 만약 실수로 운영체제가 사용하고 있는 값을 변경하면 시스템을 멈추게 하는 치명적인 오류가 발생할 수도 있기 때문이다.</p>
 
 <p><br /></p>
+<hr style="border: 1px dashed #ccc;" />
 
-<h2 id="3-식별자identifier는-어떠한-의미가-있을까">3) 식별자(identifier)는 어떠한 의미가 있을까?</h2>
+<h2 id="3-식별자identifier는-어떠한-의미가-있을까">3. 식별자(identifier)는 어떠한 의미가 있을까?</h2>
 
 <p>코드는 컴퓨터에게 내리는 명령이면서, 개발자를 위한 문서이기에 개발자의 의도를 나타내는 명확한 네이밍은 코드를 이해하기 쉽게 만들며, 이는 협업과 품질 향상에 도움을 준다.</p>
 
@@ -522,8 +566,9 @@
 </blockquote>
 
 <p><br /></p>
+<hr style="border: 1px dashed #ccc;" />
 
-<h2 id="4-자바스크립트-엔진의-변수-선언-과정을-이해해보자">4) 자바스크립트 엔진의 변수 선언 과정을 이해해보자</h2>
+<h2 id="4-자바스크립트-엔진의-변수-선언-과정을-이해해보자">4. 자바스크립트 엔진의 변수 선언 과정을 이해해보자</h2>
 
 <ul>
   <li>① 선언단계: 변수 이름을 등록해서 자바스크립트 엔진에 변수의 존재를 알린다.</li>
@@ -534,7 +579,7 @@
 <span class="kd">let</span> <span class="nx">score</span><span class="p">;</span>
 </code></pre></div></div>
 
-<p>변수선언(선언단계, 초기화단계)이 소스코드가 순차적으로 실행되는 런타임 이전 단계에서 먼저 실행된다. 
+<p>변수선언(선언단계, 초기화단계)이 소스코드가 순차적으로 실행되는 런타임 이전 단계에서 먼저 실행된다.
 이처럼 변수 선언문이 코드의 선두로 끌어 올려진 것처럼 동작하는 자바스크립트 고유의 특징을 변수 호이스팅(variable hoisting)이라 한다.</p>
 
 <h3 id="q-변수-선언과-값의-할당은-어느시점에-이뤄지는가">Q. 변수 선언과 값의 할당은 어느시점에 이뤄지는가?</h3>

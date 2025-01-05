@@ -389,9 +389,37 @@
       
     
       
+
         
-        <li class=" ">
-          <a href="/blog/" >Blog</a>
+        
+
+        <li class="menu-item-dropdown menu-item-Blog ">
+          <a href="/blog/">Blog <i class="fa-solid fa-chevron-down"></i></a>
+          
+          <div class="dropdown-menu">
+            
+              <a href="/category/javascript/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Javascript</div>
+                  
+                </div>
+              </a>
+            
+              <a href="/category/algorithm/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Algorithm</div>
+                  
+                </div>
+              </a>
+            
+          </div>
+
         </li>
       
     
@@ -496,33 +524,60 @@
           </div>
         
         
-        <div class="content"><h2 id="1-명시적-타입변환과-암묵적-타입변환-차이는-무엇일까">1. 명시적 타입변환과 암묵적 타입변환 차이는 무엇일까?</h2>
+        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">index</span></p>
 
-<h3 id="명시적-타입변환-type-casting-vs-암묵적-타입변환type-coercion"><span style="color:#e74c3c">명시적 타입변환 (Type Casting)</span> vs <span style="color:#3498db">암묵적 타입변환 (Type Coercion)</span></h3>
+<p>① <a href="#1-명시적-타입변환과-암묵적-타입변환-차이는-무엇일까">명시적 타입변환과 암묵적 타입변환 차이는 무엇일까?</a><br /></p>
+
+<p>② <a href="#11-명시적-타입변환-type-casting-vs-암묵적-타입변환-type-coercion">명시적 타입변환 (Type Casting)</a><br />
+    ②-1 <a href="#1111-문자열-타입으로-변환">문자열 타입으로 변환</a><br />
+    ②-2 <a href="#1112-숫자-타입으로-변환">숫자 타입으로 변환</a><br />
+    ②-3 <a href="#1113-불리언-타입으로-변환">불리언 타입으로 변환</a><br /></p>
+
+<p>③ <a href="#112-암묵적-타입변환type-coercion">암묵적 타입변환 (Type Coercion)</a><br />
+    ③-1 <a href="#1121-문자열-타입으로-변환">문자열 타입으로 변환</a><br />
+    ③-2 <a href="#1122-숫자-타입으로-변환">숫자 타입으로 변환</a><br />
+    ③-3 <a href="#1123-불리언-타입으로-변환">불리언 타입으로 변환</a><br /></p>
+
+<p>④ <a href="#2-단축평가">단축평가</a><br />
+    ④-1 <a href="#21-단축평가의-활용">단축평가의 활용</a><br />
+        ④-1-1 <a href="#21-단축평가의-활용">객체를 가리키기를 기대하는 변수의 null 또는 undefined 확인</a><br />
+        ④-1-2 <a href="#21-단축평가의-활용">함수 매개변수에 기본값 설정</a><br />
+    ④-2 <a href="#22-옵셔널-체이닝-연산자">옵셔널 체이닝 연산자</a><br />
+    ④-3 <a href="#23-null-병합-연산자">null 병합 연산자</a><br />
+        ④-3-1 <a href="#231-차이점-요약">차이점 요약</a><br /></p>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="1-명시적-타입변환과-암묵적-타입변환-차이는-무엇일까">1. 명시적 타입변환과 암묵적 타입변환 차이는 무엇일까?</h2>
+
+<h3 id="11-명시적-타입변환-type-casting-vs-암묵적-타입변환type-coercion">1.1 <span style="color:#e74c3c">명시적 타입변환 (Type Casting)</span> vs <span style="color:#3498db">암묵적 타입변환 (Type Coercion)</span></h3>
 
 <p>값의 타입은 개발자의 의도에 따라 다른 타입으로 변환할 수 있다.</p>
 
-<p><br /><br /></p>
+<p><br /></p>
 
 <p>🧐 <a href="#"> Q. Casting vs Coercion의 차이는 무엇일까?</a> <br /></p>
 
 <p><span style="color:#e74c3c">Casting은 변환 과정을 개발자가 직접 제어합니다.</span> <br /></p>
 
-<p><span style="color:#3498db">Coercion은 변환 과정을 개발자가 명시적으로 제어하지 않으며, 언어 자체가 상황에 따라 타입을 변환합니다.</span> <br /></p>
+<p><span style="color:#3498db">Coercion은 변환 과정을 개발자가 명시적으로 제어하지 않으며, 언어 자체가 상황에 따라 타입을 변환합니다.</span></p>
 
-<h3 id="1-명시적-타입변환-type-casting"><span style="color:#e74c3c">1) 명시적 타입변환 (Type Casting)</span></h3>
+<p><br /></p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-   
-   <span class="c1">// 명시적 타입변환</span>
-   <span class="c1">// 숫자를 문자열로 타입 캐스팅한다. </span>
-   
-   <span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">x</span><span class="p">.</span><span class="nf">toString</span><span class="p">();</span>
-   <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">str</span><span class="p">,</span> <span class="nx">str</span><span class="p">);</span> <span class="c1">// string 10</span>
-   
-   <span class="c1">// x 변수의 값이 변경된 것은 아니다. </span>
-   <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">x</span><span class="p">);</span> <span class="c1">// number 10</span>
-   
+<h4 id="111-명시적-타입변환-type-casting"><span style="color:#e74c3c">1.1.1 명시적 타입변환 (Type Casting)</span></h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="c1">// 명시적 타입변환</span>
+<span class="c1">// 숫자를 문자열로 타입 캐스팅한다.</span>
+
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">x</span><span class="p">.</span><span class="nf">toString</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">str</span><span class="p">,</span> <span class="nx">str</span><span class="p">);</span> <span class="c1">// string 10</span>
+
+<span class="c1">// x 변수의 값이 변경된 것은 아니다.</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">x</span><span class="p">);</span> <span class="c1">// number 10</span>
 </code></pre></div></div>
 
 <p>명시적 타입변환은</p>
@@ -531,13 +586,15 @@
 
 <p><span style="color:#8e44ad">표준 빌트인 생성자 함수는 <strong>객체를 생성하기 위한 함수</strong>이며 new 연산자와 함께 호출한다.</span></p>
 
+<p><br /></p>
+
 <p><span style="color:#48c9b0">(2) 빌트인 메서드를 사용하는 방법</span> <br /></p>
 
 <p><span style="color:#48c9b0">표준 빌트인 메서드는 <strong>자바스크립트에서 기본 제공하는 빌트인 객체의 메서드</strong>다. </span></p>
 
 <p><br /></p>
 
-<h4 id="1-1-문자열-타입으로-변환">1-1. 문자열 타입으로 변환</h4>
+<h5 id="1111-문자열-타입으로-변환">1.1.1.1 문자열 타입으로 변환</h5>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">.</span> <span class="nb">String</span> <span class="nx">생성자</span> <span class="nx">함수를</span> <span class="k">new</span> <span class="nx">연산자</span> <span class="nx">없이</span> <span class="nx">호출하는</span> <span class="nx">방법</span>
 <span class="nc">String</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// "1"</span>
@@ -559,7 +616,7 @@
 <p>🧐 <a href="#"> Q. String 생성자 함수를 왜 new 연산자 없이 호출할까?</a> <br /></p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span><span class="p">()</span> <span class="nf">함수 </span><span class="p">(</span><span class="k">new</span> <span class="nx">없이</span><span class="p">)</span>
-<span class="nc">String</span><span class="p">()</span> <span class="nx">함수를</span> <span class="nx">호출하면</span> <span class="nx">문자열로</span> <span class="nx">변환된</span> <span class="nx">값을</span> <span class="nx">반환합니다</span><span class="p">.</span> <span class="nx">이</span> <span class="nx">함수는</span> <span class="nx">원시</span> <span class="nx">문자열</span> <span class="nx">값을</span> <span class="nx">반환하는데</span><span class="p">,</span> 
+<span class="nc">String</span><span class="p">()</span> <span class="nx">함수를</span> <span class="nx">호출하면</span> <span class="nx">문자열로</span> <span class="nx">변환된</span> <span class="nx">값을</span> <span class="nx">반환합니다</span><span class="p">.</span> <span class="nx">이</span> <span class="nx">함수는</span> <span class="nx">원시</span> <span class="nx">문자열</span> <span class="nx">값을</span> <span class="nx">반환하는데</span><span class="p">,</span>
 <span class="nx">이는</span> <span class="nx">메모리나</span> <span class="nx">성능면에서</span> <span class="nx">더</span> <span class="nx">효율적이다</span><span class="p">.</span> <span class="nx">예를</span> <span class="nx">들어</span><span class="p">,</span>
 
 <span class="kd">let</span> <span class="nx">str</span>  <span class="o">=</span> <span class="nc">String</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span> <span class="c1">// "123"</span>
@@ -569,15 +626,15 @@
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">objStr</span><span class="p">);</span> <span class="c1">// "object"</span>
 
 <span class="o">&lt;</span><span class="nx">정리</span><span class="o">&gt;</span>
-<span class="nc">String</span><span class="p">()</span><span class="nx">을</span> <span class="k">new</span> <span class="nx">없이</span> <span class="nx">호출하는</span> <span class="nx">이유는</span> 
-<span class="err">✓</span> <span class="nx">원시</span> <span class="nx">타입인</span> <span class="nx">문자열을</span> <span class="nx">간단하게</span> <span class="nx">반환하기</span> <span class="nx">위해서이며</span><span class="p">,</span> 
-<span class="err">✓</span> <span class="nx">더</span> <span class="nx">가볍고</span> <span class="nx">성능</span> <span class="nx">면에서</span> <span class="nx">효율적이기</span> <span class="nx">때문이다</span><span class="p">.</span> 
+<span class="nc">String</span><span class="p">()</span><span class="nx">을</span> <span class="k">new</span> <span class="nx">없이</span> <span class="nx">호출하는</span> <span class="nx">이유는</span>
+<span class="err">✓</span> <span class="nx">원시</span> <span class="nx">타입인</span> <span class="nx">문자열을</span> <span class="nx">간단하게</span> <span class="nx">반환하기</span> <span class="nx">위해서이며</span><span class="p">,</span>
+<span class="err">✓</span> <span class="nx">더</span> <span class="nx">가볍고</span> <span class="nx">성능</span> <span class="nx">면에서</span> <span class="nx">효율적이기</span> <span class="nx">때문이다</span><span class="p">.</span>
 
 </code></pre></div></div>
 
 <p><br /></p>
 
-<h4 id="1-2-숫자-타입으로-변환">1-2. 숫자 타입으로 변환</h4>
+<h5 id="1112-숫자-타입으로-변환">1.1.1.2 숫자 타입으로 변환</h5>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">.</span> <span class="nb">Number</span> <span class="nx">생성자</span> <span class="nx">함수를</span> <span class="k">new</span> <span class="nx">연산자</span> <span class="nx">없이</span> <span class="nx">호출하는</span> <span class="nx">방법</span>
 <span class="nc">Number</span><span class="p">(</span><span class="dl">'</span><span class="s1">0</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 0</span>
@@ -602,7 +659,7 @@
 
 <p><br /></p>
 
-<h4 id="1-3-불리언-타입으로-변환">1-3. 불리언 타입으로 변환</h4>
+<h5 id="1113-불리언-타입으로-변환">1.1.1.3 불리언 타입으로 변환</h5>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">.</span> <span class="nb">Boolean</span> <span class="nx">생성자</span> <span class="nx">함수를</span> <span class="k">new</span> <span class="nx">연산자</span> <span class="nx">없이</span> <span class="nx">호출하는</span> <span class="nx">방법</span>
 <span class="nc">Boolean</span><span class="p">(</span><span class="dl">'</span><span class="s1">x</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// true (문자열 → 불리언타입)</span>
@@ -625,26 +682,25 @@
 
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
 
-<h3 id="2-암묵적-타입변환type-coercion"><span style="color:#3498db">2) 암묵적 타입변환(Type Coercion)</span></h3>
+<h4 id="112-암묵적-타입변환type-coercion"><span style="color:#3498db">1.1.2 암묵적 타입변환(Type Coercion)</span></h4>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 
 <span class="c1">// 암묵적 타입변환</span>
-<span class="c1">// 문자열 연결 연산자는 숫자 타입 x의 값을 바탕으로 새로운 문자열을 생성한다. </span>
+<span class="c1">// 문자열 연결 연산자는 숫자 타입 x의 값을 바탕으로 새로운 문자열을 생성한다.</span>
 
-<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="dl">''</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="dl">""</span><span class="p">;</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">str</span><span class="p">,</span> <span class="nx">str</span><span class="p">);</span> <span class="c1">// string 10</span>
 
-<span class="c1">// x 변수의 값이 변경된 것은 아니다. </span>
+<span class="c1">// x 변수의 값이 변경된 것은 아니다.</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">x</span><span class="p">);</span> <span class="c1">// number 10</span>
-
 </code></pre></div></div>
 
 <p><br /></p>
 
-<h4 id="2-1-문자열-타입으로-변환">2-1. 문자열 타입으로 변환</h4>
+<h5 id="1121-문자열-타입으로-변환">1.1.2.1 문자열 타입으로 변환</h5>
 
 <p>자바스크립트 앤진은 <a href="#">문자열 연결 연산자(+)</a> 표현식을 평가하기 위해 문자열 연결 연산자의 피연산자 중에서 문자열 타입이 아닌 피연산자를 문자열 타입으로 암묵적 타입 변환한다.</p>
 
@@ -676,31 +732,25 @@
 
 <p><br /></p>
 
-<h4 id="2-2-숫자-타입으로-변환">2-2. 숫자 타입으로 변환</h4>
+<h5 id="1122-숫자-타입으로-변환">1.1.2.2 숫자 타입으로 변환</h5>
 
 <p>자바스크립트 엔진은 산술 연산자 표현식을 평가하기 위해 산술 연산자의 피연산자 중에서 숫자 타입이 아닌 피연산자를 숫자 타입으로 암묵적으로 타입 변환한다.</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 문자열 타입</span>
-<span class="o">+</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span> <span class="c1">// 1</span>
-
-<span class="c1">// 불리언 타입</span>
-<span class="o">+</span><span class="kc">true</span> <span class="c1">// 1</span>
-
-<span class="c1">// null 타입</span>
-<span class="o">+</span><span class="kc">null</span> <span class="c1">// 0</span>
-
-<span class="c1">// undefined 타입</span>
-<span class="o">+</span><span class="kc">undefined</span> <span class="c1">// NaN</span>
-
-<span class="c1">// 심벌 타입</span>
-<span class="o">+</span><span class="nc">Symbol</span><span class="p">()</span> <span class="c1">// TypeError: Cannot convert a Symbol value to a number</span>
-
-<span class="c1">// 객체 타입</span>
-<span class="o">+</span><span class="p">{}</span> <span class="c1">// NaN</span>
-<span class="o">+</span><span class="p">[]</span> <span class="c1">// 0</span>
-<span class="o">+</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span> <span class="c1">// NaN</span>
-<span class="o">+</span><span class="p">(</span><span class="kd">function</span><span class="p">(){})</span> <span class="c1">// NaN</span>
-
+<span class="o">+</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span> <span class="o">+</span> <span class="c1">// 1</span>
+  <span class="c1">// 불리언 타입</span>
+  <span class="kc">true</span> <span class="o">+</span> <span class="c1">// 1</span>
+  <span class="c1">// null 타입</span>
+  <span class="kc">null</span> <span class="o">+</span> <span class="c1">// 0</span>
+  <span class="c1">// undefined 타입</span>
+  <span class="kc">undefined</span> <span class="o">+</span> <span class="c1">// NaN</span>
+  <span class="c1">// 심벌 타입</span>
+  <span class="nc">Symbol</span><span class="p">()</span> <span class="o">+</span> <span class="c1">// TypeError: Cannot convert a Symbol value to a number</span>
+  <span class="c1">// 객체 타입</span>
+  <span class="p">{}</span> <span class="o">+</span> <span class="c1">// NaN</span>
+  <span class="p">[]</span> <span class="o">+</span> <span class="c1">// 0</span>
+  <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span> <span class="o">+</span> <span class="c1">// NaN</span>
+  <span class="nf">function </span><span class="p">()</span> <span class="p">{};</span> <span class="c1">// NaN</span>
 </code></pre></div></div>
 
 <p>🧐 <a href="#"> Q. +는 산술 연산자인가요? or 문자열 결합 연산자 인가요?</a> <br /></p>
@@ -711,7 +761,7 @@
 
 
 <span class="mi">2</span><span class="p">.</span> <span class="nx">문자열</span> <span class="nx">결합</span> <span class="nx">연산자로서의</span> <span class="o">+</span>
-<span class="nx">만약</span> <span class="nx">하나</span> <span class="nx">이상의</span> <span class="nx">피연산자가</span> <span class="nx">문자열일</span> <span class="nx">경우</span><span class="p">,</span> <span class="o">+</span><span class="nx">는</span> <span class="nx">숫자를</span> <span class="nx">문자열로</span> <span class="nx">변환하고</span> <span class="nx">두</span> <span class="nx">값을</span> <span class="nx">결합합니다</span><span class="p">.</span> 
+<span class="nx">만약</span> <span class="nx">하나</span> <span class="nx">이상의</span> <span class="nx">피연산자가</span> <span class="nx">문자열일</span> <span class="nx">경우</span><span class="p">,</span> <span class="o">+</span><span class="nx">는</span> <span class="nx">숫자를</span> <span class="nx">문자열로</span> <span class="nx">변환하고</span> <span class="nx">두</span> <span class="nx">값을</span> <span class="nx">결합합니다</span><span class="p">.</span>
 <span class="nx">즉</span><span class="p">,</span> <span class="nx">문자열을</span> <span class="nx">이어붙이는</span> <span class="nx">역할을</span> <span class="nx">합니다</span><span class="p">.</span>
 <span class="nx">ex</span><span class="p">)</span> <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">World</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// "Hello World"</span>
 
@@ -719,18 +769,18 @@
 <span class="mi">3</span><span class="p">.</span> <span class="nx">또한</span> <span class="nx">숫자와</span> <span class="nx">문자열이</span> <span class="nx">혼합된</span> <span class="nx">경우</span><span class="p">,</span> <span class="nx">숫자가</span> <span class="nx">자동으로</span> <span class="nx">문자열로</span> <span class="nx">변환되어</span> <span class="nx">결합됩니다</span><span class="p">.</span>
 <span class="nx">ex</span><span class="p">)</span> <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">The result is: </span><span class="dl">"</span> <span class="o">+</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">// "The result is: 5"</span>
 
-<span class="err">🤯</span> <span class="nx">주의할</span> <span class="nx">점</span><span class="p">:</span> <span class="nx">숫자와</span> <span class="nx">문자열이</span> <span class="nx">섞인</span> <span class="nx">표현식에서는</span> <span class="nx">예상치</span> <span class="nx">못한</span> <span class="nx">결과가</span> <span class="nx">나올</span> <span class="nx">수</span> <span class="nx">있습니다</span><span class="p">.</span> 
+<span class="err">🤯</span> <span class="nx">주의할</span> <span class="nx">점</span><span class="p">:</span> <span class="nx">숫자와</span> <span class="nx">문자열이</span> <span class="nx">섞인</span> <span class="nx">표현식에서는</span> <span class="nx">예상치</span> <span class="nx">못한</span> <span class="nx">결과가</span> <span class="nx">나올</span> <span class="nx">수</span> <span class="nx">있습니다</span><span class="p">.</span>
 <span class="nx">ex</span><span class="p">)</span> <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// "510" (숫자 5가 문자열 "10"과 결합됨)</span>
 
 <span class="o">&lt;</span><span class="nx">정리</span><span class="o">&gt;</span>
-<span class="nx">정리하자면</span><span class="p">,</span> <span class="o">+</span><span class="nx">는</span> <span class="nx">자바스크립트에서</span> <span class="nx">산술</span> <span class="nx">연산자로</span> <span class="nx">사용되지만</span><span class="p">,</span> 
+<span class="nx">정리하자면</span><span class="p">,</span> <span class="o">+</span><span class="nx">는</span> <span class="nx">자바스크립트에서</span> <span class="nx">산술</span> <span class="nx">연산자로</span> <span class="nx">사용되지만</span><span class="p">,</span>
 <span class="nx">피연산자</span> <span class="nx">중</span> <span class="nx">하나가</span> <span class="nx">문자열일</span> <span class="nx">경우</span> <span class="nx">자동으로</span> <span class="nx">문자열</span> <span class="nx">결합</span> <span class="nx">연산자로</span> <span class="nx">동작하게</span> <span class="nx">됩니다</span><span class="p">.</span>
 
 </code></pre></div></div>
 
 <p><br /></p>
 
-<h4 id="2-3-불리언-타입으로-변환">2-3. 불리언 타입으로 변환</h4>
+<h5 id="1123-불리언-타입으로-변환">1.1.2.3 불리언 타입으로 변환</h5>
 
 <p>자바스크립트 엔진은 불리언 타입이 아닌 값을 Truthy 값(참으로 평가되는 값) 또는 Falsy 값 (거짓으로 평가되는 값)으로 구분한다.</p>
 
@@ -767,12 +817,18 @@
 
 <p><em>&gt; “좋은 생각이긴 하지만 이러한 논리는 옳지 않다. 때로는 명시적 타입변환보다 암묵적 타입변환이 가독성 측면에서 더 좋을 수도 있다. 중요한 것은 코드를 예측할 수 있어야 한다는 것이다. 동료가 작성한 코드를 정확히 이해할 수 있어야 하고 자신이 작성한 코드도 동료가 쉽게 이해할 수 있어야 한다!” <br /> UngmoLee, p.109, javascriptDeepDive,</em></p>
 
-<p><br /><br /></p>
+<p><br /></p>
 
-<h2 id="3-단축평가">3. 단축평가</h2>
+<hr style="border: 1px dashed #ccc;" />
+
+<h2 id="2-단축평가">2. 단축평가</h2>
 
 <p>논리합(||) 또는 논리곱(&amp;&amp;) 연산자 표현식의 평가 결과는 불리언 값이 아닐 수 있다.
 논리 연산자 <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> (AND)와 <code class="language-plaintext highlighter-rouge">||</code> (OR)를 사용할 때, 표현식의 왼쪽 피연산자가 결과를 결정할 수 있는 경우 오른쪽 피연산자를 평가하지 않는 동작을 의미합니다. 이는 코드 실행을 최적화하고, 불필요한 연산을 피할 수 있게 해줍니다.</p>
+
+<p><br /></p>
+
+<h3 id="21-단축평가의-활용">2.1 단축평가의 활용</h3>
 
 <p>다음과 같은 상황에 유용하게 사용될 수 있다.</p>
 
@@ -792,36 +848,33 @@
 <p>ⅱ) 함수 매개변수에 기본값을 설정할 때</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">getStringLength</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">str</span> <span class="o">=</span> <span class="nx">str</span> <span class="o">||</span> <span class="dl">''</span><span class="p">;</span>
+  <span class="nx">str</span> <span class="o">=</span> <span class="nx">str</span> <span class="o">||</span> <span class="dl">""</span><span class="p">;</span>
   <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nf">getStringLength</span><span class="p">();</span> <span class="c1">// 0</span>
-<span class="nf">getStringLength</span><span class="p">(</span><span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// 2</span>
+<span class="nf">getStringLength</span><span class="p">(</span><span class="dl">"</span><span class="s2">hi</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// 2</span>
 
-<span class="kd">function</span> <span class="nf">getStringLength</span><span class="p">(</span><span class="nx">str</span> <span class="o">=</span> <span class="dl">''</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nf">getStringLength</span><span class="p">(</span><span class="nx">str</span> <span class="o">=</span> <span class="dl">""</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nf">getstringLength</span><span class="p">();</span> <span class="c1">// 0</span>
-<span class="nf">getStringLength</span><span class="p">(</span><span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// 2</span>
-
-
+<span class="nf">getStringLength</span><span class="p">(</span><span class="dl">"</span><span class="s2">hi</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// 2</span>
 </code></pre></div></div>
 
 <p><br /></p>
 
-<h4 id="3-1-옵셔널-체이닝-연산자">3-1. 옵셔널 체이닝 연산자</h4>
+<h3 id="22-옵셔널-체이닝-연산자">2.2 옵셔널 체이닝 연산자</h3>
 
 <p>옵셔널 체이닝 연산자 <code class="language-plaintext highlighter-rouge">?.</code>는 <strong>객체나 배열의 특정 속성 또는 메서드에 접근할 때</strong>, 해당 값이 <code class="language-plaintext highlighter-rouge">null</code> 또는 <code class="language-plaintext highlighter-rouge">undefined</code>일 수 있는 경우 안전하게 접근할 수 있도록 도와줍니다. 만약 접근하려는 값이 <code class="language-plaintext highlighter-rouge">null</code> 또는 <code class="language-plaintext highlighter-rouge">undefined</code>라면, 에러를 던지지 않고 <code class="language-plaintext highlighter-rouge">undefined</code>를 반환합니다.</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="na">address</span><span class="p">:</span> <span class="p">{</span> <span class="na">city</span><span class="p">:</span> <span class="dl">"</span><span class="s2">New York</span><span class="dl">"</span> <span class="p">}</span> <span class="p">};</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">?.</span><span class="nx">name</span><span class="p">);</span>             <span class="c1">// "John"</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">?.</span><span class="nx">address</span><span class="p">?.</span><span class="nx">city</span><span class="p">);</span>    <span class="c1">// "New York"</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">?.</span><span class="nx">age</span><span class="p">);</span>              <span class="c1">// undefined (age 속성이 없으므로 에러 없이 undefined 반환)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">?.</span><span class="nx">address</span><span class="p">?.</span><span class="nx">street</span><span class="p">);</span>  <span class="c1">// undefined (address는 있지만 street 속성이 없으므로 undefined 반환)</span>
-
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">?.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// "John"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">?.</span><span class="nx">address</span><span class="p">?.</span><span class="nx">city</span><span class="p">);</span> <span class="c1">// "New York"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">?.</span><span class="nx">age</span><span class="p">);</span> <span class="c1">// undefined (age 속성이 없으므로 에러 없이 undefined 반환)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">?.</span><span class="nx">address</span><span class="p">?.</span><span class="nx">street</span><span class="p">);</span> <span class="c1">// undefined (address는 있지만 street 속성이 없으므로 undefined 반환)</span>
 </code></pre></div></div>
 
 <p>특징)</p>
@@ -833,20 +886,19 @@
 
 <p><br /></p>
 
-<h4 id="3-2-null-병합-연산자">3-2. null 병합 연산자</h4>
+<h3 id="23-null-병합-연산자">2.3 null 병합 연산자</h3>
 
 <p>null 병합 연산자 <code class="language-plaintext highlighter-rouge">??</code>는 <strong>피연산자가 <code class="language-plaintext highlighter-rouge">null</code> 또는 <code class="language-plaintext highlighter-rouge">undefined</code>인 경우</strong>를 확인하고, 해당 값이 <code class="language-plaintext highlighter-rouge">null</code> 또는 <code class="language-plaintext highlighter-rouge">undefined</code>일 때만 오른쪽 피연산자를 반환합니다. 이 연산자는 기본값을 설정하는 데 많이 사용됩니다.</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">defaultValue</span> <span class="o">=</span> <span class="nx">value</span> <span class="o">??</span> <span class="dl">"</span><span class="s2">Default Value</span><span class="dl">"</span><span class="p">;</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">defaultValue</span><span class="p">);</span>  <span class="c1">// "Default Value" (value가 null이므로 기본값 반환)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">defaultValue</span><span class="p">);</span> <span class="c1">// "Default Value" (value가 null이므로 기본값 반환)</span>
 
 <span class="kd">let</span> <span class="nx">value2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">defaultValue2</span> <span class="o">=</span> <span class="nx">value2</span> <span class="o">??</span> <span class="dl">"</span><span class="s2">Default Value</span><span class="dl">"</span><span class="p">;</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">defaultValue2</span><span class="p">);</span>  <span class="c1">// 0 (value2는 null이나 undefined가 아니므로 그대로 반환)</span>
-
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">defaultValue2</span><span class="p">);</span> <span class="c1">// 0 (value2는 null이나 undefined가 아니므로 그대로 반환)</span>
 </code></pre></div></div>
 
 <p>특징) <br /></p>
@@ -862,7 +914,7 @@
 
 <p><br /></p>
 
-<p>차이점 요약)</p>
+<h4 id="231-차이점-요약">2.3.1 차이점 요약</h4>
 
 <p><span style="color: #8e44ad"><strong>옵셔널 체이닝 (?.)</strong>: <span style="color: #d7bde2">객체 속성이나 메서드에 안전하게 접근하기 위해</span> 사용되며, 중첩된 구조에서도 null이나 undefined일 경우 에러 없이 undefined를 반환합니다. </span> <br /><span style="color: #8e44ad">ex) object?.property</span> <br /></p>
 

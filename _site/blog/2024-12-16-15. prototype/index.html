@@ -389,9 +389,37 @@
       
     
       
+
         
-        <li class=" ">
-          <a href="/blog/" >Blog</a>
+        
+
+        <li class="menu-item-dropdown menu-item-Blog ">
+          <a href="/blog/">Blog <i class="fa-solid fa-chevron-down"></i></a>
+          
+          <div class="dropdown-menu">
+            
+              <a href="/category/javascript/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Javascript</div>
+                  
+                </div>
+              </a>
+            
+              <a href="/category/algorithm/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Algorithm</div>
+                  
+                </div>
+              </a>
+            
+          </div>
+
         </li>
       
     
@@ -496,7 +524,51 @@
           </div>
         
         
-        <div class="content"><blockquote>
+        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">Index</span></p>
+
+<p>① <a href="#1-객체지향-프로그래밍">객체지향 프로그래밍</a><br /></p>
+
+<p>② <a href="#2-상속과-프로토타입">상속과 프로토타입</a><br /></p>
+
+<p>③ <a href="#3-프로토타입-객체">프로토타입 객체</a><br /></p>
+
+<p>④ <a href="#4-리터럴-표기법에-의해-생성된-객체의-생성자-함수와-프로토타입">리터럴 표기법에 의해 생성된 객체의 생성자 함수와 프로토타입</a><br /></p>
+
+<p>⑤ <a href="#5-프로토타입-생성시점">프로토타입 생성시점</a><br /></p>
+
+<p>⑥ <a href="#6-객체-생성-방식과-프로토타입의-결정">객체 생성 방식과 프로토타입의 결정</a><br /></p>
+
+<ul>
+  <li><a href="#61-object-생성자-함수에-의해-생성된-객체의-프로토타입">Object 생성자 함수에 의해 생성된 객체의 프로토타입</a><br /></li>
+  <li><a href="#62-생성자-함수에-의해-생성된-객체의-프로토타입">생성자 함수에 의해 생성된 객체의 프로토타입</a><br /></li>
+</ul>
+
+<p>⑦ <a href="#7-프로토타입-체인">프로토타입 체인</a><br /></p>
+
+<p>⑧ <a href="#8-오버라이딩과-프로퍼티-섀도잉">오버라이딩과 프로퍼티 섀도잉</a><br /></p>
+
+<p>⑨ <a href="#9-프로토타입의-교체">프로토타입의 교체</a><br /></p>
+
+<ul>
+  <li><a href="#91-생성자-함수에-의한-프로토타입-교체">생성자 함수에 의한 프로토타입 교체</a><br /></li>
+  <li><a href="#92-인스턴스에-의한-프로토타입-교체">인스턴스에 의한 프로토타입 교체</a><br /></li>
+</ul>
+
+<p>⑩ <a href="#10-instanceof-연산자">instanceof 연산자</a><br /></p>
+
+<p>⑪ <a href="#11-직접-상속">직접 상속</a><br /></p>
+
+<p>⑫ <a href="#12-정적-프로퍼티메서드">정적 프로퍼티/메서드</a><br /></p>
+
+<p>⑬ <a href="#13-프로퍼티-존재-확인">프로퍼티 존재 확인</a><br /></p>
+
+<p>⑭ <a href="#14-프로퍼티-열거">프로퍼티 열거</a><br /></p>
+
+<p><br /></p>
+
+<hr />
+
+<blockquote>
   <p>“자바스크립트는 <a href="#">명령형(imperative)</a>, <a href="#">함수형(functional)</a>, <a href="#">프로토타입 기반(prototype-based)</a> 객체지향 프로그래밍(OOP, Object Oriented Programming)을 지원하는 <a href="#">멀티 패러다임 프로그래밍 언어</a>다.”</p>
 </blockquote>
 
@@ -510,7 +582,9 @@
 
 <p>각 객체는 고유의 기능을 갖는 독립적인 부품으로 볼 수 있지만 자신의 고유한 기능을 수행하면서 다른 객체와 관계성을 가질 수 있다. <a href="#">다른 객체와 메시지를 주고 받거나 데이터를 처리할 수</a> 있다. 또는 다른 객체의 <a href="#">상태 데이터나 동작을 상속받아 사용하기도</a> 한다.</p>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="2-상속과-프로토타입">2. 상속과 프로토타입</h2>
 
@@ -540,18 +614,18 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
 <span class="kd">const</span> <span class="nx">circle1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Circle</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="kd">const</span> <span class="nx">circle2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Circle</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 
-
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">circle1</span><span class="p">.</span><span class="nx">getArea</span> <span class="o">===</span> <span class="nx">circle2</span><span class="p">.</span><span class="nx">getArea</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">circle1</span><span class="p">.</span><span class="nf">getArea</span><span class="p">());</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">circle2</span><span class="p">.</span><span class="nf">getArea</span><span class="p">());</span>
-
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="3-프로토타입-객체">3. 프로토타입 객체</h2>
 
-<p>🧐 Q. <code class="language-plaintext highlighter-rouge">prototype</code> 프로퍼티는 생성자함수가 자신이 생성할 객체의 프로토타입을 할당하기 위해 사용되는데 생성된 객체가<code class="language-plaintext highlighter-rouge">_proto_</code>로  접근가능한데 왜 필요한걸까?</p>
+<p>🧐 Q. <code class="language-plaintext highlighter-rouge">prototype</code> 프로퍼티는 생성자함수가 자신이 생성할 객체의 프로토타입을 할당하기 위해 사용되는데 생성된 객체가<code class="language-plaintext highlighter-rouge">_proto_</code>로 접근가능한데 왜 필요한걸까?</p>
 
 <p><code class="language-plaintext highlighter-rouge">prototype</code> 속성은 생성자 함수가 생성할 <strong>여러 객체들이 공통적으로 사용할 프로토타입 객체를 정의</strong>할 수 있도록 합니다. 이는 코드 재사용과 메모리 효율성을 위해 필요합니다.</p>
 
@@ -560,11 +634,10 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
   <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kd">const</span> <span class="nx">me</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">Lee</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">me</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="p">(</span><span class="dl">"</span><span class="s2">Lee</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="c1">// 결국 Person.prototype과 me.__proto__는 결국 동일한 프로토타입을 가리킨다.</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">===</span> <span class="nx">me</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">);</span> <span class="c1">// true</span>
-
 </code></pre></div></div>
 
 <figure>
@@ -577,7 +650,9 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
   </figcaption>
 </figure>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="4-리터럴-표기법에-의해-생성된-객체의-생성자-함수와-프로토타입">4. 리터럴 표기법에 의해 생성된 객체의 생성자 함수와 프로토타입</h2>
 
@@ -587,23 +662,24 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
 <span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
 
 <span class="c1">// 함수 리터럴</span>
-<span class="kd">const</span> <span class="nx">add</span> <span class="o">=</span> <span class="nf">function </span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span> <span class="p">};</span>
+<span class="kd">const</span> <span class="nx">add</span> <span class="o">=</span> <span class="nf">function </span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">};</span>
 
 <span class="c1">// 배열 리터럴</span>
 <span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
 
 <span class="c1">// 정규 표현식 리터럴</span>
-<span class="kd">const</span> <span class="nx">regexp</span> <span class="o">=</span> <span class="sr">/is/ig</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">regexp</span> <span class="o">=</span> <span class="sr">/is/gi</span><span class="p">;</span>
 </code></pre></div></div>
 
-<p>🧐 Q.  리터럴 표기법에 의해 생성된 객체의 경우 프로토타입의 constructor 프로퍼티가 가리키는 생성자 함수가 반드시 객체를 생성한 생성자 함수라고 단정할 수 있을까?</p>
+<p>🧐 Q. 리터럴 표기법에 의해 생성된 객체의 경우 프로토타입의 constructor 프로퍼티가 가리키는 생성자 함수가 반드시 객체를 생성한 생성자 함수라고 단정할 수 있을까?</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// obj 객체는 Object 생성자 함수로 생성한 객체가 아니라 객체 리터럴로 생성했다.</span>
 <span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
 
 <span class="c1">// 하지만 obj 객체의 생성자 함수는 Object 생성자 함수다.</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">===</span> <span class="nb">Object</span><span class="p">);</span> <span class="c1">// true</span>
-
 </code></pre></div></div>
 
 <figure>
@@ -682,13 +758,17 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
 
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="5-프로토타입-생성시점">5. 프로토타입 생성시점</h2>
 
 <p>추후 업데이트 예정</p>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="6-객체-생성-방식과-프로토타입의-결정">6. 객체 생성 방식과 프로토타입의 결정</h2>
 
@@ -699,7 +779,7 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Object</span><span class="p">();</span>
 <span class="nx">obj</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nx">cosole</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">===</span> <span class="nb">Object</span><span class="p">);</span> <span class="c1">// true</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nf">hasOwnProperty</span><span class="p">(</span><span class="dl">'</span><span class="s1">x</span><span class="dl">'</span><span class="p">));</span> <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nf">hasOwnProperty</span><span class="p">(</span><span class="dl">"</span><span class="s2">x</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// true</span>
 </code></pre></div></div>
 
 <p><br /></p>
@@ -712,31 +792,36 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
   <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayHello</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`Hi! My name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
-<span class="p">}</span>
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayHello</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`Hi! My name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+<span class="p">};</span>
 
-<span class="kd">const</span> <span class="nx">me</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">Lee</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">you</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">Tak</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">me</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="p">(</span><span class="dl">"</span><span class="s2">Lee</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">you</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="p">(</span><span class="dl">"</span><span class="s2">Tak</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="nx">me</span><span class="p">.</span><span class="nf">sayHello</span><span class="p">();</span> <span class="c1">// Hi! My name is Lee</span>
 <span class="nx">you</span><span class="p">.</span><span class="nf">sayHello</span><span class="p">();</span> <span class="c1">// Hi! My name is Tak</span>
-
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="7-프로토타입-체인">7. 프로토타입 체인</h2>
 
 <p>추후 업데이트 예정</p>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="8-오버라이딩과-프로퍼티-섀도잉">8. 오버라이딩과 프로퍼티 섀도잉</h2>
 
 <p>추후 업데이트 예정</p>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="9-프로토타입의-교체">9. 프로토타입의 교체</h2>
 
@@ -752,7 +837,7 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
   </figcaption>
 </figure>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">Person</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">Person</span> <span class="o">=</span> <span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">function</span> <span class="nf">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
   <span class="p">}</span>
@@ -763,18 +848,17 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
     <span class="na">constructor</span><span class="p">:</span> <span class="nx">Person</span><span class="p">,</span>
     <span class="nf">sayHello</span><span class="p">()</span> <span class="p">{</span>
       <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`Hi! My name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-    <span class="p">}</span>
+    <span class="p">},</span>
   <span class="p">};</span>
-  
-  <span class="k">return</span> <span class="nx">Person</span><span class="p">;</span>
-<span class="p">}());</span>
 
-<span class="kd">const</span> <span class="nx">me</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">Lee</span><span class="dl">'</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">Person</span><span class="p">;</span>
+<span class="p">})();</span>
+
+<span class="kd">const</span> <span class="nx">me</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="p">(</span><span class="dl">"</span><span class="s2">Lee</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="c1">// constructor 프로퍼티가 생성자 함수를 가리킨다.</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">me</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">===</span> <span class="nx">Person</span><span class="p">);</span> <span class="c1">// true</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">me</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">===</span> <span class="nb">Object</span><span class="p">);</span> <span class="c1">// false</span>
-
 </code></pre></div></div>
 
 <p>프로토타입으로 교체한 객체 리터럴에 <code class="language-plaintext highlighter-rouge">constructor</code> 프로퍼티를 추가하여 프로토타입의 <code class="language-plaintext highlighter-rouge">constructor</code> 프로퍼티를 되살린다.</p>
@@ -797,14 +881,14 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
   <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kd">const</span> <span class="nx">me</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">Lee</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">me</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="p">(</span><span class="dl">"</span><span class="s2">Lee</span><span class="dl">"</span><span class="p">);</span>
 <span class="c1">// 프로토타입으로 교체할 객체</span>
 <span class="kd">const</span> <span class="nx">parent</span> <span class="o">=</span> <span class="p">{</span>
   <span class="c1">// constructor 프로퍼티와 생성자 함수 간의 연결을 설정</span>
   <span class="na">constructor</span><span class="p">:</span> <span class="nx">Person</span><span class="p">,</span>
   <span class="nf">sayHello</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`Hi! My name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-  <span class="p">}</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 <span class="c1">// 생성자 함수의 prototype 프로퍼티와 프로토타입 간의 연결을 설정</span>
 <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nx">parent</span><span class="p">;</span>
@@ -821,54 +905,63 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
 
 <span class="c1">// 생성자 함수의 prototype 프로퍼티가 교체된 프로토타입을 가리킨다.</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">===</span> <span class="nb">Object</span><span class="p">.</span><span class="nf">getPrototypeOf</span><span class="p">(</span><span class="nx">me</span><span class="p">));</span> <span class="c1">// true</span>
-
 </code></pre></div></div>
 
 <p>프로토타입으로 교체한 객체 리터럴에 <code class="language-plaintext highlighter-rouge">constructor</code> 프로퍼티를 추가하고 생성자 함수의 <code class="language-plaintext highlighter-rouge">prototype</code> 프로퍼티를 재설정하여 파괴된 생성자 함수와 프로토타입 간의 연결을 되살려 보자.</p>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="10-instanceof-연산자">10. instanceof 연산자</h2>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">Person</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">Person</span> <span class="o">=</span> <span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">function</span> <span class="nf">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
   <span class="p">}</span>
-  
+
   <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nf">sayHello</span><span class="p">()</span> <span class="p">{</span>
       <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`Hi! My name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-    <span class="p">}</span>
+    <span class="p">},</span>
   <span class="p">};</span>
-  
-  <span class="k">return</span> <span class="nx">Person</span><span class="p">;</span>
-<span class="p">}());</span>
 
-<span class="kd">const</span> <span class="nx">me</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">Lee</span><span class="dl">'</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">Person</span><span class="p">;</span>
+<span class="p">})();</span>
+
+<span class="kd">const</span> <span class="nx">me</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="p">(</span><span class="dl">"</span><span class="s2">Lee</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">me</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">===</span> <span class="nx">Person</span><span class="p">);</span> <span class="c1">// false</span>
 <span class="c1">// 하지만 Person.prototype을 새 객체로 대체하면, 새 객체는 기본적으로 constructor 프로퍼티를 가지지 않으므로, 프로토타입 체인을 따라 Object의 constructor를 참조하게 됩니다. 따라서, 원래의 생성자 함수와의 연결이 끊어지게 됩니다.</span>
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="11-직접상속">11. 직접상속</h2>
 
 <p>추후 업데이트 예정</p>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="12-정적-프로퍼티메서드">12. 정적 프로퍼티/메서드</h2>
 
 <p>추후 업데이트 예정</p>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="13-프로퍼티-존재-확인">13. 프로퍼티 존재 확인</h2>
 
 <p>추후 업데이트 예정</p>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="14-프로퍼티열거">14. 프로퍼티열거</h2>
 

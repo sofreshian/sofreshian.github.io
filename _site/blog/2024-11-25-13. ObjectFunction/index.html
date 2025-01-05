@@ -13,7 +13,7 @@
 
 
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="http://localhost:4000/blog/2024-11-25-13.%20ObjectFunction/"/>
+<meta property="og:url" content="http://localhost:4000/blog/2024-11-25-13.%20objectFunction/"/>
 
 
   <meta property="og:title" content="13. Creating objects by constructor functions"/>
@@ -389,9 +389,37 @@
       
     
       
+
         
-        <li class=" ">
-          <a href="/blog/" >Blog</a>
+        
+
+        <li class="menu-item-dropdown menu-item-Blog ">
+          <a href="/blog/">Blog <i class="fa-solid fa-chevron-down"></i></a>
+          
+          <div class="dropdown-menu">
+            
+              <a href="/category/javascript/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Javascript</div>
+                  
+                </div>
+              </a>
+            
+              <a href="/category/algorithm/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Algorithm</div>
+                  
+                </div>
+              </a>
+            
+          </div>
+
         </li>
       
     
@@ -496,11 +524,58 @@
           </div>
         
         
-        <div class="content"><h2 id="1-object-생성자-함수">1. Object 생성자 함수</h2>
+        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">Index</span></p>
+
+<p>① <a href="#1-object-생성자-함수">Object 생성자 함수</a><br /></p>
+
+<p>② <a href="#2-생성자-함수">생성자 함수</a><br /></p>
+
+<ul>
+  <li><a href="#21-생성자-함수의-장점">생성자 함수의 장점</a><br /></li>
+  <li><a href="#22-생성자-함수의-인스턴스-생성과정">생성자 함수의 인스턴스 생성과정</a><br />
+    <ul>
+      <li><a href="#221-인스턴스-생성과-this-바인딩">인스턴스 생성과 <code class="language-plaintext highlighter-rouge">this</code> 바인딩</a><br /></li>
+      <li><a href="#222-인스턴스-초기화">인스턴스 초기화</a><br /></li>
+      <li><a href="#223-인스턴스-반환">인스턴스 반환</a><br />
+        <ul>
+          <li><a href="#2231-명시적-객체-반환">명시적 객체 반환</a><br /></li>
+          <li><a href="#2232-명시적-원시값-반환">명시적 원시값 반환</a><br /></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>③ <a href="#3-내부-메서드-call-construct">내부 메서드 [[Call]], [[Construct]]</a><br /></p>
+
+<ul>
+  <li><a href="#31-constructor와-non-constructor의-차이">constructor와 non-constructor의 차이</a><br /></li>
+  <li><a href="#32-constructor의-사용-예시">constructor의 사용 예시</a><br /></li>
+  <li><a href="#33-non-constructor의-사용-제한">non-constructor의 사용 제한</a><br /></li>
+</ul>
+
+<p>④ <a href="#4-new-연산자">new 연산자</a><br /></p>
+
+<ul>
+  <li><a href="#41-new와-일반-함수">new와 일반 함수</a><br /></li>
+  <li><a href="#42-new와-반환값">new와 반환값</a><br />
+    <ul>
+      <li><a href="#421-객체-반환">객체 반환</a><br /></li>
+      <li><a href="#422-기본-반환-동작">기본 반환 동작</a><br /></li>
+      <li><a href="#423-생성자-함수로-변환">생성자 함수로 변환</a><br /></li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="1-object-생성자-함수">1. Object 생성자 함수</h2>
 
 <p><code class="language-plaintext highlighter-rouge">new</code> 연산자와 함께 <code class="language-plaintext highlighter-rouge">Object</code> 생성자 함수를 호출하면 빈 객체를 생성하여 반환한다. <br /></p>
 
-<p>빈 객체를 생성한 이후 <a href="#">프로퍼티</a> 또는 <a href="#">메서드</a>를 추가하여 객체를 완성할 수 있다. <br /></p>
+<p>빈 객체를 생성한 이후 <span style="color: white;"><strong>프로퍼티</strong></span> 또는 <span style="color: white;"><strong>메서드</strong></span>를 추가하여 객체를 완성할 수 있다. <br /></p>
 
 <p>생성자 함수(constructor)란 <code class="language-plaintext highlighter-rouge">new</code>연산자와 함께 호출하여 객체(인스턴스)를 생성하는 함수를 말한다. 생성자 함수에 의해 생성된 객체를 인스턴스(instance)라 한다.</p>
 
@@ -518,13 +593,15 @@
 
 </code></pre></div></div>
 
-<p><br />🤓 Q.  <code class="language-plaintext highlighter-rouge">Object</code> 생성자 함수를 사용해 객체를 생성하는 방식은 유용하다고 볼 수 있는가?</p>
+<p><br /></p>
 
-<p><br /><br /></p>
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="2-생성자-함수">2. 생성자 함수</h2>
 
-<h3 id="1-생성자-함수의-장점">1) 생성자 함수의 장점</h3>
+<h3 id="21-생성자-함수의-장점">2.1 생성자 함수의 장점</h3>
+
+<p>🤓 Q. <code class="language-plaintext highlighter-rouge">Object</code> 생성자 함수를 사용해 객체를 생성하는 방식은 유용하다고 볼 수 있는가?</p>
 
 <p><span style="color:#e74c3c"><strong>Problem.</strong></span> 객체 생성 시 매번 같은 프로퍼티 기술 해야하는 비효율성</p>
 
@@ -532,17 +609,16 @@
   <span class="na">radius</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
   <span class="nf">getDiameter</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span><span class="p">;</span>
-  <span class="p">}</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">circle1</span><span class="p">.</span><span class="nf">getDiameter</span><span class="p">());</span> <span class="c1">// 10</span>
-
 
 <span class="kd">const</span> <span class="nx">circle2</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">radius</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
   <span class="nf">getDiameter</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span><span class="p">;</span>
-  <span class="p">}</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">circle2</span><span class="p">.</span><span class="nf">getDiameter</span><span class="p">());</span> <span class="c1">// 20</span>
@@ -555,7 +631,7 @@
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 생성자 함수</span>
 <span class="kd">function</span> <span class="nf">Circle</span><span class="p">(</span><span class="nx">radius</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">=</span> <span class="nx">radius</span><span class="p">;</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">getDiameter</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">getDiameter</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span><span class="p">;</span>
   <span class="p">};</span>
 <span class="p">}</span>
@@ -566,21 +642,22 @@
 
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">circle1</span><span class="p">.</span><span class="nf">getDiameter</span><span class="p">());</span> <span class="c1">// 10</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">circle2</span><span class="p">.</span><span class="nf">getDiameter</span><span class="p">());</span> <span class="c1">// 20</span>
-
 </code></pre></div></div>
 
 <p><br /></p>
 
-<h3 id="2-생성자-함수의-인스턴스-생성과정">2) 생성자 함수의 인스턴스 생성과정</h3>
+<hr style="border: 1px dashed #ccc;" />
 
-<h4 id="1-인스턴스-생성과-this-바인딩">(1) 인스턴스 생성과 <code class="language-plaintext highlighter-rouge">this</code> 바인딩</h4>
+<h3 id="22-생성자-함수의-인스턴스-생성과정">2.2 생성자 함수의 인스턴스 생성과정</h3>
+
+<h4 id="221-인스턴스-생성과-this-바인딩">2.2.1 인스턴스 생성과 <code class="language-plaintext highlighter-rouge">this</code> 바인딩</h4>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">Circle</span><span class="p">(</span><span class="nx">radius</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// 1. 암묵적으로 인스턴스가 생성되고 this에 바인딩된다.</span>
   <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// Circle {}</span>
-  
+
   <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">=</span> <span class="nx">radius</span><span class="p">;</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">getDiameter</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">getDiameter</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span><span class="p">;</span>
   <span class="p">};</span>
 <span class="p">}</span>
@@ -588,7 +665,7 @@
 
 <p><br /></p>
 
-<h4 id="2-인스턴스-초기화">(2) 인스턴스 초기화</h4>
+<h4 id="222-인스턴스-초기화">2.2.2 인스턴스 초기화</h4>
 
 <p>this에 바인딩되어 있는 인스턴스에 프로퍼티나 메서드를 추가하고 생성자 함수가 인수로 전달받은 초기값을 인스턴스 프로퍼티에 할당하여 초기화하거나 고정값을 할당한다.</p>
 
@@ -598,7 +675,7 @@
 
   <span class="c1">// 2. this에 바인딩되어 있는 인스턴스를 초기화한다.</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">=</span> <span class="nx">radius</span><span class="p">;</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">getDiameter</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">getDiameter</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span><span class="p">;</span>
   <span class="p">};</span>
 <span class="p">}</span>
@@ -606,7 +683,7 @@
 
 <p><br /></p>
 
-<h4 id="3-인스턴스-반환">(3) 인스턴스 반환</h4>
+<h4 id="223-인스턴스-반환">2.2.3 인스턴스 반환</h4>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">Circle</span><span class="p">(</span><span class="nx">radius</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// 1. 암묵적으로 인스턴스가 생성되고 this에 바인딩된다.</span>
@@ -614,44 +691,42 @@
 
   <span class="c1">// 2. this에 바인딩되어 있는 인스턴스를 초기화한다.</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">=</span> <span class="nx">radius</span><span class="p">;</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">getDiameter</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">getDiameter</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span><span class="p">;</span>
   <span class="p">};</span>
   <span class="c1">// 3. 완성된 인스턴스가 바인딩된 this가 암묵적으로 반환된다.</span>
 <span class="p">}</span>
 
-<span class="c1">// 인스턴스 생성. Circle 생성자 함수는 암묵적으로 this를 반환한다. </span>
+<span class="c1">// 인스턴스 생성. Circle 생성자 함수는 암묵적으로 this를 반환한다.</span>
 <span class="kd">const</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Circle</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">circle</span><span class="p">);</span> <span class="c1">// Circle {radius: 1, getDiameter: f}</span>
-
 </code></pre></div></div>
 
 <p><br /></p>
 
-<h5 id="ⅰ--만약에-this가-아닌-다른-객체를-명시적으로-반환하면-this가-반환되지-못하고-return문에-명시한-객체가-반환된다">ⅰ)  만약에 this가 아닌 다른 객체를 명시적으로 반환하면 <code class="language-plaintext highlighter-rouge">this</code>가 반환되지 못하고 <code class="language-plaintext highlighter-rouge">return</code>문에 명시한 객체가 반환된다.</h5>
+<h6 id="ⅰ-만약에-this가-아닌-다른-객체를-명시적으로-반환하면-this가-반환되지-못하고-return문에-명시한-객체가-반환된다">ⅰ) 만약에 this가 아닌 다른 객체를 명시적으로 반환하면 <code class="language-plaintext highlighter-rouge">this</code>가 반환되지 못하고 <code class="language-plaintext highlighter-rouge">return</code>문에 명시한 객체가 반환된다.</h6>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">Circle</span><span class="p">(</span><span class="nx">radius</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> 
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
 
   <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">=</span> <span class="nx">radius</span><span class="p">;</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">getDiameter</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-	<span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="nf">getDiameter</span><span class="p">();</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">getDiameter</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="nf">getDiameter</span><span class="p">();</span>
   <span class="p">};</span>
-    <span class="k">return</span> <span class="p">{};</span>
+  <span class="k">return</span> <span class="p">{};</span>
 <span class="p">}</span>
 
 <span class="kd">const</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Circle</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">circle</span><span class="p">);</span> <span class="c1">// {}</span>
-
 </code></pre></div></div>
 
-<h5 id="ⅱ-명시적으로-원시값을-반환하면-원시-값-반환은-무시되고-암묵적으로-this가-반환된다">ⅱ) 명시적으로 원시값을 반환하면 원시 값 반환은 무시되고 암묵적으로 <code class="language-plaintext highlighter-rouge">this</code>가 반환된다.</h5>
+<h6 id="ⅱ-명시적으로-원시값을-반환하면-원시-값-반환은-무시되고-암묵적으로-this가-반환된다">ⅱ) 명시적으로 원시값을 반환하면 원시 값 반환은 무시되고 암묵적으로 <code class="language-plaintext highlighter-rouge">this</code>가 반환된다.</h6>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">Circle</span><span class="p">(</span><span class="nx">radius</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> 
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
 
   <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">=</span> <span class="nx">radius</span><span class="p">;</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">getDiameter</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">getDiameter</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="nf">getDiameter</span><span class="p">();</span>
   <span class="p">};</span>
   <span class="k">return</span> <span class="mi">100</span><span class="p">;</span>
@@ -659,7 +734,6 @@
 
 <span class="kd">const</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Circle</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">circle</span><span class="p">);</span> <span class="c1">// Circle{radius:1, getDiameter: f}</span>
-
 </code></pre></div></div>
 
 <p>생성자 함수 내부에서 명시적으로 <code class="language-plaintext highlighter-rouge">this</code>가 아닌 다른 값을 반환하는 것은 생성자 함수의 기본 동작을 훼손한다. <br /></p>
@@ -667,6 +741,8 @@
 <p><span style="color:#e74c3c">따라서 생성자 함수 내부에서 return 문을 <strong><u>반드시 생략해야 한다.</u></strong> </span></p>
 
 <p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h3 id="3-내부-메서드-call-construct">3. 내부 메서드 [[Call]], [[Construct]]</h3>
 
@@ -676,15 +752,15 @@
 
 <p><span style="color:#e74c3c">ⅰ) 일반 함수로서 호출 되면 =&gt; <strong><u>함수 객체의 내부 메서드 [[Call]]이 호출되고</u></strong></span> <br /></p>
 
-<p><span style="color:#3498db">ⅱ)  <code class="language-plaintext highlighter-rouge">new</code>연산자와 함께 생성자 함수로서 호출되면 =&gt;  <strong><u>내부 메서드 [[Construct]] 가 호출된다</u></strong>. </span><br /></p>
+<p><span style="color:#3498db">ⅱ) <code class="language-plaintext highlighter-rouge">new</code>연산자와 함께 생성자 함수로서 호출되면 =&gt; <strong><u>내부 메서드 [[Construct]] 가 호출된다</u></strong>. </span><br /></p>
 
 <figure>
   <a href="" target="">
-    <img src="/assets/images/gen/content/post_13/constructor.webp" alt="Photo of constructor and non-consctructor explanation" />
+    <img src="/assets/images/gen/content/post_13/constructor.webp" alt="Photo of constructor" />
   </a>
   <figcaption>
-    <h4>constructor and nonconstruct description</h4>
-    <p>Ungmo Lee. (2020). Modern Javascript DeepDive. wikibooks. p.243.</p>
+    <h4>constructor</h4>
+    <p>Jay Tak.</p>
   </figcaption>
 </figure>
 
@@ -693,32 +769,32 @@
 <p>자바스크립트 엔진은 함수 정의를 평가하여 함수객체를 생성할 때 함수 정의 방식에 따라 함수를 constructor와 non-consctructor로 구분한다.</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 일반 함수 정의: (1) 함수선언문, (2) 함수표현식, (3) 프로퍼티에 할당된 일반함수</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="mi">1</span><span class="p">;</span>
 <span class="kd">function</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{}</span>
-<span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="kd">const</span> <span class="nx">bar</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
-<span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="mi">2</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">bar</span> <span class="o">=</span> <span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{})(</span><span class="mi">3</span><span class="p">);</span>
 <span class="kd">const</span> <span class="nx">baz</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">x</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
+  <span class="na">x</span><span class="p">:</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{},</span>
 <span class="p">};</span>
 
 <span class="k">new</span> <span class="nf">foo</span><span class="p">();</span>
 <span class="k">new</span> <span class="nf">bar</span><span class="p">();</span>
 <span class="k">new</span> <span class="nx">baz</span><span class="p">.</span><span class="nf">x</span><span class="p">();</span>
 
-
-<span class="c1">// 화살표 함수 </span>
-<span class="kd">const</span> <span class="nx">arrow</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{}</span>
+<span class="c1">// 화살표 함수</span>
+<span class="kd">const</span> <span class="nx">arrow</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{};</span>
 <span class="k">new</span> <span class="nf">arrow</span><span class="p">();</span> <span class="c1">// TypeError: arrow is not a consctructor</span>
-
 
 <span class="c1">// 메서드 정의: Es6의 메서드 축약 표현만 메서드로 인정한다.</span>
 <span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nf">x</span><span class="p">()</span> <span class="p">{}</span>
+  <span class="nf">x</span><span class="p">()</span> <span class="p">{},</span>
 <span class="p">};</span>
 <span class="k">new</span> <span class="nx">obj</span><span class="p">.</span><span class="nf">x</span><span class="p">();</span> <span class="c1">// TypeError: obj.x is not a consctructor</span>
-
 </code></pre></div></div>
+
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h3 id="4-new-연산자">4. new 연산자</h3>
 

@@ -5,19 +5,88 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 01 Jan 2025 19:09:19 +0900</pubDate>
-    <lastBuildDate>Wed, 01 Jan 2025 19:09:19 +0900</lastBuildDate>
+    <pubDate>Sun, 05 Jan 2025 21:13:50 +0900</pubDate>
+    <lastBuildDate>Sun, 05 Jan 2025 21:13:50 +0900</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
         <title>20. Additional features of ES6 function</title>
-        <description>&lt;h2 id=&quot;1-추가-기능의-필요성&quot;&gt;1. 추가 기능의 필요성&lt;/h2&gt;
+        <description>&lt;p&gt;&lt;span style=&quot;font-family: &apos;Brown&apos;, sans-serif !important; font-size: 20pt;&quot;&gt;Index&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;① &lt;a href=&quot;#1-추가-기능의-필요성&quot;&gt;추가 기능의 필요성&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#11-모든-함수가-prototype을-가지는-문제&quot;&gt;모든 함수가 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prototype&lt;/code&gt;을 가지는 문제&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#12-new와-일반-함수-호출-간의-혼동&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new&lt;/code&gt;와 일반 함수 호출 간의 혼동&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#13-prototype-재정의의-비일관성&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prototype&lt;/code&gt; 재정의의 비일관성&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#14-객체-메서드와-생성-가능-함수-간의-혼동&quot;&gt;객체 메서드와 생성 가능 함수 간의 혼동&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;② &lt;a href=&quot;#2-es6의-함수-구분&quot;&gt;ES6의 함수 구분&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#21-constructor&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;constructor&lt;/code&gt;&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#22-prototype&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prototype&lt;/code&gt;&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#23-super&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;super&lt;/code&gt;&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#24-arguments&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt;&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;③ &lt;a href=&quot;#3-화살표-함수&quot;&gt;화살표 함수&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#31-화살표-함수와-this&quot;&gt;화살표 함수와 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this&lt;/code&gt;&lt;/a&gt;&lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#311-일반-함수의-this-결정&quot;&gt;일반 함수의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this&lt;/code&gt; 결정&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#312-화살표-함수의-this-결정&quot;&gt;화살표 함수의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this&lt;/code&gt; 결정&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#32-화살표-함수-사용-시-주의사항&quot;&gt;화살표 함수 사용 시 주의사항&lt;/a&gt;&lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#321-객체-메서드에서의-화살표-함수&quot;&gt;객체 메서드에서의 화살표 함수&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#322-프로토타입-객체에서의-화살표-함수&quot;&gt;프로토타입 객체에서의 화살표 함수&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#323-클래스-필드에서-화살표-함수&quot;&gt;클래스 필드에서 화살표 함수&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#33-화살표-함수와-super&quot;&gt;화살표 함수와 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;super&lt;/code&gt;&lt;/a&gt;&lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#331-일반-메서드에서의-super&quot;&gt;일반 메서드에서의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;super&lt;/code&gt;&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#332-화살표-함수에서의-super&quot;&gt;화살표 함수에서의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;super&lt;/code&gt;&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#34-화살표-함수와-arguments&quot;&gt;화살표 함수와 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt;&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;④ &lt;a href=&quot;#4-매개변수-기본값&quot;&gt;매개변수 기본값&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#41-es6-이전의-방어-코드&quot;&gt;ES6 이전의 방어 코드&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#42-es6의-매개변수-기본값-문법&quot;&gt;ES6의 매개변수 기본값 문법&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#43-매개변수-기본값의-동작&quot;&gt;매개변수 기본값의 동작&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#44-rest-파라미터의-기본값-불가능&quot;&gt;Rest 파라미터의 기본값 불가능&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#45-매개변수-기본값과-함수-length-및-arguments&quot;&gt;매개변수 기본값과 함수 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;length&lt;/code&gt; 및 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt;&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;1-추가-기능의-필요성&quot;&gt;1. 추가 기능의 필요성&lt;/h2&gt;
 
 &lt;p&gt;🧐 Q. ES6 이전에 &lt;strong&gt;객체에 바인딩된 함수가 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;construct&lt;/code&gt;(생성 가능한 함수)라는 것&lt;/strong&gt;은 해당 함수가 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prototype&lt;/code&gt; 프로퍼티를 가지며, 이로 인해 &lt;strong&gt;프로토타입 객체도 생성&lt;/strong&gt;된다는 것을 의미한다. 이는 몇 가지 잠재적인 문제를 야기할 수 있지 않을까? &lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;Answer)&lt;/p&gt;
 
-&lt;h4 id=&quot;1-모든-함수가-prototype을-가지므로-불필요한-리소스-낭비&quot;&gt;1. 모든 함수가 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prototype&lt;/code&gt;을 가지므로 불필요한 리소스 낭비&lt;/h4&gt;
+&lt;h3 id=&quot;11-모든-함수가-prototype을-가지므로-불필요한-리소스-낭비&quot;&gt;1.1 모든 함수가 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prototype&lt;/code&gt;을 가지므로 불필요한 리소스 낭비&lt;/h3&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;notAConstructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;This function is not meant to be a constructor!&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -37,7 +106,9 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;2-new와-일반-함수-호출-간의-혼동&quot;&gt;2. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new&lt;/code&gt;와 일반 함수 호출 간의 혼동&lt;/h4&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
+
+&lt;h3 id=&quot;12-new와-일반-함수-호출-간의-혼동&quot;&gt;1.2 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new&lt;/code&gt;와 일반 함수 호출 간의 혼동&lt;/h3&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -61,7 +132,9 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;3-prototype-재정의의-비일관성&quot;&gt;3. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prototype&lt;/code&gt; 재정의의 비일관성&lt;/h4&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
+
+&lt;h3 id=&quot;13-prototype-재정의의-비일관성&quot;&gt;1.3 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prototype&lt;/code&gt; 재정의의 비일관성&lt;/h3&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -89,7 +162,9 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;4-객체-메서드와-생성-가능-함수-간의-혼동&quot;&gt;4. 객체 메서드와 생성 가능 함수 간의 혼동&lt;/h4&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
+
+&lt;h3 id=&quot;14-객체-메서드와-생성-가능-함수-간의-혼동&quot;&gt;1.4 객체 메서드와 생성 가능 함수 간의 혼동&lt;/h3&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;function &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -111,9 +186,13 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;그리하여-es6는-함수의-사용-목적에-따라-세-가지-종류로-명확히-구분하였다&quot;&gt;&lt;br /&gt;&lt;strong&gt;그리하여 ES6는 함수의 사용 목적에 따라 세 가지 종류로 명확히 구분하였다.&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;1-constructor&quot;&gt;1. &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;constructor&lt;/code&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
+
+&lt;h2 id=&quot;2es6는-함수의-사용-목적에-따라-세-가지-종류로-명확히-구분&quot;&gt;2.&lt;strong&gt;ES6는 함수의 사용 목적에 따라 세 가지 종류로 명확히 구분&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;h3 id=&quot;21-constructor&quot;&gt;2.1 &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;constructor&lt;/code&gt;&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;constructor&lt;/code&gt;는 &lt;strong&gt;생성 가능한 함수&lt;/strong&gt;를 의미한다.&lt;/li&gt;
@@ -138,7 +217,9 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;2-prototype&quot;&gt;2. &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prototype&lt;/code&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
+
+&lt;h3 id=&quot;22-prototype&quot;&gt;2.2 &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prototype&lt;/code&gt;&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -162,7 +243,9 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;3-super&quot;&gt;3. &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;super&lt;/code&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
+
+&lt;h3 id=&quot;23-super&quot;&gt;2.3 &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;super&lt;/code&gt;&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;super&lt;/code&gt;는 &lt;strong&gt;상위 클래스나 객체의 메서드&lt;/strong&gt;를 호출하거나 접근할 때 사용한다.&lt;/li&gt;
@@ -193,7 +276,9 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;4-arguments&quot;&gt;4. &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
+
+&lt;h3 id=&quot;24-arguments&quot;&gt;2.4 &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt;&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt;는 함수 호출 시 전달된 &lt;strong&gt;모든 인수 정보를 담고 있는 유사 배열 객체&lt;/strong&gt;다.&lt;/li&gt;
@@ -223,11 +308,13 @@
 &lt;span class=&quot;c1&quot;&gt;// obj.arrow(7, 8, 9); // 에러 발생&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;2-화살표-함수&quot;&gt;2. 화살표 함수&lt;/h2&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
-&lt;h3 id=&quot;2-1-화살표-함수가-일반함수와-구별되는-가장-큰-특징은-this다&quot;&gt;2-1. “화살표 함수가 일반함수와 구별되는 가장 큰 특징은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this&lt;/code&gt;다.”&lt;/h3&gt;
+&lt;h2 id=&quot;3-화살표-함수&quot;&gt;3. 화살표 함수&lt;/h2&gt;
+
+&lt;h3 id=&quot;31-화살표-함수가-일반함수와-구별되는-가장-큰-특징은-this다&quot;&gt;3.1 “화살표 함수가 일반함수와 구별되는 가장 큰 특징은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this&lt;/code&gt;다.”&lt;/h3&gt;
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this&lt;/code&gt; 바인딩은 함수의 호출방식, 즉 함수가 어떻게 호출되었는지에 따라 동적으로 결정된다. 다시 말해, 함수를 정의할 때 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this&lt;/code&gt;에 바인딩할 객체가 정적으로 결정되는 것이 아니고, &lt;span style=&quot;color:#3498db&quot;&gt;함수를 호출할 때 🥸&lt;strong&gt;&lt;u&gt;어떻게 호출되었는지에 따라&lt;/u&gt;&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this&lt;/code&gt;에 바인딩할 객체가 동적으로 결정&lt;/span&gt;된다.&lt;/p&gt;
 
@@ -353,7 +440,9 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;2-2-화살표-함수-사용시-주의해야-할-사항&quot;&gt;2-2) 화살표 함수 사용시 주의해야 할 사항!&lt;/h3&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
+
+&lt;h3 id=&quot;32-화살표-함수-사용시-주의해야-할-사항&quot;&gt;3.2 화살표 함수 사용시 주의해야 할 사항!&lt;/h3&gt;
 
 &lt;h4 id=&quot;ⅰ-프로퍼티에-할당한-화살표-함수-내부의-this는-상위스코프인-전역의-this가-가리키는-전역객체를-가리킨다&quot;&gt;ⅰ. 프로퍼티에 할당한 화살표 함수 내부의 this는 상위스코프인 전역의 this가 가리키는 전역객체를 가리킨다.&lt;/h4&gt;
 
@@ -532,11 +621,13 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;2-3-화살표-함수는-super-바인딩을-갖지-않는다&quot;&gt;2-3) 화살표 함수는 super 바인딩을 갖지 않는다.&lt;/h3&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
+
+&lt;h3 id=&quot;33-화살표-함수는-super-바인딩을-갖지-않는다&quot;&gt;3.3 화살표 함수는 super 바인딩을 갖지 않는다.&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;화살표 함수에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;super&lt;/code&gt;를 “바인딩하지 않는다”는 것은&lt;/strong&gt; 화살표 함수가 자체적으로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;super&lt;/code&gt;를 설정하지 않고, 작성된 위치의 &lt;strong&gt;상위 스코프의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;super&lt;/code&gt;를 그대로 참조한다&lt;/strong&gt;는 뜻입니다. &lt;br /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;1-일반-메서드에서-super의-동적-동작&quot;&gt;1. 일반 메서드에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;super&lt;/code&gt;의 동적 동작&lt;/h4&gt;
+&lt;h4 id=&quot;331-일반-메서드에서-super의-동적-동작&quot;&gt;3.3.1 일반 메서드에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;super&lt;/code&gt;의 동적 동작&lt;/h4&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GrandBase&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;nf&quot;&gt;sayHi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -569,7 +660,7 @@
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;baseInstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sayHi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Hi from GrandBase -&amp;gt; Hi from Base&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;1-derived-클래스의-sayhi-호출&quot;&gt;1. &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Derived&lt;/code&gt; 클래스의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sayHi&lt;/code&gt; 호출&lt;/strong&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;3311-derived-클래스의-sayhi-호출&quot;&gt;3.3.1.1 &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Derived&lt;/code&gt; 클래스의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sayHi&lt;/code&gt; 호출&lt;/strong&gt;&lt;/h5&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -586,7 +677,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;2-baseinstancesayhi-호출&quot;&gt;2. &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;baseInstance.sayHi&lt;/code&gt; 호출&lt;/strong&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;3312-baseinstancesayhi-호출&quot;&gt;3.3.1.2 &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;baseInstance.sayHi&lt;/code&gt; 호출&lt;/strong&gt;&lt;/h5&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -602,7 +693,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;2-화살표-함수로-동일한-동작을-구현한-경우&quot;&gt;2. 화살표 함수로 동일한 동작을 구현한 경우&lt;/h4&gt;
+&lt;h4 id=&quot;332-화살표-함수로-동일한-동작을-구현한-경우&quot;&gt;3.3.2 화살표 함수로 동일한 동작을 구현한 경우&lt;/h4&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Derived&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Base&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;sayHiArrow&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sayHi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; -&amp;gt; Hi from Derived (Arrow)`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -641,9 +732,11 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;2-4-화살표-함수에서는-argument-객체를-사용할-수-없다&quot;&gt;2-4) 화살표 함수에서는 argument 객체를 사용할 수 없다.&lt;/h3&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
-&lt;h4 id=&quot;1-즉시실행-함수의-arguments&quot;&gt;1. 즉시실행 함수의 arguments&lt;/h4&gt;
+&lt;h3 id=&quot;34-화살표-함수에서는-argument-객체를-사용할-수-없다&quot;&gt;3.4 화살표 함수에서는 argument 객체를 사용할 수 없다.&lt;/h3&gt;
+
+&lt;h4 id=&quot;341-즉시실행-함수의-arguments&quot;&gt;3.4.1 즉시실행 함수의 arguments&lt;/h4&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;function &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 상위 스코프의 arguments를 참조&lt;/span&gt;
@@ -657,7 +750,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;2-전역스코프에서-화살표-함수의-arguments&quot;&gt;2. 전역스코프에서 화살표 함수의 arguments&lt;/h4&gt;
+&lt;h4 id=&quot;342-전역스코프에서-화살표-함수의-arguments&quot;&gt;3.4.2 전역스코프에서 화살표 함수의 arguments&lt;/h4&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -669,7 +762,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;3-화살표-함수에서-arguments-대신-rest-파라미터-사용&quot;&gt;3. 화살표 함수에서 arguments 대신 Rest 파라미터 사용&lt;/h4&gt;
+&lt;h4 id=&quot;343-화살표-함수에서-arguments-대신-rest-파라미터-사용&quot;&gt;3.4.3 화살표 함수에서 arguments 대신 Rest 파라미터 사용&lt;/h4&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -689,11 +782,13 @@
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt; 대신 Rest 파라미터(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;...args&lt;/code&gt;)를 사용하는 것이 권장됩니다. 😊&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;3-매개변수-기본값&quot;&gt;3. 매개변수 기본값&lt;/h2&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
-&lt;h3 id=&quot;1-1-es6-이전-방어코드&quot;&gt;1-1) ES6 이전 방어코드&lt;/h3&gt;
+&lt;h2 id=&quot;4-매개변수-기본값&quot;&gt;4. 매개변수 기본값&lt;/h2&gt;
+
+&lt;h3 id=&quot;41-es6-이전-방어코드&quot;&gt;4.1 ES6 이전 방어코드&lt;/h3&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;c1&quot;&gt;// 인수가 전달되지 않거나 undefined인 경우 기본값을 할당&lt;/span&gt;
@@ -726,7 +821,9 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;1-2-es6-이후-매개-변수-기본값-문법-도입&quot;&gt;1-2) ES6 이후: 매개 변수 기본값 문법 도입&lt;/h3&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
+
+&lt;h3 id=&quot;42-es6-이후-매개-변수-기본값-문법-도입&quot;&gt;4.2 ES6 이후: 매개 변수 기본값 문법 도입&lt;/h3&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -755,7 +852,9 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;2-매개변수-기본값의-동작&quot;&gt;2) 매개변수 기본값의 동작&lt;/h3&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
+
+&lt;h3 id=&quot;43-매개변수-기본값의-동작&quot;&gt;4.3 매개변수 기본값의 동작&lt;/h3&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;logName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Lee&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -786,7 +885,9 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;3-rest-파라미터의-기본값-불가능&quot;&gt;3) Rest 파라미터의 기본값 불가능&lt;/h3&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
+
+&lt;h3 id=&quot;44-rest-파라미터의-기본값-불가능&quot;&gt;4.4 Rest 파라미터의 기본값 불가능&lt;/h3&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -816,7 +917,9 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;4-매개변수-기본값과-함수-length-및-arguments&quot;&gt;4) 매개변수 기본값과 함수 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;length&lt;/code&gt; 및 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt;&lt;/h3&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
+
+&lt;h3 id=&quot;45-매개변수-기본값과-함수-length-및-arguments&quot;&gt;4.5 매개변수 기본값과 함수 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;length&lt;/code&gt; 및 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt;&lt;/h3&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 함수에 전달된 실제 인수 목록&lt;/span&gt;
@@ -829,26 +932,24 @@
 
 &lt;h4 id=&quot;동작-원리-3&quot;&gt;동작 원리:&lt;/h4&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;함수 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;length&lt;/code&gt; 프로퍼티&lt;/strong&gt;:
+&lt;p&gt;4.5.1 &lt;strong&gt;함수 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;length&lt;/code&gt; 프로퍼티&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;함수의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;length&lt;/code&gt;는 &lt;strong&gt;기본값이 없는 매개변수의 개수&lt;/strong&gt;를 나타냅니다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;function sum(x, y = 0)&lt;/code&gt;에서 기본값이 없는 매개변수는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x&lt;/code&gt; 하나뿐이므로, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum.length&lt;/code&gt;는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;입니다.&lt;/p&gt;
+
+    &lt;p&gt;4.5.2 &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt; 객체&lt;/strong&gt;:&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt;는 함수 호출 시 전달된 &lt;strong&gt;실제 인수 목록&lt;/strong&gt;을 나타냅니다.&lt;/li&gt;
+  &lt;li&gt;기본값으로 초기화된 매개변수는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt; 객체에 포함되지 않습니다.&lt;/li&gt;
+  &lt;li&gt;예:
     &lt;ul&gt;
-      &lt;li&gt;함수의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;length&lt;/code&gt;는 &lt;strong&gt;기본값이 없는 매개변수의 개수&lt;/strong&gt;를 나타냅니다.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;function sum(x, y = 0)&lt;/code&gt;에서 기본값이 없는 매개변수는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x&lt;/code&gt; 하나뿐이므로, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum.length&lt;/code&gt;는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;입니다.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(1)&lt;/code&gt; 호출 시, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt;는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{ &apos;0&apos;: 1 }&lt;/code&gt;로 표시됩니다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;y&lt;/code&gt;는 기본값(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;)이지만, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt;에 포함되지 않습니다.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(1, 2)&lt;/code&gt; 호출 시, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt;는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{ &apos;0&apos;: 1, &apos;1&apos;: 2 }&lt;/code&gt;로 표시됩니다.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt; 객체&lt;/strong&gt;:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt;는 함수 호출 시 전달된 &lt;strong&gt;실제 인수 목록&lt;/strong&gt;을 나타냅니다.&lt;/li&gt;
-      &lt;li&gt;기본값으로 초기화된 매개변수는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt; 객체에 포함되지 않습니다.&lt;/li&gt;
-      &lt;li&gt;예:
-        &lt;ul&gt;
-          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(1)&lt;/code&gt; 호출 시, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt;는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{ &apos;0&apos;: 1 }&lt;/code&gt;로 표시됩니다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;y&lt;/code&gt;는 기본값(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;)이지만, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt;에 포함되지 않습니다.&lt;/li&gt;
-          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(1, 2)&lt;/code&gt; 호출 시, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arguments&lt;/code&gt;는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{ &apos;0&apos;: 1, &apos;1&apos;: 2 }&lt;/code&gt;로 표시됩니다.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -1022,7 +1123,57 @@
     
       <item>
         <title>19. Class</title>
-        <description>&lt;h2 id=&quot;1-클래스의-정의&quot;&gt;1. 클래스의 정의&lt;/h2&gt;
+        <description>&lt;p&gt;&lt;span style=&quot;font-family: &apos;Brown&apos;, sans-serif !important; font-size: 20pt;&quot;&gt;Index&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;① &lt;a href=&quot;#1-클래스의-정의&quot;&gt;클래스의 정의&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;② &lt;a href=&quot;#2-메서드&quot;&gt;메서드&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#21-프로토타입-메서드&quot;&gt;프로토타입 메서드&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#22-정적-메서드&quot;&gt;정적 메서드&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;③ &lt;a href=&quot;#3-프로퍼티&quot;&gt;프로퍼티&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#31-인스턴스-프로퍼티&quot;&gt;인스턴스 프로퍼티&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#32-접근자-프로퍼티&quot;&gt;접근자 프로퍼티&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#33-클래스-필드-정의와-private-필드&quot;&gt;클래스 필드 정의와 Private 필드&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;④ &lt;a href=&quot;#4-상속에-의한-클래스-확장&quot;&gt;상속에 의한 클래스 확장&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#41-클래스-상속&quot;&gt;클래스 상속&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#42-extends-키워드&quot;&gt;extends 키워드&lt;/a&gt;&lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#421-베이스-클래스와-슈퍼클래스&quot;&gt;베이스 클래스와 슈퍼클래스&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#422-서브클래스&quot;&gt;서브클래스&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#43-동적-상속&quot;&gt;동적 상속&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#44-서브클래스의-constructor&quot;&gt;서브클래스의 constructor&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#45-super-키워드&quot;&gt;super 키워드&lt;/a&gt;&lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#451-super-호출&quot;&gt;super 호출&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#452-super-참조&quot;&gt;super 참조&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#453-슈퍼클래스의-정적-메서드-호출&quot;&gt;슈퍼클래스의 정적 메서드 호출&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#46-상속-클래스의-인스턴스-생성과정&quot;&gt;상속 클래스의 인스턴스 생성과정&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#47-표준-빌트인-생성자-함수-확장&quot;&gt;표준 빌트인 생성자 함수 확장&lt;/a&gt;&lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#471-symbolspecies를-이용한-메서드-체이닝&quot;&gt;Symbol.species를 이용한 메서드 체이닝&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;1-클래스의-정의&quot;&gt;1. 클래스의 정의&lt;/h2&gt;
 
 &lt;p&gt;​ &lt;span style=&quot;color:#E4007F&quot;&gt;“클래스는 기본적으로 &lt;strong&gt;함수&lt;/strong&gt;이며, 값처럼 사용할 수 있는 &lt;strong&gt;일급객체&lt;/strong&gt;이다. “&lt;/span&gt;&lt;/p&gt;
 
@@ -1084,11 +1235,13 @@
 
 &lt;p&gt;하지만, 내부적으로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;class&lt;/code&gt;로 작성된 코드는 여전히 프로토타입 제인을 사용해 동작한다.&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;2-메서드&quot;&gt;2. 메서드&lt;/h2&gt;
 
-&lt;h3 id=&quot;1-프로토타입-메서드&quot;&gt;1. 프로토타입 메서드&lt;/h3&gt;
+&lt;h3 id=&quot;21-프로토타입-메서드&quot;&gt;2.1 프로토타입 메서드&lt;/h3&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;nf&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -1127,7 +1280,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;2-정적-메서드&quot;&gt;2. 정적 메서드&lt;/h3&gt;
+&lt;h3 id=&quot;22-정적-메서드&quot;&gt;2.2 정적 메서드&lt;/h3&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;nf&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -1152,11 +1305,13 @@
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;3-프로퍼티&quot;&gt;3. 프로퍼티&lt;/h2&gt;
 
-&lt;h3 id=&quot;1-인스턴스-프로퍼티&quot;&gt;1. 인스턴스 프로퍼티&lt;/h3&gt;
+&lt;h3 id=&quot;31-인스턴스-프로퍼티&quot;&gt;3.1 인스턴스 프로퍼티&lt;/h3&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;nf&quot;&gt;constructur&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -1170,7 +1325,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;2-접근자-프로퍼티&quot;&gt;2. 접근자 프로퍼티&lt;/h3&gt;
+&lt;h3 id=&quot;32-접근자-프로퍼티&quot;&gt;3.2 접근자 프로퍼티&lt;/h3&gt;
 
 &lt;p&gt;접근자 프로퍼티는 클래스에서도 사용할 수 있다.&lt;/p&gt;
 
@@ -1212,7 +1367,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;3-클래스-필드-정의제안--private-필드-정의--statics-필드-정의&quot;&gt;3. 클래스 필드 정의제안 &amp;amp; private 필드 정의 &amp;amp; statics 필드 정의&lt;/h3&gt;
+&lt;h3 id=&quot;33-클래스-필드-정의제안--private-필드-정의--statics-필드-정의&quot;&gt;3.3 클래스 필드 정의제안 &amp;amp; private 필드 정의 &amp;amp; statics 필드 정의&lt;/h3&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyClass&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;c1&quot;&gt;// 정적 프로퍼티&lt;/span&gt;
@@ -1247,17 +1402,21 @@
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;3-상속에-의한-클래스-확장&quot;&gt;3. 상속에 의한 클래스 확장&lt;/h2&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
-&lt;h3 id=&quot;1-클래스-상속&quot;&gt;1. 클래스 상속&lt;/h3&gt;
+&lt;h2 id=&quot;4-상속에-의한-클래스-확장&quot;&gt;4. 상속에 의한 클래스 확장&lt;/h2&gt;
+
+&lt;h3 id=&quot;41-클래스-상속&quot;&gt;4.1 클래스 상속&lt;/h3&gt;
 
 &lt;p&gt;JavaScript에서 클래스는 &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;extends&lt;/code&gt; 키워드&lt;/strong&gt;를 사용하여 기존 클래스를 상속하고 확장할 수 있습니다. 이 문법은 자식 클래스가 부모 클래스의 속성과 메서드를 재사용하거나 확장할 수 있도록 지원한다.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;2-extends-키워드&quot;&gt;2. extends 키워드&lt;/h3&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
+
+&lt;h3 id=&quot;42-extends-키워드&quot;&gt;4.2 extends 키워드&lt;/h3&gt;
 
 &lt;h4 id=&quot;베이스-클래스base-class&quot;&gt;&lt;strong&gt;베이스 클래스(Base Class)&lt;/strong&gt;&lt;/h4&gt;
 
@@ -1306,7 +1465,9 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;3-동적상속&quot;&gt;3. 동적상속&lt;/h3&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
+
+&lt;h3 id=&quot;43-동적상속&quot;&gt;4.3 동적상속&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -1347,7 +1508,9 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;4-서브클래스의-constructor&quot;&gt;4. 서브클래스의 constructor&lt;/h3&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
+
+&lt;h3 id=&quot;44-서브클래스의-constructor&quot;&gt;4.4 서브클래스의 constructor&lt;/h3&gt;
 
 &lt;p&gt;서브클래스에서 construtor를 생략하면 클래스에 다음과 같은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;constructor&lt;/code&gt;가 암묵적으로 정의된다. args는 new 연산자와 함께 클래스를 호출할 때 전달한 인수의 리스트다.&lt;/p&gt;
 
@@ -1374,9 +1537,11 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;5-super-키워드&quot;&gt;5. super 키워드&lt;/h3&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
-&lt;h4 id=&quot;1-super-호출&quot;&gt;1) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;super&lt;/code&gt; 호출&lt;/h4&gt;
+&lt;h3 id=&quot;45-super-키워드&quot;&gt;4.5 super 키워드&lt;/h3&gt;
+
+&lt;h4 id=&quot;451-super-호출&quot;&gt;4.5.1 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;super&lt;/code&gt; 호출&lt;/h4&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/* 
 1) 서브클래스에서 `constructor` 를 생략하지 않는 경우 서브클래스의 `constructor`에서는 반드시 `super`를 호출해야 한다.
@@ -1441,7 +1606,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;2-super-참조&quot;&gt;2) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;super&lt;/code&gt; 참조&lt;/h4&gt;
+&lt;h4 id=&quot;452-super-참조&quot;&gt;4.5.2 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;super&lt;/code&gt; 참조&lt;/h4&gt;
 
 &lt;p&gt;JavaScript에서 &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;super&lt;/code&gt; 참조는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[[HomeObject]]&lt;/code&gt;를 가지는 함수에서만 사용할 수 있다.&lt;/strong&gt;&lt;/p&gt;
 
@@ -1564,7 +1729,7 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;3-수퍼클래스의-정적메서드도-사용가능&quot;&gt;3) 수퍼클래스의 정적메서드도 사용가능&lt;/h4&gt;
+&lt;h4 id=&quot;453-수퍼클래스의-정적메서드도-사용가능&quot;&gt;4.5.3 수퍼클래스의 정적메서드도 사용가능&lt;/h4&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Parent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;staticMethod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -1580,13 +1745,17 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;6-상속-클래스의-인스턴스-생성과정&quot;&gt;6. 상속 클래스의 인스턴스 생성과정&lt;/h3&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
+
+&lt;h3 id=&quot;46-상속-클래스의-인스턴스-생성과정&quot;&gt;4.6 상속 클래스의 인스턴스 생성과정&lt;/h3&gt;
 
 &lt;p&gt;추후 업데이트 예정&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;7-표준-빌트인-생성자-함수-확장&quot;&gt;7. 표준 빌트인 생성자 함수 확장&lt;/h3&gt;
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
+
+&lt;h3 id=&quot;47-표준-빌트인-생성자-함수-확장&quot;&gt;4.7 표준 빌트인 생성자 함수 확장&lt;/h3&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyArray&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Array&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;nf&quot;&gt;uniq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -1695,7 +1864,31 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
     
       <item>
         <title>18. Closure</title>
-        <description>&lt;blockquote&gt;
+        <description>&lt;p&gt;&lt;span style=&quot;font-family: &apos;Brown&apos;, sans-serif !important; font-size: 20pt;&quot;&gt;Index&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;① &lt;a href=&quot;#1-클로저와-렉시컬-환경&quot;&gt;클로저와 렉시컬 환경&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;② &lt;a href=&quot;#2-클로저의-활용&quot;&gt;클로저의 활용&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#21-상태-유지와-데이터-보호&quot;&gt;상태 유지와 데이터 보호&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#22-즉시실행함수와-생성자-함수-비교&quot;&gt;즉시실행함수와 생성자 함수 비교&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#23-렉시컬-환경-공유&quot;&gt;렉시컬 환경 공유&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;③ &lt;a href=&quot;#3-혼동하기-쉬운-케이스&quot;&gt;혼동하기 쉬운 케이스&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#31-for-루프와-var&quot;&gt;for 루프와 var&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#32-for-루프와-즉시실행함수&quot;&gt;for 루프와 즉시실행함수&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#33-for-루프와-let&quot;&gt;for 루프와 let&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
   &lt;p&gt;A closure is the combination of a function and the lexical environment within which that function was declared.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -1738,7 +1931,9 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;2-클로저의-활용&quot;&gt;2. 클로저의 활용&lt;/h2&gt;
 
@@ -1858,6 +2053,8 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;3-혼동하기-쉬운-케이스&quot;&gt;3. 혼동하기 쉬운 케이스&lt;/h2&gt;
 
@@ -2167,13 +2364,64 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
     
       <item>
         <title>17. Execution context</title>
-        <description>&lt;h2 id=&quot;1-소스코드의-타입&quot;&gt;1. 소스코드의 타입&lt;/h2&gt;
+        <description>&lt;p&gt;&lt;span style=&quot;font-family: &apos;Brown&apos;, sans-serif !important; font-size: 20pt;&quot;&gt;Index&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;① &lt;a href=&quot;#1-소스코드의-타입&quot;&gt;소스코드의 타입&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#11-소스코드의-타입이란&quot;&gt;소스코드의 타입이란?&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#12-소스코드-타입별-실행-컨텍스트-차이&quot;&gt;소스코드 타입별 실행 컨텍스트 차이&lt;/a&gt;&lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#12a-global-code전역-코드&quot;&gt;Global code(전역 코드)&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#12b-function-code함수-코드&quot;&gt;Function code(함수 코드)&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#12c-eval-codeeval-코드&quot;&gt;Eval code(eval 코드)&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#12d-module-codemodule-코드&quot;&gt;Module code(모듈 코드)&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;② &lt;a href=&quot;#2-실행-컨텍스트-스택-렉시컬-환경&quot;&gt;실행 컨텍스트 스택 &amp;amp; 렉시컬 환경&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;③ &lt;a href=&quot;#3-실행-컨텍스트의-생성과-식별자-검색-과정&quot;&gt;실행 컨텍스트의 생성과 식별자 검색 과정&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#31-전역-실행-컨텍스트-생성&quot;&gt;전역 실행 컨텍스트 생성&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#32-전역-렉시컬-환경-생성&quot;&gt;전역 렉시컬 환경 생성&lt;/a&gt;&lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#321-전역-환경-레코드-생성&quot;&gt;전역 환경 레코드 생성&lt;/a&gt;&lt;br /&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#3211-객체-환경-레코드-생성&quot;&gt;객체 환경 레코드 생성&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#3212-선언적-환경-레코드-생성&quot;&gt;선언적 환경 레코드 생성&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#322-this-바인딩&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this&lt;/code&gt; 바인딩&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#323-외부-렉시컬-환경에-대한-참조-결정&quot;&gt;외부 렉시컬 환경에 대한 참조 결정&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#33-함수-실행-컨텍스트-생성&quot;&gt;함수 실행 컨텍스트 생성&lt;/a&gt;&lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#331-함수-렉시컬-환경-생성&quot;&gt;함수 렉시컬 환경 생성&lt;/a&gt;&lt;br /&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#3311-함수-환경-레코드-생성&quot;&gt;함수 환경 레코드 생성&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#332-this-바인딩&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this&lt;/code&gt; 바인딩&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#333-외부-렉시컬-환경에-대한-참조-결정&quot;&gt;외부 렉시컬 환경에 대한 참조 결정&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;1-소스코드의-타입&quot;&gt;1. 소스코드의 타입&lt;/h2&gt;
 
 &lt;p&gt;🧐 Q. 실행컨텍스트를 이해함에 있어 &lt;a href=&quot;#&quot;&gt;&apos;’소스코드의 타입’’&lt;/a&gt;을 알아야 하는 이유는 무엇일까?&lt;/p&gt;
 
 &lt;p&gt;Anwer) &lt;a href=&quot;#&quot;&gt;각 소스코드에 따라서&lt;/a&gt; &lt;a href=&quot;#&quot;&gt;&lt;strong&gt;⭐️실행컨텍스트&lt;/strong&gt;를 &lt;strong&gt;🌟생성&lt;/strong&gt;하고 &lt;strong&gt;🌟실행&lt;/strong&gt;하는 방식이 다르다.&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;1-1-소스코드의-타입이란&quot;&gt;1-1. 소스코드의 타입이란?&lt;/h3&gt;
+&lt;h3 id=&quot;11-소스코드의-타입이란&quot;&gt;1.1 소스코드의 타입이란?&lt;/h3&gt;
 
 &lt;p&gt;자바스크립트에서 소스코드는 다음과 같은 타입으로 분류된다.&lt;/p&gt;
 
@@ -2187,7 +2435,7 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;1-2-소스코드-타입별-실행-컨텍스트-차이&quot;&gt;1-2. 소스코드 타입별 실행 컨텍스트 차이&lt;/h3&gt;
+&lt;h3 id=&quot;12-소스코드-타입별-실행-컨텍스트-차이&quot;&gt;1.2 소스코드 타입별 실행 컨텍스트 차이&lt;/h3&gt;
 
 &lt;p&gt;a. &lt;strong&gt;Global code(전역 코드)&lt;/strong&gt;&lt;/p&gt;
 
@@ -2246,7 +2494,9 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;2-실행-컨텍스트-스택--렉시컬-환경&quot;&gt;2. 실행 컨텍스트 스택 &amp;amp; 렉시컬 환경&lt;/h2&gt;
 
@@ -2258,7 +2508,9 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
 
 &lt;p&gt;&lt;span style=&quot;color: #1abc9c&quot;&gt;코드 실행 순서는 &lt;strong&gt;실행컨텍스트 스택으로&lt;/strong&gt; 관리한다. &lt;/span&gt; &lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;3-실행컨텍스트의-생성과-식별자-검색-과정&quot;&gt;3. 실행컨텍스트의 생성과 식별자 검색 과정&lt;/h2&gt;
 
@@ -2293,11 +2545,19 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;1-전역-실행-컨텍스트-생성&quot;&gt;&lt;strong&gt;(1) 전역 실행 컨텍스트 생성&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;31-전역-실행-컨텍스트-생성&quot;&gt;&lt;strong&gt;3.1 전역 실행 컨텍스트 생성&lt;/strong&gt;&lt;/h4&gt;
 
-&lt;h4 id=&quot;2-전역-렉시컬-환경-생성&quot;&gt;&lt;strong&gt;(2) 전역 렉시컬 환경 생성&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;32-전역-렉시컬-환경-생성&quot;&gt;&lt;strong&gt;3.2 전역 렉시컬 환경 생성&lt;/strong&gt;&lt;/h4&gt;
 
-&lt;h5 id=&quot;2-1-전역-환경-레코드-생성&quot;&gt;&lt;strong&gt;(2-1) 전역 환경 레코드 생성&lt;/strong&gt;&lt;/h5&gt;
+&lt;h5 id=&quot;321-전역-환경-레코드-생성&quot;&gt;&lt;strong&gt;3.2.1 전역 환경 레코드 생성&lt;/strong&gt;&lt;/h5&gt;
+
+&lt;h6 id=&quot;3211-객체-환경-레코드-생성&quot;&gt;&lt;strong&gt;3.2.1.1 객체 환경 레코드 생성&lt;/strong&gt;&lt;/h6&gt;
+
+&lt;h6 id=&quot;3212-선언적-환경-레코드-생성&quot;&gt;&lt;strong&gt;3.2.1.2 선언적 환경 레코드 생성&lt;/strong&gt;&lt;/h6&gt;
+
+&lt;p&gt;​ &lt;strong&gt;3.2.2&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this&lt;/code&gt; 바인딩&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​ &lt;strong&gt;3.2.3 외부 렉시컬 환경에 대한 참조 결정&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;🧐 Q. &lt;span style=&quot;color: #8e44ad&quot;&gt;&lt;strong&gt;객체 환경레코드&lt;/strong&gt;&lt;/span&gt;와 &lt;span style=&quot;color: #1abc9c&quot;&gt;&lt;strong&gt;선언적 환경레코드&lt;/strong&gt;&lt;/span&gt;의 차이는?&lt;/p&gt;
 
@@ -2312,11 +2572,7 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h6 id=&quot;2-1-1-객체-환경-레코드-생성&quot;&gt;&lt;strong&gt;(2-1-1) 객체 환경 레코드 생성&lt;/strong&gt;&lt;/h6&gt;
-
-&lt;h6 id=&quot;2-1-2-선언적-환경-레코드-생성&quot;&gt;&lt;strong&gt;(2-1-2) 선언적 환경 레코드 생성&lt;/strong&gt;&lt;/h6&gt;
-
-&lt;h5 id=&quot;2-2-this-바인딩&quot;&gt;&lt;strong&gt;(2-2 )&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this&lt;/code&gt; 바인딩&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;🧐 Q. 전역환경레코드 생성 시, &lt;span style=&quot;color: #8e44ad&quot;&gt;&lt;strong&gt;객체 환경레코드&lt;/strong&gt;&lt;/span&gt;와 &lt;span style=&quot;color: #8e44ad&quot;&gt;&lt;strong&gt;선언적 환경레코드&lt;/strong&gt;&lt;/span&gt;와 &lt;span style=&quot;color: #1abc9c&quot;&gt;&lt;strong&gt;this 바인딩&lt;/strong&gt;&lt;/span&gt;은 별개로 형성되는지?&lt;/p&gt;
 
@@ -2327,15 +2583,17 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
   &lt;li&gt;전역 실행 컨텍스트를 구성할 때, 전역 환경 레코드(객체 환경레코드 &amp;amp; 선언적 환경레코드)와 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this&lt;/code&gt; 바인딩은 각각 생성되며, 서로 연관된 값으로 설정된다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&quot;2-3-외부-렉시컬-환경에-대한-참조-결정&quot;&gt;&lt;strong&gt;(2-3) 외부 렉시컬 환경에 대한 참조 결정&lt;/strong&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;br /&gt;&lt;/h5&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;41-함수-실행-컨텍스트-생성&quot;&gt;&lt;strong&gt;4.1 함수 실행 컨텍스트 생성&lt;/strong&gt;&lt;/h4&gt;
 
-&lt;h4 id=&quot;1-함수-실행-컨텍스트-생성&quot;&gt;(1) 함수 실행 컨텍스트 생성&lt;/h4&gt;
+&lt;h4 id=&quot;42-함수-렉시컬-환경생성&quot;&gt;&lt;strong&gt;4.2 함수 렉시컬 환경생성&lt;/strong&gt;&lt;/h4&gt;
 
-&lt;h4 id=&quot;2-함수-렉시컬-환경생성&quot;&gt;(2) 함수 렉시컬 환경생성&lt;/h4&gt;
+&lt;h6 id=&quot;421-함수-환경-레코드-생성&quot;&gt;4.2.1 함수 환경 레코드 생성&lt;/h6&gt;
 
-&lt;h5 id=&quot;2-1-함수-환경-레코드-생성&quot;&gt;(2-1) 함수 환경 레코드 생성&lt;/h5&gt;
+&lt;h4 id=&quot;43-this바인딩&quot;&gt;&lt;strong&gt;4.3 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this&lt;/code&gt;바인딩&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;h4 id=&quot;44-외부-렉시컬-환경에-대한-참조-결정&quot;&gt;&lt;strong&gt;4.4 외부 렉시컬 환경에 대한 참조 결정&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;p&gt;🧐 Q. 함수 환경 레코드 생성시 어떠한 정보가 내포되어 있나요?&lt;/p&gt;
 
@@ -2344,10 +2602,6 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
 &lt;ul&gt;
   &lt;li&gt;함수 렉시컬 환경을 구성하는 컴포넌트 중 하나인 함수 환경 레코드는 매개변수, arguments 객체, 함수 내부에서 선언한 지역변수와 중첩함수를 등록하고 관리합니다.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h5 id=&quot;2-2-this바인딩&quot;&gt;(2-2) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this&lt;/code&gt;바인딩&lt;/h5&gt;
-
-&lt;h5 id=&quot;2-3-외부-렉시컬-환경에-대한-참조-결정-1&quot;&gt;(2-3) 외부 렉시컬 환경에 대한 참조 결정&lt;/h5&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -2366,7 +2620,41 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
     
       <item>
         <title>16. this</title>
-        <description>&lt;blockquote&gt;
+        <description>&lt;p&gt;&lt;span style=&quot;font-family: &apos;Brown&apos;, sans-serif !important; font-size: 20pt;&quot;&gt;Index&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;① &lt;a href=&quot;#1-this의-존재-당위성&quot;&gt;this의 존재 당위성&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#11-객체-이름에-의존&quot;&gt;객체 이름에 의존&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#12-재사용성-저하&quot;&gt;재사용성 저하&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#13-자기-참조-변수-필요&quot;&gt;자기 참조 변수 필요&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;② &lt;a href=&quot;#2-함수-호출-방식과-this-바인딩&quot;&gt;함수 호출 방식과 this 바인딩&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#21-전역에서의-this&quot;&gt;전역에서의 this&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#22-일반-함수-내부에서의-this&quot;&gt;일반 함수 내부에서의 this&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#23-메서드-내부에서의-this&quot;&gt;메서드 내부에서의 this&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#24-생성자-함수-내부에서의-this&quot;&gt;생성자 함수 내부에서의 this&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#25-applycallbind-메서드와-this&quot;&gt;apply/call/bind 메서드와 this&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
   &lt;p&gt;객체지향 프로그래밍에서 자신이 속한 객체의 프로퍼티를 참조하고 변경하는 것은 매우 중요합니다.&lt;br /&gt; 이는 &lt;a href=&quot;#&quot;&gt;객체의 상태(state)를 관리하고, 행동(behavior)과 데이터(data)를 결합&lt;/a&gt;하는 객제치향프로그래밍의 핵심 개념 중 하나이다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -2396,14 +2684,14 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;detachedMethod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// TypeError 또는 10 (의도치 않은 결과)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;1-객체-이름에-의존&quot;&gt;(1) 객체 이름에 의존&lt;/h3&gt;
+&lt;h3 id=&quot;11-객체-이름에-의존&quot;&gt;1.1 객체 이름에 의존&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;메서드 내부에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;circle&lt;/code&gt;을 직접 참조하면, 해당 메서드는 항상 특정 이름(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;circle&lt;/code&gt;)에 묶여 동작합니다.&lt;/li&gt;
   &lt;li&gt;객체를 복사하거나 다른 변수에 할당하면 참조가 깨지거나 의도치 않은 동작이 발생합니다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;2-재사용성-저하&quot;&gt;(2) 재사용성 저하&lt;/h3&gt;
+&lt;h3 id=&quot;12-재사용성-저하&quot;&gt;1.2 재사용성 저하&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;메서드를 다른 객체로 재사용하거나, 메서드만 별도로 호출하려는 경우 문제가 발생합니다.&lt;/li&gt;
@@ -2427,13 +2715,15 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;1-자기-참조-변수-필요&quot;&gt;(1) 자기 참조 변수 필요&lt;/h3&gt;
+&lt;h3 id=&quot;13-자기-참조-변수-필요&quot;&gt;1.3 자기 참조 변수 필요&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;생성자 함수가 생성할 인스턴스를 가리키는 식별자를 알 수 없기 때문에 자신이 속한 객체 또는 자신이 생성할 인스턴스를 가리키는 특수한 식별자가 필요하다. 이를 위해 자바스크립트는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this&lt;/code&gt;라는 특수한 식별자를 제공한다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;2-함수-호출-방식과-this-바인딩&quot;&gt;2. 함수 호출 방식과 this 바인딩&lt;/h2&gt;
 
@@ -2519,7 +2809,51 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
     
       <item>
         <title>15. Prototype</title>
-        <description>&lt;blockquote&gt;
+        <description>&lt;p&gt;&lt;span style=&quot;font-family: &apos;Brown&apos;, sans-serif !important; font-size: 20pt;&quot;&gt;Index&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;① &lt;a href=&quot;#1-객체지향-프로그래밍&quot;&gt;객체지향 프로그래밍&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;② &lt;a href=&quot;#2-상속과-프로토타입&quot;&gt;상속과 프로토타입&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;③ &lt;a href=&quot;#3-프로토타입-객체&quot;&gt;프로토타입 객체&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;④ &lt;a href=&quot;#4-리터럴-표기법에-의해-생성된-객체의-생성자-함수와-프로토타입&quot;&gt;리터럴 표기법에 의해 생성된 객체의 생성자 함수와 프로토타입&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;⑤ &lt;a href=&quot;#5-프로토타입-생성시점&quot;&gt;프로토타입 생성시점&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;⑥ &lt;a href=&quot;#6-객체-생성-방식과-프로토타입의-결정&quot;&gt;객체 생성 방식과 프로토타입의 결정&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#61-object-생성자-함수에-의해-생성된-객체의-프로토타입&quot;&gt;Object 생성자 함수에 의해 생성된 객체의 프로토타입&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#62-생성자-함수에-의해-생성된-객체의-프로토타입&quot;&gt;생성자 함수에 의해 생성된 객체의 프로토타입&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;⑦ &lt;a href=&quot;#7-프로토타입-체인&quot;&gt;프로토타입 체인&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;⑧ &lt;a href=&quot;#8-오버라이딩과-프로퍼티-섀도잉&quot;&gt;오버라이딩과 프로퍼티 섀도잉&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;⑨ &lt;a href=&quot;#9-프로토타입의-교체&quot;&gt;프로토타입의 교체&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#91-생성자-함수에-의한-프로토타입-교체&quot;&gt;생성자 함수에 의한 프로토타입 교체&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#92-인스턴스에-의한-프로토타입-교체&quot;&gt;인스턴스에 의한 프로토타입 교체&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;⑩ &lt;a href=&quot;#10-instanceof-연산자&quot;&gt;instanceof 연산자&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;⑪ &lt;a href=&quot;#11-직접-상속&quot;&gt;직접 상속&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;⑫ &lt;a href=&quot;#12-정적-프로퍼티메서드&quot;&gt;정적 프로퍼티/메서드&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;⑬ &lt;a href=&quot;#13-프로퍼티-존재-확인&quot;&gt;프로퍼티 존재 확인&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;⑭ &lt;a href=&quot;#14-프로퍼티-열거&quot;&gt;프로퍼티 열거&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
   &lt;p&gt;“자바스크립트는 &lt;a href=&quot;#&quot;&gt;명령형(imperative)&lt;/a&gt;, &lt;a href=&quot;#&quot;&gt;함수형(functional)&lt;/a&gt;, &lt;a href=&quot;#&quot;&gt;프로토타입 기반(prototype-based)&lt;/a&gt; 객체지향 프로그래밍(OOP, Object Oriented Programming)을 지원하는 &lt;a href=&quot;#&quot;&gt;멀티 패러다임 프로그래밍 언어&lt;/a&gt;다.”&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -2533,7 +2867,9 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
 
 &lt;p&gt;각 객체는 고유의 기능을 갖는 독립적인 부품으로 볼 수 있지만 자신의 고유한 기능을 수행하면서 다른 객체와 관계성을 가질 수 있다. &lt;a href=&quot;#&quot;&gt;다른 객체와 메시지를 주고 받거나 데이터를 처리할 수&lt;/a&gt; 있다. 또는 다른 객체의 &lt;a href=&quot;#&quot;&gt;상태 데이터나 동작을 상속받아 사용하기도&lt;/a&gt; 한다.&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;2-상속과-프로토타입&quot;&gt;2. 상속과 프로토타입&lt;/h2&gt;
 
@@ -2563,18 +2899,18 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
 &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;circle1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Circle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;circle2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Circle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
-
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;circle1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getArea&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;circle2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getArea&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;circle1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getArea&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;circle2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getArea&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;3-프로토타입-객체&quot;&gt;3. 프로토타입 객체&lt;/h2&gt;
 
-&lt;p&gt;🧐 Q. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prototype&lt;/code&gt; 프로퍼티는 생성자함수가 자신이 생성할 객체의 프로토타입을 할당하기 위해 사용되는데 생성된 객체가&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_proto_&lt;/code&gt;로  접근가능한데 왜 필요한걸까?&lt;/p&gt;
+&lt;p&gt;🧐 Q. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prototype&lt;/code&gt; 프로퍼티는 생성자함수가 자신이 생성할 객체의 프로토타입을 할당하기 위해 사용되는데 생성된 객체가&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_proto_&lt;/code&gt;로 접근가능한데 왜 필요한걸까?&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prototype&lt;/code&gt; 속성은 생성자 함수가 생성할 &lt;strong&gt;여러 객체들이 공통적으로 사용할 프로토타입 객체를 정의&lt;/strong&gt;할 수 있도록 합니다. 이는 코드 재사용과 메모리 효율성을 위해 필요합니다.&lt;/p&gt;
 
@@ -2583,11 +2919,10 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
   &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Lee&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Lee&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// 결국 Person.prototype과 me.__proto__는 결국 동일한 프로토타입을 가리킨다.&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__proto__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
-
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;figure&gt;
@@ -2600,7 +2935,9 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;4-리터럴-표기법에-의해-생성된-객체의-생성자-함수와-프로토타입&quot;&gt;4. 리터럴 표기법에 의해 생성된 객체의 생성자 함수와 프로토타입&lt;/h2&gt;
 
@@ -2610,23 +2947,24 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
 &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// 함수 리터럴&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;function &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;function &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// 배열 리터럴&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// 정규 표현식 리터럴&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;regexp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/is/ig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;regexp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/is/gi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;🧐 Q.  리터럴 표기법에 의해 생성된 객체의 경우 프로토타입의 constructor 프로퍼티가 가리키는 생성자 함수가 반드시 객체를 생성한 생성자 함수라고 단정할 수 있을까?&lt;/p&gt;
+&lt;p&gt;🧐 Q. 리터럴 표기법에 의해 생성된 객체의 경우 프로토타입의 constructor 프로퍼티가 가리키는 생성자 함수가 반드시 객체를 생성한 생성자 함수라고 단정할 수 있을까?&lt;/p&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// obj 객체는 Object 생성자 함수로 생성한 객체가 아니라 객체 리터럴로 생성했다.&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// 하지만 obj 객체의 생성자 함수는 Object 생성자 함수다.&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
-
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;figure&gt;
@@ -2705,13 +3043,17 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;5-프로토타입-생성시점&quot;&gt;5. 프로토타입 생성시점&lt;/h2&gt;
 
 &lt;p&gt;추후 업데이트 예정&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;6-객체-생성-방식과-프로토타입의-결정&quot;&gt;6. 객체 생성 방식과 프로토타입의 결정&lt;/h2&gt;
 
@@ -2722,7 +3064,7 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;cosole&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;hasOwnProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;hasOwnProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -2735,31 +3077,36 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
   &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sayHello&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`Hi! My name is &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sayHello&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;function &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`Hi! My name is &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
 
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Lee&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Tak&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Lee&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Tak&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
 &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Hi! My name is Lee&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;you&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Hi! My name is Tak&lt;/span&gt;
-
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;7-프로토타입-체인&quot;&gt;7. 프로토타입 체인&lt;/h2&gt;
 
 &lt;p&gt;추후 업데이트 예정&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;8-오버라이딩과-프로퍼티-섀도잉&quot;&gt;8. 오버라이딩과 프로퍼티 섀도잉&lt;/h2&gt;
 
 &lt;p&gt;추후 업데이트 예정&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;9-프로토타입의-교체&quot;&gt;9. 프로토타입의 교체&lt;/h2&gt;
 
@@ -2775,7 +3122,7 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;function &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -2786,18 +3133,17 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
     &lt;span class=&quot;na&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;nf&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`Hi! My name is &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-  
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}());&lt;/span&gt;
 
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Lee&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Lee&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// constructor 프로퍼티가 생성자 함수를 가리킨다.&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// false&lt;/span&gt;
-
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;프로토타입으로 교체한 객체 리터럴에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;constructor&lt;/code&gt; 프로퍼티를 추가하여 프로토타입의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;constructor&lt;/code&gt; 프로퍼티를 되살린다.&lt;/p&gt;
@@ -2820,14 +3166,14 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
   &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Lee&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Lee&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// 프로토타입으로 교체할 객체&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;c1&quot;&gt;// constructor 프로퍼티와 생성자 함수 간의 연결을 설정&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;nf&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`Hi! My name is &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// 생성자 함수의 prototype 프로퍼티와 프로토타입 간의 연결을 설정&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -2844,54 +3190,63 @@ getArea 메서드를 공유해서 사용할 수 있도록 프로토타입에 추
 
 &lt;span class=&quot;c1&quot;&gt;// 생성자 함수의 prototype 프로퍼티가 교체된 프로토타입을 가리킨다.&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getPrototypeOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
-
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;프로토타입으로 교체한 객체 리터럴에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;constructor&lt;/code&gt; 프로퍼티를 추가하고 생성자 함수의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prototype&lt;/code&gt; 프로퍼티를 재설정하여 파괴된 생성자 함수와 프로토타입 간의 연결을 되살려 보자.&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;10-instanceof-연산자&quot;&gt;10. instanceof 연산자&lt;/h2&gt;
 
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;function &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  
+
   &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nf&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`Hi! My name is &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-  
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}());&lt;/span&gt;
 
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Lee&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Lee&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// false&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// 하지만 Person.prototype을 새 객체로 대체하면, 새 객체는 기본적으로 constructor 프로퍼티를 가지지 않으므로, 프로토타입 체인을 따라 Object의 constructor를 참조하게 됩니다. 따라서, 원래의 생성자 함수와의 연결이 끊어지게 됩니다.&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;11-직접상속&quot;&gt;11. 직접상속&lt;/h2&gt;
 
 &lt;p&gt;추후 업데이트 예정&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;12-정적-프로퍼티메서드&quot;&gt;12. 정적 프로퍼티/메서드&lt;/h2&gt;
 
 &lt;p&gt;추후 업데이트 예정&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;13-프로퍼티-존재-확인&quot;&gt;13. 프로퍼티 존재 확인&lt;/h2&gt;
 
 &lt;p&gt;추후 업데이트 예정&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr style=&quot;border: 1px dashed #ccc;&quot; /&gt;
 
 &lt;h2 id=&quot;14-프로퍼티열거&quot;&gt;14. 프로퍼티열거&lt;/h2&gt;
 

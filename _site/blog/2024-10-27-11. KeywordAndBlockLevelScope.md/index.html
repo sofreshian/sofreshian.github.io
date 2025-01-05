@@ -389,9 +389,37 @@
       
     
       
+
         
-        <li class=" ">
-          <a href="/blog/" >Blog</a>
+        
+
+        <li class="menu-item-dropdown menu-item-Blog ">
+          <a href="/blog/">Blog <i class="fa-solid fa-chevron-down"></i></a>
+          
+          <div class="dropdown-menu">
+            
+              <a href="/category/javascript/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Javascript</div>
+                  
+                </div>
+              </a>
+            
+              <a href="/category/algorithm/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Algorithm</div>
+                  
+                </div>
+              </a>
+            
+          </div>
+
         </li>
       
     
@@ -496,9 +524,41 @@
           </div>
         
         
-        <div class="content"><h2 id="1-var-키워드로-선언한-변수의-문제점">1) var 키워드로 선언한 변수의 문제점</h2>
+        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">index</span></p>
 
-<h3 id="-1-변수-중복-선언-허용"><span style="color:#e74c3c">🤪 1. 변수 중복 선언 허용</span></h3>
+<p>① <a href="#1-var-키워드로-선언한-변수의-문제점">var 키워드로 선언한 변수의 문제점</a><br /></p>
+
+<ul>
+  <li><a href="#11-변수-중복-선언-허용">변수 중복 선언 허용</a><br /></li>
+  <li><a href="#12-함수-레벨-스코프">함수 레벨 스코프</a><br /></li>
+  <li><a href="#13-변수-호이스팅">변수 호이스팅</a><br /></li>
+  <li><a href="#14-전역변수와-전역함수-암묵적-전역">전역변수와 전역함수, 암묵적 전역</a><br /></li>
+</ul>
+
+<p>② <a href="#2-let-키워드">let 키워드</a><br /></p>
+
+<ul>
+  <li><a href="#21-변수-중복-선언-금지">변수 중복 선언 금지</a><br /></li>
+  <li><a href="#22-블록-레벨-스코프">블록 레벨 스코프</a><br /></li>
+  <li><a href="#23-변수-호이스팅">변수 호이스팅</a><br /></li>
+</ul>
+
+<p>③ <a href="#3-const-키워드">const 키워드</a><br /></p>
+
+<ul>
+  <li><a href="#31-선언과-초기화">선언과 초기화</a><br /></li>
+  <li><a href="#32-재할당-금지">재할당 금지</a><br /></li>
+  <li><a href="#33-대문자로-상수임을-명확하게">대문자로 상수임을 명확하게</a><br /></li>
+  <li><a href="#34-객체일-경우-변경가능">객체일 경우 변경가능</a><br /></li>
+</ul>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="1-var-키워드로-선언한-변수의-문제점">1. var 키워드로 선언한 변수의 문제점</h2>
+
+<h3 id="-11-변수-중복-선언-허용"><span style="color:#e74c3c">🤪 1.1 변수 중복 선언 허용</span></h3>
 
 <p>var 키워드로 선언한 변수는 <span style="color:#e74c3c">중복 선언이 가능</span>하다. <br /></p>
 
@@ -506,7 +566,7 @@
 <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
 <span class="c1">// var 키워드로 선언된 변수는 스코프 내 중복 선언을 허용한다.</span>
-<span class="c1">// 초기화 문이 있는 변수 선언문은 자바스크립트 엔진에 의해 var 키워드가 없는 것처럼 동작한다. </span>
+<span class="c1">// 초기화 문이 있는 변수 선언문은 자바스크립트 엔진에 의해 var 키워드가 없는 것처럼 동작한다.</span>
 <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
 <span class="c1">// 자바스크립트 엔진이 변수를 다시 선언하지만, 값의 변경이 없으면 무시한다.</span>
 <span class="kd">var</span> <span class="nx">y</span><span class="p">;</span>
@@ -517,9 +577,9 @@
 
 <p><br /><br /></p>
 
-<h3 id="-2-함수-레벨-스코프"><span style="color:#e74c3c">🤪 2. 함수 레벨 스코프</span></h3>
+<h3 id="-12-함수-레벨-스코프"><span style="color:#e74c3c">🤪 1.2 함수 레벨 스코프</span></h3>
 
-<p>var 키워드로 선언한 변수는<span style="color:#e74c3c"> 오로지 함수의 코드 블록만을 지역 스코프로 인정</span>한다. 따라서 함수 외부에서 var 키워드로 선언한 변수는 코드 블록 내에서 선언해도 모두 전역변수가 된다.  <br /></p>
+<p>var 키워드로 선언한 변수는<span style="color:#e74c3c"> 오로지 함수의 코드 블록만을 지역 스코프로 인정</span>한다. 따라서 함수 외부에서 var 키워드로 선언한 변수는 코드 블록 내에서 선언해도 모두 전역변수가 된다. <br /></p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">.</span> <span class="k">if</span> <span class="nx">문</span>
 
@@ -543,13 +603,13 @@
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="c1">// 5</span>
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
 
-<h3 id="-3-변수-호이스팅"><span style="color:#e74c3c">🤪 3. 변수 호이스팅</span></h3>
+<h3 id="-13-변수-호이스팅"><span style="color:#e74c3c">🤪 1.3 변수 호이스팅</span></h3>
 
 <p>var 키워드로 변수를 선언하면 <span style="color:#e74c3c">변수 호이스팅에 의해 변수 선언문이 스코프의 선두로 끌어 올려진 것처럼 동작</span>한다. <br />즉, 변수 호이스팅에 의해 var 키워드로 선언한 변수는 변수 선언문 이전에 참조할 수 있다.<br />단, 할당문은 이전에 변수를 참조하면 언제나 undefined를 반환한다.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//1. 선언단계, 이 시점에는 변수 호이스팅에 의해 이미 foo 변수가 선언되었다. </span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//1. 선언단계, 이 시점에는 변수 호이스팅에 의해 이미 foo 변수가 선언되었다.</span>
 <span class="c1">// 2. 초기화 단계, 변수 foo는 undefined로 초기화된다.</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span>
 
@@ -561,15 +621,15 @@
 <span class="kd">var</span> <span class="nx">foo</span><span class="p">;</span>
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
 
-<h3 id="-4-var-키워드로-선언한-전역변수와-전역함수-암묵적-전역"><span style="color:#e74c3c">🤪 4. var 키워드로 선언한 전역변수와 전역함수, 암묵적 전역</span></h3>
+<h3 id="-14-var-키워드로-선언한-전역변수와-전역함수-암묵적-전역"><span style="color:#e74c3c">🤪 1.4 var 키워드로 선언한 전역변수와 전역함수, 암묵적 전역</span></h3>
 
 <p>var 키워드로 선언한 전역변수와 전역함수, 그리고 선언하지 않은 변수에 값을 할당한 암묵적 전역은 전역 객체 window의 프로퍼티가 된다. <br /></p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// var 키워드로 선언한 전역변수</span>
 <span class="nx">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// 선언하지 않은 변수에 값을 할당한 암묵적 전약</span>
-<span class="kd">function</span> <span class="nf">foo</span><span class="p">(){}</span> <span class="c1">// 전역함수</span>
+<span class="kd">function</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{}</span> <span class="c1">// 전역함수</span>
 
 <span class="c1">// var 키워드로 선언한 전역변수는 전역 객체 window의 프로퍼티다.</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span> <span class="c1">// 1</span>
@@ -582,14 +642,15 @@
 <span class="c1">// 전역함수는 전역 객체 window의 프로퍼티다.</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">foo</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span>
-
 </code></pre></div></div>
 
-<p><br /><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="2-let-키워드">2. let 키워드</h2>
 
-<h3 id="-1-변수-중복-선언-금지"><span style="color:#3498db">😁 1. 변수 중복 선언 금지</span></h3>
+<h3 id="-21-변수-중복-선언-금지"><span style="color:#3498db">😁 2.1 변수 중복 선언 금지</span></h3>
 
 <p>let 키워드로 이름이 같은 변수를 중복 선언하면 문법에러(syntaxError)가 발생한다.</p>
 
@@ -599,9 +660,9 @@
 <span class="c1">// let이나 cosnt 키워드로 선언된 변수는 같은 스코프 내에서 중복 선언을 허용되지 않는다.</span>
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
 
-<h3 id="-2-블록-레벨-스코프"><span style="color:#3498db">😁 2. 블록 레벨 스코프</span></h3>
+<h3 id="-22-블록-레벨-스코프"><span style="color:#3498db">😁 2.2 블록 레벨 스코프</span></h3>
 
 <p>let 키워드로 선언한 변수는 모든 코드 블록(함수, if문, for문, while문, try/catch문 등)을 지역 스코프로 인정하는 블록 레벨 스코프를 따른다.</p>
 
@@ -616,9 +677,9 @@
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">bar</span><span class="p">);</span> <span class="c1">// ReferenceError: bar is not defined</span>
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
 
-<h3 id="--3-변수-호이스팅"><span style="color:#3498db">😁  3. 변수 호이스팅</span></h3>
+<h3 id="-23-변수-호이스팅"><span style="color:#3498db">😁 2.3 변수 호이스팅</span></h3>
 
 <p>let 키워드로 선언한 변수는 변수 호이스팅이 발생하지 않는다.</p>
 
@@ -637,25 +698,27 @@
     <img src="/assets/images/gen/content/post_11/keyword.webp" alt="Photo of difference of Keyword declaration" />
   </a>
   <figcaption>
-    <h4>The life cycle of a variable declared with the var,let keyword</h4>
+    <h4>var &amp; let keyword</h4>
     <p>Jay Tak.</p>
   </figcaption>
 </figure>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="3-const-키워드">3. const 키워드</h2>
 
-<h3 id="--1-선언과-초기화"><span style="color:#3498db">😁  1. 선언과 초기화</span></h3>
+<h3 id="-31-선언과-초기화"><span style="color:#3498db">😁 3.1 선언과 초기화</span></h3>
 
 <p>const 키워드로 선언한 변수는 반드시 선언과 동시에 초기화해야 한다.</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">foo</span><span class="p">;</span> <span class="c1">// syntaxError: Missing initializer in const declaration</span>
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
 
-<h3 id="--2-재할당-금지"><span style="color:#3498db">😁  2. 재할당 금지</span></h3>
+<h3 id="-32-재할당-금지"><span style="color:#3498db">😁 3.2 재할당 금지</span></h3>
 
 <p>const 키워드로 선언한 변수는 재할당이 금지된다.</p>
 
@@ -665,7 +728,7 @@
 
 <p><br /></p>
 
-<h4 id="-2-1-대문자로-상수임을-명확하게"><strong><span style="color:#3498db">😁 2-1. 대문자로 상수임을 명확하게</span></strong></h4>
+<h4 id="-33-대문자로-상수임을-명확하게"><strong><span style="color:#3498db">😁 3.3 대문자로 상수임을 명확하게</span></strong></h4>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">TAX_RATE</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
 
@@ -674,23 +737,21 @@
 <span class="kd">let</span> <span class="nx">afterTaxPrice</span> <span class="o">=</span> <span class="nx">preTaxPrice</span> <span class="o">+</span> <span class="p">(</span><span class="nx">preTaxPrice</span> <span class="o">=</span> <span class="nx">TAX_RATE</span><span class="p">);</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">afterTaxPrice</span><span class="p">);</span> <span class="c1">// 110</span>
-
 </code></pre></div></div>
 
 <p><br /></p>
 
-<h4 id="-2-2-객체일-경우-변경가능"><strong><span style="color:#3498db">😁 2-2. 객체일 경우 변경가능</span></strong></h4>
+<h4 id="-34-객체일-경우-변경가능"><strong><span style="color:#3498db">😁 3.4 객체일 경우 변경가능</span></strong></h4>
 
 <p>변경 불가능한 값인 원시 값은 재할당 없이 변경 할 수 있는 방법이 없지만 변경가능한 객체는 재할당 없이도 직접 변경이 가능</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Lee</span><span class="dl">'</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Lee</span><span class="dl">"</span><span class="p">,</span>
 <span class="p">};</span>
 
-<span class="nx">person</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Kim</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Kim</span><span class="dl">"</span><span class="p">;</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span> <span class="c1">// {name: "Kim"}</span>
-
 </code></pre></div></div>
 
 <p><br /><br /><br /></p>
