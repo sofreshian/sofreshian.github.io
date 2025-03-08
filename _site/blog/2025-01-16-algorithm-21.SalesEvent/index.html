@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <title>21. Sales evnet - Jekyll Curate</title>
+
+
+  <meta name="description" content="해시 테이블을 활용한 데이터 카운팅"/>
+
+
+
+    <meta property="og:type" content="website"/>
+<meta property="og:url" content="http://localhost:4000/blog/2025-01-16-algorithm-21.SalesEvent/"/>
+
+
+  <meta property="og:title" content="21. Sales evnet"/>
+
+
+
+  <meta property="og:description" content="해시 테이블을 활용한 데이터 카운팅"/>
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@zerostaticio" />
+<meta name="twitter:creator" content="@zerostaticio" />
+    <link rel="alternate" type="application/atom+xml" title="Jekyll Curate" href="/feed.xml">
+    <link rel="icon" href="/assets/images/favicon/favicon.png">
+
+
+    <link href="/assets/css/main.css" rel="stylesheet">
+
+    
+      <script>
+          localStorage.getItem('darkMode') === 'true' && document.documentElement.setAttribute('data-bs-theme', 'dark');
+      </script>
+    
+
+    
+      <!-- https://github.com/orestbida/cookieconsent -->
+
+<link rel="stylesheet" href="/assets/css/cookieconsent.css">
+<script defer src="/assets/js/cookieconsent.js"></script>
+
+<!-- Inline script -->
+<script>
+    window.addEventListener('load', function () {
+
+        // obtain plugin
+        var cc = initCookieConsent();
+
+        // run plugin with your configuration
+        cc.run({
+            current_lang: 'en',
+            autoclear_cookies: true,                   // default: false
+            page_scripts: true,                        // default: false
+
+            // mode: 'opt-in'                          // default: 'opt-in'; value: 'opt-in' or 'opt-out'
+            // delay: 0,                               // default: 0
+            // auto_language: '',                      // default: null; could also be 'browser' or 'document'
+            // autorun: true,                          // default: true
+            // force_consent: false,                   // default: false
+            // hide_from_bots: true,                   // default: true
+            // remove_cookie_tables: false             // default: false
+            // cookie_name: 'cc_cookie',               // default: 'cc_cookie'
+            // cookie_expiration: 182,                 // default: 182 (days)
+            // cookie_necessary_only_expiration: 182   // default: disabled
+            // cookie_domain: location.hostname,       // default: current domain
+            // cookie_path: '/',                       // default: root
+            // cookie_same_site: 'Lax',                // default: 'Lax'
+            // use_rfc_cookie: false,                  // default: false
+            // revision: 0,                            // default: 0
+
+            onFirstAction: function (user_preferences, cookie) {
+                // callback triggered only once on the first accept/reject action
+            },
+
+            onAccept: function (cookie) {
+                // callback triggered on the first accept/reject action, and after each page load
+            },
+
+            onChange: function (cookie, changed_preferences) { 
+                // If analytics category is disabled => disable google analytics 
+                if (!cc.allowedCategory('analytics')) { 
+                    typeof gtag === 'function' && gtag('consent', 'update', { 
+                        'analytics_storage': 'denied' 
+                    }); 
+                } 
+            }, 
+
+            languages: {
+                'en': {
+                    consent_modal: {
+                        title: 'We use cookies!',
+                        description: 'Hi, this website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
+                        primary_btn: {
+                            text: 'Accept all',
+                            role: 'accept_all'              // 'accept_selected' or 'accept_all'
+                        },
+                        secondary_btn: {
+                            text: 'Reject all',
+                            role: 'accept_necessary'        // 'settings' or 'accept_necessary'
+                        }
+                    },
+                    settings_modal: {
+                        title: 'Cookie preferences',
+                        save_settings_btn: 'Save settings',
+                        accept_all_btn: 'Accept all',
+                        reject_all_btn: 'Reject all',
+                        close_btn_label: 'Close',
+                        // cookie_table_caption: 'Cookie list',
+                        cookie_table_headers: [
+                            { col1: 'Name' },
+                            { col2: 'Domain' },
+                            { col3: 'Expiration' },
+                            { col4: 'Description' }
+                        ],
+                        blocks: [
+                            {
+                                title: 'Cookie usage 📢',
+                                description: 'I use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want. For more details relative to cookies and other sensitive data, please read the full <a href="#" class="cc-link">privacy policy</a>.'
+                            }, {
+                                title: 'Strictly necessary cookies',
+                                description: 'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly',
+                                toggle: {
+                                    value: 'necessary',
+                                    enabled: true,
+                                    readonly: true          // cookie categories with readonly=true are all treated as "necessary cookies"
+                                }
+                            }, {
+                                title: 'Performance and Analytics cookies',
+                                description: 'These cookies allow the website to remember the choices you have made in the past',
+                                toggle: {
+                                    value: 'analytics',     // your cookie category
+                                    enabled: false,
+                                    readonly: false
+                                },
+                                cookie_table: [             // list of all expected cookies
+                                    {
+                                        col1: '^_ga',       // match all cookies starting with "_ga"
+                                        col2: 'google.com',
+                                        col3: '2 years',
+                                        col4: 'description ...',
+                                        is_regex: true
+                                    },
+                                    {
+                                        col1: '_gid',
+                                        col2: 'google.com',
+                                        col3: '1 day',
+                                        col4: 'description ...',
+                                    }
+                                ]
+                            },
+                            {
+                                title: 'More information',
+                                description: 'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="#yourcontactpage">contact us</a>.',
+                            }
+                        ]
+                    }
+                }
+            }
+        });
+    });
+</script>
+    
+
+    
+
+    <link href="/assets/css/fonts.css" rel="stylesheet">
+
+
+
+
+    
+
+  </head>
+<body class="page page-post has-static-header">
+
+
+<div class="menu-main-mobile " id="menu-main-mobile">
+  
+  <div class="menu-main-mobile-top">
+    <div id="close-overlay" class="menu-main-close">
+      <div class="hamburger"></div>
+    </div>
+  </div>
+
+  <div class="menu-main-mobile-center">
+    
+      <ul class="menu">
+        
+          <li class="menu-item-home">
+            <a href="/">Home</a>
+          </li>
+        
+          <li class="menu-item-projects">
+            <a href="/projects/">Projects</a>
+          </li>
+        
+          <li class="menu-item-blog">
+            <a href="/blog/">Blog</a>
+          </li>
+        
+          <li class="menu-item-contact">
+            <a href="/contact/">Contact</a>
+          </li>
+        
+      </ul>
+    
+  </div>
+
+  <div class="menu-main-mobile-bottom">
+    
+    
+      <div class="dark-mode-switcher " id="dark-mode-container">
+  <div class="dark-mode-switch">
+    <svg class="dark-mode-icon-dark" data-name="Layer 1" fill="#000000" height="20px" viewbox="0 0 64 64" width="20px" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <title>essential</title>
+      <path d="M33.28,58.24A26.95,26.95,0,0,1,24,6l.39-.13a2,2,0,0,1,2.4,2.87,22.42,22.42,0,0,0-1.51,18.75h0A22.47,22.47,0,0,0,54.09,40.8l.76-.3a2,2,0,0,1,2.24.48,2,2,0,0,1,.35,2.24,27,27,0,0,1-24.16,15ZM21.11,11.85a22.94,22.94,0,1,0,30,33.91A26.46,26.46,0,0,1,21.53,28.87h0A26.4,26.4,0,0,1,21.11,11.85Z"></path>
+    </svg>
+    <svg class="dark-mode-icon-light" fill="#000000" height="20px" style="enable-background: new 0 0 100 100;" version="1.1" viewbox="0 0 100 100" width="20px" x="0px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <g>
+        <path d="M50,75c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S63.8,75,50,75z M50,33.3c-9.2,0-16.7,7.5-16.7,16.7   c0,9.2,7.5,16.7,16.7,16.7c9.2,0,16.7-7.5,16.7-16.7C66.7,40.8,59.2,33.3,50,33.3z"></path>
+      </g>
+      <g>
+        <path d="M50,100c-2.3,0-4.2-1.9-4.2-4.2v-8.3c0-2.3,1.9-4.2,4.2-4.2c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,98.1,52.3,100,50,100z    M17.5,86.7c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8   C19.6,86.3,18.6,86.7,17.5,86.7z M82.5,86.7c-1.1,0-2.1-0.4-2.9-1.2l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9s4.3-1.6,5.9,0l5.8,5.8   c1.6,1.6,1.6,4.3,0,5.9C84.6,86.3,83.6,86.7,82.5,86.7z M95.8,54.2h-8.3c-2.3,0-4.2-1.9-4.2-4.2c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C100,52.3,98.1,54.2,95.8,54.2z M12.5,54.2H4.2C1.9,54.2,0,52.3,0,50c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C16.7,52.3,14.8,54.2,12.5,54.2z M76.7,27.5c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8   c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8C78.8,27.1,77.7,27.5,76.7,27.5z M23.3,27.5c-1.1,0-2.1-0.4-2.9-1.2   l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9c1.6-1.6,4.3-1.6,5.9,0l5.8,5.8c1.6,1.6,1.6,4.3,0,5.9C25.5,27.1,24.4,27.5,23.3,27.5z M50,16.7   c-2.3,0-4.2-1.9-4.2-4.2V4.2C45.8,1.9,47.7,0,50,0c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,14.8,52.3,16.7,50,16.7z"></path>
+      </g>
+    </svg>
+    <div class="ball"></div>
+  </div>
+</div>
+    
+  </div>
+
+</div>
+
+
+
+
+<div id="header" class='header '>
+  <div class="container">
+    <div class="logos">
+  <div class="logo logo-desktop">
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo.png"/>
+        </a>
+      </div>
+    
+  
+    
+    
+  </div>
+
+  <div class="logo logo-desktop-invert">
+    
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo-invert.png"/>
+        </a>
+      </div>
+    
+  
+    
+    
+  </div>
+
+  <div class="logo logo-mobile">
+    
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo-mobile.png"/>
+        </a>
+      </div>
+    
+  
+    
+    
+  </div>
+
+
+  <div class="logo logo-mobile-invert">
+    
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo-invert-mobile.png"/>
+        </a>
+      </div>
+    
+  
+    
+
+  </div>
+
+</div>
+
+
+    <div class="menu-main">
+  <ul>
+    
+      
+        
+        <li class=" ">
+          <a href="/" >Home</a>
+        </li>
+      
+    
+      
+        
+        <li class=" ">
+          <a href="/projects/" >Projects</a>
+        </li>
+      
+    
+      
+
+        
+        
+
+        <li class="menu-item-dropdown menu-item-Blog ">
+          <a href="/blog/">Blog <i class="fa-solid fa-chevron-down"></i></a>
+          
+          <div class="dropdown-menu">
+            
+              <a href="/category/javascript/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Javascript</div>
+                  
+                </div>
+              </a>
+            
+              <a href="/category/algorithm/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Algorithm</div>
+                  
+                </div>
+              </a>
+            
+          </div>
+
+        </li>
+      
+    
+      
+        
+        <li class=" ">
+          <a href="/contact/" >Contact</a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+    
+      <div class="dark-mode-switcher " id="dark-mode-container">
+  <div class="dark-mode-switch">
+    <svg class="dark-mode-icon-dark" data-name="Layer 1" fill="#000000" height="20px" viewbox="0 0 64 64" width="20px" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <title>essential</title>
+      <path d="M33.28,58.24A26.95,26.95,0,0,1,24,6l.39-.13a2,2,0,0,1,2.4,2.87,22.42,22.42,0,0,0-1.51,18.75h0A22.47,22.47,0,0,0,54.09,40.8l.76-.3a2,2,0,0,1,2.24.48,2,2,0,0,1,.35,2.24,27,27,0,0,1-24.16,15ZM21.11,11.85a22.94,22.94,0,1,0,30,33.91A26.46,26.46,0,0,1,21.53,28.87h0A26.4,26.4,0,0,1,21.11,11.85Z"></path>
+    </svg>
+    <svg class="dark-mode-icon-light" fill="#000000" height="20px" style="enable-background: new 0 0 100 100;" version="1.1" viewbox="0 0 100 100" width="20px" x="0px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <g>
+        <path d="M50,75c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S63.8,75,50,75z M50,33.3c-9.2,0-16.7,7.5-16.7,16.7   c0,9.2,7.5,16.7,16.7,16.7c9.2,0,16.7-7.5,16.7-16.7C66.7,40.8,59.2,33.3,50,33.3z"></path>
+      </g>
+      <g>
+        <path d="M50,100c-2.3,0-4.2-1.9-4.2-4.2v-8.3c0-2.3,1.9-4.2,4.2-4.2c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,98.1,52.3,100,50,100z    M17.5,86.7c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8   C19.6,86.3,18.6,86.7,17.5,86.7z M82.5,86.7c-1.1,0-2.1-0.4-2.9-1.2l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9s4.3-1.6,5.9,0l5.8,5.8   c1.6,1.6,1.6,4.3,0,5.9C84.6,86.3,83.6,86.7,82.5,86.7z M95.8,54.2h-8.3c-2.3,0-4.2-1.9-4.2-4.2c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C100,52.3,98.1,54.2,95.8,54.2z M12.5,54.2H4.2C1.9,54.2,0,52.3,0,50c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C16.7,52.3,14.8,54.2,12.5,54.2z M76.7,27.5c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8   c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8C78.8,27.1,77.7,27.5,76.7,27.5z M23.3,27.5c-1.1,0-2.1-0.4-2.9-1.2   l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9c1.6-1.6,4.3-1.6,5.9,0l5.8,5.8c1.6,1.6,1.6,4.3,0,5.9C25.5,27.1,24.4,27.5,23.3,27.5z M50,16.7   c-2.3,0-4.2-1.9-4.2-4.2V4.2C45.8,1.9,47.7,0,50,0c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,14.8,52.3,16.7,50,16.7z"></path>
+      </g>
+    </svg>
+    <div class="ball"></div>
+  </div>
+</div>
+    
+    <div class="hamburger-trigger" id="toggle-menu-main-mobile">
+  <button class="hamburger">Menu</button>
+</div>
+  </div>
+</div>
+
+<div id="wrapper" class="wrapper">     
+  <div class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        
+
+
+
+
+
+
+
+
+
+<div class="heading heading-left">
+  
+  
+  
+  <div class="heading-heading">
+    <h1>21. Sales evnet</h1>
+  </div>
+  
+  
+  
+    <div class="heading-description">
+      <p>해시 테이블을 활용한 데이터 카운팅</p>
+    </div>
+  
+
+  
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section pt-0">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        
+        
+          <div class="mb-2">
+          
+            
+
+
+
+
+<div class="author">
+  
+
+  
+</div>
+          
+          </div>
+        
+        
+        <div class="content"><figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/algorithm/algorithm_21.webp" alt="algorithm test" />
+  </a>
+  <figcaption>
+    <h4>21. sales event</h4>
+    <p>Sunhyup Lee. (2024). To be a successful candidate for the coding test. goldenrabbit. p.251.</p>
+  </figcaption>
+</figure>
+
+<h2 id="problem-solving">Problem solving</h2>
+
+<h3 id="문제-이해">문제 이해</h3>
+
+<h3 id="1-입력값-설명">1. 입력값 설명</h3>
+
+<ul>
+  <li>want: 정현이가 원하는 제품의 이름이 담긴 배열 (예: [‘바나나’, ‘사과’, ‘쌀’])</li>
+  <li>number: 각 제품별로 정현이가 원하는 수량(예: [3, 2, 1])</li>
+  <li>discount: 할인중인 제품 리스트가 날짜별로 순서대로 담겨 있음(예: [‘치킨, ‘사과, ‘바나나’…])</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="2-문제-조건">2. 문제 조건</h3>
+
+<ul>
+  <li>XYZ 마트에서 매일 1가지 제품이 할인됩니다.</li>
+  <li>할인 상품베열(<code class="language-plaintext highlighter-rouge">discount</code>)에서 정현이가 원하는 모든 제품과 수량이 정확히 일치하는 10일 연속 구간을 찾아야 합니다.</li>
+  <li>정현이가 원하는 제품과 수량이 일치하지 않으면 회원가입을 하지 않으며, 가능한 날이 없으면 <code class="language-plaintext highlighter-rouge">0</code>을 반환합니다.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="3-목표">3. 목표</h3>
+
+<ul>
+  <li>할인 목록에서 10일 연속 구간을 순회하며, 해당 구간의 할인 상품들이 <code class="language-plaintext highlighter-rouge">want</code>, <code class="language-plaintext highlighter-rouge">number</code>조건을 만족하는 지를 확인합니다.</li>
+  <li>조건에 맞는 구간이 몇 개 있는지 반환합니다.</li>
+</ul>
+
+<h4><br /></h4>
+
+<h3 id="4-풀이요약">4. 풀이요약</h3>
+
+<ul>
+  <li>할인 목록(discount)의 모든 10일 구간을 순회</li>
+  <li>각 구간에서 제품과 수량이 <code class="language-plaintext highlighter-rouge">want</code>와 <code class="language-plaintext highlighter-rouge">number</code> 조건을 만족하는지 검사</li>
+  <li>조건을 만족하면 카운트 증가</li>
+  <li>모든 구간을 확인한 뒤 카운트를 반환</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">want</span><span class="p">,</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">discount</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 1. 원하는 제품과 수량을 딕셔너리 형태로 저장</span>
+  <span class="kd">const</span> <span class="nx">wantMap</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">want</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">wantMap</span><span class="p">[</span><span class="nx">want</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">number</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 2. 슬라이딩 윈도우 크기와 결과 변수 초기화</span>
+  <span class="kd">const</span> <span class="nx">windowSize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="c1">// 3. 현재 윈도우의 제품 개수를 저장할 딕셔너리</span>
+  <span class="kd">const</span> <span class="nx">currentWindow</span> <span class="o">=</span> <span class="p">{};</span>
+
+  <span class="c1">// 4. 초기 윈도우 설정 (첫 번째 10일)</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">windowSize</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">product</span> <span class="o">=</span> <span class="nx">discount</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="nx">currentWindow</span><span class="p">[</span><span class="nx">product</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nx">currentWindow</span><span class="p">[</span><span class="nx">product</span><span class="p">]</span> <span class="o">||</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 5. 맵 비교 함수 (wantMap과 currentWindow가 같은지 확인)</span>
+  <span class="kd">const</span> <span class="nx">isMatch</span> <span class="o">=</span> <span class="p">(</span><span class="nx">map1</span><span class="p">,</span> <span class="nx">map2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">map1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">if </span><span class="p">(</span><span class="nx">map1</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">!==</span> <span class="nx">map2</span><span class="p">[</span><span class="nx">key</span><span class="p">])</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="c1">// 6. 첫 번째 윈도우 검사</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nf">isMatch</span><span class="p">(</span><span class="nx">currentWindow</span><span class="p">,</span> <span class="nx">wantMap</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 7. 슬라이딩 윈도우 이동 (한 칸씩 옮기면서 검사)</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">windowSize</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">discount</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 윈도우에서 빠지는 값 제거</span>
+    <span class="kd">const</span> <span class="nx">outgoing</span> <span class="o">=</span> <span class="nx">discount</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="nx">windowSize</span><span class="p">];</span>
+    <span class="nx">currentWindow</span><span class="p">[</span><span class="nx">outgoing</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">currentWindow</span><span class="p">[</span><span class="nx">outgoing</span><span class="p">]</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">delete</span> <span class="nx">currentWindow</span><span class="p">[</span><span class="nx">outgoing</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 윈도우에 새로 들어오는 값 추가</span>
+    <span class="kd">const</span> <span class="nx">incoming</span> <span class="o">=</span> <span class="nx">discount</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="nx">currentWindow</span><span class="p">[</span><span class="nx">incoming</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nx">currentWindow</span><span class="p">[</span><span class="nx">incoming</span><span class="p">]</span> <span class="o">||</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="c1">// 현재 윈도우가 조건을 만족하는지 확인</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">isMatch</span><span class="p">(</span><span class="nx">currentWindow</span><span class="p">,</span> <span class="nx">wantMap</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">count</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="1단계-원하는-제품과-수량을-딕셔너리에-저장">1단계: 원하는 제품과 수량을 딕셔너리에 저장</h3>
+
+<p><code class="language-plaintext highlighter-rouge">wnat</code>와 <code class="language-plaintext highlighter-rouge">number</code> 배열을 사용해 정현이가 원하는 제품과 개수를 딕셔너리 형태로 만든다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">want</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">banana</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">apple</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">rice</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">pork</span><span class="dl">"</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">number</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
+</code></pre></div></div>
+
+<p>이를 딕셔너리로 저장하면</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">wantMap</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">banana</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="na">apple</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="na">rice</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="na">pork</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>이제 <code class="language-plaintext highlighter-rouge">wantMap</code>은 정현이가 원하는 조건을 담고 있습니다.</p>
+
+<p><br /></p>
+
+<h3 id="2단계-슬라이딩-윈도우-설정">2단계: 슬라이딩 윈도우 설정</h3>
+
+<ul>
+  <li>
+    <p>슬라이딩 윈도우 크기는 문제에서 주어진 “연속된 10일”을 의미합니다. 따라서, <code class="language-plaintext highlighter-rouge">windowSize = 10</code>으로 설정합니다.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">count</code> 변수는 조건을 충족하는 연속된 10일의 횟수를 셀 때 사용합니다. 처음에는 <code class="language-plaintext highlighter-rouge">count = 0</code>으로 초기화 합니다.</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="3단계-첫번째-10일의-제품-개수-계산">3단계: 첫번째 10일의 제품 개수 계산</h3>
+
+<ul>
+  <li>할인 목록인 <code class="language-plaintext highlighter-rouge">discount</code>배열의 첫 번째 10일을 기준으로, 각 제품의 개수를 세어 저장합니다.</li>
+  <li>이 때, <code class="language-plaintext highlighter-rouge">currentWindow</code>라는 딕셔너리를 사용해 현재 10일 동안의 제품 개수를 추적합니다.</li>
+</ul>
+
+<p>예를 들어, 다음과 같은 <code class="language-plaintext highlighter-rouge">discount</code>배열이 있다고 가정합시다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">discount</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="dl">"</span><span class="s2">chicken</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">apple</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">apple</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">banana</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">rice</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">pork</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">banana</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">banana</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">banana</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">apple</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<p>여기서 첫번째 10일을 계산하면</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">currentWindow</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">chicken</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="na">apple</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="na">banana</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+  <span class="na">rice</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="na">pork</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>이 작업은 루프를 돌며 각 제품의 개수를 세어서 <code class="language-plaintext highlighter-rouge">currentWindow</code>에 저장합니다.</p>
+
+<p><br /></p>
+
+<h3 id="4단계-두-딕셔너리-비교-함수">4단계: 두 딕셔너리 비교 함수</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">wantMap</code>과 <code class="language-plaintext highlighter-rouge">currentWindow</code>가 같은지 확인하기 위해, <code class="language-plaintext highlighter-rouge">isMatch</code>라는 함수를 정의합니다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">isMatch</span> <span class="o">=</span> <span class="p">(</span><span class="nx">map1</span><span class="p">,</span> <span class="nx">map2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">map1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">map1</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">!==</span> <span class="nx">map2</span><span class="p">[</span><span class="nx">key</span><span class="p">])</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">// 조건 충족</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">map1</code>(wantMap)의 모든 키를 확인하며,</li>
+  <li><code class="language-plaintext highlighter-rouge">map2</code>(currentWindow)와 각 값이 동일한지 비교합니다.</li>
+  <li>값이 하나라도 다르면 <code class="language-plaintext highlighter-rouge">false</code>, 모두 같은면 <code class="language-plaintext highlighter-rouge">true</code>를 반환합니다.</li>
+</ol>
+
+<p><br /></p>
+
+<h3 id="5단계-첫번째-윈도우-검사">5단계: 첫번째 윈도우 검사</h3>
+
+<ul>
+  <li>첫 번째 10일(<code class="language-plaintext highlighter-rouge">currentWindow</code>)이 정현이의 조건(<code class="language-plaintext highlighter-rouge">wantMap</code>)을 만족하는지 확인합니다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">if </span><span class="p">(</span><span class="nf">isMatch</span><span class="p">(</span><span class="nx">currentWindow</span><span class="p">,</span> <span class="nx">wantMap</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>만약 첫번째 윈도우가 조건을 만족하면, <code class="language-plaintext highlighter-rouge">count</code>를 1 증가시킵니다.</p>
+
+<p><br /></p>
+
+<h3 id="6단계-슬라이딩-윈도우">6단계: 슬라이딩 윈도우</h3>
+
+<p>이제 <code class="language-plaintext highlighter-rouge">discount</code> 배열에서 윈도우를 한 칸 씩 옮기면서 조건을 확인합니다.</p>
+
+<h4 id="1-윈도우에서-빠지는-값-제거">(1) 윈도우에서 빠지는 값 제거</h4>
+
+<ul>
+  <li>윈도우가 한 칸 이동하면, 맨 앞의 값(윈도우에서 나가는 값)을 제거합니다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">outgoing</span> <span class="o">=</span> <span class="nx">discount</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="nx">windowSize</span><span class="p">];</span>
+<span class="nx">currentWindow</span><span class="p">[</span><span class="nx">outgoing</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
+<span class="nf">if </span><span class="p">(</span><span class="nx">currentWindow</span><span class="p">[</span><span class="nx">outgoing</span><span class="p">]</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">delete</span> <span class="nx">currentWindow</span><span class="p">[</span><span class="nx">outgoing</span><span class="p">];</span> <span class="c1">// 개수가 0이면 삭제</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="2-새로-들어오는-값-추가">(2) 새로 들어오는 값 추가</h4>
+
+<ul>
+  <li>윈도우의 오른쪽으로 새로 들어오는 값을 추가합니다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">incoming</span> <span class="o">=</span> <span class="nx">discount</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+<span class="nx">currentWindow</span><span class="p">[</span><span class="nx">incoming</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nx">currentWindow</span><span class="p">[</span><span class="nx">incoming</span><span class="p">]</span> <span class="o">||</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="3-조건-확인">(3) 조건 확인</h4>
+
+<ul>
+  <li>새로 갱신된 <code class="language-plaintext highlighter-rouge">currentWindow</code>가 조건(<code class="language-plaintext highlighter-rouge">wantMap</code>)을 만족하는지 확인합니다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">if </span><span class="p">(</span><span class="nf">isMatch</span><span class="p">(</span><span class="nx">currentWindow</span><span class="p">,</span> <span class="nx">wantMap</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="7단계-최종-결과-반환">7단계: 최종 결과 반환</h3>
+
+<ul>
+  <li>조건을 충족한 구간의 개수(<code class="language-plaintext highlighter-rouge">count</code>)를 반환합니다.</li>
+</ul>
+
+<p><br /><br /><br /></p>
+</div>
+
+        
+        <div class="categories">
+        
+
+
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/development">
+  Development
+</a>
+
+</div>
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/algorithm">
+  Algorithm
+</a>
+
+</div>
+  
+
+        
+        </div>
+
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="section section-base-bg-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"></div>
+        <div class="subscribe">
+  <div class="row">
+    <div class="col-12 col-md-4 mb-2 mb-md-0">
+      <h2 class="">Let's keep in touch</h2>
+    </div>
+
+    <div class="co-12 col-md-8">
+      <div id="mc_embed_signup">
+        <form action="https://zerostatic.us21.list-manage.com/subscribe/post?u=798e19886b83aaab346734382&amp;id=f1c526a772&amp;f_id=0027e3e6f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="subscribe-form" target="_blank" novalidate>
+          <div class="subscribe-fields">
+            <input class="required email" id="mce-EMAIL" name="EMAIL" placeholder="Your email address" type="email" value="" />
+            <div aria-hidden="true" style="position: absolute; left: -5000px"><input name="b_675276692aebec1c007f8156d_3e3da720c2" tabindex="-1" type="text" value="" /></div>
+            <input type="submit" value="Submit" />
+          </div>
+          <div class="subscribe-responses" id="mce-responses">
+            <div class="response response-error" id="mce-error-response" style="display: none"></div>
+            <div class="response response-success" id="mce-success-response" style="display: none"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+<script type="text/javascript" src="/assets/js/scripts.js"></script>
+
+<script type="text/javascript" src="/assets/js/hamburger.js"></script>
+<script type="text/javascript" src="/assets/js/darkModeSwitch.js"></script>
+
+
+
+
+
+</body>
+</html>
