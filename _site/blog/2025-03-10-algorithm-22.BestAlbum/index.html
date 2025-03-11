@@ -5,18 +5,22 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <title>Blog - Jekyll Curate</title>
+    <title>23. Best Album - Jekyll Curate</title>
 
+
+  <meta name="description" content="해시맵을 사용해 ID와 닉네임을 저장하고, 기록을 두 번 순회하는 방식으로 최적화된 출력을 생성"/>
 
 
 
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="http://localhost:4000/blog/page/8/"/>
+<meta property="og:url" content="http://localhost:4000/blog/2025-03-10-algorithm-22.BestAlbum/"/>
 
 
-  <meta property="og:title" content="Blog"/>
+  <meta property="og:title" content="23. Best Album"/>
 
 
+
+  <meta property="og:description" content="해시맵을 사용해 ID와 닉네임을 저장하고, 기록을 두 번 순회하는 방식으로 최적화된 출력을 생성"/>
 
 
 
@@ -174,7 +178,7 @@
     
 
   </head>
-<body class="page page-blog has-static-header">
+<body class="page page-post has-static-header">
 
 
 <div class="menu-main-mobile " id="menu-main-mobile">
@@ -390,7 +394,7 @@
   <div class="section">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-12 col-md-12">
+      <div class="col-12">
         
 
 
@@ -406,10 +410,14 @@
   
   
   <div class="heading-heading">
-    <h1>Blog</h1>
+    <h1>23. Best Album</h1>
   </div>
   
   
+  
+    <div class="heading-description">
+      <p>해시맵을 사용해 ID와 닉네임을 저장하고, 기록을 두 번 순회하는 방식으로 최적화된 출력을 생성</p>
+    </div>
   
 
   
@@ -421,324 +429,229 @@
 
 <div class="section pt-0">
   <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-12">
-          <div class="row">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        
+        
+          <div class="mb-2">
+          
             
-            
-            
-              
-                <div class="col-12">
-                  
-  
-    <div class="col-12">
-      <div class="pagination-count">
-        <h3>Page 8</h3>
-      </div>
-    </div>
+
+
+
+
+<div class="author">
   
 
-                </div>
-              
-
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
   
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-08-18-algorithm-1.arrangeArray/"><img alt="1. ArrangeArray" src="/assets/images/gen/blog/algorithm.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">18 August 2024</span>
+</div>
+          
           </div>
         
+        
+        <div class="content"><figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/algorithm/algorithm_22_1.webp" alt="algorithm test" />
+  </a>
+  <figcaption>
+    <h4>22. OpenChat</h4>
+    <p>Sunhyup Lee. (2024). To be a successful candidate for the coding test. goldenrabbit. p.257.</p>
+  </figcaption>
+</figure>
 
-      </div>
+<p><br /></p>
+
+<h2 id="problem-solving">Problem solving</h2>
+
+<h3 id="문제-이해">문제 이해</h3>
+
+<h3 id="1-닉네임이-변경되는-경우-살펴보자">1. 닉네임이 변경되는 경우 살펴보자</h3>
+
+<ul>
+  <li>기존 방에 있던 회원이 나갔다가 다시들어오거나</li>
+  <li>닉네임이 변경</li>
+</ul>
+
+<p>= O(N<sup>2<sup></sup></sup></p>
+
+<p><span style="color:#e74c3c">record의 개수가 최대 10만개 일 경우, 비효율적일 수 있다.</span></p>
+
+<h3 id="2-변경되는-시점과-변경하는-것을-명확히-규정해야한다">2. 변경되는 시점과 변경하는 것을 명확히 규정해야한다.</h3>
+
+<ul>
+  <li>문제에서 요구하는 것은 <span style="color:#3498db"><strong>최종적인 메시지</strong></span></li>
+  <li>유저 아이디는 <span style="color:#3498db"><strong>불변</strong></span>이다.</li>
+  <li>닉네임은 유저의 상태가 <span style="color:#3498db"><strong>Enter</strong></span>와 <span style="color:#3498db"><strong>Change</strong></span>인 때에만 바뀔 수 있다.</li>
+</ul>
+
+<p><br /></p>
+
+<figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/algorithm/algorithm_22_2.webp" alt="algorithm solving strategy" />
+  </a>
+  <figcaption>
+    <h4>HashMap Dictionary</h4>
+    <p>Jay Tak</p>
+  </figcaption>
+</figure>
+
+<p><br /></p>
+
+<h3 id="3-문제를-구조화-시켜보자">3. 문제를 구조화 시켜보자</h3>
+
+<p>3.1 최종적으로 구하고자 하는 것은 무엇인가 → <span style="color:#3498db"><strong>최종적으로 보는 메시지</strong></span> <br /></p>
+
+<p>3.2 입력값 중 수정되지 않는 건 무엇인가 → <span style="color:#e74c3c"><strong>유저 아이디</strong></span> <br /></p>
+
+<p>3.3 입력값 중 수정되는 것은 무엇인가 → <span style="color:#3498db"><strong>닉네임</strong></span> <br /></p>
+
+<ul>
+  <li>3.3.1 입력값이 수정될 때 어디가 영향 받는가 → 오픈 채팅방의 내용 변경</li>
+  <li>3.3.2 입력값은 어느 조건에 수정되는가 → Enter와 Chane인 경우</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">solution</span><span class="p">(</span><span class="nx">record</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">answer</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="nx">uid</span> <span class="o">=</span> <span class="p">{};</span>
+
+  <span class="nf">for </span><span class="p">(</span><span class="nx">line</span> <span class="k">of</span> <span class="nx">record</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">cmd</span> <span class="o">=</span> <span class="nx">record</span><span class="p">[</span><span class="nx">line</span><span class="p">].</span><span class="nf">split</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">cmd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="dl">"</span><span class="s2">Leave</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">uid</span><span class="p">[</span><span class="nx">cmd</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">cmd</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="nf">for </span><span class="p">(</span><span class="nx">line</span> <span class="k">of</span> <span class="nx">record</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">cmd</span> <span class="o">=</span> <span class="nx">record</span><span class="p">[</span><span class="nx">line</span><span class="p">].</span><span class="nf">split</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+    <span class="nf">if</span><span class="p">(</span><span class="nx">cmd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">Enter</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">answer</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">uid</span><span class="p">[</span><span class="nx">cmd</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">님이 들어왔습니다.</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="nx">cmd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">Leave</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">answer</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">uid</span><span class="p">.[</span><span class="nx">cmd</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">님이 나갔습니다.</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>자료구조</th>
+      <th>사용 이유</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>해시맵 (딕셔너리)</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">uid</code> 객체를 활용해 <strong>유저 ID → 최신 닉네임</strong>을 저장</td>
+    </tr>
+    <tr>
+      <td><strong>배열 (리스트)</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">answer</code> 배열을 활용해 <strong>순서를 유지하며 메시지 저장</strong></td>
+    </tr>
+    <tr>
+      <td><strong>문자열 처리</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">split(" ")</code>을 이용해 <strong>명령어, ID, 닉네임을 분리</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /><br /><br />
+<strong>🧐 Q. 왜 해시맵을 사용했을까?</strong></p>
+
+<p>Answer)</p>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">"Change"</code> 시 <code class="language-plaintext highlighter-rouge">uid[cmd[1]] = cmd[2]</code> <strong>O(1) 연산으로 닉네임 변경 가능</strong></p>
+  </li>
+  <li>
+    <p>최신 닉네임을 <strong>바로 가져올 수 있어(<code class="language-plaintext highlighter-rouge">uid[cmd[1]]</code>)</strong>, <code class="language-plaintext highlighter-rouge">answer</code>에 추가하는 과정이 O(1)</p>
+  </li>
+  <li>
+    <p>유저 ID를 key로 사용하므로 <strong>중복 방지 &amp; 최신 정보 유지</strong> 가능</p>
+  </li>
+</ol>
+
+<p><br /><br /><br /></p>
+</div>
+
+        
+        <div class="categories">
+        
+
+
+  
     
 
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-08-18-algorithm-1.arrangeArray/">1. ArrangeArray</a>
-      </h3>
+
+
+
+<div class="category-link">
+<a href="/category/development">
+  Development
+</a>
+
+</div>
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/algorithm">
+  Algorithm
+</a>
+
+</div>
+  
+
+        
+        </div>
+
+        
+
+      </div>
     </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>배열 정렬하기, 제약조건의 중요성과 sort 메서드 이해하기</p>
-      </div>
-    
-
-    
-
-    
-
   </div>
 </div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
 
 
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-08-18-3.datatype/"><img alt="3. Data Type" src="/assets/images/gen/blog/javascript.webp"/></a>
+  <div class="section section-base-bg-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"></div>
+        <div class="subscribe">
+  <div class="row">
+    <div class="col-12 col-md-4 mb-2 mb-md-0">
+      <h2 class="">Let's keep in touch</h2>
     </div>
-  
 
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">18 August 2024</span>
+    <div class="co-12 col-md-8">
+      <div id="mc_embed_signup">
+        <form action="https://zerostatic.us21.list-manage.com/subscribe/post?u=798e19886b83aaab346734382&amp;id=f1c526a772&amp;f_id=0027e3e6f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="subscribe-form" target="_blank" novalidate>
+          <div class="subscribe-fields">
+            <input class="required email" id="mce-EMAIL" name="EMAIL" placeholder="Your email address" type="email" value="" />
+            <div aria-hidden="true" style="position: absolute; left: -5000px"><input name="b_675276692aebec1c007f8156d_3e3da720c2" tabindex="-1" type="text" value="" /></div>
+            <input type="submit" value="Submit" />
           </div>
-        
-
+          <div class="subscribe-responses" id="mce-responses">
+            <div class="response response-error" id="mce-error-response" style="display: none"></div>
+            <div class="response response-success" id="mce-success-response" style="display: none"></div>
+          </div>
+        </form>
       </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-08-18-3.datatype/">3. Data Type</a>
-      </h3>
     </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>데이터 타입, 자바스크립트가 제공하는 데이터 타입의 특징을 살펴보자</p>
-      </div>
-    
-
-    
-
-    
-
   </div>
 </div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-08-15-2.expression/"><img alt="2. Expression" src="/assets/images/gen/blog/javascript.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">15 August 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-08-15-2.expression/">2. Expression</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>표현식, 값이라는 용어를 명확하게 이해해보자.</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-                </div>
-              
-                <div class="col-12 col-md-12 col-lg-10 mb-6">
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card card-post card-row card-has-thumbnail ">
-
-  
-    <div class="card-thumbnail ">
-      <a href="/blog/2024-08-11-1.variable/"><img alt="1. Variable" src="/assets/images/gen/blog/javascript.webp"/></a>
-    </div>
-  
-
-  <div class="card-content">
-    
-      <div class="card-meta">
-
-        
-
-        
-          <div class="card-date">
-            <span class="post-date-date">11 August 2024</span>
-          </div>
-        
-
-      </div>
-    
-
-    <div class="card-title">
-      <h3>
-        <a href="/blog/2024-08-11-1.variable/">1. Variable</a>
-      </h3>
-    </div>
-
-    
-
-    
-      <div class="card-description">
-        <p>변수, 변수란 무엇이며, 왜 존재하는지, 엔진은 변수를 어떻게 선언하는지를 통해 변수를 이해해보자.</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-                </div>
-              
-          </div>
         </div>
       </div>
-      
-      <div class="row justify-content-center mt-4">
-        <div class="col-auto">
-          <!-- Pagination links -->
-
-<div class="pagination">
-  <ul>
-    
-      <li><a href="/blog/page/7"><i class="fa fa-chevron-left"></i></a></li>
-    
-
-    
-      
-        <li><a href="/blog">1</a></li>
-      
-    
-      
-        <li><a href="/blog/page/2">2</a></li>
-      
-    
-      
-        <li><a href="/blog/page/3">3</a></li>
-      
-    
-      
-        <li><a href="/blog/page/4">4</a></li>
-      
-    
-      
-        <li><a href="/blog/page/5">5</a></li>
-      
-    
-      
-        <li><a href="/blog/page/6">6</a></li>
-      
-    
-      
-        <li><a href="/blog/page/7">7</a></li>
-      
-    
-      
-        <li class="active"><span>8</span></li>
-      
-    
-  
-  
-  </ul>
-</div>
-
-        </div>
-      </div>
-      
+    </div>
   </div>
-</div>
+
 
 </div>
 
