@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <title>26. Symbol - Jekyll Curate</title>
+
+
+  <meta name="description" content="고유하고 충돌이 없는 식별자"/>
+
+
+
+    <meta property="og:type" content="website"/>
+<meta property="og:url" content="http://localhost:4000/blog/2025-03-12-26.Symbol/"/>
+
+
+  <meta property="og:title" content="26. Symbol"/>
+
+
+
+  <meta property="og:description" content="고유하고 충돌이 없는 식별자"/>
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@zerostaticio" />
+<meta name="twitter:creator" content="@zerostaticio" />
+    <link rel="alternate" type="application/atom+xml" title="Jekyll Curate" href="/feed.xml">
+    <link rel="icon" href="/assets/images/favicon/favicon.png">
+
+
+    <link href="/assets/css/main.css" rel="stylesheet">
+
+    
+      <script>
+          localStorage.getItem('darkMode') === 'true' && document.documentElement.setAttribute('data-bs-theme', 'dark');
+      </script>
+    
+
+    
+      <!-- https://github.com/orestbida/cookieconsent -->
+
+<link rel="stylesheet" href="/assets/css/cookieconsent.css">
+<script defer src="/assets/js/cookieconsent.js"></script>
+
+<!-- Inline script -->
+<script>
+    window.addEventListener('load', function () {
+
+        // obtain plugin
+        var cc = initCookieConsent();
+
+        // run plugin with your configuration
+        cc.run({
+            current_lang: 'en',
+            autoclear_cookies: true,                   // default: false
+            page_scripts: true,                        // default: false
+
+            // mode: 'opt-in'                          // default: 'opt-in'; value: 'opt-in' or 'opt-out'
+            // delay: 0,                               // default: 0
+            // auto_language: '',                      // default: null; could also be 'browser' or 'document'
+            // autorun: true,                          // default: true
+            // force_consent: false,                   // default: false
+            // hide_from_bots: true,                   // default: true
+            // remove_cookie_tables: false             // default: false
+            // cookie_name: 'cc_cookie',               // default: 'cc_cookie'
+            // cookie_expiration: 182,                 // default: 182 (days)
+            // cookie_necessary_only_expiration: 182   // default: disabled
+            // cookie_domain: location.hostname,       // default: current domain
+            // cookie_path: '/',                       // default: root
+            // cookie_same_site: 'Lax',                // default: 'Lax'
+            // use_rfc_cookie: false,                  // default: false
+            // revision: 0,                            // default: 0
+
+            onFirstAction: function (user_preferences, cookie) {
+                // callback triggered only once on the first accept/reject action
+            },
+
+            onAccept: function (cookie) {
+                // callback triggered on the first accept/reject action, and after each page load
+            },
+
+            onChange: function (cookie, changed_preferences) { 
+                // If analytics category is disabled => disable google analytics 
+                if (!cc.allowedCategory('analytics')) { 
+                    typeof gtag === 'function' && gtag('consent', 'update', { 
+                        'analytics_storage': 'denied' 
+                    }); 
+                } 
+            }, 
+
+            languages: {
+                'en': {
+                    consent_modal: {
+                        title: 'We use cookies!',
+                        description: 'Hi, this website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
+                        primary_btn: {
+                            text: 'Accept all',
+                            role: 'accept_all'              // 'accept_selected' or 'accept_all'
+                        },
+                        secondary_btn: {
+                            text: 'Reject all',
+                            role: 'accept_necessary'        // 'settings' or 'accept_necessary'
+                        }
+                    },
+                    settings_modal: {
+                        title: 'Cookie preferences',
+                        save_settings_btn: 'Save settings',
+                        accept_all_btn: 'Accept all',
+                        reject_all_btn: 'Reject all',
+                        close_btn_label: 'Close',
+                        // cookie_table_caption: 'Cookie list',
+                        cookie_table_headers: [
+                            { col1: 'Name' },
+                            { col2: 'Domain' },
+                            { col3: 'Expiration' },
+                            { col4: 'Description' }
+                        ],
+                        blocks: [
+                            {
+                                title: 'Cookie usage 📢',
+                                description: 'I use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want. For more details relative to cookies and other sensitive data, please read the full <a href="#" class="cc-link">privacy policy</a>.'
+                            }, {
+                                title: 'Strictly necessary cookies',
+                                description: 'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly',
+                                toggle: {
+                                    value: 'necessary',
+                                    enabled: true,
+                                    readonly: true          // cookie categories with readonly=true are all treated as "necessary cookies"
+                                }
+                            }, {
+                                title: 'Performance and Analytics cookies',
+                                description: 'These cookies allow the website to remember the choices you have made in the past',
+                                toggle: {
+                                    value: 'analytics',     // your cookie category
+                                    enabled: false,
+                                    readonly: false
+                                },
+                                cookie_table: [             // list of all expected cookies
+                                    {
+                                        col1: '^_ga',       // match all cookies starting with "_ga"
+                                        col2: 'google.com',
+                                        col3: '2 years',
+                                        col4: 'description ...',
+                                        is_regex: true
+                                    },
+                                    {
+                                        col1: '_gid',
+                                        col2: 'google.com',
+                                        col3: '1 day',
+                                        col4: 'description ...',
+                                    }
+                                ]
+                            },
+                            {
+                                title: 'More information',
+                                description: 'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="#yourcontactpage">contact us</a>.',
+                            }
+                        ]
+                    }
+                }
+            }
+        });
+    });
+</script>
+    
+
+    
+
+    <link href="/assets/css/fonts.css" rel="stylesheet">
+
+
+
+
+    
+
+  </head>
+<body class="page page-post has-static-header">
+
+
+<div class="menu-main-mobile " id="menu-main-mobile">
+  
+  <div class="menu-main-mobile-top">
+    <div id="close-overlay" class="menu-main-close">
+      <div class="hamburger"></div>
+    </div>
+  </div>
+
+  <div class="menu-main-mobile-center">
+    
+      <ul class="menu">
+        
+          <li class="menu-item-home">
+            <a href="/">Home</a>
+          </li>
+        
+          <li class="menu-item-projects">
+            <a href="/projects/">Projects</a>
+          </li>
+        
+          <li class="menu-item-blog">
+            <a href="/blog/">Blog</a>
+          </li>
+        
+          <li class="menu-item-contact">
+            <a href="/contact/">Contact</a>
+          </li>
+        
+      </ul>
+    
+  </div>
+
+  <div class="menu-main-mobile-bottom">
+    
+    
+      <div class="dark-mode-switcher " id="dark-mode-container">
+  <div class="dark-mode-switch">
+    <svg class="dark-mode-icon-dark" data-name="Layer 1" fill="#000000" height="20px" viewbox="0 0 64 64" width="20px" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <title>essential</title>
+      <path d="M33.28,58.24A26.95,26.95,0,0,1,24,6l.39-.13a2,2,0,0,1,2.4,2.87,22.42,22.42,0,0,0-1.51,18.75h0A22.47,22.47,0,0,0,54.09,40.8l.76-.3a2,2,0,0,1,2.24.48,2,2,0,0,1,.35,2.24,27,27,0,0,1-24.16,15ZM21.11,11.85a22.94,22.94,0,1,0,30,33.91A26.46,26.46,0,0,1,21.53,28.87h0A26.4,26.4,0,0,1,21.11,11.85Z"></path>
+    </svg>
+    <svg class="dark-mode-icon-light" fill="#000000" height="20px" style="enable-background: new 0 0 100 100;" version="1.1" viewbox="0 0 100 100" width="20px" x="0px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <g>
+        <path d="M50,75c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S63.8,75,50,75z M50,33.3c-9.2,0-16.7,7.5-16.7,16.7   c0,9.2,7.5,16.7,16.7,16.7c9.2,0,16.7-7.5,16.7-16.7C66.7,40.8,59.2,33.3,50,33.3z"></path>
+      </g>
+      <g>
+        <path d="M50,100c-2.3,0-4.2-1.9-4.2-4.2v-8.3c0-2.3,1.9-4.2,4.2-4.2c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,98.1,52.3,100,50,100z    M17.5,86.7c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8   C19.6,86.3,18.6,86.7,17.5,86.7z M82.5,86.7c-1.1,0-2.1-0.4-2.9-1.2l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9s4.3-1.6,5.9,0l5.8,5.8   c1.6,1.6,1.6,4.3,0,5.9C84.6,86.3,83.6,86.7,82.5,86.7z M95.8,54.2h-8.3c-2.3,0-4.2-1.9-4.2-4.2c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C100,52.3,98.1,54.2,95.8,54.2z M12.5,54.2H4.2C1.9,54.2,0,52.3,0,50c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C16.7,52.3,14.8,54.2,12.5,54.2z M76.7,27.5c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8   c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8C78.8,27.1,77.7,27.5,76.7,27.5z M23.3,27.5c-1.1,0-2.1-0.4-2.9-1.2   l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9c1.6-1.6,4.3-1.6,5.9,0l5.8,5.8c1.6,1.6,1.6,4.3,0,5.9C25.5,27.1,24.4,27.5,23.3,27.5z M50,16.7   c-2.3,0-4.2-1.9-4.2-4.2V4.2C45.8,1.9,47.7,0,50,0c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,14.8,52.3,16.7,50,16.7z"></path>
+      </g>
+    </svg>
+    <div class="ball"></div>
+  </div>
+</div>
+    
+  </div>
+
+</div>
+
+
+
+
+<div id="header" class='header '>
+  <div class="container">
+    <div class="logos">
+  <div class="logo logo-desktop">
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo.png"/>
+        </a>
+      </div>
+    
+  
+    
+    
+  </div>
+
+  <div class="logo logo-desktop-invert">
+    
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo-invert.png"/>
+        </a>
+      </div>
+    
+  
+    
+    
+  </div>
+
+  <div class="logo logo-mobile">
+    
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo-mobile.png"/>
+        </a>
+      </div>
+    
+  
+    
+    
+  </div>
+
+
+  <div class="logo logo-mobile-invert">
+    
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo-invert-mobile.png"/>
+        </a>
+      </div>
+    
+  
+    
+
+  </div>
+
+</div>
+
+
+    <div class="menu-main">
+  <ul>
+    
+      
+        
+        <li class=" ">
+          <a href="/" >Home</a>
+        </li>
+      
+    
+      
+        
+        <li class=" ">
+          <a href="/projects/" >Projects</a>
+        </li>
+      
+    
+      
+
+        
+        
+
+        <li class="menu-item-dropdown menu-item-Blog ">
+          <a href="/blog/">Blog <i class="fa-solid fa-chevron-down"></i></a>
+          
+          <div class="dropdown-menu">
+            
+              <a href="/category/javascript/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Javascript</div>
+                  
+                </div>
+              </a>
+            
+              <a href="/category/algorithm/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Algorithm</div>
+                  
+                </div>
+              </a>
+            
+          </div>
+
+        </li>
+      
+    
+      
+        
+        <li class=" ">
+          <a href="/contact/" >Contact</a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+    
+      <div class="dark-mode-switcher " id="dark-mode-container">
+  <div class="dark-mode-switch">
+    <svg class="dark-mode-icon-dark" data-name="Layer 1" fill="#000000" height="20px" viewbox="0 0 64 64" width="20px" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <title>essential</title>
+      <path d="M33.28,58.24A26.95,26.95,0,0,1,24,6l.39-.13a2,2,0,0,1,2.4,2.87,22.42,22.42,0,0,0-1.51,18.75h0A22.47,22.47,0,0,0,54.09,40.8l.76-.3a2,2,0,0,1,2.24.48,2,2,0,0,1,.35,2.24,27,27,0,0,1-24.16,15ZM21.11,11.85a22.94,22.94,0,1,0,30,33.91A26.46,26.46,0,0,1,21.53,28.87h0A26.4,26.4,0,0,1,21.11,11.85Z"></path>
+    </svg>
+    <svg class="dark-mode-icon-light" fill="#000000" height="20px" style="enable-background: new 0 0 100 100;" version="1.1" viewbox="0 0 100 100" width="20px" x="0px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <g>
+        <path d="M50,75c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S63.8,75,50,75z M50,33.3c-9.2,0-16.7,7.5-16.7,16.7   c0,9.2,7.5,16.7,16.7,16.7c9.2,0,16.7-7.5,16.7-16.7C66.7,40.8,59.2,33.3,50,33.3z"></path>
+      </g>
+      <g>
+        <path d="M50,100c-2.3,0-4.2-1.9-4.2-4.2v-8.3c0-2.3,1.9-4.2,4.2-4.2c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,98.1,52.3,100,50,100z    M17.5,86.7c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8   C19.6,86.3,18.6,86.7,17.5,86.7z M82.5,86.7c-1.1,0-2.1-0.4-2.9-1.2l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9s4.3-1.6,5.9,0l5.8,5.8   c1.6,1.6,1.6,4.3,0,5.9C84.6,86.3,83.6,86.7,82.5,86.7z M95.8,54.2h-8.3c-2.3,0-4.2-1.9-4.2-4.2c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C100,52.3,98.1,54.2,95.8,54.2z M12.5,54.2H4.2C1.9,54.2,0,52.3,0,50c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C16.7,52.3,14.8,54.2,12.5,54.2z M76.7,27.5c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8   c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8C78.8,27.1,77.7,27.5,76.7,27.5z M23.3,27.5c-1.1,0-2.1-0.4-2.9-1.2   l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9c1.6-1.6,4.3-1.6,5.9,0l5.8,5.8c1.6,1.6,1.6,4.3,0,5.9C25.5,27.1,24.4,27.5,23.3,27.5z M50,16.7   c-2.3,0-4.2-1.9-4.2-4.2V4.2C45.8,1.9,47.7,0,50,0c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,14.8,52.3,16.7,50,16.7z"></path>
+      </g>
+    </svg>
+    <div class="ball"></div>
+  </div>
+</div>
+    
+    <div class="hamburger-trigger" id="toggle-menu-main-mobile">
+  <button class="hamburger">Menu</button>
+</div>
+  </div>
+</div>
+
+<div id="wrapper" class="wrapper">     
+  <div class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        
+
+
+
+
+
+
+
+
+
+<div class="heading heading-left">
+  
+  
+  
+  <div class="heading-heading">
+    <h1>26. Symbol</h1>
+  </div>
+  
+  
+  
+    <div class="heading-description">
+      <p>고유하고 충돌이 없는 식별자</p>
+    </div>
+  
+
+  
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section pt-0">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        
+        
+          <div class="mb-2">
+          
+            
+
+
+
+
+<div class="author">
+  
+
+  
+</div>
+          
+          </div>
+        
+        
+        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">Index</span></p>
+
+<h3 id="-심벌의-존재-목적은-무엇일까">① <a href="#1-심벌의-존재-목적은-무엇일까">심벌의 존재 목적은 무엇일까?</a></h3>
+
+<ul>
+  <li>①.1 <a href="#11-고유성-uniqueness">고유성 (Uniqueness)</a></li>
+  <li>①.2 <a href="#12-충돌방지-collition-prevention">충돌방지 (Collition prevention)</a></li>
+  <li>①.3 <a href="#13-내부적인-은닉과-보호-encapsulation--protection">내부적인 은닉과 보호 (Encapsulation &amp; Protection)</a></li>
+  <li>①.4 <a href="#14-표준-인터페이스-구현-well-known-symbols">표준 인터페이스 구현 (Well-known Symbols)</a></li>
+</ul>
+
+<h3 id="-심벌값의-공유">② <a href="#2-심벌값의-공유">심벌값의 공유</a></h3>
+
+<h3 id="-심벌로-상수를-정의할-때의-장점">③ <a href="#3-심벌로-상수를-정의할-때의-장점">심벌로 상수를 정의할 때의 장점</a></h3>
+
+<ul>
+  <li>③.1 <a href="#31-완벽한-고유성">완벽한 고유성</a></li>
+  <li>③.2 <a href="#32-상수의-의미-명확성">상수의 의미 명확성</a></li>
+  <li>③.3 <a href="#33-안전성과-신뢰성">안전성과 신뢰성</a></li>
+</ul>
+
+<h3 id="-표준-객체의-프로퍼티-키와-사용자-정의-프로퍼티-키의-충돌-가능성-문제">④ <a href="#4-표준-객체의-프로퍼티-키와-사용자-정의-프로퍼티-키의-충돌-가능성-문제">표준 객체의 프로퍼티 키와 사용자 정의 프로퍼티 키의 충돌 가능성 문제</a></h3>
+
+<ul>
+  <li>④.1 <a href="#41-왜-기존-객체의-프로퍼티를-임의로-추가하면-문제가-될까">왜 기존 객체의 프로퍼티를 임의로 추가하면 문제가 될까?</a></li>
+  <li>④.2 <a href="#42-해결책--심벌symbol을-사용하여-충돌-방지">해결책 → 심벌(Symbol)을 사용하여 충돌 방지</a></li>
+</ul>
+
+<hr />
+
+<h2 id="1-심벌의-존재-목적은-무엇일까">1. 심벌의 존재 목적은 무엇일까?</h2>
+
+<p>자바스크립트에서 <strong>심벌(Symbol)</strong>타입이 존재하는 이유(목적)는 명확합니다.</p>
+
+<blockquote>
+  <p><strong>절대적으로 충돌하지 않는 고유한 식별자(identifier)를 생성하기 위해서입니다.</strong></p>
+</blockquote>
+
+<h3 id="11-고유성-uniqueness">1.1 고유성 (Uniqueness)</h3>
+
+<ul>
+  <li>심벌을 생성될 때마다 항상 유일한 값을 생성합니다.</li>
+  <li>같은 설명(description)으로 심벌을 여러 번 생성해도 서로 완벽히 다른 고유값을 갖습니다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="nx">b</span><span class="p">);</span> <span class="c1">// false (서로 다른 고유한 값)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="12-충돌방지-collition-prevention">1.2 충돌방지 (Collition prevention)</h3>
+
+<ul>
+  <li>문자열이나 숫자는 프로퍼티 키로 쓰일 때 쉽게 중복될 수 있고, 충돌이 발생할 수 있습니다.</li>
+  <li>심벌을 사용하면 절대적으로 충돌하지 않는 프로퍼티 키를 만들 수 있습니다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 일반 문자열 키는 충돌 위험 존재</span>
+<span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">id</span><span class="p">:</span> <span class="mi">123</span>
+<span class="p">};</span>
+
+<span class="c1">// 나중에 실수로 덮어쓰기 가능</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="mi">456</span><span class="p">;</span>
+
+<span class="c1">// 심벌을 사용하면 충돌 위험이 사라짐</span>
+<span class="kd">const</span> <span class="nx">userId</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">user</span><span class="p">[</span><span class="nx">userId</span><span class="p">]</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+
+<span class="c1">// 절대로 다른 값으로 덮어쓸 위험이 없음</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="13-내부적인-은닉과-보호-encapsulation--protection">1.3 내부적인 은닉과 보호 (Encapsulation &amp; Protection)</h3>
+
+<ul>
+  <li>심벌은 일반적인 문자열 키와 달리 외부 코드에서 쉽게 접근할 수 없습니다.</li>
+  <li>따라서 특정 프로퍼티를 보호하거나 은닉할 때 유용합니다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">PASSWORD</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">password</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Alice</span><span class="dl">'</span><span class="p">,</span>
+  <span class="p">[</span><span class="nx">PASSWORD</span><span class="p">]:</span> <span class="dl">'</span><span class="s1">1234</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">PASSWORD</span><span class="p">);</span> <span class="c1">// undefined (일반적인 방법으로 접근 불가)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">[</span><span class="nx">PASSWORD</span><span class="p">]);</span> <span class="c1">// 1234 (정확한 심벌로만 접근 가능)</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="14-표준-인터페이스-구현-well-known-symbols">1.4 표준 인터페이스 구현 (Well-known Symbols)</h3>
+
+<ul>
+  <li>자바스크립트는 내장기능을 위해 잘 알려진 심벌(well-known symbols)을 제공합니다.</li>
+  <li>이를 통해 자바스크립트의 기본 동작을 재정의 할 수 있습니다.</li>
+</ul>
+
+<p>예를 들어 <code class="language-plaintext highlighter-rouge">Symbol.iterator</code>를 통해 객체가 이터러블하게 만들 수 있습니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">iterable</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nx">iterator</span><span class="p">]()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nf">next</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="nx">i</span><span class="o">++</span><span class="p">,</span> <span class="na">done</span><span class="p">:</span> <span class="nx">i</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="p">};</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">val</span> <span class="k">of</span> <span class="nx">iterable</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span> <span class="c1">// 0, 1, 2</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<p>🧐 Q. 심벌 값도 문자열, 숫자, 불리언과 같이 객체처럼 접근하면 암묵적으로 ‘래퍼 객체’를 생성한다. 그 의미는 무엇인가?</p>
+
+<p>Answer)</p>
+
+<p><strong>“래퍼(wrapper) 객체를 생성한다”</strong> 는 의미는 자바스크립트에서 <strong>원시 값(primitive type)</strong>을 일시적으로 객체처럼 다루기 위해 <strong>임시 객체(래퍼 객체)</strong> 를 생성하는 과정을 의미합니다.</p>
+
+<p>쉽게 설명하면, 자바스크립트에서는 <strong>원시 값(숫자, 문자열, 불리언, 심벌 등)</strong> 자체에는 프로퍼티나 메서드를 추가할 수 없습니다. 그렇기 때문에 원시 값에 내장된 메서드나 프로퍼티(예: <code class="language-plaintext highlighter-rouge">.toString()</code>, <code class="language-plaintext highlighter-rouge">.description</code>)를 호출할 때, <strong>자바스크립트 엔진이 자동으로 임시 객체(래퍼 객체)를 생성하여 접근</strong>하도록 합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">mySymbol</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">mySymbol</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// 심벌 값 자체는 원시 값이므로 프로퍼티가 없음.</span>
+<span class="c1">// 하지만 description이나 toString을 사용할 때는 </span>
+<span class="c1">// 임시 래퍼 객체(Symbol.prototype 객체)를 생성하여 접근함.</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">mySymbol</span><span class="p">.</span><span class="nx">description</span><span class="p">);</span>    <span class="c1">// 'mySymbol'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">mySymbol</span><span class="p">.</span><span class="nf">toString</span><span class="p">());</span>     <span class="c1">// 'Symbol(mySymbol)'</span>
+
+<span class="c1">// 아래 코드와 같은 내부 동작이 발생 (사용자는 못 봄!)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">((</span><span class="nc">Object</span><span class="p">(</span><span class="nx">mySymbol</span><span class="p">)).</span><span class="nx">description</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">((</span><span class="nc">Object</span><span class="p">(</span><span class="nx">mySymbol</span><span class="p">)).</span><span class="nf">toString</span><span class="p">());</span>
+
+<span class="c1">// mySymbol은 원시 값이므로 객체처럼 프로퍼티에 접근할 수 없습니다.</span>
+<span class="c1">// 하지만 프로퍼티 접근 시, 자바스크립트가 원시 값을 임시적으로 객체화시켜줍니다.</span>
+<span class="c1">// 이때 생성된 임시 객체를 래퍼(Wrapper)객체라고 부른다.</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>🧐 Q. “심벌이 외부에 노출되지 않는다.”의 정확한 의미는 무엇인가요?”</p>
+
+<p>Answer)</p>
+
+<p>심벌이 가진 실제 내부값(자바스크립트 엔진이 관리하는 고유한 값)은 절대로 외부에서 볼 수 없고 직접 접근할 수도 없습니다. 심벌은 생성 시 옵션으로 주어지는 설명(description)만 우리가 볼 수 있을 뿐, 실제 심벌의 내부 값 자체는 코드상에서 접근하거나 알 수 없다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Symbol로 비밀 데이터를 보호하는 예시</span>
+<span class="kd">const</span> <span class="nx">SECRET_KEY</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">();</span>
+
+<span class="c1">// 중요한 정보를 저장하는 객체</span>
+<span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Alice</span><span class="dl">'</span><span class="p">,</span>
+  <span class="p">[</span><span class="nx">SECRET_KEY</span><span class="p">]:</span> <span class="dl">'</span><span class="s1">비밀번호123!</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="c1">// 객체 출력 시</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span> 
+<span class="c1">// { name: 'Alice', [Symbol()]: '비밀번호123!' }</span>
+
+<span class="c1">// 일반적 접근 시도</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">SECRET_KEY</span><span class="p">);</span>       <span class="c1">// ❌ undefined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">[</span><span class="dl">'</span><span class="s1">SECRET_KEY</span><span class="dl">'</span><span class="p">]);</span>    <span class="c1">// ❌ undefined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">[</span><span class="nc">Symbol</span><span class="p">()]);</span>        <span class="c1">// ❌ undefined (새로운 심벌)</span>
+
+<span class="c1">// 실제 SECRET_KEY 심벌을 알지 못하면 절대 접근할 수 없음</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">[</span><span class="nx">SECRET_KEY</span><span class="p">]);</span>      <span class="c1">// ✅ '비밀번호123!'</span>
+<span class="c1">// 객체 생성시 사용했던 동익한 심벌값이 저장된 변수를 가지고 있어야만 접근 가능하다.</span>
+
+</code></pre></div></div>
+
+<p>즉, 심벌 값 자체는 개발자의 코드 영역에서 확인 불가능한, 엔진 내부의 고유한 값으로 유지됩니다.</p>
+
+<p>이러한 심벌의 특성이 바로 보완적으로 중요한 정보를 보호하거나 충돌 없는 고유 키를 만드는 데 사용되는 이유입니다.</p>
+
+<p><strong>&lt;⭐️ 핵심포인트&gt;</strong></p>
+
+<p>1) <strong>심벌(Symbol)</strong>을 객체 프로퍼티의 키로 사용하는 경우,  이 프로퍼티에 접근하려면 반드시 해당 <strong>심벌 그 자체</strong>를 가지고 있어야만 접근할 수 있습니다. (= 심벌값을 갖고있는 객체명을 알아야 한다.)</p>
+
+<ol>
+  <li>즉, 프로퍼티 키로 사용된 심벌 값을 변수로 저장했다면,  <strong>이 변수만 있으면 언제든 접근할 수 있습니다.</strong> (=심벌값을 할당한 프로퍼티 키의 명을 알아야 한다.)</li>
+</ol>
+
+<p><br /><br /></p>
+
+<h2 id="2-심벌값의-공유">2. 심벌값의 공유</h2>
+
+<h3 id="21-symbofor--란">2.1 <code class="language-plaintext highlighter-rouge">Symbo.for( )</code> 란?</h3>
+
+<p>자바스크립트의 전역 심벌 레지스트리(Global Symbol Registry)라는 공간에 심벌을 저장하거나, 이미 저장된 심벌을 가져오는 메서드입니다.</p>
+
+<ul>
+  <li>전역에서 동일한 심벌을 공유할 수 있도록 도와줍니다.</li>
+  <li>키를 기준으로 심벌을 공유하며, 키가 같으면 항상 같은 신벌을 반환합니다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">sym1</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">myKey</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">sym2</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">myKey</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">sym1</span> <span class="o">===</span> <span class="nx">sym2</span><span class="p">);</span> <span class="c1">// ✅ true (전역에서 같은 심벌을 참조)</span>
+</code></pre></div></div>
+
+<p>Q. 언제 사용할까?</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 라이브러리 코드</span>
+<span class="kd">const</span> <span class="nx">LIB_CONFIG</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// 사용자 코드</span>
+<span class="kd">const</span> <span class="nx">userConfig</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">)]:</span> <span class="p">{</span>
+    <span class="na">debug</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 어디서든 같은 심벌로 접근 가능</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">)]);</span> <span class="c1">// { debug: true }</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="22-symbokeyfor--란">2.2 <code class="language-plaintext highlighter-rouge">Symbo.keyFor( )</code> 란?</h3>
+
+<p><code class="language-plaintext highlighter-rouge">Symbol.keyFor()</code>는 전역 심벌 레지스트리에서 <strong>심벌의 키를 찾아 반환하는 메서드</strong>입니다.</p>
+
+<ul>
+  <li>오직 전역 심벌 레지스트리에서만 동작합니다.</li>
+  <li>즉, 전역에서 생성한 심벌(Symbol.for)에만 적용됩니다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">s1</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">myKey</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">s2</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">myKey</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">keyFor</span><span class="p">(</span><span class="nx">s1</span><span class="p">));</span> <span class="c1">// ✅ 'myKey' (전역 레지스트리에서 찾음)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">keyFor</span><span class="p">(</span><span class="nx">s2</span><span class="p">));</span> <span class="c1">// ❌ undefined (일반 심벌이므로 전역에 없음)</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>🧐 Q. Symbole의 본질은 고유성임에도 불구하고, symbol.for 메서드가 전역 심벌 레지스트리에 저장하는 이유는 무엇인가요?</p>
+
+<p>Answer)</p>
+
+<p>모든 Symbol이 매번 고유하다면, 다음과 같은 문제가 발생할 수 있습니다.</p>
+
+<ul>
+  <li>서로 다른 모듈, 서로 다른 파일, 서로 다른 라이브러리에서 같은 의미로 사용하는 Symbol을 매번 생성하면, 사실상 같은 역할의 Symbol임에도 서로 다른 Symbol이 되어 관리가 어렵습니다.</li>
+  <li>이렇게 되면 공통의 목적(ex: 특정라이브러리나 프레임워크의 설정)을 가진 Symbol 값을 여러 곳에서 사용할 때 일관성이 떨어집니다.</li>
+</ul>
+
+<p>예를 들어, 두개의 다른 파일에서 다음과 같이 Symbol을 사용했다고 생각해보면</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 파일 A.js</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">KEY</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">myKey</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// 파일 B.js</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">KEY</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">myKey</span><span class="dl">'</span><span class="p">);</span>
+
+</code></pre></div></div>
+
+<p>이때, 두 Symbol은 고유하지만 서로 다르기 때문에 동일한 역할을 수행하기 어렵습니다.</p>
+
+<p><br /></p>
+
+<p>(Solution) 전역 심벌 레지스토리를 통해 얻는 이점(Symbol.for 사용)</p>
+
+<p>이런 상황에서 Symbol.for를 사용하면, 같은 키로 호출된 Symbol이 하나의 전역적인 Symbol로 관리되어 공유가 가능합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 파일 A.js</span>
+<span class="kd">const</span> <span class="nx">KEY</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">sharedKey</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// 파일 B.js</span>
+<span class="kd">const</span> <span class="nx">KEY</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">sharedKey</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// A.js 와 B.js 에서 얻은 KEY 는 동일함</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">KEY</span> <span class="o">===</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">sharedKey</span><span class="dl">'</span><span class="p">));</span> <span class="c1">// true</span>
+
+</code></pre></div></div>
+
+<p>이러한 방식을 사용하면 애플리케이션 전반에서 공통적으로 쓰이는 Symbol을 효율적이고 충돌 없이 관리할 수 있게 된다.</p>
+
+<ul>
+  <li>Symbol.for를 사용하면 전역에서 Symbol을 공유할 수 있다.</li>
+  <li>같은 문자열 키로 접근할 경우 항상 동일한 Symbol이 반환된다.</li>
+  <li>이는 애플리케이션 전체적으로 의미가 공유되는 Symbol을 다룰 때 매우 유용합니다.</li>
+</ul>
+
+<p><br /></p>
+
+<p>전역 Symbol 사용 예시</p>
+
+<ul>
+  <li>라이브러리의 설정이나 상태 관리</li>
+  <li>글로벌 상태 객체에 접근할 때의 키</li>
+  <li>프레임워크나 라이브러리에서 내부적으로 공유되어야 하는 특별한 값이나 설정 값들</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 라이브러리 코드</span>
+<span class="kd">const</span> <span class="nx">LIB_CONFIG</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// 사용자 코드</span>
+<span class="kd">const</span> <span class="nx">userConfig</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">)]:</span> <span class="p">{</span>
+    <span class="na">option</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+</code></pre></div></div>
+
+<p>이렇게 하면 라이브러리와 사용자 코드에서 서로 동일한 Symbol로 안전하게 소통할 수 있다.</p>
+
+<ul>
+  <li>일반 Symbol: <strong>항상 고유한 값 생성 (중복 절대 없음)</strong></li>
+  <li>전역 Symbol(Symbol.for): <strong>고유성 + 전역에서 공유 가능 (동일한 키 사용 시 같은 Symbol 반환)</strong></li>
+</ul>
+
+<p>즉, Symbol이 기본적으로 충돌 없는 고유성을 제공하지만, 때로는 <strong>“동일한 목적을 위한 Symbol을 공유할 수 있는 방법”</strong>도 필요하기 때문에 <strong>전역 심벌 레지스트리(Symbol.for)</strong> 가 존재하는 것입니다.</p>
+
+<p><br /></p>
+
+<p>(1) 문자열 키로 정의한 경우</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">userConfig</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">option</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 접근 방법</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">[</span><span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">]);</span>  <span class="c1">// ✅ { option: true }</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">[</span><span class="dl">"</span><span class="s2">library.config</span><span class="dl">"</span><span class="p">]);</span>  <span class="c1">// ✅ { option: true }</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">.</span><span class="nx">library</span><span class="p">.</span><span class="nx">config</span><span class="p">);</span>     <span class="c1">// 🚨 Error 발생 (library 속성이 없음)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">[</span><span class="dl">'</span><span class="s1">library</span><span class="dl">'</span><span class="p">][</span><span class="dl">'</span><span class="s1">config</span><span class="dl">'</span><span class="p">]);</span> <span class="c1">// 🚨 Error 발생 (library 속성이 없음)</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>문자열로만 직접 접근 가능</strong>하며, 반드시 문자열 키 자체로 접근해야 합니다.</p>
+  </li>
+  <li>
+    <p><strong>점(<code class="language-plaintext highlighter-rouge">.</code>)</strong> 표기법으로는 키에 특수문자(<code class="language-plaintext highlighter-rouge">.</code>)가 있기 때문에 바로 접근할 수 없습니다.</p>
+  </li>
+</ul>
+
+<p>(2) 심벌(Symbol) 키로 정의한 경우</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">userConfig</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">)]:</span> <span class="p">{</span>
+    <span class="na">option</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 접근 방법</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">)]);</span> <span class="c1">// ✅ { option: true }</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">[</span><span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">]);</span>             <span class="c1">// ❌ undefined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">.</span><span class="nx">library</span><span class="p">);</span>                       <span class="c1">// ❌ undefined</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li><strong>반드시 심벌을 통해서만 접근 가능</strong>하며, 문자열 키로는 접근 불가능합니다.</li>
+  <li>즉, 심벌 자체를 모르면 외부에서 직접 접근할 수 없습니다. (일종의 은닉 효과)</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="3-심벌로-상수를-정의할-때의-장점">3. 심벌로 상수를 정의할 때의 장점</h2>
+
+<h3 id="31-완벽한-고유성">3.1 완벽한 고유성</h3>
+
+<ul>
+  <li>같은 설명(description)으로 두번 생성해도 서로 다른 값이 생성됩니다.</li>
+</ul>
+
+<h3 id="32-상수의-의미-명확성">3.2 상수의 의미 명확성</h3>
+
+<ul>
+  <li>심벌의 설명(description)을 통해 각 상수가 무슨 의미인지 명확히 나타낼 수 있습니다.</li>
+</ul>
+
+<h3 id="33-안전성과-신뢰성">3.3 안전성과 신뢰성</h3>
+
+<ul>
+  <li>프로퍼티가 외부에서 실수로 변경되거나 덮어씌어질 가능성이 현저히 줄어듭니다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Ex</span><span class="p">.</span> <span class="err">①</span> <span class="nx">숫자</span> <span class="nx">상수</span> <span class="nx">방식</span>
+<span class="c1">// 숫자 상수 방식</span>
+<span class="kd">const</span> <span class="nx">Direction</span> <span class="o">=</span> <span class="p">{</span> <span class="na">UP</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">DOWN</span><span class="p">:</span> <span class="mi">2</span> <span class="p">};</span>
+
+<span class="c1">// 실수로 다른 값과 충돌 가능</span>
+<span class="kd">const</span> <span class="nx">Status</span> <span class="o">=</span> <span class="p">{</span> <span class="na">SUCCESS</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">FAIL</span><span class="p">:</span> <span class="mi">0</span> <span class="p">};</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">Direction</span><span class="p">.</span><span class="nx">UP</span> <span class="o">===</span> <span class="nx">Status</span><span class="p">.</span><span class="nx">SUCCESS</span><span class="p">);</span> <span class="c1">// true (충돌 발생)</span>
+
+
+<span class="nx">Ex</span><span class="p">.</span> <span class="err">②</span> <span class="nx">심벌</span> <span class="nx">상수</span> <span class="nx">방식</span>
+<span class="c1">// 심벌 상수 방식</span>
+<span class="kd">const</span> <span class="nx">Direction</span> <span class="o">=</span> <span class="p">{</span> <span class="na">UP</span><span class="p">:</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">up</span><span class="dl">'</span><span class="p">),</span> <span class="na">DOWN</span><span class="p">:</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">down</span><span class="dl">'</span><span class="p">)</span> <span class="p">};</span>
+
+<span class="c1">// 다른 객체가 비슷한 설명을 사용해도 충돌 불가능</span>
+<span class="kd">const</span> <span class="nx">Status</span> <span class="o">=</span> <span class="p">{</span> <span class="na">SUCCESS</span><span class="p">:</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">up</span><span class="dl">'</span><span class="p">),</span> <span class="na">FAIL</span><span class="p">:</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">fail</span><span class="dl">'</span><span class="p">)</span> <span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">Direction</span><span class="p">.</span><span class="nx">UP</span> <span class="o">===</span> <span class="nx">Status</span><span class="p">.</span><span class="nx">SUCCESS</span><span class="p">);</span> <span class="c1">// false (절대 충돌하지 않음)</span>
+
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="4-표준-객체의-프로퍼티-키와-사용자-정의-프로퍼티-키의-충돌-가능성-문제">4. 표준 객체의 프로퍼티 키와 사용자 정의 프로퍼티 키의 충돌 가능성 문제</h2>
+
+<h3 id="41-왜-기존-객체의-프로퍼티를-임의로-추가하면-문제가-될까">4.1 왜 기존 객체의 프로퍼티를 임의로 추가하면 문제가 될까?</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 사용자가 Array 프로토타입에 sum 메서드를 추가함</span>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sum</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nf">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">acc</span> <span class="o">+</span> <span class="nx">cur</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">].</span><span class="nf">sum</span><span class="p">();</span>  <span class="c1">// 3</span>
+
+</code></pre></div></div>
+
+<h3 id="-문제-상황">💥 <strong>문제 상황</strong></h3>
+
+<p>만약 미래의 자바스크립트 표준에서 <strong>똑같은 이름(<code class="language-plaintext highlighter-rouge">sum</code>)을 가진 메서드</strong>가 내장 객체에 추가된다면 어떻게 될까요?</p>
+
+<ul>
+  <li>표준에서 나중에 공식적으로 <code class="language-plaintext highlighter-rouge">.sum()</code> 메서드를 추가하면,
+사용자가 추가한 메서드는 덮어 쓰여져서 충돌이 일어나거나, 예상치 못한 동작을 유발할 수 있습니다.</li>
+</ul>
+
+<p>실제 비슷한 사례가 있었습니다.
+ 과거 사용자들이 직접 만든 <code class="language-plaintext highlighter-rouge">Array.prototype.find</code> 메서드가, 나중에 ES6에서 도입된 내장 <code class="language-plaintext highlighter-rouge">Array.prototype.find</code> 메서드와 충돌한 사례입니다.</p>
+
+<p><br /></p>
+
+<h3 id="42-해결책--심벌symbol을-사용하여-충돌-방지">4.2 해결책 → 심벌(Symbol)을 사용하여 충돌 방지</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 심벌 키로 sum 메서드를 안전하게 추가</span>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">sum</span><span class="dl">'</span><span class="p">)]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nf">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">acc</span> <span class="o">+</span> <span class="nx">cur</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">][</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">sum</span><span class="dl">'</span><span class="p">)]());</span> <span class="c1">// 3</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>향후 표준이 추가되더라도 충돌이나 덮어쓰기 위험이 없습니다.</li>
+</ul>
+
+<p><br /><br /><br /></p>
+
+<h4 id="reference-모던자바스크립트-deep-dive-33장-symbol"><span style="color:grey">reference: 모던자바스크립트 Deep Dive 33장. Symbol</span></h4>
+</div>
+
+        
+        <div class="categories">
+        
+
+
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/development">
+  Development
+</a>
+
+</div>
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/javascript">
+  Javascript
+</a>
+
+</div>
+  
+
+        
+        </div>
+
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="section section-base-bg-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"></div>
+        <div class="subscribe">
+  <div class="row">
+    <div class="col-12 col-md-4 mb-2 mb-md-0">
+      <h2 class="">Let's keep in touch</h2>
+    </div>
+
+    <div class="co-12 col-md-8">
+      <div id="mc_embed_signup">
+        <form action="https://zerostatic.us21.list-manage.com/subscribe/post?u=798e19886b83aaab346734382&amp;id=f1c526a772&amp;f_id=0027e3e6f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="subscribe-form" target="_blank" novalidate>
+          <div class="subscribe-fields">
+            <input class="required email" id="mce-EMAIL" name="EMAIL" placeholder="Your email address" type="email" value="" />
+            <div aria-hidden="true" style="position: absolute; left: -5000px"><input name="b_675276692aebec1c007f8156d_3e3da720c2" tabindex="-1" type="text" value="" /></div>
+            <input type="submit" value="Submit" />
+          </div>
+          <div class="subscribe-responses" id="mce-responses">
+            <div class="response response-error" id="mce-error-response" style="display: none"></div>
+            <div class="response response-success" id="mce-success-response" style="display: none"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+<script type="text/javascript" src="/assets/js/scripts.js"></script>
+
+<script type="text/javascript" src="/assets/js/hamburger.js"></script>
+<script type="text/javascript" src="/assets/js/darkModeSwitch.js"></script>
+
+
+
+
+
+</body>
+</html>
