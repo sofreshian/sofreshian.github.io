@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <title>33. Event - Jekyll Curate</title>
+
+
+  <meta name="description" content="이벤트는 사용자나 시스템의 변화가 발생했음을 브라우저가 감지하고, 미리 등록된 핸들러를 호출해 프로그램의 흐름을 결정하는 메커니즘"/>
+
+
+
+    <meta property="og:type" content="website"/>
+<meta property="og:url" content="http://localhost:4000/blog/2025-11-30-33.Event/"/>
+
+
+  <meta property="og:title" content="33. Event"/>
+
+
+
+  <meta property="og:description" content="이벤트는 사용자나 시스템의 변화가 발생했음을 브라우저가 감지하고, 미리 등록된 핸들러를 호출해 프로그램의 흐름을 결정하는 메커니즘"/>
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@zerostaticio" />
+<meta name="twitter:creator" content="@zerostaticio" />
+    <link rel="alternate" type="application/atom+xml" title="Jekyll Curate" href="/feed.xml">
+    <link rel="icon" href="/assets/images/favicon/favicon.png">
+
+
+    <link href="/assets/css/main.css" rel="stylesheet">
+
+    
+      <script>
+          localStorage.getItem('darkMode') === 'true' && document.documentElement.setAttribute('data-bs-theme', 'dark');
+      </script>
+    
+
+    
+      <!-- https://github.com/orestbida/cookieconsent -->
+
+<link rel="stylesheet" href="/assets/css/cookieconsent.css">
+<script defer src="/assets/js/cookieconsent.js"></script>
+
+<!-- Inline script -->
+<script>
+    window.addEventListener('load', function () {
+
+        // obtain plugin
+        var cc = initCookieConsent();
+
+        // run plugin with your configuration
+        cc.run({
+            current_lang: 'en',
+            autoclear_cookies: true,                   // default: false
+            page_scripts: true,                        // default: false
+
+            // mode: 'opt-in'                          // default: 'opt-in'; value: 'opt-in' or 'opt-out'
+            // delay: 0,                               // default: 0
+            // auto_language: '',                      // default: null; could also be 'browser' or 'document'
+            // autorun: true,                          // default: true
+            // force_consent: false,                   // default: false
+            // hide_from_bots: true,                   // default: true
+            // remove_cookie_tables: false             // default: false
+            // cookie_name: 'cc_cookie',               // default: 'cc_cookie'
+            // cookie_expiration: 182,                 // default: 182 (days)
+            // cookie_necessary_only_expiration: 182   // default: disabled
+            // cookie_domain: location.hostname,       // default: current domain
+            // cookie_path: '/',                       // default: root
+            // cookie_same_site: 'Lax',                // default: 'Lax'
+            // use_rfc_cookie: false,                  // default: false
+            // revision: 0,                            // default: 0
+
+            onFirstAction: function (user_preferences, cookie) {
+                // callback triggered only once on the first accept/reject action
+            },
+
+            onAccept: function (cookie) {
+                // callback triggered on the first accept/reject action, and after each page load
+            },
+
+            onChange: function (cookie, changed_preferences) { 
+                // If analytics category is disabled => disable google analytics 
+                if (!cc.allowedCategory('analytics')) { 
+                    typeof gtag === 'function' && gtag('consent', 'update', { 
+                        'analytics_storage': 'denied' 
+                    }); 
+                } 
+            }, 
+
+            languages: {
+                'en': {
+                    consent_modal: {
+                        title: 'We use cookies!',
+                        description: 'Hi, this website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
+                        primary_btn: {
+                            text: 'Accept all',
+                            role: 'accept_all'              // 'accept_selected' or 'accept_all'
+                        },
+                        secondary_btn: {
+                            text: 'Reject all',
+                            role: 'accept_necessary'        // 'settings' or 'accept_necessary'
+                        }
+                    },
+                    settings_modal: {
+                        title: 'Cookie preferences',
+                        save_settings_btn: 'Save settings',
+                        accept_all_btn: 'Accept all',
+                        reject_all_btn: 'Reject all',
+                        close_btn_label: 'Close',
+                        // cookie_table_caption: 'Cookie list',
+                        cookie_table_headers: [
+                            { col1: 'Name' },
+                            { col2: 'Domain' },
+                            { col3: 'Expiration' },
+                            { col4: 'Description' }
+                        ],
+                        blocks: [
+                            {
+                                title: 'Cookie usage 📢',
+                                description: 'I use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want. For more details relative to cookies and other sensitive data, please read the full <a href="#" class="cc-link">privacy policy</a>.'
+                            }, {
+                                title: 'Strictly necessary cookies',
+                                description: 'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly',
+                                toggle: {
+                                    value: 'necessary',
+                                    enabled: true,
+                                    readonly: true          // cookie categories with readonly=true are all treated as "necessary cookies"
+                                }
+                            }, {
+                                title: 'Performance and Analytics cookies',
+                                description: 'These cookies allow the website to remember the choices you have made in the past',
+                                toggle: {
+                                    value: 'analytics',     // your cookie category
+                                    enabled: false,
+                                    readonly: false
+                                },
+                                cookie_table: [             // list of all expected cookies
+                                    {
+                                        col1: '^_ga',       // match all cookies starting with "_ga"
+                                        col2: 'google.com',
+                                        col3: '2 years',
+                                        col4: 'description ...',
+                                        is_regex: true
+                                    },
+                                    {
+                                        col1: '_gid',
+                                        col2: 'google.com',
+                                        col3: '1 day',
+                                        col4: 'description ...',
+                                    }
+                                ]
+                            },
+                            {
+                                title: 'More information',
+                                description: 'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="#yourcontactpage">contact us</a>.',
+                            }
+                        ]
+                    }
+                }
+            }
+        });
+    });
+</script>
+    
+
+    
+
+    <link href="/assets/css/fonts.css" rel="stylesheet">
+
+
+
+
+    
+
+  </head>
+<body class="page page-post has-static-header">
+
+
+<div class="menu-main-mobile " id="menu-main-mobile">
+  
+  <div class="menu-main-mobile-top">
+    <div id="close-overlay" class="menu-main-close">
+      <div class="hamburger"></div>
+    </div>
+  </div>
+
+  <div class="menu-main-mobile-center">
+    
+      <ul class="menu">
+        
+          <li class="menu-item-home">
+            <a href="/">Home</a>
+          </li>
+        
+          <li class="menu-item-projects">
+            <a href="/projects/">Projects</a>
+          </li>
+        
+          <li class="menu-item-blog">
+            <a href="/blog/">Blog</a>
+          </li>
+        
+          <li class="menu-item-contact">
+            <a href="/contact/">Contact</a>
+          </li>
+        
+      </ul>
+    
+  </div>
+
+  <div class="menu-main-mobile-bottom">
+    
+    
+      <div class="dark-mode-switcher " id="dark-mode-container">
+  <div class="dark-mode-switch">
+    <svg class="dark-mode-icon-dark" data-name="Layer 1" fill="#000000" height="20px" viewbox="0 0 64 64" width="20px" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <title>essential</title>
+      <path d="M33.28,58.24A26.95,26.95,0,0,1,24,6l.39-.13a2,2,0,0,1,2.4,2.87,22.42,22.42,0,0,0-1.51,18.75h0A22.47,22.47,0,0,0,54.09,40.8l.76-.3a2,2,0,0,1,2.24.48,2,2,0,0,1,.35,2.24,27,27,0,0,1-24.16,15ZM21.11,11.85a22.94,22.94,0,1,0,30,33.91A26.46,26.46,0,0,1,21.53,28.87h0A26.4,26.4,0,0,1,21.11,11.85Z"></path>
+    </svg>
+    <svg class="dark-mode-icon-light" fill="#000000" height="20px" style="enable-background: new 0 0 100 100;" version="1.1" viewbox="0 0 100 100" width="20px" x="0px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <g>
+        <path d="M50,75c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S63.8,75,50,75z M50,33.3c-9.2,0-16.7,7.5-16.7,16.7   c0,9.2,7.5,16.7,16.7,16.7c9.2,0,16.7-7.5,16.7-16.7C66.7,40.8,59.2,33.3,50,33.3z"></path>
+      </g>
+      <g>
+        <path d="M50,100c-2.3,0-4.2-1.9-4.2-4.2v-8.3c0-2.3,1.9-4.2,4.2-4.2c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,98.1,52.3,100,50,100z    M17.5,86.7c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8   C19.6,86.3,18.6,86.7,17.5,86.7z M82.5,86.7c-1.1,0-2.1-0.4-2.9-1.2l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9s4.3-1.6,5.9,0l5.8,5.8   c1.6,1.6,1.6,4.3,0,5.9C84.6,86.3,83.6,86.7,82.5,86.7z M95.8,54.2h-8.3c-2.3,0-4.2-1.9-4.2-4.2c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C100,52.3,98.1,54.2,95.8,54.2z M12.5,54.2H4.2C1.9,54.2,0,52.3,0,50c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C16.7,52.3,14.8,54.2,12.5,54.2z M76.7,27.5c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8   c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8C78.8,27.1,77.7,27.5,76.7,27.5z M23.3,27.5c-1.1,0-2.1-0.4-2.9-1.2   l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9c1.6-1.6,4.3-1.6,5.9,0l5.8,5.8c1.6,1.6,1.6,4.3,0,5.9C25.5,27.1,24.4,27.5,23.3,27.5z M50,16.7   c-2.3,0-4.2-1.9-4.2-4.2V4.2C45.8,1.9,47.7,0,50,0c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,14.8,52.3,16.7,50,16.7z"></path>
+      </g>
+    </svg>
+    <div class="ball"></div>
+  </div>
+</div>
+    
+  </div>
+
+</div>
+
+
+
+
+<div id="header" class='header '>
+  <div class="container">
+    <div class="logos">
+  <div class="logo logo-desktop">
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo.png"/>
+        </a>
+      </div>
+    
+  
+    
+    
+  </div>
+
+  <div class="logo logo-desktop-invert">
+    
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo-invert.png"/>
+        </a>
+      </div>
+    
+  
+    
+    
+  </div>
+
+  <div class="logo logo-mobile">
+    
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo-mobile.png"/>
+        </a>
+      </div>
+    
+  
+    
+    
+  </div>
+
+
+  <div class="logo logo-mobile-invert">
+    
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo-invert-mobile.png"/>
+        </a>
+      </div>
+    
+  
+    
+
+  </div>
+
+</div>
+
+
+    <div class="menu-main">
+  <ul>
+    
+      
+        
+        <li class=" ">
+          <a href="/" >Home</a>
+        </li>
+      
+    
+      
+        
+        <li class=" ">
+          <a href="/projects/" >Projects</a>
+        </li>
+      
+    
+      
+
+        
+        
+
+        <li class="menu-item-dropdown menu-item-Blog ">
+          <a href="/blog/">Blog <i class="fa-solid fa-chevron-down"></i></a>
+          
+          <div class="dropdown-menu">
+            
+              <a href="/category/javascript/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Javascript</div>
+                  
+                </div>
+              </a>
+            
+              <a href="/category/algorithm/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Algorithm</div>
+                  
+                </div>
+              </a>
+            
+          </div>
+
+        </li>
+      
+    
+      
+        
+        <li class=" ">
+          <a href="/contact/" >Contact</a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+    
+      <div class="dark-mode-switcher " id="dark-mode-container">
+  <div class="dark-mode-switch">
+    <svg class="dark-mode-icon-dark" data-name="Layer 1" fill="#000000" height="20px" viewbox="0 0 64 64" width="20px" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <title>essential</title>
+      <path d="M33.28,58.24A26.95,26.95,0,0,1,24,6l.39-.13a2,2,0,0,1,2.4,2.87,22.42,22.42,0,0,0-1.51,18.75h0A22.47,22.47,0,0,0,54.09,40.8l.76-.3a2,2,0,0,1,2.24.48,2,2,0,0,1,.35,2.24,27,27,0,0,1-24.16,15ZM21.11,11.85a22.94,22.94,0,1,0,30,33.91A26.46,26.46,0,0,1,21.53,28.87h0A26.4,26.4,0,0,1,21.11,11.85Z"></path>
+    </svg>
+    <svg class="dark-mode-icon-light" fill="#000000" height="20px" style="enable-background: new 0 0 100 100;" version="1.1" viewbox="0 0 100 100" width="20px" x="0px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <g>
+        <path d="M50,75c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S63.8,75,50,75z M50,33.3c-9.2,0-16.7,7.5-16.7,16.7   c0,9.2,7.5,16.7,16.7,16.7c9.2,0,16.7-7.5,16.7-16.7C66.7,40.8,59.2,33.3,50,33.3z"></path>
+      </g>
+      <g>
+        <path d="M50,100c-2.3,0-4.2-1.9-4.2-4.2v-8.3c0-2.3,1.9-4.2,4.2-4.2c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,98.1,52.3,100,50,100z    M17.5,86.7c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8   C19.6,86.3,18.6,86.7,17.5,86.7z M82.5,86.7c-1.1,0-2.1-0.4-2.9-1.2l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9s4.3-1.6,5.9,0l5.8,5.8   c1.6,1.6,1.6,4.3,0,5.9C84.6,86.3,83.6,86.7,82.5,86.7z M95.8,54.2h-8.3c-2.3,0-4.2-1.9-4.2-4.2c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C100,52.3,98.1,54.2,95.8,54.2z M12.5,54.2H4.2C1.9,54.2,0,52.3,0,50c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C16.7,52.3,14.8,54.2,12.5,54.2z M76.7,27.5c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8   c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8C78.8,27.1,77.7,27.5,76.7,27.5z M23.3,27.5c-1.1,0-2.1-0.4-2.9-1.2   l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9c1.6-1.6,4.3-1.6,5.9,0l5.8,5.8c1.6,1.6,1.6,4.3,0,5.9C25.5,27.1,24.4,27.5,23.3,27.5z M50,16.7   c-2.3,0-4.2-1.9-4.2-4.2V4.2C45.8,1.9,47.7,0,50,0c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,14.8,52.3,16.7,50,16.7z"></path>
+      </g>
+    </svg>
+    <div class="ball"></div>
+  </div>
+</div>
+    
+    <div class="hamburger-trigger" id="toggle-menu-main-mobile">
+  <button class="hamburger">Menu</button>
+</div>
+  </div>
+</div>
+
+<div id="wrapper" class="wrapper">     
+  <div class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        
+
+
+
+
+
+
+
+
+
+<div class="heading heading-left">
+  
+  
+  
+  <div class="heading-heading">
+    <h1>33. Event</h1>
+  </div>
+  
+  
+  
+    <div class="heading-description">
+      <p>이벤트는 사용자나 시스템의 변화가 발생했음을 브라우저가 감지하고, 미리 등록된 핸들러를 호출해 프로그램의 흐름을 결정하는 메커니즘</p>
+    </div>
+  
+
+  
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section pt-0">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        
+        
+          <div class="mb-2">
+          
+            
+
+
+
+
+<div class="author">
+  
+
+  
+</div>
+          
+          </div>
+        
+        
+        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">Index</span>
+<span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">Index</span></p>
+
+<ul>
+  <li>
+    <a href="#1-이벤트-드리븐-프로그래밍">① 이벤트 드리븐 프로그래밍</a>
+    <ul>
+      <li><a href="#11-핵심-원리">1.1 핵심 원리</a></li>
+      <li><a href="#12-주요-이벤트-유형">1.2 주요 이벤트 유형</a></li>
+    </ul>
+  </li>
+
+  <li>
+    <a href="#2-이벤트-핸들러-등록-방식">② 이벤트 핸들러 등록 방식</a>
+    <ul>
+      <li><a href="#21-어트리뷰트-방식">2.1 어트리뷰트 방식</a></li>
+      <li><a href="#22-프로퍼티-방식">2.2 프로퍼티 방식</a></li>
+      <li><a href="#23-addeventlistener-방식">2.3 addEventListener 방식</a></li>
+    </ul>
+  </li>
+
+  <li>
+    <a href="#3-이벤트-전파">③ 이벤트 전파 (Event Propagation)</a>
+    <ul>
+      <li><a href="#31-이벤트-전파-단계">3.1 전파 단계</a></li>
+      <li><a href="#32-이벤트-전파-특징">3.2 특징</a></li>
+    </ul>
+  </li>
+
+  <li>
+    <a href="#4-이벤트-객체">④ 이벤트 객체</a>
+    <ul>
+      <li><a href="#41-공통-프로퍼티">4.1 공통 프로퍼티</a></li>
+      <li><a href="#42-이벤트-객체-세부-정보">4.2 세부 정보</a></li>
+    </ul>
+  </li>
+
+  <li>
+    <a href="#5-고급-이벤트-처리-기법">⑤ 고급 이벤트 처리 기법</a>
+    <ul>
+      <li><a href="#51-이벤트-위임">5.1 이벤트 위임</a></li>
+      <li><a href="#52-기본-동작-및-전파-제어">5.2 기본 동작 &amp; 전파 제어</a></li>
+    </ul>
+  </li>
+
+  <li>
+    <a href="#6-이벤트-핸들러-this">⑥ 이벤트 핸들러 내부의 this</a>
+    <ul>
+      <li><a href="#61-어트리뷰트-this">6.1 어트리뷰트 방식</a></li>
+      <li><a href="#62-프로퍼티-this">6.2 프로퍼티 방식</a></li>
+      <li><a href="#63-addeventlistener-this">6.3 addEventListener 방식</a></li>
+      <li><a href="#64-클래스-this-문제">6.4 클래스 예제(this 혼동)</a></li>
+    </ul>
+  </li>
+
+  <li>
+    <a href="#7-이벤트-핸들러-인수-전달">⑦ 이벤트 핸들러에 인수 전달</a>
+  </li>
+
+  <li>
+    <a href="#8-커스텀-이벤트">⑧ 커스텀 이벤트</a>
+    <ul>
+      <li><a href="#81-커스텀-이벤트란">8.1 커스텀 이벤트란?</a></li>
+      <li><a href="#82-커스텀-이벤트의-제약">8.2 커스텀 이벤트의 제약</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<p><strong>🧐 Q. 브라우저가 핸들러를 호출한다는게 무엇일까?</strong></p>
+
+<p>Dom(Document Object Model)은 HTML 문서의 계층적 구조와 정보를 표현하며 이를 제어할 수 있는 API이다.</p>
+
+<p><br /></p>
+
+<h2 id="1-이벤트-드리븐-프로그래밍">1. 이벤트 드리븐 프로그래밍</h2>
+
+<h3 id="11-핵심-원리">1.1 핵심 원리</h3>
+
+<ul>
+  <li>이벤트 발생 → 브라우저가 핸들러 호출 → 앱의 흐름이 결정됨.</li>
+  <li>이벤트 타입은 약 200가지</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="12-주요-이벤트-유형">1.2 주요 이벤트 유형</h3>
+
+<ul>
+  <li>마우스: click, mouseover, mouseenter 등</li>
+  <li>키보드: keydown, keyup</li>
+  <li>포커스: focus, blur</li>
+  <li>폼: submit, reset</li>
+  <li>변경: input, change</li>
+  <li>DOM 로딩: DOMContentLoaded</li>
+  <li>뷰: scroll, resize</li>
+  <li>리소스: load, error 등</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-이벤트-핸들러-등록-방식">2. 이벤트 핸들러 등록 방식</h2>
+
+<h3 id="21-어트리뷰트-방식">2.1 어트리뷰트 방식</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;button onclick = "sayHi()"&gt;</code></li>
+  <li>HTML/JS 혼합 → 유지보수 어려움</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="22-프로퍼티-방식">2.2 프로퍼티 방식</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">element.onclick = fn</code></li>
+  <li>장점: JS와 HTML 분리</li>
+  <li>단점: 1개 핸들러만 바인딩 가능</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="23-addeventlistener-방식">2.3 addEventListener 방식</h3>
+
+<ul>
+  <li>
+    <p>element.addEventListener(‘click’, fn, useCapture)</p>
+  </li>
+  <li>
+    <p>장점</p>
+
+    <ul>
+      <li>
+        <p>여러 핸들러 등록 가능</p>
+
+        <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;button&gt;</span>Click me!<span class="nt">&lt;/button&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>
+      <span class="c1">// 버튼 요소 선택</span>
+      <span class="kd">const</span> <span class="nx">$button</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">button</span><span class="dl">"</span><span class="p">);</span>
+
+      <span class="c1">// addEventListener는 동일 요소에서 동일 이벤트에 대해</span>
+      <span class="c1">// 여러 개의 이벤트 핸들러를 등록할 수 있다.</span>
+      <span class="nx">$button</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">,</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">[1] button click</span><span class="dl">"</span><span class="p">);</span>
+      <span class="p">});</span>
+
+      <span class="nx">$button</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">,</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">[2] button click</span><span class="dl">"</span><span class="p">);</span>
+      <span class="p">});</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>캡처링 제어</p>
+      </li>
+      <li>
+        <p>제거 가능(<code class="language-plaintext highlighter-rouge">removeEventListener</code>)</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>실무/표준에서 가장 많이 사용</p>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="3-이벤트-전파event-propagation">3. 이벤트 전파(Event Propagation)</h2>
+
+<h3 id="31-전파-단계">3.1 전파 단계</h3>
+
+<ol>
+  <li>Capturing: window → target까지 내려옴</li>
+  <li>Target: 실제 이벤트 발생</li>
+  <li>Bubbling: target → window로 올라감</li>
+</ol>
+
+<h3 id="32-특징">3.2 특징</h3>
+
+<ul>
+  <li>기본적으로 버블링 단계에서 핸들러 동작</li>
+  <li>캡처링 사용하려면 등록시 옵션 <code class="language-plaintext highlighter-rouge">true</code></li>
+  <li>버블링되지 않는 이벤트: focus/blur, mouseenter/leave, load/error</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="4-이벤트-객체">4. 이벤트 객체</h2>
+
+<h3 id="41-공통-프로퍼티">4.1 공통 프로퍼티</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">type</code>: 이벤트 타입</li>
+  <li><code class="language-plaintext highlighter-rouge">target</code>: 이벤트 발생 요소</li>
+  <li><code class="language-plaintext highlighter-rouge">currentTarget</code>: 핸들러가 바인딩된 요소</li>
+  <li><code class="language-plaintext highlighter-rouge">eventPhase</code>: 전파 단계</li>
+  <li><code class="language-plaintext highlighter-rouge">bubbles</code>, <code class="language-plaintext highlighter-rouge">cancelable</code>, <code class="language-plaintext highlighter-rouge">isTrusted</code>, <code class="language-plaintext highlighter-rouge">timeStamp</code> 등</li>
+</ul>
+
+<h3 id="42-세부-정보">4.2 세부 정보</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">MouseEvent</code>: 좌표(clientX/Y), 버튼</li>
+  <li><code class="language-plaintext highlighter-rouge">KeyboardEvent</code>: key, code, ctrlKey 등</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="5-고급-이벤트-처리-기법">5. 고급 이벤트 처리 기법</h2>
+
+<h3 id="51-이벤트-위임event-delegation">5.1 이벤트 위임(Event Delegation)</h3>
+
+<ul>
+  <li>상위 요소에 하나의 핸들러만 등록해 하위 요소 이벤트를 처리</li>
+  <li>원리: 버블링</li>
+  <li>예시</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+      <span class="nf">#fruits</span> <span class="p">{</span>
+        <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+        <span class="nl">list-style-type</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+        <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="nf">#fruits</span> <span class="nt">li</span> <span class="p">{</span>
+        <span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+        <span class="nl">cursor</span><span class="p">:</span> <span class="nb">pointer</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="nf">#fruits</span> <span class="nc">.active</span> <span class="p">{</span>
+        <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+        <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">underline</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;nav&gt;</span>
+      <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">"fruits"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">"apple"</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;</span>Apple<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">"banana"</span><span class="nt">&gt;</span>Banana<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">"orange"</span><span class="nt">&gt;</span>Orange<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/nav&gt;</span>
+
+    <span class="nt">&lt;div&gt;</span>선택된 내비게이션 아이템: <span class="nt">&lt;em</span> <span class="na">class=</span><span class="s">"msg"</span><span class="nt">&gt;</span>apple<span class="nt">&lt;/em&gt;&lt;/div&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>
+      <span class="kd">const</span> <span class="nx">$fruits</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">fruits</span><span class="dl">"</span><span class="p">);</span>
+      <span class="kd">const</span> <span class="nx">$msg</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">.msg</span><span class="dl">"</span><span class="p">);</span>
+
+      <span class="c1">// 사용자 클릭에 의해 선택된 li에 active 클래스를 추가하고,</span>
+      <span class="c1">// 나머지 li에서는 active 클래스를 제거한다.</span>
+      <span class="kd">function</span> <span class="nf">activate</span><span class="p">({</span> <span class="nx">target</span> <span class="p">})</span> <span class="p">{</span>
+        <span class="c1">// 이벤트를 발생시킨 요소가 #fruits의 자식 li가 아니면 무시</span>
+        <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nx">target</span><span class="p">.</span><span class="nf">matches</span><span class="p">(</span><span class="dl">"</span><span class="s2">#fruits li</span><span class="dl">"</span><span class="p">))</span> <span class="k">return</span><span class="p">;</span>
+
+        <span class="c1">// 모든 li에 대해 active 클래스를 토글</span>
+        <span class="p">[...</span><span class="nx">$fruits</span><span class="p">.</span><span class="nx">children</span><span class="p">].</span><span class="nf">forEach</span><span class="p">((</span><span class="nx">$fruit</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="nx">$fruit</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nf">toggle</span><span class="p">(</span><span class="dl">"</span><span class="s2">active</span><span class="dl">"</span><span class="p">,</span> <span class="nx">$fruit</span> <span class="o">===</span> <span class="nx">target</span><span class="p">);</span>
+        <span class="p">});</span>
+
+        <span class="c1">// 선택된 과일의 id를 메시지에 표시</span>
+        <span class="nx">$msg</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="c1">// 이벤트 위임: 상위 요소(ul#fruits)가 하위 li 요소의 클릭 이벤트를 한 번에 처리</span>
+      <span class="nx">$fruits</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="nx">activate</span><span class="p">;</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>장점
+    <ul>
+      <li>성능 최적화</li>
+      <li>동적 요소 관리 용이</li>
+      <li>코드 간소화</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="52-기본-동작--전파-제어">5.2 기본 동작 &amp; 전파 제어</h3>
+
+<ul>
+  <li>기본동작 차단: <code class="language-plaintext highlighter-rouge">preventDefault()</code></li>
+</ul>
+
+<p>​ DOM 요소마다 <strong>기본 행동(브라우저가 자동 수행하는 동작)</strong>이 있는데 <strong>'’그 기본 동작을 하지말라’‘</strong>고 브라우저에게 명령하는 것</p>
+
+<p>​ <a> 클릭 → 링크 이동</a></p>
+
+<p>​ <code class="language-plaintext highlighter-rouge">&lt;form&gt;</code> → submit 발생</p>
+
+<p>​ <code class="language-plaintext highlighter-rouge">&lt;checkbox&gt;</code> 클릭 → 체크 상태 변경</p>
+
+<p>​ <code class="language-plaintext highlighter-rouge">&lt;input type="text"&gt;</code> 에서 Enter → 폼 제출</p>
+
+<p>​ <code class="language-plaintext highlighter-rouge">&lt;contextmenu&gt;</code> → 우클릭 메뉴 표시</p>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>전파 중단: <code class="language-plaintext highlighter-rouge">stopPropagation()</code></p>
+
+    <p><strong>“이벤트가 더 이상 부모로 올라가지 못하게 해라.”</strong>라고 브라우저에게 명령하는 것</p>
+  </li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">.btn2</span><span class="dl">"</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nf">stopPropagation</span><span class="p">();</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">blue</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="cm">/*
+btn2는 자기 자신의 클릭 이벤트만 실행
+
+부모 요소 .container에는 이벤트가 전달되지 않음
+→ 그래서 부모의 이벤트 위임이 btn2에는 적용되지 않음
+*/</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="6-이벤트-핸들러-내부의-this">6. 이벤트 핸들러 내부의 this</h2>
+
+<p>JavaScript에서 이벤트 핸들러 내부의 <code class="language-plaintext highlighter-rouge">this</code>는 <strong>이벤트를 등록하는 방식에 따라 달라진다.</strong> 특히 HTML 어트리뷰트 방식, 프로퍼티 방식, 그리고 <code class="language-plaintext highlighter-rouge">addEventListener</code> 방식은 <code class="language-plaintext highlighter-rouge">this</code>의 바인딩 방식이 서로 다르기 때문에 이를 명확하게 이해해야 예측 가능한 코드 작성이 가능하다.</p>
+
+<p><br /></p>
+
+<h3 id="61-이벤트-핸들러-어트리뷰트-방식">6.1 이벤트 핸들러 어트리뷰트 방식</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"handleClick()"</span><span class="nt">&gt;</span>Click me<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="kd">function</span> <span class="nf">handleClick</span><span class="p">(</span><span class="nx">button</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">button</span><span class="p">);</span> <span class="c1">// 클릭한 버튼 요소</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// window</span>
+  <span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<h3 id="어트리뷰트-방식의-핵심-특징"><strong>어트리뷰트 방식의 핵심 특징</strong></h3>
+
+<ul>
+  <li>HTML 어트리뷰트로 지정된 이벤트 핸들러 코드는 <strong>실제로는 암묵적으로 전역 컨텍스트(window)</strong>에서 실행된다.</li>
+  <li>따라서 이벤트 핸들러 내부에서 <code class="language-plaintext highlighter-rouge">this</code>는 <strong>항상 window를 가리킨다.</strong></li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="62-이벤트-핸들러-프로퍼티-방식">6.2 이벤트 핸들러 프로퍼티 방식</h3>
+
+<p>다음은 DOM 요소 객체의 이벤트 프로퍼티(<code class="language-plaintext highlighter-rouge">onclick</code>, <code class="language-plaintext highlighter-rouge">onchange</code> 등)에 직접 핸들러를 할당하는 방식이다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn1"</span><span class="nt">&gt;</span>0<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="kd">const</span> <span class="nx">$button1</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">.btn1</span><span class="dl">"</span><span class="p">);</span>
+
+  <span class="nx">$button1</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="nf">function </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// $button1 (이벤트 바인딩된 DOM 요소)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">);</span> <span class="c1">// $button1</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span> <span class="o">===</span> <span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">);</span> <span class="c1">// true</span>
+  <span class="p">};</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<h3 id="프로퍼티-방식의-핵심-특징"><strong>프로퍼티 방식의 핵심 특징</strong></h3>
+
+<ul>
+  <li>이벤트 핸들러를 DOM 요소의 프로퍼티에 할당하면, 자바스크립트 엔진이 이를 <strong>메서드처럼 호출</strong>한다.</li>
+  <li>따라서 이벤트 핸들러 내부의 <code class="language-plaintext highlighter-rouge">this</code>는 <strong>이벤트가 바인딩된 해당 DOM 요소</strong>를 가리킨다.</li>
+  <li>이는 <code class="language-plaintext highlighter-rouge">e.currentTarget</code>과 동일하다.</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="63-addeventlistener-메서드-방식">6.3 addEventListener 메서드 방식</h4>
+
+<p><code class="language-plaintext highlighter-rouge">addEventListener</code> 방식은 자바스크립트에서 가장 권장되는 최신 이벤트 등록 방식이다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn2"</span><span class="nt">&gt;</span>0<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="kd">const</span> <span class="nx">$button2</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">.btn2</span><span class="dl">"</span><span class="p">);</span>
+
+  <span class="nx">$button2</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">,</span> <span class="nf">function </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// $button2</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">);</span> <span class="c1">// $button2</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span> <span class="o">===</span> <span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">);</span> <span class="c1">// true</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<h3 id="addeventlistener-방식의-핵심-특징"><strong>addEventListener 방식의 핵심 특징</strong></h3>
+
+<ul>
+  <li>프로퍼티 방식과 동일하게, 이벤트 핸들러 내부의 <code class="language-plaintext highlighter-rouge">this</code>는 <strong>이벤트가 바인딩된 DOM 요소</strong>이다.</li>
+  <li>이벤트 객체의 <code class="language-plaintext highlighter-rouge">currentTarget</code>과 동일하다.</li>
+  <li>여러 개의 핸들러를 하나의 이벤트에 중복 등록할 수 있다(프로퍼티 방식은 1개만 가능).</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="64-이벤트-핸들러-내부의-this">6.4 이벤트 핸들러 내부의 <code class="language-plaintext highlighter-rouge">this</code></h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ko"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Event Handler this 문제<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span><span class="nt">&gt;</span>0<span class="nt">&lt;/button&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>
+      <span class="kd">class</span> <span class="nc">App</span> <span class="p">{</span>
+        <span class="nf">constructor</span><span class="p">()</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">$button</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">.btn</span><span class="dl">"</span><span class="p">);</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+          <span class="c1">// increase 메서드를 이벤트 핸들러로 등록</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">$button</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">increase</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nf">increase</span><span class="p">()</span> <span class="p">{</span>
+          <span class="c1">// 이벤트 핸들러 increase 내부의 this는</span>
+          <span class="c1">// App 인스턴스가 아닌 DOM 요소(button)를 가리킨다.</span>
+          <span class="c1">// 따라서 this.$button은 undefined</span>
+
+          <span class="k">this</span><span class="p">.</span><span class="nx">$button</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="o">++</span><span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="p">;</span>
+          <span class="c1">// ❌ TypeError: Cannot set property 'textContent' of undefined</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+
+      <span class="k">new</span> <span class="nc">App</span><span class="p">();</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>🧐 혼동했던 부분</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">increase</code>가 호출될 때의 <code class="language-plaintext highlighter-rouge">this</code>가 <code class="language-plaintext highlighter-rouge">App</code> 인스턴스가 아니라 <strong>버튼 DOM 요소</strong>라서, 그 버튼 객체에는 <code class="language-plaintext highlighter-rouge">$button</code>이라는 프로퍼티가 <strong>존재하지 않기 때문에</strong> <code class="language-plaintext highlighter-rouge">this.$button</code>이 <code class="language-plaintext highlighter-rouge">undefined</code>가 되고, <code class="language-plaintext highlighter-rouge">undefined.textContent</code>를 읽으려다가 <code class="language-plaintext highlighter-rouge">TypeError</code>가 나는 것 입니다.</p>
+
+<p><br /><br /></p>
+
+<h2 id="7-이벤트-핸들러에-인수-전달">7. 이벤트 핸들러에 인수 전달</h2>
+
+<p>이벤트 핸들러는 개발자가 호출하는 함수가 아니라 브라우저가 제어·호출하는 함수이기 때문에 인수 전달이 제한되며, 이를 해결하기 위해 클로저나 wrapper 패턴이 필요하다는 점</p>
+
+<p>1번은 “이벤트가 발생하면 함수를 호출하도록 위임하는 것”이고,
+2번은 “이벤트에 대응할 함수를 미리 만들어서 넘기는 것”이다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ko"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Wrapper 방식<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;label&gt;</span>
+      User name
+      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;em</span> <span class="na">class=</span><span class="s">"message"</span><span class="nt">&gt;&lt;/em&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>
+      <span class="c1">// 1번</span>
+      <span class="kd">const</span> <span class="nx">MIN_USER_NAME_LENGTH</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+      <span class="kd">const</span> <span class="nx">$input</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">input[type="text"]</span><span class="dl">'</span><span class="p">);</span>
+      <span class="kd">const</span> <span class="nx">$msg</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">.message</span><span class="dl">"</span><span class="p">);</span>
+
+      <span class="c1">// 실제 로직 함수 (인수를 받아 실행됨)</span>
+      <span class="kd">function</span> <span class="nf">checkUserNameLength</span><span class="p">(</span><span class="nx">min</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$msg</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span>
+          <span class="nx">$input</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="nx">min</span> <span class="p">?</span> <span class="s2">`이름은 </span><span class="p">${</span><span class="nx">min</span><span class="p">}</span><span class="s2">자 이상 입력해 주세요`</span> <span class="p">:</span> <span class="dl">""</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="c1">// ✅ wrapper 함수가 이벤트 핸들러</span>
+      <span class="nx">$input</span><span class="p">.</span><span class="nx">onblur</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nf">checkUserNameLength</span><span class="p">(</span><span class="nx">MIN_USER_NAME_LENGTH</span><span class="p">);</span>
+      <span class="p">};</span>
+    <span class="nt">&lt;/script&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>
+      <span class="c1">// 2번</span>
+      <span class="kd">const</span> <span class="nx">MIN_USER_NAME_LENGTH</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+      <span class="kd">const</span> <span class="nx">$input</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">input[type="text"]</span><span class="dl">'</span><span class="p">);</span>
+      <span class="kd">const</span> <span class="nx">$msg</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">.message</span><span class="dl">"</span><span class="p">);</span>
+
+      <span class="c1">// ✅ 이벤트 핸들러를 반환하는 함수</span>
+      <span class="kd">const</span> <span class="nx">checkUserNameLength</span> <span class="o">=</span> <span class="p">(</span><span class="nx">min</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">$msg</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span>
+          <span class="nx">$input</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="nx">min</span> <span class="p">?</span> <span class="s2">`이름은 </span><span class="p">${</span><span class="nx">min</span><span class="p">}</span><span class="s2">자 이상 입력해 주세요`</span> <span class="p">:</span> <span class="dl">""</span><span class="p">;</span>
+      <span class="p">};</span>
+
+      <span class="c1">// ✅ 반환된 함수가 바로 이벤트 핸들러</span>
+      <span class="nx">$input</span><span class="p">.</span><span class="nx">onblur</span> <span class="o">=</span> <span class="nf">checkUserNameLength</span><span class="p">(</span><span class="nx">MIN_USER_NAME_LENGTH</span><span class="p">);</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/post_33/EventHandlerArgument%20PassingPatterns.webp" alt="Photo of nodeValue vs textContent" />
+  </a>
+  <figcaption>
+    <h4>Event Handler Argument Passing Patterns</h4>
+    <p>JayTak</p>
+  </figcaption>
+</figure>
+
+<p><br /><br /></p>
+
+<h2 id="8-커스텀-이벤트">8. 커스텀 이벤트</h2>
+
+<h3 id="81-커스텀-이벤트란">8.1 커스텀 이벤트란?</h3>
+
+<p>브라우저가 자동으로 발생시키지 않는 “의미 있는 상태 변화나 의도”를 이벤트라는 공용 인터페이스로 표준화해 전달하기 위해서다.</p>
+
+<p><strong>🧐 왜 기본 이벤트(click, input 등)만으로는 부족한가?</strong></p>
+
+<p>기본 이벤트는 전부 <strong>사용자 행위 중심</strong>입니다.</p>
+
+<ul>
+  <li>click, keydown, input → “무슨 행동을 했는가”</li>
+  <li>하지만 실제 앱에서는 더 많이 묻습니다
+    <ul>
+      <li>“로그인이 완료되었는가?”</li>
+      <li>“결제가 성공했는가?”</li>
+      <li>“데이터 로딩이 끝났는가?”</li>
+      <li>“검증이 통과되었는가?”</li>
+    </ul>
+  </li>
+</ul>
+
+<p>👉 이런 것들은 <strong>DOM에 기본 이벤트가 존재하지 않습니다.</strong></p>
+
+<p>그래서 커스텀 이벤트는 이렇게 쓰입니다:</p>
+
+<blockquote>
+  <p><strong>“내 애플리케이션 내부에서 의미 있는 순간을
+브라우저 이벤트 모델 위에 얹어 표현하는 수단”</strong></p>
+</blockquote>
+
+<p><br /></p>
+
+<p><strong>🧐 dispatchEvent가 “직접 호출과 같다”는 말의 의미</strong></p>
+
+<p>책에서 말한 이 부분이 아주 중요합니다.</p>
+
+<blockquote>
+  <p>dispatchEvent는 이벤트 핸들러를 <strong>동기적으로 직접 호출</strong>하는 것과 같다</p>
+</blockquote>
+
+<p>이 말의 진짜 뜻은:</p>
+
+<ul>
+  <li>“가짜 이벤트”를 흉내내는 게 아니라</li>
+  <li><strong>이벤트 흐름(caputre → target → bubble)</strong>을 그대로 타게 하면서</li>
+  <li>표준 이벤트 규약(<code class="language-plaintext highlighter-rouge">event</code>, <code class="language-plaintext highlighter-rouge">this</code>, 전파 등)을 <strong>그대로 재사용</strong></li>
+</ul>
+
+<p>한다는 뜻입니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 1. 일반 이벤트 (비동기처럼 동작)</span>
+<span class="nx">button</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">clicked</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">A</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// 사용자가 클릭</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">B</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// 2. dispatchEvent (동기 실행)</span>
+<span class="nx">button</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">clicked</span><span class="dl">"</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">A</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">button</span><span class="p">.</span><span class="nf">dispatchEvent</span><span class="p">(</span><span class="k">new</span> <span class="nc">MouseEvent</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">B</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// 출력결과</span>
+<span class="nx">A</span><span class="p">;</span>
+<span class="nx">clicked</span><span class="p">;</span>
+<span class="nx">B</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="82-커스텀-이벤트의-제약">8.2 커스텀 이벤트의 제약</h3>
+
+<p>커스텀 이벤트는 <code class="language-plaintext highlighter-rouge">on이벤트</code> 방식으로는 받을 수 없고, 반드시 <code class="language-plaintext highlighter-rouge">addEventListener</code>로만 등록해야 한다. <br />임의로 만든 이벤트 타입(<code class="language-plaintext highlighter-rouge">foo</code>)에는 <code class="language-plaintext highlighter-rouge">onfoo</code>라는 속성이 DOM에 존재하지 않기 때문에, 이벤트 핸들러를 <code class="language-plaintext highlighter-rouge">addEventListener</code>로만 등록할 수 있다.</p>
+
+<p><br /></p>
+
+<p>🧐 왜 <code class="language-plaintext highlighter-rouge">onfoo</code>는 사용할 수 없나?</p>
+
+<p><strong>1. 이벤트 핸들러 프로퍼티 방식의 정체</strong></p>
+
+<p>이 방식은 <strong>아무 이벤트에나 자동으로 동작하는 것이 아닙니다.</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>element.onclick = fn;
+element.onblur = fn;
+</code></pre></div></div>
+
+<p>이건 단순한 규칙이 아니라,</p>
+
+<blockquote>
+  <p>✅ <strong>DOM 요소에 미리 정의되어 있는 프로퍼티</strong>입니다. 즉 이런 것들은 <strong>HTML / DOM 스펙에 하드코딩</strong>되어 있습니다.</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>button.onclick        // ✅ 존재
+button.onmouseover   // ✅ 존재
+button.onfoo          // ❌ 정의된 적 없음
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>2. 커스텀 이벤트는 “이름만 정한 이벤트”</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>new CustomEvent('foo')
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">'foo'</code>는 <strong>오직 이벤트 타입 문자열</strong></li>
+  <li>DOM 스펙에 정의된 이벤트 아님</li>
+  <li>그래서 DOM에는:</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>button.onfoo === undefined
+</code></pre></div></div>
+
+<p>👉 존재하지 않는 프로퍼티에 핸들러를 넣을 수 없음</p>
+
+<p><br /></p>
+
+<p><strong>3. addEventListener는 왜 가능한가?</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>button.addEventListener('foo', handler);
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">addEventListener</code>는 다릅니다.</p>
+
+<ul>
+  <li>이벤트 타입을 <strong>문자열로 받음</strong></li>
+  <li>DOM에 미리 정의돼 있든 없든 상관 없음</li>
+  <li>“이 타입의 이벤트가 오면 이 핸들러 호출”만 등록</li>
+</ul>
+
+<p><br /><br /><br /></p>
+
+<h4 id="reference-모던자바스크립트-deep-dive-40장-이벤트"><span style="color:grey">reference: 모던자바스크립트 Deep Dive 40장. 이벤트</span></h4>
+</div>
+
+        
+        <div class="categories">
+        
+
+
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/development">
+  Development
+</a>
+
+</div>
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/javascript">
+  Javascript
+</a>
+
+</div>
+  
+
+        
+        </div>
+
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="section section-base-bg-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"></div>
+        <div class="subscribe">
+  <div class="row">
+    <div class="col-12 col-md-4 mb-2 mb-md-0">
+      <h2 class="">Let's keep in touch</h2>
+    </div>
+
+    <div class="co-12 col-md-8">
+      <div id="mc_embed_signup">
+        <form action="https://zerostatic.us21.list-manage.com/subscribe/post?u=798e19886b83aaab346734382&amp;id=f1c526a772&amp;f_id=0027e3e6f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="subscribe-form" target="_blank" novalidate>
+          <div class="subscribe-fields">
+            <input class="required email" id="mce-EMAIL" name="EMAIL" placeholder="Your email address" type="email" value="" />
+            <div aria-hidden="true" style="position: absolute; left: -5000px"><input name="b_675276692aebec1c007f8156d_3e3da720c2" tabindex="-1" type="text" value="" /></div>
+            <input type="submit" value="Submit" />
+          </div>
+          <div class="subscribe-responses" id="mce-responses">
+            <div class="response response-error" id="mce-error-response" style="display: none"></div>
+            <div class="response response-success" id="mce-success-response" style="display: none"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+<script type="text/javascript" src="/assets/js/scripts.js"></script>
+
+<script type="text/javascript" src="/assets/js/hamburger.js"></script>
+<script type="text/javascript" src="/assets/js/darkModeSwitch.js"></script>
+
+
+
+
+
+</body>
+</html>

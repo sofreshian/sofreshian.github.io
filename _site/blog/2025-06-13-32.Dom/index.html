@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <title>32. Dom - Jekyll Curate</title>
+
+
+  <meta name="description" content="DOM은 HTML 문서를 객체 트리로 표현한 구조로, 자바스크립트가 웹 페이지를 동적으로 조작"/>
+
+
+
+    <meta property="og:type" content="website"/>
+<meta property="og:url" content="http://localhost:4000/blog/2025-06-13-32.Dom/"/>
+
+
+  <meta property="og:title" content="32. Dom"/>
+
+
+
+  <meta property="og:description" content="DOM은 HTML 문서를 객체 트리로 표현한 구조로, 자바스크립트가 웹 페이지를 동적으로 조작"/>
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@zerostaticio" />
+<meta name="twitter:creator" content="@zerostaticio" />
+    <link rel="alternate" type="application/atom+xml" title="Jekyll Curate" href="/feed.xml">
+    <link rel="icon" href="/assets/images/favicon/favicon.png">
+
+
+    <link href="/assets/css/main.css" rel="stylesheet">
+
+    
+      <script>
+          localStorage.getItem('darkMode') === 'true' && document.documentElement.setAttribute('data-bs-theme', 'dark');
+      </script>
+    
+
+    
+      <!-- https://github.com/orestbida/cookieconsent -->
+
+<link rel="stylesheet" href="/assets/css/cookieconsent.css">
+<script defer src="/assets/js/cookieconsent.js"></script>
+
+<!-- Inline script -->
+<script>
+    window.addEventListener('load', function () {
+
+        // obtain plugin
+        var cc = initCookieConsent();
+
+        // run plugin with your configuration
+        cc.run({
+            current_lang: 'en',
+            autoclear_cookies: true,                   // default: false
+            page_scripts: true,                        // default: false
+
+            // mode: 'opt-in'                          // default: 'opt-in'; value: 'opt-in' or 'opt-out'
+            // delay: 0,                               // default: 0
+            // auto_language: '',                      // default: null; could also be 'browser' or 'document'
+            // autorun: true,                          // default: true
+            // force_consent: false,                   // default: false
+            // hide_from_bots: true,                   // default: true
+            // remove_cookie_tables: false             // default: false
+            // cookie_name: 'cc_cookie',               // default: 'cc_cookie'
+            // cookie_expiration: 182,                 // default: 182 (days)
+            // cookie_necessary_only_expiration: 182   // default: disabled
+            // cookie_domain: location.hostname,       // default: current domain
+            // cookie_path: '/',                       // default: root
+            // cookie_same_site: 'Lax',                // default: 'Lax'
+            // use_rfc_cookie: false,                  // default: false
+            // revision: 0,                            // default: 0
+
+            onFirstAction: function (user_preferences, cookie) {
+                // callback triggered only once on the first accept/reject action
+            },
+
+            onAccept: function (cookie) {
+                // callback triggered on the first accept/reject action, and after each page load
+            },
+
+            onChange: function (cookie, changed_preferences) { 
+                // If analytics category is disabled => disable google analytics 
+                if (!cc.allowedCategory('analytics')) { 
+                    typeof gtag === 'function' && gtag('consent', 'update', { 
+                        'analytics_storage': 'denied' 
+                    }); 
+                } 
+            }, 
+
+            languages: {
+                'en': {
+                    consent_modal: {
+                        title: 'We use cookies!',
+                        description: 'Hi, this website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
+                        primary_btn: {
+                            text: 'Accept all',
+                            role: 'accept_all'              // 'accept_selected' or 'accept_all'
+                        },
+                        secondary_btn: {
+                            text: 'Reject all',
+                            role: 'accept_necessary'        // 'settings' or 'accept_necessary'
+                        }
+                    },
+                    settings_modal: {
+                        title: 'Cookie preferences',
+                        save_settings_btn: 'Save settings',
+                        accept_all_btn: 'Accept all',
+                        reject_all_btn: 'Reject all',
+                        close_btn_label: 'Close',
+                        // cookie_table_caption: 'Cookie list',
+                        cookie_table_headers: [
+                            { col1: 'Name' },
+                            { col2: 'Domain' },
+                            { col3: 'Expiration' },
+                            { col4: 'Description' }
+                        ],
+                        blocks: [
+                            {
+                                title: 'Cookie usage 📢',
+                                description: 'I use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want. For more details relative to cookies and other sensitive data, please read the full <a href="#" class="cc-link">privacy policy</a>.'
+                            }, {
+                                title: 'Strictly necessary cookies',
+                                description: 'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly',
+                                toggle: {
+                                    value: 'necessary',
+                                    enabled: true,
+                                    readonly: true          // cookie categories with readonly=true are all treated as "necessary cookies"
+                                }
+                            }, {
+                                title: 'Performance and Analytics cookies',
+                                description: 'These cookies allow the website to remember the choices you have made in the past',
+                                toggle: {
+                                    value: 'analytics',     // your cookie category
+                                    enabled: false,
+                                    readonly: false
+                                },
+                                cookie_table: [             // list of all expected cookies
+                                    {
+                                        col1: '^_ga',       // match all cookies starting with "_ga"
+                                        col2: 'google.com',
+                                        col3: '2 years',
+                                        col4: 'description ...',
+                                        is_regex: true
+                                    },
+                                    {
+                                        col1: '_gid',
+                                        col2: 'google.com',
+                                        col3: '1 day',
+                                        col4: 'description ...',
+                                    }
+                                ]
+                            },
+                            {
+                                title: 'More information',
+                                description: 'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="#yourcontactpage">contact us</a>.',
+                            }
+                        ]
+                    }
+                }
+            }
+        });
+    });
+</script>
+    
+
+    
+
+    <link href="/assets/css/fonts.css" rel="stylesheet">
+
+
+
+
+    
+
+  </head>
+<body class="page page-post has-static-header">
+
+
+<div class="menu-main-mobile " id="menu-main-mobile">
+  
+  <div class="menu-main-mobile-top">
+    <div id="close-overlay" class="menu-main-close">
+      <div class="hamburger"></div>
+    </div>
+  </div>
+
+  <div class="menu-main-mobile-center">
+    
+      <ul class="menu">
+        
+          <li class="menu-item-home">
+            <a href="/">Home</a>
+          </li>
+        
+          <li class="menu-item-projects">
+            <a href="/projects/">Projects</a>
+          </li>
+        
+          <li class="menu-item-blog">
+            <a href="/blog/">Blog</a>
+          </li>
+        
+          <li class="menu-item-contact">
+            <a href="/contact/">Contact</a>
+          </li>
+        
+      </ul>
+    
+  </div>
+
+  <div class="menu-main-mobile-bottom">
+    
+    
+      <div class="dark-mode-switcher " id="dark-mode-container">
+  <div class="dark-mode-switch">
+    <svg class="dark-mode-icon-dark" data-name="Layer 1" fill="#000000" height="20px" viewbox="0 0 64 64" width="20px" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <title>essential</title>
+      <path d="M33.28,58.24A26.95,26.95,0,0,1,24,6l.39-.13a2,2,0,0,1,2.4,2.87,22.42,22.42,0,0,0-1.51,18.75h0A22.47,22.47,0,0,0,54.09,40.8l.76-.3a2,2,0,0,1,2.24.48,2,2,0,0,1,.35,2.24,27,27,0,0,1-24.16,15ZM21.11,11.85a22.94,22.94,0,1,0,30,33.91A26.46,26.46,0,0,1,21.53,28.87h0A26.4,26.4,0,0,1,21.11,11.85Z"></path>
+    </svg>
+    <svg class="dark-mode-icon-light" fill="#000000" height="20px" style="enable-background: new 0 0 100 100;" version="1.1" viewbox="0 0 100 100" width="20px" x="0px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <g>
+        <path d="M50,75c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S63.8,75,50,75z M50,33.3c-9.2,0-16.7,7.5-16.7,16.7   c0,9.2,7.5,16.7,16.7,16.7c9.2,0,16.7-7.5,16.7-16.7C66.7,40.8,59.2,33.3,50,33.3z"></path>
+      </g>
+      <g>
+        <path d="M50,100c-2.3,0-4.2-1.9-4.2-4.2v-8.3c0-2.3,1.9-4.2,4.2-4.2c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,98.1,52.3,100,50,100z    M17.5,86.7c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8   C19.6,86.3,18.6,86.7,17.5,86.7z M82.5,86.7c-1.1,0-2.1-0.4-2.9-1.2l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9s4.3-1.6,5.9,0l5.8,5.8   c1.6,1.6,1.6,4.3,0,5.9C84.6,86.3,83.6,86.7,82.5,86.7z M95.8,54.2h-8.3c-2.3,0-4.2-1.9-4.2-4.2c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C100,52.3,98.1,54.2,95.8,54.2z M12.5,54.2H4.2C1.9,54.2,0,52.3,0,50c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C16.7,52.3,14.8,54.2,12.5,54.2z M76.7,27.5c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8   c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8C78.8,27.1,77.7,27.5,76.7,27.5z M23.3,27.5c-1.1,0-2.1-0.4-2.9-1.2   l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9c1.6-1.6,4.3-1.6,5.9,0l5.8,5.8c1.6,1.6,1.6,4.3,0,5.9C25.5,27.1,24.4,27.5,23.3,27.5z M50,16.7   c-2.3,0-4.2-1.9-4.2-4.2V4.2C45.8,1.9,47.7,0,50,0c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,14.8,52.3,16.7,50,16.7z"></path>
+      </g>
+    </svg>
+    <div class="ball"></div>
+  </div>
+</div>
+    
+  </div>
+
+</div>
+
+
+
+
+<div id="header" class='header '>
+  <div class="container">
+    <div class="logos">
+  <div class="logo logo-desktop">
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo.png"/>
+        </a>
+      </div>
+    
+  
+    
+    
+  </div>
+
+  <div class="logo logo-desktop-invert">
+    
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo-invert.png"/>
+        </a>
+      </div>
+    
+  
+    
+    
+  </div>
+
+  <div class="logo logo-mobile">
+    
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo-mobile.png"/>
+        </a>
+      </div>
+    
+  
+    
+    
+  </div>
+
+
+  <div class="logo logo-mobile-invert">
+    
+    
+      <div class="logo-image">
+        <a href="/">
+          <img height="28px" width="28px" alt="Jekyll Curate Logo" src="/assets/images/logo/logo-invert-mobile.png"/>
+        </a>
+      </div>
+    
+  
+    
+
+  </div>
+
+</div>
+
+
+    <div class="menu-main">
+  <ul>
+    
+      
+        
+        <li class=" ">
+          <a href="/" >Home</a>
+        </li>
+      
+    
+      
+        
+        <li class=" ">
+          <a href="/projects/" >Projects</a>
+        </li>
+      
+    
+      
+
+        
+        
+
+        <li class="menu-item-dropdown menu-item-Blog ">
+          <a href="/blog/">Blog <i class="fa-solid fa-chevron-down"></i></a>
+          
+          <div class="dropdown-menu">
+            
+              <a href="/category/javascript/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Javascript</div>
+                  
+                </div>
+              </a>
+            
+              <a href="/category/algorithm/" class="dropdown-item ">
+                
+                
+
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-name">Algorithm</div>
+                  
+                </div>
+              </a>
+            
+          </div>
+
+        </li>
+      
+    
+      
+        
+        <li class=" ">
+          <a href="/contact/" >Contact</a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+    
+      <div class="dark-mode-switcher " id="dark-mode-container">
+  <div class="dark-mode-switch">
+    <svg class="dark-mode-icon-dark" data-name="Layer 1" fill="#000000" height="20px" viewbox="0 0 64 64" width="20px" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <title>essential</title>
+      <path d="M33.28,58.24A26.95,26.95,0,0,1,24,6l.39-.13a2,2,0,0,1,2.4,2.87,22.42,22.42,0,0,0-1.51,18.75h0A22.47,22.47,0,0,0,54.09,40.8l.76-.3a2,2,0,0,1,2.24.48,2,2,0,0,1,.35,2.24,27,27,0,0,1-24.16,15ZM21.11,11.85a22.94,22.94,0,1,0,30,33.91A26.46,26.46,0,0,1,21.53,28.87h0A26.4,26.4,0,0,1,21.11,11.85Z"></path>
+    </svg>
+    <svg class="dark-mode-icon-light" fill="#000000" height="20px" style="enable-background: new 0 0 100 100;" version="1.1" viewbox="0 0 100 100" width="20px" x="0px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" y="0px">
+      <g>
+        <path d="M50,75c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S63.8,75,50,75z M50,33.3c-9.2,0-16.7,7.5-16.7,16.7   c0,9.2,7.5,16.7,16.7,16.7c9.2,0,16.7-7.5,16.7-16.7C66.7,40.8,59.2,33.3,50,33.3z"></path>
+      </g>
+      <g>
+        <path d="M50,100c-2.3,0-4.2-1.9-4.2-4.2v-8.3c0-2.3,1.9-4.2,4.2-4.2c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,98.1,52.3,100,50,100z    M17.5,86.7c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8   C19.6,86.3,18.6,86.7,17.5,86.7z M82.5,86.7c-1.1,0-2.1-0.4-2.9-1.2l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9s4.3-1.6,5.9,0l5.8,5.8   c1.6,1.6,1.6,4.3,0,5.9C84.6,86.3,83.6,86.7,82.5,86.7z M95.8,54.2h-8.3c-2.3,0-4.2-1.9-4.2-4.2c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C100,52.3,98.1,54.2,95.8,54.2z M12.5,54.2H4.2C1.9,54.2,0,52.3,0,50c0-2.3,1.9-4.2,4.2-4.2h8.3   c2.3,0,4.2,1.9,4.2,4.2C16.7,52.3,14.8,54.2,12.5,54.2z M76.7,27.5c-1.1,0-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.3,0-5.9l5.8-5.8   c1.6-1.6,4.3-1.6,5.9,0c1.6,1.6,1.6,4.3,0,5.9l-5.8,5.8C78.8,27.1,77.7,27.5,76.7,27.5z M23.3,27.5c-1.1,0-2.1-0.4-2.9-1.2   l-5.8-5.8c-1.6-1.6-1.6-4.3,0-5.9c1.6-1.6,4.3-1.6,5.9,0l5.8,5.8c1.6,1.6,1.6,4.3,0,5.9C25.5,27.1,24.4,27.5,23.3,27.5z M50,16.7   c-2.3,0-4.2-1.9-4.2-4.2V4.2C45.8,1.9,47.7,0,50,0c2.3,0,4.2,1.9,4.2,4.2v8.3C54.2,14.8,52.3,16.7,50,16.7z"></path>
+      </g>
+    </svg>
+    <div class="ball"></div>
+  </div>
+</div>
+    
+    <div class="hamburger-trigger" id="toggle-menu-main-mobile">
+  <button class="hamburger">Menu</button>
+</div>
+  </div>
+</div>
+
+<div id="wrapper" class="wrapper">     
+  <div class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        
+
+
+
+
+
+
+
+
+
+<div class="heading heading-left">
+  
+  
+  
+  <div class="heading-heading">
+    <h1>32. Dom</h1>
+  </div>
+  
+  
+  
+    <div class="heading-description">
+      <p>DOM은 HTML 문서를 객체 트리로 표현한 구조로, 자바스크립트가 웹 페이지를 동적으로 조작</p>
+    </div>
+  
+
+  
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section pt-0">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        
+        
+          <div class="mb-2">
+          
+            
+
+
+
+
+<div class="author">
+  
+
+  
+</div>
+          
+          </div>
+        
+        
+        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">Index</span></p>
+
+<h3>① 요소 탐색과 DOM 노드 접근</h3>
+<ul>
+  <li><a href="#1-요청과-응답">1.1 요청과 응답</a></li>
+  <li><a href="#21-id를-이용한-요소-노드-취득">1.2 id를 이용한 요소 노드 취득</a></li>
+  <li><a href="#22-태그-이름을-이용한-요소-노드-취득">1.3 태그 이름을 이용한 요소 노드 취득</a></li>
+  <li><a href="#23-class를-이용한-요소-노드-취득">1.4 class를 이용한 요소 노드 취득</a></li>
+  <li><a href="#24-css-선택자를-이용한-요소-노드-취득">1.5 CSS 선택자를 이용한 요소 노드 취득</a></li>
+</ul>
+
+<h3>② HTMLCollection과 NodeList의 차이</h3>
+<ul>
+  <li><a href="#3-살아있는객체-htmlcollection">2.1 HTMLCollection (살아있는 객체)</a></li>
+  <li><a href="#4-nodelist">2.2 NodeList (대부분은 정적)</a></li>
+</ul>
+
+<h3>③ 텍스트 접근: nodeValue vs textContent</h3>
+<ul>
+  <li><a href="#5-nodevalue-textnode-차이">3.1 nodeValue vs textContent</a></li>
+</ul>
+
+<h3>④ DOM 조작 최소화 기법과 DocumentFragment</h3>
+<ul>
+  <li><a href="#6-dom-조작-최소화-기법">4.1 DOM 조작 최소화 기법</a></li>
+</ul>
+<h3>⑤ HTML 어트리뷰트 vs DOM 프로퍼티</h3>
+<ul>
+  <li><a href="#🧐-q-왜-html-어트리뷰트는-변경이-불가능하고-dom-프로퍼티는-변경이-가능한가">5.1 HTML 어트리뷰트 vs DOM 프로퍼티</a></li>
+  <li><a href="#1-html-어트리뷰트-attribute">5.2 HTML 어트리뷰트</a></li>
+  <li><a href="#2-dom-프로퍼티-property">5.3 DOM 프로퍼티</a></li>
+  <li><a href="#32-동기화가-깨지는-경우-js나-사용자-입력으로-변경-후-">5.4 동기화가 깨지는 경우</a></li>
+  <li><a href="#추가-html-속성과-javascript-접근-방식-간-표기법-대응-정리">5.5 HTML vs JS 표기법 차이 요약</a></li>
+</ul>
+
+<hr />
+
+<p><strong>🧐 Q. Dom이란 무엇일까?</strong></p>
+
+<p>Dom(Document Object Model)은 HTML 문서의 계층적 구조와 정보를 표현하며 이를 제어할 수 있는 API이다.</p>
+
+<p><br /></p>
+
+<h2 id="1-요청과-응답">1. 요청과 응답</h2>
+
+<ul>
+  <li>서버는 어떤 창고이다. 창고 안에는 <code class="language-plaintext highlighter-rouge">index.html</code>, <code class="language-plaintext highlighter-rouge">style.css</code>, <code class="language-plaintext highlighter-rouge">logo.png</code>같은 파일들이 선반에 잘 정리되어 있다.</li>
+  <li>우리는(브라우저를 쓰는 사용자)은 그 창고에 “이 주소의 상품(파일) 주세요!”하고 요청을 보낸다.</li>
+  <li>서버는 선반에서 그 파일을 꺼내서 우리한테 보여준다.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-요소-취득">2. 요소 취득</h2>
+
+<h3 id="21-id를-이용한-요소-노드-취득">2.1 id를 이용한 요소 노드 취득</h3>
+
+<p><strong><code class="language-plaintext highlighter-rouge">id</code> 값은 HTML 문서 내에서 유일해야 한다.</strong>
+→ <code class="language-plaintext highlighter-rouge">class</code>와 달리 공백 문자로 여러 값을 가질 수 없다.</p>
+
+<p><strong>중복된 <code class="language-plaintext highlighter-rouge">id</code>가 있더라도 에러는 발생하지 않는다.</strong>
+→ HTML 문서 상에서 여러 요소가 동일한 <code class="language-plaintext highlighter-rouge">id</code>를 갖고 있어도 브라우저는 오류를 내지 않는다.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">getElementById()</code>는 항상 첫 번째 요소만 반환한다.</strong>
+→ 동일한 <code class="language-plaintext highlighter-rouge">id</code>가 여러 개 있어도, <strong>가장 먼저 나타나는 요소 노드 하나만</strong> 반환된다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;ul&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">"apple"</span><span class="nt">&gt;</span>Apple<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">"banana"</span><span class="nt">&gt;</span>Banana<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">"orange"</span><span class="nt">&gt;</span>Orange<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>
+      <span class="c1">// id 값이 'banana'인 요소 노드를 탐색하여 반환한다.</span>
+      <span class="c1">// 두 번째 li 요소가 파싱되어 생성된 요소 노드가 반환된다.</span>
+      <span class="kd">const</span> <span class="nx">$elem</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">banana</span><span class="dl">"</span><span class="p">);</span>
+
+      <span class="c1">// 취득한 요소 노드의 style.color 프로퍼티 값을 변경한다.</span>
+      <span class="nx">$elem</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="22-태그-이름을-이용한-요소-노드-취득">2.2 태그 이름을 이용한 요소 노드 취득</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;ul&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">"apple"</span><span class="nt">&gt;</span>Apple<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">"banana"</span><span class="nt">&gt;</span>Banana<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">"orange"</span><span class="nt">&gt;</span>Orange<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>
+      <span class="c1">// 태그 이름이 'li'인 요소 노드를 모두 탐색하여 반환한다.</span>
+      <span class="c1">// 탐색된 요소 노드들은 HTMLCollection 객체에 담겨 반환된다.</span>
+      <span class="c1">// HTMLCollection 객체는 유사 배열 객체이면서 이터러블이다.</span>
+      <span class="kd">const</span> <span class="nx">$elems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementsByTagName</span><span class="p">(</span><span class="dl">"</span><span class="s2">li</span><span class="dl">"</span><span class="p">);</span>
+
+      <span class="c1">// 취득한 모든 요소 노드의 style.color 프로퍼티 값을 변경한다.</span>
+      <span class="c1">// HTMLCollection 객체를 배열로 변환하여 순회하며 color 값을 변경</span>
+      <span class="p">[...</span><span class="nx">$elems</span><span class="p">].</span><span class="nf">forEach</span><span class="p">((</span><span class="nx">elem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">elem</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">;</span>
+      <span class="p">});</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">getElementsByTagName('li')</code>로 얻은 결과는 <code class="language-plaintext highlighter-rouge">HTMLCollection</code> 객체이고, 이는 <strong>유사 배열 객체(배열처럼 생겼지만 진짜 배열은 아님)</strong>입니다. 그래서 바로 <code class="language-plaintext highlighter-rouge">forEach()</code> 같은 배열 메서드는 사용할 수 없습니다. 하지만 <code class="language-plaintext highlighter-rouge">HTMLCollection</code>은 <strong>이터러블(iterable)</strong>이기 때문에, <strong>전개 연산자 (<code class="language-plaintext highlighter-rouge">...</code>)</strong>를 사용해 <strong>배열로 변환</strong>할 수 있습니다.</p>
+
+<p><br /></p>
+
+<h3 id="23-class를-이용한-요소-노드-취득">2.3 class를 이용한 요소 노드 취득</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;ul&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fruit apple"</span><span class="nt">&gt;</span>Apple<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fruit banana"</span><span class="nt">&gt;</span>Banana<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fruit orange"</span><span class="nt">&gt;</span>Orange<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>
+      <span class="c1">// class 값이 'fruit'인 요소 노드를 모두 탐색하여 HTMLCollection 객체에 담아 반환한다.</span>
+      <span class="kd">const</span> <span class="nx">$elems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementsByClassName</span><span class="p">(</span><span class="dl">"</span><span class="s2">fruit</span><span class="dl">"</span><span class="p">);</span>
+
+      <span class="c1">// 취득한 모든 요소의 CSS color 프로퍼티 값을 변경한다.</span>
+      <span class="p">[...</span><span class="nx">$elems</span><span class="p">].</span><span class="nf">forEach</span><span class="p">((</span><span class="nx">elem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">elem</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">;</span>
+      <span class="p">});</span>
+
+      <span class="c1">// class 값이 'fruit apple'인 요소 노드를 모두 탐색하여 HTMLCollection 객체에 담아 반환한다.</span>
+      <span class="kd">const</span> <span class="nx">$apples</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementsByClassName</span><span class="p">(</span><span class="dl">"</span><span class="s2">fruit apple</span><span class="dl">"</span><span class="p">);</span>
+
+      <span class="c1">// 취득한 모든 요소 노드의 style.color 프로퍼티 값을 변경한다.</span>
+      <span class="p">[...</span><span class="nx">$apples</span><span class="p">].</span><span class="nf">forEach</span><span class="p">((</span><span class="nx">elem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">elem</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">blue</span><span class="dl">"</span><span class="p">;</span>
+      <span class="p">});</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+r
+</code></pre></div></div>
+
+<p>DOM에서 <code class="language-plaintext highlighter-rouge">class</code>로 요소 노드를 가져올 때 나오는 값은 <strong>배열처럼 생겼지만 실제 배열은 아닌 “유사 배열 객체”</strong>입니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementsByClassName</span><span class="p">(</span><span class="dl">"</span><span class="s2">my-class</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">elements</span><span class="p">);</span> <span class="c1">// HTMLCollection(3) [div, div, div]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">elements</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 3</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">elements</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// &lt;div class="my-class"&gt;...&lt;/div&gt;</span>
+
+<span class="nx">elements</span><span class="p">.</span><span class="nf">forEach</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">e</span><span class="p">));</span> <span class="c1">// ❌ TypeError: forEach is not a function</span>
+<span class="cm">/*
+- length 속성이 있음
+- 인덱스로 접근 가능 ([0], [1] 등)
+- 하지만 진짜 배열(Array)이 아님 → forEach(), map(), filter() 같은 배열 메서드는 직접 사용할 수 없음
+*/</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="24-css-선택자를-이용한-요소-노드-취득">2.4 css 선택자를 이용한 요소 노드 취득</h3>
+
+<p>CSS 선택자를 이용한 요소 노드 취득 내에는 **<code class="language-plaintext highlighter-rouge">querySelector</code>(또는 <code class="language-plaintext highlighter-rouge">querySelectorAll</code>)가 언급됩니다.</p>
+
+<p>그 이유는, **<code class="language-plaintext highlighter-rouge">querySelector</code>(또는 <code class="language-plaintext highlighter-rouge">querySelectorAll</code>)가 바로 **CSS 선택자 문법을 그대로 사용할 수 있는 유일한 DOM 메서드이기 때문**입니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">div.my-class &gt; span:first-child</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">querySelector</code>는 <strong>CSS 선택자 문법을 그대로 사용할 수 있는 API</strong>입니다. 위처럼 <strong>class, id, 자식 선택자, 속성 선택자 등 CSS에서 쓰는 선택자들을 그대로 사용</strong>할 수 있는 유일한 DOM 메서드가 <code class="language-plaintext highlighter-rouge">querySelector</code> 계열입니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;ul&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"apple"</span><span class="nt">&gt;</span>Apple<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"banana"</span><span class="nt">&gt;</span>Banana<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"orange"</span><span class="nt">&gt;</span>Orange<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>
+      <span class="c1">// ul 요소의 자식 요소인 li 요소를 모두 탐색하여 반환한다.</span>
+      <span class="kd">const</span> <span class="nx">$elems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">querySelectorAll</span><span class="p">(</span><span class="dl">"</span><span class="s2">ul &gt; li</span><span class="dl">"</span><span class="p">);</span>
+
+      <span class="c1">// 취득한 요소 노드들은 NodeList 객체에 담겨 반환된다.</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">$elems</span><span class="p">);</span> <span class="c1">// NodeList(3) [li.apple, li.banana, li.orange]</span>
+
+      <span class="c1">// 취득한 모든 요소 노드의 style.color 프로퍼티 값을 변경한다.</span>
+      <span class="c1">// NodeList는 forEach 메서드를 제공한다.</span>
+      <span class="nx">$elems</span><span class="p">.</span><span class="nf">forEach</span><span class="p">((</span><span class="nx">elem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">elem</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">;</span>
+      <span class="p">});</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="3-살아있는객체-htmlcollection">3. 살아있는객체, HTMLCollection</h2>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+      <span class="nc">.red</span> <span class="p">{</span>
+        <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nc">.blue</span> <span class="p">{</span>
+        <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">"fruits"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"red"</span><span class="nt">&gt;</span>Apple<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"red"</span><span class="nt">&gt;</span>Banana<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"red"</span><span class="nt">&gt;</span>Orange<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>
+      <span class="c1">// class 값이 'red'인 요소 노드를 모두 탐색하여 HTMLCollection 객체에 담아 반환한다.</span>
+      <span class="kd">const</span> <span class="nx">$elems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementsByClassName</span><span class="p">(</span><span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">);</span>
+
+      <span class="c1">// 이 시점에 HTMLCollection 객체에는 3개의 요소 노드가 담겨 있다.</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">$elems</span><span class="p">);</span> <span class="c1">// HTMLCollection(3) [li.red, li.red, li.red]</span>
+
+      <span class="c1">// HTMLCollection 객체의 모든 요소의 class 값을 'blue'로 변경한다.</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">$elems</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$elems</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">blue</span><span class="dl">"</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="c1">// HTMLCollection 객체의 요소가 3개에서 1개로 변경되었다.</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">$elems</span><span class="p">);</span> <span class="c1">// HTMLCollection(1) [li.red]</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>그리하여, 해결책은?</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 정방향 → ❌ 위험</span>
+<span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">$elems</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">$elems</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">blue</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 역방향 → ✅ 안전</span>
+<span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">$elems</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">$elems</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">blue</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 또는 진짜 배열로 복사해서 처리</span>
+<span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nf">from</span><span class="p">(</span><span class="nx">$elems</span><span class="p">);</span>
+<span class="nx">array</span><span class="p">.</span><span class="nf">forEach</span><span class="p">((</span><span class="nx">elem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">elem</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">blue</span><span class="dl">"</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="4-nodelist">4. NodeList</h2>
+
+<p><code class="language-plaintext highlighter-rouge">NodeList</code>객체는 대부분의 경우 노드 객체의 상태 변경을 실시간으로 반영하지 않고 과거의 정적 상태를 유지하는 non-live 객체로 동작한다. 하지만 childNodes 프로퍼티가 반환하는 <code class="language-plaintext highlighter-rouge">NodeList</code> 객체는 <code class="language-plaintext highlighter-rouge">HTMLCollection</code> 객체와 같이 실시간으로 노드객체의 상태변경을 반영하는 live 객체로 동작하므로 주의가 필요하다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">"fruits"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>Apple<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;</span>Banana<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>
+      <span class="kd">const</span> <span class="nx">$fruits</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">fruits</span><span class="dl">"</span><span class="p">);</span>
+
+      <span class="c1">// childNodes 프로퍼티는 NodeList(실시간 live)를 반환한다.</span>
+      <span class="kd">const</span> <span class="p">{</span> <span class="nx">childNodes</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">$fruits</span><span class="p">;</span>
+
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">childNodes</span> <span class="k">instanceof</span> <span class="nx">NodeList</span><span class="p">);</span> <span class="c1">// true</span>
+
+      <span class="c1">// $fruits 요소의 자식 노드는 공백 텍스트 노드와 요소 노드를 포함함</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">childNodes</span><span class="p">);</span> <span class="c1">// NodeList(5) [text, li, text, li, text]</span>
+
+      <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">childNodes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// removeChild 메서드는 $fruits 요소의 자식 노드를 DOM에서 삭제한다.</span>
+        <span class="c1">// removeChild 호출 시마다 NodeList가 실시간으로 변하여</span>
+        <span class="c1">// 결국 첫 번째, 세 번째, 다섯 번째 요소만 삭제된다.</span>
+        <span class="nx">$fruits</span><span class="p">.</span><span class="nf">removeChild</span><span class="p">(</span><span class="nx">childNodes</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+      <span class="p">}</span>
+
+      <span class="c1">// 예상과 다르게 $fruits 요소의 모든 자식 노드가 삭제되지 않는다.</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">childNodes</span><span class="p">);</span> <span class="c1">// NodeList(2) [li, li]</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="5-nodevalue-textnode-차이">5. nodevalue, textnode 차이</h2>
+
+<figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/post_32/nodetextcomparison.webp" alt="Photo of nodeValue vs textContent" />
+  </a>
+  <figcaption>
+    <h4>nodeValue vs textContent</h4>
+    <p>JayTak</p>
+  </figcaption>
+</figure>
+
+<table>
+  <thead>
+    <tr>
+      <th>속성명</th>
+      <th>작동 대상</th>
+      <th>반환 내용</th>
+      <th>주로 사용 용도</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">nodeValue</code></td>
+      <td><strong>텍스트 노드, 주석 노드 등</strong></td>
+      <td>해당 노드 자체의 텍스트만</td>
+      <td>텍스트 노드 조작</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">textContent</code></td>
+      <td><strong>요소 노드 (Element)</strong></td>
+      <td><strong>요소 내부 전체 텍스트</strong> (하위 포함)</td>
+      <td>요소의 내용 전체 읽기/쓰기</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"greet"</span><span class="nt">&gt;</span>Hello <span class="nt">&lt;span&gt;</span>World<span class="nt">&lt;/span&gt;</span>!<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">greet</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">textContent</span><span class="p">);</span> <span class="c1">// "Hello World!"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">.</span><span class="nx">nodeValue</span><span class="p">);</span> <span class="c1">// "Hello " ← 텍스트 노드만!</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="6-dom-조작-최소화-기법">6. DOM 조작 최소화 기법</h2>
+
+<p>아래 예제는 <code class="language-plaintext highlighter-rouge">DOM</code>을 한 번만 변경하므로 성능에 유리하기는 하지만 다음과 같이 불필요한 컨테이너 요소(<code class="language-plaintext highlighter-rouge">div</code>)가 <code class="language-plaintext highlighter-rouge">DOM</code>에 추가되는 부작용이 있다. 이는 바람직 하지 않다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">$container</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">div</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="p">[</span><span class="dl">"</span><span class="s2">Apple</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Banana</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Orange</span><span class="dl">"</span><span class="p">].</span><span class="nf">forEach</span><span class="p">((</span><span class="nx">text</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">$li</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">li</span><span class="dl">"</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">textNode</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">createTextNode</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+  <span class="nx">$li</span><span class="p">.</span><span class="nf">appendChild</span><span class="p">(</span><span class="nx">textNode</span><span class="p">);</span>
+  <span class="nx">$container</span><span class="p">.</span><span class="nf">appendChild</span><span class="p">(</span><span class="nx">$li</span><span class="p">);</span> <span class="c1">// li들을 일단 container에만 붙임</span>
+<span class="p">});</span>
+
+<span class="nx">$fruits</span><span class="p">.</span><span class="nf">appendChild</span><span class="p">(</span><span class="nx">$container</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="-왜-dom-조작을-최소화해야-할까">🔍 왜 DOM 조작을 최소화해야 할까?</h3>
+
+<p>웹 브라우저는 DOM이 변경될 때마다 다음과 같은 과정을 거칩니다:</p>
+
+<ol>
+  <li><strong>Reflow (레이아웃 계산)</strong>: 요소의 위치와 크기를 다시 계산</li>
+  <li><strong>Repaint (화면 그리기)</strong>: 변경된 부분을 다시 렌더링</li>
+</ol>
+
+<p>➡️ 이런 작업이 많아지면 성능이 저하되고, 화면 깜빡임이나 느린 렌더링 현상이 발생할 수 있습니다.</p>
+
+<p><br /></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">"fruits"</span><span class="nt">&gt;&lt;/ul&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+  <span class="nt">&lt;script&gt;</span>
+    <span class="kd">const</span> <span class="nx">$fruits</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">fruits</span><span class="dl">"</span><span class="p">);</span>
+
+    <span class="c1">// DocumentFragment 노드 생성</span>
+    <span class="kd">const</span> <span class="nx">$fragment</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">createDocumentFragment</span><span class="p">();</span>
+
+    <span class="p">[</span><span class="dl">"</span><span class="s2">Apple</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Banana</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Orange</span><span class="dl">"</span><span class="p">].</span><span class="nf">forEach</span><span class="p">((</span><span class="nx">text</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// 1. 요소 노드 생성</span>
+      <span class="kd">const</span> <span class="nx">$li</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">li</span><span class="dl">"</span><span class="p">);</span>
+
+      <span class="c1">// 2. 텍스트 노드 생성</span>
+      <span class="kd">const</span> <span class="nx">textNode</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">createTextNode</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+
+      <span class="c1">// 3. 텍스트 노드를 $li 요소 노드의 자식 노드로 추가</span>
+      <span class="nx">$li</span><span class="p">.</span><span class="nf">appendChild</span><span class="p">(</span><span class="nx">textNode</span><span class="p">);</span>
+
+      <span class="c1">// 4. $li 요소 노드를 DocumentFragment 노드의 마지막 자식 노드로 추가</span>
+      <span class="nx">$fragment</span><span class="p">.</span><span class="nf">appendChild</span><span class="p">(</span><span class="nx">$li</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="c1">// 5. DocumentFragment 노드를 #fruits 요소 노드의 마지막 자식 노드로 추가</span>
+    <span class="nx">$fruits</span><span class="p">.</span><span class="nf">appendChild</span><span class="p">(</span><span class="nx">$fragment</span><span class="p">);</span>
+  <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>먼저 DocumentFragment 노드를 생성하고 <code class="language-plaintext highlighter-rouge">DOM</code>에 추가할 요소 노드를 생성하여 <code class="language-plaintext highlighter-rouge">DocumentFragment</code> 노드에 자식 노드로 추가한 다음, <code class="language-plaintext highlighter-rouge">DocumentFragment</code> 노드를 기존 <code class="language-plaintext highlighter-rouge">DOM</code>에 추가한다.</p>
+
+<p>이때 실제로 DOM 변경이 발생하는 것은 한 번뿐이며 리플로우와 리페인트도 한 번만 실행된다. 따라서 여러 개의 요소 노드를 <code class="language-plaintext highlighter-rouge">DOM</code>에 추가하는 경우 DocumentFragment 노드를 사용하는 것이 더 효율적이다.</p>
+
+<p><br /></p>
+
+<p>🧐 <strong>Q. 왜 HTML 어트리뷰트는 변경이 불가능하고, DOM 프로퍼티는 변경이 가능한가?</strong></p>
+
+<h3 id="1-html-어트리뷰트-attribute">1. <strong>HTML 어트리뷰트 (Attribute)</strong></h3>
+
+<ul>
+  <li><strong>HTML 문서 안에서 정의되는 고정된 값</strong></li>
+  <li>브라우저가 처음 페이지를 <strong>파싱할 때만</strong> 읽습니다.</li>
+  <li>JavaScript에서 직접 바꿀 수는 있지만, 보통은 <strong>초기 설정 역할</strong>만 함.</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"user"</span> <span class="na">value=</span><span class="s">"JayTak"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>여기서 <code class="language-plaintext highlighter-rouge">value="JayTak"</code>는 초기 어트리뷰트 값</li>
+  <li>이건 HTML 소스 자체에 <strong>기록된 값</strong>이기 때문에, 변하지 않음 (문서를 다시 로드하지 않는 이상)</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="2-dom-프로퍼티-property">2. <strong>DOM 프로퍼티 (Property)</strong></h3>
+
+<ul>
+  <li>HTML 요소가 <strong>자바스크립트 객체로 변환</strong>될 때 생기는 속성</li>
+  <li>사용자가 값을 입력하거나 자바스크립트로 변경 가능</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"user"</span> <span class="na">value=</span><span class="s">"JayTak"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="kd">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">user</span><span class="dl">"</span><span class="p">);</span>
+
+  <span class="c1">// HTML 어트리뷰트 값 확인</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nf">getAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// "JayTak"</span>
+
+  <span class="c1">// DOM 프로퍼티 값 변경</span>
+  <span class="nx">input</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">changed</span><span class="dl">"</span><span class="p">;</span>
+
+  <span class="c1">// DOM 프로퍼티 값 확인</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// "changed" ✅</span>
+
+  <span class="c1">// HTML 어트리뷰트는 그대로</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nf">getAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// "JayTak" ❌ 안 바뀜</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="3-차이를-명확하게-이해해-봅시다">3. 차이를 명확하게 이해해 봅시다!</h3>
+
+<h4 id="31-동기화가-유지되는-경우">3.1 동기화가 유지되는 경우</h4>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">value=</span><span class="s">"Hello"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">input</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nf">getAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// "Hello"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// "Hello"</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>이때는 HTML 어트리뷰트 값과 DOM 프로퍼티 값이 <strong>같음</strong>.</p>
+  </li>
+  <li>
+    <p>브라우저가 HTML 파싱 후 DOM을 생성할 때, 어트리뷰트 값을 읽어 <code class="language-plaintext highlighter-rouge">input.value</code> 프로퍼티에 복사해줌.</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="32-동기화가-깨지는-경우-js나-사용자-입력으로-변경-후-">3.2 동기화가 깨지는 경우 (JS나 사용자 입력으로 변경 후 )</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">input</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">World</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// DOM 프로퍼티 변경</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nf">getAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// "Hello" (변함없음)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// "World"</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">input.value = "World"</code>는 DOM 프로퍼티만 바꿈.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">value</code> 어트리뷰트는 여전히 <code class="language-plaintext highlighter-rouge">"Hello"</code> 그대로 남아 있음.</p>
+  </li>
+  <li>
+    <p>즉, <strong>value 프로퍼티만 바꾸면 어트리뷰트는 바뀌지 않음</strong> → 이게 동기화가 “깨진” 예시예요.</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="33-결론">3.3 결론</h4>
+
+<figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/post_32/attributevaluestorage.webp" alt="Photo of getAttribute vs .value 저장위치" />
+  </a>
+  <figcaption>
+    <h4>getAttribute vs .value 저장위치</h4>
+    <p>JayTak</p>
+  </figcaption>
+</figure>
+
+<ul>
+  <li>
+    <p>HTML 파싱 → 어트리뷰트를 읽어서 → DOM 프로퍼티에 복사함 (초기 동기화)</p>
+  </li>
+  <li>
+    <p>이후 <code class="language-plaintext highlighter-rouge">.value</code>를 바꾸면, DOM 프로퍼티만 바뀌고 어트리뷰트는 <strong>남아 있음</strong></p>
+  </li>
+  <li>
+    <p>그래서 <code class="language-plaintext highlighter-rouge">getAttribute('value')</code>는 원래 HTML에 적힌 <code class="language-plaintext highlighter-rouge">"Hello"</code>를 계속 반환</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p>🧐 **Q. 한번 더 나아가서, 그러면 자바스크립트는 왜 이렇게 설계했을까? **</p>
+
+<h5 id="1-html-어트리뷰트와-dom-프로퍼티는-역할이-다름">1. HTML 어트리뷰트와 DOM 프로퍼티는 <strong>역할이 다름</strong></h5>
+
+<figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/post_32/htmlvsdompurpose.webp" alt="Photo of HTML 어트리뷰트 vs DOM 프로퍼티 역할 비교" />
+  </a>
+  <figcaption>
+    <h4>HTML 어트리뷰트 vs DOM 프로퍼티 역할 비교</h4>
+    <p>JayTak</p>
+  </figcaption>
+</figure>
+
+<p><br /></p>
+
+<h5 id="2-웹-표준-철학-마크업-구조와-로직의-분리">2. 웹 표준 철학: 마크업 구조와 로직의 분리</h5>
+
+<p>HTML, CSS, JS는 각기 다른 목적을 가진 기술입니다:</p>
+
+<ul>
+  <li>HTML → 구조와 초기값</li>
+  <li>CSS → 표현</li>
+  <li>JS → 동작과 상태 변화</li>
+</ul>
+
+<p>이 셋을 혼합해서 하나가 다른 걸 계속 바꾼다면 <strong>의도 분리와 유지보수성이 떨어지기 때문에</strong>,
+<strong>DOM 프로퍼티와 어트리뷰트의 동기화는 초기만 유지하고 이후 분리되도록 설계</strong>된 것입니다.</p>
+
+<p><br /></p>
+
+<h5 id="추가-html-속성과-javascript-접근-방식-간-표기법-대응-정리">추가) HTML 속성과 JavaScript 접근 방식 간 표기법 대응 정리</h5>
+
+<figure>
+  <a href="" target="">
+    <img src="/assets/images/gen/content/post_32/propertyaccesssyntax.webp" alt="Photo of CSS/data 속성 JS 접근 방식" />
+  </a>
+  <figcaption>
+    <h4>CSS/data 속성 JS 접근 방식</h4>
+    <p>JayTak</p>
+  </figcaption>
+</figure>
+
+<p><strong>🧐 포인트만 기억하기!</strong></p>
+
+<ol>
+  <li><strong>하이픈(-)</strong> 으로 연결된 CSS · data 속성 이름은 JS 안에서 <strong>하이픈 제거 + 다음 글자 대문자</strong>(camelCase)로 바뀐다.</li>
+  <li>스타일은 <code class="language-plaintext highlighter-rouge">style.</code> 뒤에, 커스텀 데이터는 <code class="language-plaintext highlighter-rouge">dataset.</code> 뒤에 붙여서 쓴다.</li>
+</ol>
+
+<p><br /><br /><br /></p>
+
+<h4 id="reference-모던자바스크립트-deep-dive-39장-dom"><span style="color:grey">reference: 모던자바스크립트 Deep Dive 39장. Dom</span></h4>
+</div>
+
+        
+        <div class="categories">
+        
+
+
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/development">
+  Development
+</a>
+
+</div>
+  
+    
+
+
+
+
+<div class="category-link">
+<a href="/category/javascript">
+  Javascript
+</a>
+
+</div>
+  
+
+        
+        </div>
+
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="section section-base-bg-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"></div>
+        <div class="subscribe">
+  <div class="row">
+    <div class="col-12 col-md-4 mb-2 mb-md-0">
+      <h2 class="">Let's keep in touch</h2>
+    </div>
+
+    <div class="co-12 col-md-8">
+      <div id="mc_embed_signup">
+        <form action="https://zerostatic.us21.list-manage.com/subscribe/post?u=798e19886b83aaab346734382&amp;id=f1c526a772&amp;f_id=0027e3e6f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="subscribe-form" target="_blank" novalidate>
+          <div class="subscribe-fields">
+            <input class="required email" id="mce-EMAIL" name="EMAIL" placeholder="Your email address" type="email" value="" />
+            <div aria-hidden="true" style="position: absolute; left: -5000px"><input name="b_675276692aebec1c007f8156d_3e3da720c2" tabindex="-1" type="text" value="" /></div>
+            <input type="submit" value="Submit" />
+          </div>
+          <div class="subscribe-responses" id="mce-responses">
+            <div class="response response-error" id="mce-error-response" style="display: none"></div>
+            <div class="response response-success" id="mce-success-response" style="display: none"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+<script type="text/javascript" src="/assets/js/scripts.js"></script>
+
+<script type="text/javascript" src="/assets/js/hamburger.js"></script>
+<script type="text/javascript" src="/assets/js/darkModeSwitch.js"></script>
+
+
+
+
+
+</body>
+</html>
