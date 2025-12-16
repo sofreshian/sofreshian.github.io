@@ -26101,7 +26101,6 @@ readers do not read off random characters that represent icons */
   font-size: 55px;
   line-height: 1;
   width: 100%;
-  letter-spacing: -2px;
   font-weight: 700;
 }
 .heading .heading-heading h1 strong, .heading .heading-heading .h1 strong {
