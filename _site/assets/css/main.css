@@ -303,7 +303,7 @@ h6, .h6 {
 }
 
 p {
-  margin-top: 0;
+  margin-top: 7rem;
   margin-bottom: 1rem;
 }
 
@@ -14604,7 +14604,7 @@ html[data-bs-theme=dark] .partners img {
 .heading .heading-description p {
   font-weight: 200;
   font-size: 20px;
-  line-height: 1.8;
+  line-height: 2;
   font-family: var(--font-family-base);
   color: var(--color-base-text-2);
 }

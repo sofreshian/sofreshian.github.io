@@ -30,6 +30,11 @@ main:
     url: /blog/
     weight: 2
     child:
+      - name: "React"
+        # icon: "/assets/images/icons/wireframe-7.svg"
+        # icon_darkmode: "/assets/images/icons/wireframe-7-white.svg"
+        # description: "Javascript"
+        url: /category/react/
       - name: "Javascript"
         # icon: "/assets/images/icons/wireframe-7.svg"
         # icon_darkmode: "/assets/images/icons/wireframe-7-white.svg"
