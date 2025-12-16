@@ -13091,7 +13091,7 @@ img {
 }
 
 .content {
-  font-size: 19px;
+  font-size: 16px;
   font-family: var(--font-family-base);
   color: var(--color-base-text-2);
 }
@@ -13142,10 +13142,11 @@ img {
   margin-top: 0;
 }
 .content p {
-  line-height: 1.56;
+  line-height: 2;
   margin-bottom: 20px;
   font-family: var(--font-family-base);
   color: var(--color-base-text-2);
+  letter-spacing: 0.2px;
 }
 .content ul {
   margin: 20px;
@@ -13157,7 +13158,8 @@ img {
 }
 .content li {
   margin-left: 20px;
-  line-height: 1.5;
+  line-height: 2;
+  letter-spacing: 0.2px;
 }
 .content a {
   color: var(--color-primary-bg);
@@ -13223,7 +13225,7 @@ img {
 .content blockquote {
   margin: 40px 0 40px 0;
   border-left: 4px solid var(--color-base-text);
-  padding: 30px 20px;
+  padding: 8px 20px;
 }
 .content blockquote::before {
   content: "";
@@ -13236,8 +13238,8 @@ img {
   font-family: var(--font-family-base);
   letter-spacing: 1px;
   font-weight: 400;
-  font-size: 24px;
-  line-height: 1.6;
+  font-size: 18px;
+  line-height: 1.8;
   margin: 0;
 }
 .content table {
@@ -13740,9 +13742,6 @@ html[data-bs-theme=dark] .highlight .gi {
 }
 .section.section-base-bg {
   background-color: var(--color-base-bg);
-}
-.section.section-base-bg-2 {
-  background-color: var(--color-base-bg-2);
 }
 .section.section-base-bg-3 {
   background-color: var(--color-base-bg-3);
@@ -14603,18 +14602,11 @@ html[data-bs-theme=dark] .partners img {
   text-decoration-color: var(--color-primary-bg);
 }
 .heading .heading-description p {
-  font-size: 22px;
-  letter-spacing: -1px;
-  line-height: 1.24;
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 1.8;
   font-family: var(--font-family-base);
   color: var(--color-base-text-2);
-}
-@media (min-width: 768px) {
-  .heading .heading-description p {
-    font-size: 26px;
-    letter-spacing: 1px;
-    line-height: 1.4;
-  }
 }
 .heading .heading-heading + .heading-description {
   margin-top: 20px;
@@ -26106,9 +26098,9 @@ readers do not read off random characters that represent icons */
 }
 
 .heading .heading-heading h1, .heading .heading-heading .h1 {
-  font-size: 86px;
+  font-size: 55px;
   line-height: 1;
-  width: 80%;
+  width: 100%;
   letter-spacing: -2px;
   font-weight: 700;
 }

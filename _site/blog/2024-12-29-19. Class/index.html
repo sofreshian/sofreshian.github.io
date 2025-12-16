@@ -197,10 +197,6 @@
             <a href="/">Home</a>
           </li>
         
-          <li class="menu-item-projects">
-            <a href="/projects/">Projects</a>
-          </li>
-        
           <li class="menu-item-blog">
             <a href="/blog/">Blog</a>
           </li>
@@ -310,13 +306,6 @@
         
         <li class=" ">
           <a href="/" >Home</a>
-        </li>
-      
-    
-      
-        
-        <li class=" ">
-          <a href="/projects/" >Projects</a>
         </li>
       
     
@@ -449,55 +438,7 @@
           </div>
         
         
-        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">Index</span></p>
-
-<p>① <a href="#1-클래스의-정의">클래스의 정의</a><br /></p>
-
-<p>② <a href="#2-메서드">메서드</a><br /></p>
-
-<ul>
-  <li><a href="#21-프로토타입-메서드">프로토타입 메서드</a><br /></li>
-  <li><a href="#22-정적-메서드">정적 메서드</a><br /></li>
-</ul>
-
-<p>③ <a href="#3-프로퍼티">프로퍼티</a><br /></p>
-
-<ul>
-  <li><a href="#31-인스턴스-프로퍼티">인스턴스 프로퍼티</a><br /></li>
-  <li><a href="#32-접근자-프로퍼티">접근자 프로퍼티</a><br /></li>
-  <li><a href="#33-클래스-필드-정의와-private-필드">클래스 필드 정의와 Private 필드</a><br /></li>
-</ul>
-
-<p>④ <a href="#4-상속에-의한-클래스-확장">상속에 의한 클래스 확장</a><br /></p>
-
-<ul>
-  <li><a href="#41-클래스-상속">클래스 상속</a><br /></li>
-  <li><a href="#42-extends-키워드">extends 키워드</a><br />
-    <ul>
-      <li><a href="#421-베이스-클래스와-슈퍼클래스">베이스 클래스와 슈퍼클래스</a><br /></li>
-      <li><a href="#422-서브클래스">서브클래스</a><br /></li>
-    </ul>
-  </li>
-  <li><a href="#43-동적-상속">동적 상속</a><br /></li>
-  <li><a href="#44-서브클래스의-constructor">서브클래스의 constructor</a><br /></li>
-  <li><a href="#45-super-키워드">super 키워드</a><br />
-    <ul>
-      <li><a href="#451-super-호출">super 호출</a><br /></li>
-      <li><a href="#452-super-참조">super 참조</a><br /></li>
-      <li><a href="#453-슈퍼클래스의-정적-메서드-호출">슈퍼클래스의 정적 메서드 호출</a><br /></li>
-    </ul>
-  </li>
-  <li><a href="#46-상속-클래스의-인스턴스-생성과정">상속 클래스의 인스턴스 생성과정</a><br /></li>
-  <li><a href="#47-표준-빌트인-생성자-함수-확장">표준 빌트인 생성자 함수 확장</a><br />
-    <ul>
-      <li><a href="#471-symbolspecies를-이용한-메서드-체이닝">Symbol.species를 이용한 메서드 체이닝</a><br /></li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<hr />
+        <div class="content"><hr />
 
 <h2 id="1-클래스의-정의">1. 클래스의 정의</h2>
 
@@ -562,7 +503,6 @@
 <p>하지만, 내부적으로 <code class="language-plaintext highlighter-rouge">class</code>로 작성된 코드는 여전히 프로토타입 제인을 사용해 동작한다.</p>
 
 <p><br /></p>
-
 <hr style="border: 1px dashed #ccc;" />
 
 <h2 id="2-메서드">2. 메서드</h2>
@@ -632,7 +572,6 @@
 </figure>
 
 <p><br /></p>
-
 <hr style="border: 1px dashed #ccc;" />
 
 <h2 id="3-프로퍼티">3. 프로퍼티</h2>
@@ -740,8 +679,6 @@
 
 <p><br /></p>
 
-<hr style="border: 1px dashed #ccc;" />
-
 <h3 id="42-extends-키워드">4.2 extends 키워드</h3>
 
 <h4 id="베이스-클래스base-class"><strong>베이스 클래스(Base Class)</strong></h4>
@@ -791,8 +728,6 @@
 
 <p><br /></p>
 
-<hr style="border: 1px dashed #ccc;" />
-
 <h3 id="43-동적상속">4.3 동적상속</h3>
 
 <ul>
@@ -834,8 +769,6 @@
 
 <p><br /></p>
 
-<hr style="border: 1px dashed #ccc;" />
-
 <h3 id="44-서브클래스의-constructor">4.4 서브클래스의 constructor</h3>
 
 <p>서브클래스에서 construtor를 생략하면 클래스에 다음과 같은 <code class="language-plaintext highlighter-rouge">constructor</code>가 암묵적으로 정의된다. args는 new 연산자와 함께 클래스를 호출할 때 전달한 인수의 리스트다.</p>
@@ -862,8 +795,6 @@
 </code></pre></div></div>
 
 <p><br /></p>
-
-<hr style="border: 1px dashed #ccc;" />
 
 <h3 id="45-super-키워드">4.5 super 키워드</h3>
 
@@ -1071,15 +1002,11 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
 
 <p><br /></p>
 
-<hr style="border: 1px dashed #ccc;" />
-
 <h3 id="46-상속-클래스의-인스턴스-생성과정">4.6 상속 클래스의 인스턴스 생성과정</h3>
 
 <p>추후 업데이트 예정</p>
 
 <p><br /></p>
-
-<hr style="border: 1px dashed #ccc;" />
 
 <h3 id="47-표준-빌트인-생성자-함수-확장">4.7 표준 빌트인 생성자 함수 확장</h3>
 
@@ -1173,7 +1100,7 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
 
 <p><strong>Symbol.species`가 클래스 전체(즉, 클래스의 모든 인스턴스)에서 일관되게 동작해야 하기 때문</strong>이다.!</p>
 
-<p><br /><br /><br /></p>
+<p><br /><br /></p>
 
 <h4 id="reference-모던자바스크립트-deep-dive-25장-클래스"><span style="color:grey">reference: 모던자바스크립트 Deep Dive 25장. 클래스</span></h4>
 </div>
@@ -1220,7 +1147,7 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
 </div>
 
 
-  <div class="section section-base-bg-2">
+  <!-- <div class="section section-base-bg-2">
     <div class="container">
       <div class="row">
         <div class="col-12"></div>
@@ -1249,7 +1176,7 @@ child.greet는 축약 메서드로 정의되었으므로 [[HomeObject]]를 가�
 </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
 

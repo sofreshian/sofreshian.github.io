@@ -197,10 +197,6 @@
             <a href="/">Home</a>
           </li>
         
-          <li class="menu-item-projects">
-            <a href="/projects/">Projects</a>
-          </li>
-        
           <li class="menu-item-blog">
             <a href="/blog/">Blog</a>
           </li>
@@ -310,13 +306,6 @@
         
         <li class=" ">
           <a href="/" >Home</a>
-        </li>
-      
-    
-      
-        
-        <li class=" ">
-          <a href="/projects/" >Projects</a>
         </li>
       
     
@@ -449,37 +438,7 @@
           </div>
         
         
-        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">index</span></p>
-
-<p>① <a href="#1-var-키워드로-선언한-변수의-문제점">var 키워드로 선언한 변수의 문제점</a><br /></p>
-
-<ul>
-  <li><a href="#11-변수-중복-선언-허용">변수 중복 선언 허용</a><br /></li>
-  <li><a href="#12-함수-레벨-스코프">함수 레벨 스코프</a><br /></li>
-  <li><a href="#13-변수-호이스팅">변수 호이스팅</a><br /></li>
-  <li><a href="#14-전역변수와-전역함수-암묵적-전역">전역변수와 전역함수, 암묵적 전역</a><br /></li>
-</ul>
-
-<p>② <a href="#2-let-키워드">let 키워드</a><br /></p>
-
-<ul>
-  <li><a href="#21-변수-중복-선언-금지">변수 중복 선언 금지</a><br /></li>
-  <li><a href="#22-블록-레벨-스코프">블록 레벨 스코프</a><br /></li>
-  <li><a href="#23-변수-호이스팅">변수 호이스팅</a><br /></li>
-</ul>
-
-<p>③ <a href="#3-const-키워드">const 키워드</a><br /></p>
-
-<ul>
-  <li><a href="#31-선언과-초기화">선언과 초기화</a><br /></li>
-  <li><a href="#32-재할당-금지">재할당 금지</a><br /></li>
-  <li><a href="#33-대문자로-상수임을-명확하게">대문자로 상수임을 명확하게</a><br /></li>
-  <li><a href="#34-객체일-경우-변경가능">객체일 경우 변경가능</a><br /></li>
-</ul>
-
-<p><br /></p>
-
-<hr />
+        <div class="content"><hr />
 
 <h2 id="1-var-키워드로-선언한-변수의-문제점">1. var 키워드로 선언한 변수의 문제점</h2>
 
@@ -500,7 +459,7 @@
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span> <span class="c1">// 1</span>
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
 
 <h3 id="-12-함수-레벨-스코프"><span style="color:#e74c3c">🤪 1.2 함수 레벨 스코프</span></h3>
 
@@ -634,7 +593,7 @@
 
 <h2 id="3-const-키워드">3. const 키워드</h2>
 
-<h3 id="-31-선언과-초기화"><span style="color:#3498db">😁 3.1 선언과 초기화</span></h3>
+<h3 id="-31-선언과-초기화"><span style="color:#64CD3C">😁 3.1 선언과 초기화</span></h3>
 
 <p>const 키워드로 선언한 변수는 반드시 선언과 동시에 초기화해야 한다.</p>
 
@@ -643,7 +602,7 @@
 
 <p><br /></p>
 
-<h3 id="-32-재할당-금지"><span style="color:#3498db">😁 3.2 재할당 금지</span></h3>
+<h3 id="-32-재할당-금지"><span style="color:#64CD3C">😁 3.2 재할당 금지</span></h3>
 
 <p>const 키워드로 선언한 변수는 재할당이 금지된다.</p>
 
@@ -653,7 +612,7 @@
 
 <p><br /></p>
 
-<h4 id="-33-대문자로-상수임을-명확하게"><strong><span style="color:#3498db">😁 3.3 대문자로 상수임을 명확하게</span></strong></h4>
+<h4 id="-33-대문자로-상수임을-명확하게"><strong><span style="color:#64CD3C">😁 3.3 대문자로 상수임을 명확하게</span></strong></h4>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">TAX_RATE</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
 
@@ -666,7 +625,7 @@
 
 <p><br /></p>
 
-<h4 id="-34-객체일-경우-변경가능"><strong><span style="color:#3498db">😁 3.4 객체일 경우 변경가능</span></strong></h4>
+<h4 id="-34-객체일-경우-변경가능"><strong><span style="color:#64CD3C">😁 3.4 객체일 경우 변경가능</span></strong></h4>
 
 <p>변경 불가능한 값인 원시 값은 재할당 없이 변경 할 수 있는 방법이 없지만 변경가능한 객체는 재할당 없이도 직접 변경이 가능</p>
 
@@ -679,7 +638,7 @@
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span> <span class="c1">// {name: "Kim"}</span>
 </code></pre></div></div>
 
-<p><br /><br /><br /></p>
+<p><br /><br /></p>
 
 <h4 id="reference-모던자바스크립트-deep-dive-15장-let-const-키워드의-블록-레벨-스코프"><span style="color:grey">reference: 모던자바스크립트 Deep Dive 15장. let, const 키워드의 블록 레벨 스코프</span></h4>
 </div>
@@ -726,7 +685,7 @@
 </div>
 
 
-  <div class="section section-base-bg-2">
+  <!-- <div class="section section-base-bg-2">
     <div class="container">
       <div class="row">
         <div class="col-12"></div>
@@ -755,7 +714,7 @@
 </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
 

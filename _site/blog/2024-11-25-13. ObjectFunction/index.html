@@ -197,10 +197,6 @@
             <a href="/">Home</a>
           </li>
         
-          <li class="menu-item-projects">
-            <a href="/projects/">Projects</a>
-          </li>
-        
           <li class="menu-item-blog">
             <a href="/blog/">Blog</a>
           </li>
@@ -310,13 +306,6 @@
         
         <li class=" ">
           <a href="/" >Home</a>
-        </li>
-      
-    
-      
-        
-        <li class=" ">
-          <a href="/projects/" >Projects</a>
         </li>
       
     
@@ -449,52 +438,7 @@
           </div>
         
         
-        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">Index</span></p>
-
-<p>① <a href="#1-object-생성자-함수">Object 생성자 함수</a><br /></p>
-
-<p>② <a href="#2-생성자-함수">생성자 함수</a><br /></p>
-
-<ul>
-  <li><a href="#21-생성자-함수의-장점">생성자 함수의 장점</a><br /></li>
-  <li><a href="#22-생성자-함수의-인스턴스-생성과정">생성자 함수의 인스턴스 생성과정</a><br />
-    <ul>
-      <li><a href="#221-인스턴스-생성과-this-바인딩">인스턴스 생성과 <code class="language-plaintext highlighter-rouge">this</code> 바인딩</a><br /></li>
-      <li><a href="#222-인스턴스-초기화">인스턴스 초기화</a><br /></li>
-      <li><a href="#223-인스턴스-반환">인스턴스 반환</a><br />
-        <ul>
-          <li><a href="#2231-명시적-객체-반환">명시적 객체 반환</a><br /></li>
-          <li><a href="#2232-명시적-원시값-반환">명시적 원시값 반환</a><br /></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p>③ <a href="#3-내부-메서드-call-construct">내부 메서드 [[Call]], [[Construct]]</a><br /></p>
-
-<ul>
-  <li><a href="#31-constructor와-non-constructor의-차이">constructor와 non-constructor의 차이</a><br /></li>
-  <li><a href="#32-constructor의-사용-예시">constructor의 사용 예시</a><br /></li>
-  <li><a href="#33-non-constructor의-사용-제한">non-constructor의 사용 제한</a><br /></li>
-</ul>
-
-<p>④ <a href="#4-new-연산자">new 연산자</a><br /></p>
-
-<ul>
-  <li><a href="#41-new와-일반-함수">new와 일반 함수</a><br /></li>
-  <li><a href="#42-new와-반환값">new와 반환값</a><br />
-    <ul>
-      <li><a href="#421-객체-반환">객체 반환</a><br /></li>
-      <li><a href="#422-기본-반환-동작">기본 반환 동작</a><br /></li>
-      <li><a href="#423-생성자-함수로-변환">생성자 함수로 변환</a><br /></li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<hr />
+        <div class="content"><hr />
 
 <h2 id="1-object-생성자-함수">1. Object 생성자 함수</h2>
 
@@ -570,8 +514,6 @@
 </code></pre></div></div>
 
 <p><br /></p>
-
-<hr style="border: 1px dashed #ccc;" />
 
 <h3 id="22-생성자-함수의-인스턴스-생성과정">2.2 생성자 함수의 인스턴스 생성과정</h3>
 
@@ -669,7 +611,7 @@
 
 <hr style="border: 1px dashed #ccc;" />
 
-<h3 id="3-내부-메서드-call-construct">3. 내부 메서드 [[Call]], [[Construct]]</h3>
+<h2 id="3-내부-메서드-call-construct">3. 내부 메서드 [[Call]], [[Construct]]</h2>
 
 <p>일반 객체는 호출할 수 없지만 함수는 호출할 수 있다. 따라서 함수 객체는 일반 객체가 가지고 있는 내부 슬롯과 내부 메서드는 물론, <br /></p>
 
@@ -721,7 +663,7 @@
 
 <hr style="border: 1px dashed #ccc;" />
 
-<h3 id="4-new-연산자">4. new 연산자</h3>
+<h2 id="4-new-연산자">4. new 연산자</h2>
 
 <p><code class="language-plaintext highlighter-rouge">new</code> 연산자와 함께 함수를 호출하면 해당 함수는 생성자 함수로 동작한다. 다시 말해, 함수 객체의 내무 메서드 [[Call]]이 호출되는 것이 아니라 [[Construct]]가 호출된다. 단, <code class="language-plaintext highlighter-rouge">new</code> 연산자돠 함께 호출하는 함수는 non-constructor가 아닌 constructor이어야 한다.</p>
 
@@ -760,7 +702,7 @@
 
 </code></pre></div></div>
 
-<p><br /><br /><br /></p>
+<p><br /><br /></p>
 
 <h4 id="reference-모던자바스크립트-deep-dive-17장-생성자-함수에-의한-객체-생성"><span style="color:grey">reference: 모던자바스크립트 Deep Dive 17장. 생성자 함수에 의한 객체 생성</span></h4>
 </div>
@@ -807,7 +749,7 @@
 </div>
 
 
-  <div class="section section-base-bg-2">
+  <!-- <div class="section section-base-bg-2">
     <div class="container">
       <div class="row">
         <div class="col-12"></div>
@@ -836,7 +778,7 @@
 </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
 

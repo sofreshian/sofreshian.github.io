@@ -197,10 +197,6 @@
             <a href="/">Home</a>
           </li>
         
-          <li class="menu-item-projects">
-            <a href="/projects/">Projects</a>
-          </li>
-        
           <li class="menu-item-blog">
             <a href="/blog/">Blog</a>
           </li>
@@ -310,13 +306,6 @@
         
         <li class=" ">
           <a href="/" >Home</a>
-        </li>
-      
-    
-      
-        
-        <li class=" ">
-          <a href="/projects/" >Projects</a>
         </li>
       
     
@@ -449,86 +438,7 @@
           </div>
         
         
-        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">Index</span></p>
-
-<ul>
-  <li>
-    <p>① <a href="#1-배열">배열</a><br /></p>
-
-    <ul>
-      <li>
-        <p><a href="#11-요소-값으로-인정하는-모든-것은-배열의-요소">요소, 값으로 인정하는 모든 것은 배열의 요소</a><br /></p>
-
-        <ul>
-          <li><a href="#111-원시값">원시값</a><br /></li>
-          <li><a href="#112-객체와-배열">객체와 배열</a><br /></li>
-          <li><a href="#113-함수">함수</a><br /></li>
-          <li><a href="#114-혼합형">혼합형</a><br /></li>
-        </ul>
-      </li>
-      <li>
-        <p><a href="#12-다른-언어와-비교">다른 언어와 비교</a><br /></p>
-
-        <ul>
-          <li><a href="#121-동적타입-지원">동적타입 지원</a><br /></li>
-          <li><a href="#122-가변-길이">가변 길이</a><br /></li>
-          <li><a href="#123-다차원-배열에-제한-없음">다차원 배열에 제한 없음</a><br /></li>
-          <li><a href="#124-함수를-배열에-저장-가능">함수를 배열에 저장 가능</a><br /></li>
-        </ul>
-      </li>
-      <li>
-        <p><a href="#13-실제-활용-사례">실제 활용 사례</a><br /></p>
-
-        <ul>
-          <li><a href="#131-데이터-구조-표현">데이터 구조 표현</a><br /></li>
-          <li><a href="#132-함수와-객체-결합">함수와 객체 결합</a><br /></li>
-        </ul>
-      </li>
-      <li>
-        <p><a href="#14-단점-또는-주의점">단점 또는 주의점</a><br /></p>
-      </li>
-    </ul>
-
-    <p>② <a href="#2-배열-고차함수">배열 고차함수</a><br /></p>
-
-    <ul>
-      <li>
-        <p><a href="#21-arrayprototypesort">Array.prototype.sort</a><br /></p>
-
-        <ul>
-          <li><a href="#211-비교함수를-사용한-해결">비교함수를 사용한 해결</a><br /></li>
-        </ul>
-      </li>
-      <li><a href="#22-arrayprototypeforeach">Array.prototype.forEach</a><br /></li>
-      <li><a href="#23-arrayprototypemap">Array.prototype.map</a><br /></li>
-      <li><a href="#24-arrayprototypefilter">Array.prototype.filter</a><br /></li>
-      <li>
-        <p><a href="#25-arrayprototypereduce">Array.prototype.reduce</a><br /></p>
-
-        <ul>
-          <li><a href="#251-reduce-메서드의-인수"><code class="language-plaintext highlighter-rouge">reduce</code> 메서드의 인수</a><br />
-            <ul>
-              <li><a href="#2511-콜백함수">콜백함수</a><br /></li>
-              <li><a href="#2512-초기값">초기값</a><br /></li>
-            </ul>
-          </li>
-          <li><a href="#252-평균-구하기">평균 구하기</a><br /></li>
-          <li><a href="#253-최대값-구하기">최대값 구하기</a><br /></li>
-          <li><a href="#254-요소의-중복-횟수-구하기">요소의 중복 횟수 구하기</a><br /></li>
-        </ul>
-      </li>
-      <li><a href="#26-arrayprototypesome">Array.prototype.some</a><br /></li>
-      <li><a href="#27-arrayprototypeevery">Array.prototype.every</a><br /></li>
-      <li><a href="#28-arrayprototypefind">Array.prototype.find</a><br /></li>
-      <li><a href="#29-arrayprototypefindindex">Array.prototype.findIndex</a><br /></li>
-      <li><a href="#210-arrayprototypeflatmap">Array.prototype.flatMap</a><br /></li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<hr />
+        <div class="content"><hr />
 
 <h2 id="1-배열">1. 배열</h2>
 
@@ -540,8 +450,6 @@
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span> <span class="c1">// [1, "hello", true, null, undefined]</span>
 </code></pre></div></div>
 
-<p><br /></p>
-
 <h4 id="112-객체와-배열">1.1.2 객체와 배열</h4>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span>
@@ -552,8 +460,6 @@
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">key</span><span class="p">);</span> <span class="c1">// "value"</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]);</span> <span class="c1">// 3</span>
 </code></pre></div></div>
-
-<p><br /></p>
 
 <h4 id="113-함수">1.1.3 함수</h4>
 
@@ -567,8 +473,6 @@
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]());</span> <span class="c1">// "I am a function"</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]());</span> <span class="c1">// "I am an arrow function"</span>
 </code></pre></div></div>
-
-<p><br /></p>
 
 <h4 id="114-혼합형">1.1.4 혼합형</h4>
 
@@ -589,9 +493,6 @@
 
 <p><br /></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;hr</span> <span class="na">style=</span><span class="s">"border: 1px dashed #ccc;"</span> <span class="nt">/&gt;</span>
-</code></pre></div></div>
-
 <h3 id="12-다른-언어와-비교">1.2 다른 언어와 비교</h3>
 
 <h4 id="121-동적타입-지원">1.2.1 동적타입 지원</h4>
@@ -605,8 +506,6 @@
 <span class="n">arr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="s">"hello"</span><span class="o">;</span>      <span class="c1">// 컴파일 에러!</span>
 </code></pre></div></div>
 
-<p><br /></p>
-
 <h4 id="122-가변-길이">1.2.2 가변 길이</h4>
 
 <ul>
@@ -618,16 +517,12 @@
 <span class="nx">arr</span><span class="p">.</span><span class="nf">pop</span><span class="p">();</span> <span class="c1">// [1, 2, 3]</span>
 </code></pre></div></div>
 
-<p><br /></p>
-
 <h4 id="123-다차원-배열에-제한-없음">1.2.3 다차원 배열에 제한 없음</h4>
 
 <ul>
   <li>Javascript는 배열 안에 배열(다차원 배열)을 자유롭게 중첩시킬 수 있다.</li>
   <li>Java 같은 언어는 다차원 배열을 지원하지만 배열의 타입은 고정된다.</li>
 </ul>
-
-<p><br /></p>
 
 <h4 id="124-함수를-배열에-저장-가능">1.2.4 함수를 배열에 저장 가능</h4>
 
@@ -638,8 +533,6 @@
 
 <p><br /></p>
 
-<hr style="border: 1px dashed #ccc;" />
-
 <h3 id="13-실제-활용-사례">1.3 실제 활용 사례</h3>
 
 <h4 id="131-데이터-구조-표현">1.3.1 데이터 구조 표현</h4>
@@ -648,8 +541,6 @@
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="p">{</span> <span class="na">role</span><span class="p">:</span> <span class="dl">"</span><span class="s2">admin</span><span class="dl">"</span> <span class="p">},</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]];</span>
 </code></pre></div></div>
-
-<p><br /></p>
 
 <h4 id="132-함수와-객체-결합">1.3.2 함수와 객체 결합</h4>
 
@@ -661,8 +552,6 @@
 
 <p><br /></p>
 
-<hr style="border: 1px dashed #ccc;" />
-
 <h3 id="14-단점-또는-주의점">1.4 단점 또는 주의점</h3>
 
 <p>배열에 다양한 타입의 데이터를 저장할 수 있는 유연성은 편리하지만, 다음과 같은 단점도 있다.</p>
@@ -671,8 +560,6 @@
   <li><strong>코드의 예측 가능성 저하</strong>: 여러 타입이 섞이면 배열 요소를 다룰 때 혼란스러울 수 있다.</li>
   <li><strong>퍼포먼스 저하</strong>: 정적 타입 언어보다 실행 속도가 느릴 수 있다.</li>
 </ul>
-
-<p><br /></p>
 
 <p>🧐 Q. 객체와 배열은 무슨 차이가 있을까?</p>
 
@@ -687,8 +574,6 @@
     <p>Jay Tak</p>
   </figcaption>
 </figure>
-
-<p><br /></p>
 
 <p>🧐 Q. 인덱스로 배열 요소를 읽거나 쓰는 작업은 일반적인 배열보다 느릴수 있다는 의미는 무엇일까?</p>
 
@@ -741,8 +626,6 @@
     </ul>
   </li>
 </ul>
-
-<p><br /></p>
 
 <p>🧐 Q. 유사배열 객체와 이터러블 객체의 차이는 무엇일까?</p>
 
@@ -850,7 +733,7 @@
 
 <figure>
   <a href="" target="">
-    <img src="/assets/images/gen/content/post_20/ArraylikeObjectandIterable.webp" alt="Photo of difference of Array-like Object and Iterable" />
+    <img src="/assets/images/gen/content/post_21/ArraylikeObjectandIterable.webp" alt="Photo of difference of Array-like Object and Iterable" />
   </a>
   <figcaption>
     <h4>Difference of Array-like Object and Iterable</h4>
@@ -894,9 +777,6 @@
 
 <p><br /></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;hr</span> <span class="na">style=</span><span class="s">"border: 1px dashed #ccc;"</span> <span class="nt">/&gt;</span>
-</code></pre></div></div>
-
 <h3 id="22-arraryprototypeforeach">2.2 Arrary.prototype.forEach</h3>
 
 <ul>
@@ -921,9 +801,7 @@
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">numberArray</span><span class="p">);</span> <span class="c1">// [1, 4, 9]</span>
 </code></pre></div></div>
 
-<p><br /><br /></p>
-
-<hr style="border: 1px dashed #ccc;" />
+<p><br /></p>
 
 <h3 id="23-arrayprototypemap">2.3 Array.prototype.map</h3>
 
@@ -952,9 +830,7 @@
 <span class="c1">// ['-webkit-transition', '-webkit-user-select']</span>
 </code></pre></div></div>
 
-<p><br /><br /></p>
-
-<hr style="border: 1px dashed #ccc;" />
+<p><br /></p>
 
 <h3 id="24-arrayprototypefilter">2.4 Array.prototype.filter</h3>
 
@@ -1001,8 +877,6 @@
 </code></pre></div></div>
 
 <p><br /></p>
-
-<hr style="border: 1px dashed #ccc;" />
 
 <h3 id="25-arrayprototypereduce">2.5 Array.prototype.reduce</h3>
 
@@ -1073,9 +947,6 @@
 
 <p><br /></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;hr</span> <span class="na">style=</span><span class="s">"border: 1px dashed #ccc;"</span> <span class="nt">/&gt;</span>
-</code></pre></div></div>
-
 <h3 id="26-arrayprototypesome">2.6 Array.prototype.some</h3>
 
 <ul>
@@ -1090,9 +961,6 @@
 
 <p><br /></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;hr</span> <span class="na">style=</span><span class="s">"border: 1px dashed #ccc;"</span> <span class="nt">/&gt;</span>
-</code></pre></div></div>
-
 <h3 id="27-arrayprototypeevery">2.7 Array.prototype.every</h3>
 
 <ul>
@@ -1105,9 +973,6 @@
 </code></pre></div></div>
 
 <p><br /></p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;hr</span> <span class="na">style=</span><span class="s">"border: 1px dashed #ccc;"</span> <span class="nt">/&gt;</span>
-</code></pre></div></div>
 
 <h3 id="28-arrayprototypefind">2.8 Array.prototype.find</h3>
 
@@ -1130,9 +995,6 @@
 
 <p><br /></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;hr</span> <span class="na">style=</span><span class="s">"border: 1px dashed #ccc;"</span> <span class="nt">/&gt;</span>
-</code></pre></div></div>
-
 <h3 id="29-arrayprototypefindindex">2.9 Array.prototype.findIndex</h3>
 
 <ul>
@@ -1153,9 +1015,6 @@
 </code></pre></div></div>
 
 <p><br /></p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;hr</span> <span class="na">style=</span><span class="s">"border: 1px dashed #ccc;"</span> <span class="nt">/&gt;</span>
-</code></pre></div></div>
 
 <h3 id="210-arrayprototypeflatmap">2.10 Array.prototype.flatMap</h3>
 
@@ -1230,7 +1089,7 @@
 </div>
 
 
-  <div class="section section-base-bg-2">
+  <!-- <div class="section section-base-bg-2">
     <div class="container">
       <div class="row">
         <div class="col-12"></div>
@@ -1259,7 +1118,7 @@
 </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
 

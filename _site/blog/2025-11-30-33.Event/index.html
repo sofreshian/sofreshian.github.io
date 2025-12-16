@@ -197,10 +197,6 @@
             <a href="/">Home</a>
           </li>
         
-          <li class="menu-item-projects">
-            <a href="/projects/">Projects</a>
-          </li>
-        
           <li class="menu-item-blog">
             <a href="/blog/">Blog</a>
           </li>
@@ -310,13 +306,6 @@
         
         <li class=" ">
           <a href="/" >Home</a>
-        </li>
-      
-    
-      
-        
-        <li class=" ">
-          <a href="/projects/" >Projects</a>
         </li>
       
     
@@ -449,83 +438,15 @@
           </div>
         
         
-        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">Index</span>
-<span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">Index</span></p>
-
-<ul>
-  <li>
-    <a href="#1-이벤트-드리븐-프로그래밍">① 이벤트 드리븐 프로그래밍</a>
-    <ul>
-      <li><a href="#11-핵심-원리">1.1 핵심 원리</a></li>
-      <li><a href="#12-주요-이벤트-유형">1.2 주요 이벤트 유형</a></li>
-    </ul>
-  </li>
-
-  <li>
-    <a href="#2-이벤트-핸들러-등록-방식">② 이벤트 핸들러 등록 방식</a>
-    <ul>
-      <li><a href="#21-어트리뷰트-방식">2.1 어트리뷰트 방식</a></li>
-      <li><a href="#22-프로퍼티-방식">2.2 프로퍼티 방식</a></li>
-      <li><a href="#23-addeventlistener-방식">2.3 addEventListener 방식</a></li>
-    </ul>
-  </li>
-
-  <li>
-    <a href="#3-이벤트-전파">③ 이벤트 전파 (Event Propagation)</a>
-    <ul>
-      <li><a href="#31-이벤트-전파-단계">3.1 전파 단계</a></li>
-      <li><a href="#32-이벤트-전파-특징">3.2 특징</a></li>
-    </ul>
-  </li>
-
-  <li>
-    <a href="#4-이벤트-객체">④ 이벤트 객체</a>
-    <ul>
-      <li><a href="#41-공통-프로퍼티">4.1 공통 프로퍼티</a></li>
-      <li><a href="#42-이벤트-객체-세부-정보">4.2 세부 정보</a></li>
-    </ul>
-  </li>
-
-  <li>
-    <a href="#5-고급-이벤트-처리-기법">⑤ 고급 이벤트 처리 기법</a>
-    <ul>
-      <li><a href="#51-이벤트-위임">5.1 이벤트 위임</a></li>
-      <li><a href="#52-기본-동작-및-전파-제어">5.2 기본 동작 &amp; 전파 제어</a></li>
-    </ul>
-  </li>
-
-  <li>
-    <a href="#6-이벤트-핸들러-this">⑥ 이벤트 핸들러 내부의 this</a>
-    <ul>
-      <li><a href="#61-어트리뷰트-this">6.1 어트리뷰트 방식</a></li>
-      <li><a href="#62-프로퍼티-this">6.2 프로퍼티 방식</a></li>
-      <li><a href="#63-addeventlistener-this">6.3 addEventListener 방식</a></li>
-      <li><a href="#64-클래스-this-문제">6.4 클래스 예제(this 혼동)</a></li>
-    </ul>
-  </li>
-
-  <li>
-    <a href="#7-이벤트-핸들러-인수-전달">⑦ 이벤트 핸들러에 인수 전달</a>
-  </li>
-
-  <li>
-    <a href="#8-커스텀-이벤트">⑧ 커스텀 이벤트</a>
-    <ul>
-      <li><a href="#81-커스텀-이벤트란">8.1 커스텀 이벤트란?</a></li>
-      <li><a href="#82-커스텀-이벤트의-제약">8.2 커스텀 이벤트의 제약</a></li>
-    </ul>
-  </li>
-</ul>
-
-<hr />
-
-<p><strong>🧐 Q. 브라우저가 핸들러를 호출한다는게 무엇일까?</strong></p>
-
-<p>Dom(Document Object Model)은 HTML 문서의 계층적 구조와 정보를 표현하며 이를 제어할 수 있는 API이다.</p>
-
-<p><br /></p>
+        <div class="content"><hr />
 
 <h2 id="1-이벤트-드리븐-프로그래밍">1. 이벤트 드리븐 프로그래밍</h2>
+
+<p><br />
+<strong>🧐 Q. 브라우저가 핸들러를 호출한다는게 무엇일까?</strong></p>
+
+<p>Dom(Document Object Model)은 HTML 문서의 계층적 구조와 정보를 표현하며 이를 제어할 수 있는 API이다.
+<br /></p>
 
 <h3 id="11-핵심-원리">1.1 핵심 원리</h3>
 
@@ -549,7 +470,9 @@
   <li>리소스: load, error 등</li>
 </ul>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="2-이벤트-핸들러-등록-방식">2. 이벤트 핸들러 등록 방식</h2>
 
@@ -621,7 +544,9 @@
   </li>
 </ul>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="3-이벤트-전파event-propagation">3. 이벤트 전파(Event Propagation)</h2>
 
@@ -641,7 +566,9 @@
   <li>버블링되지 않는 이벤트: focus/blur, mouseenter/leave, load/error</li>
 </ul>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="4-이벤트-객체">4. 이벤트 객체</h2>
 
@@ -662,7 +589,9 @@
   <li><code class="language-plaintext highlighter-rouge">KeyboardEvent</code>: key, code, ctrlKey 등</li>
 </ul>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="5-고급-이벤트-처리-기법">5. 고급 이벤트 처리 기법</h2>
 
@@ -748,17 +677,17 @@
   <li>기본동작 차단: <code class="language-plaintext highlighter-rouge">preventDefault()</code></li>
 </ul>
 
-<p>​ DOM 요소마다 <strong>기본 행동(브라우저가 자동 수행하는 동작)</strong>이 있는데 <strong>'’그 기본 동작을 하지말라’‘</strong>고 브라우저에게 명령하는 것</p>
+<p>DOM 요소마다 <strong>기본 행동(브라우저가 자동 수행하는 동작)</strong>이 있는데 <strong>'’그 기본 동작을 하지말라’‘</strong>고 브라우저에게 명령하는 것</p>
 
-<p>​ <a> 클릭 → 링크 이동</a></p>
+<p><a> 클릭 → 링크 이동</a></p>
 
-<p>​ <code class="language-plaintext highlighter-rouge">&lt;form&gt;</code> → submit 발생</p>
+<p><code class="language-plaintext highlighter-rouge">&lt;form&gt;</code> → submit 발생</p>
 
-<p>​ <code class="language-plaintext highlighter-rouge">&lt;checkbox&gt;</code> 클릭 → 체크 상태 변경</p>
+<p><code class="language-plaintext highlighter-rouge">&lt;checkbox&gt;</code> 클릭 → 체크 상태 변경</p>
 
-<p>​ <code class="language-plaintext highlighter-rouge">&lt;input type="text"&gt;</code> 에서 Enter → 폼 제출</p>
+<p><code class="language-plaintext highlighter-rouge">&lt;input type="text"&gt;</code> 에서 Enter → 폼 제출</p>
 
-<p>​ <code class="language-plaintext highlighter-rouge">&lt;contextmenu&gt;</code> → 우클릭 메뉴 표시</p>
+<p><code class="language-plaintext highlighter-rouge">&lt;contextmenu&gt;</code> → 우클릭 메뉴 표시</p>
 
 <p><br /></p>
 
@@ -782,7 +711,9 @@ btn2는 자기 자신의 클릭 이벤트만 실행
 */</span>
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="6-이벤트-핸들러-내부의-this">6. 이벤트 핸들러 내부의 this</h2>
 
@@ -905,7 +836,9 @@ btn2는 자기 자신의 클릭 이벤트만 실행
 
 <p><code class="language-plaintext highlighter-rouge">increase</code>가 호출될 때의 <code class="language-plaintext highlighter-rouge">this</code>가 <code class="language-plaintext highlighter-rouge">App</code> 인스턴스가 아니라 <strong>버튼 DOM 요소</strong>라서, 그 버튼 객체에는 <code class="language-plaintext highlighter-rouge">$button</code>이라는 프로퍼티가 <strong>존재하지 않기 때문에</strong> <code class="language-plaintext highlighter-rouge">this.$button</code>이 <code class="language-plaintext highlighter-rouge">undefined</code>가 되고, <code class="language-plaintext highlighter-rouge">undefined.textContent</code>를 읽으려다가 <code class="language-plaintext highlighter-rouge">TypeError</code>가 나는 것 입니다.</p>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="7-이벤트-핸들러에-인수-전달">7. 이벤트 핸들러에 인수 전달</h2>
 
@@ -976,7 +909,9 @@ btn2는 자기 자신의 클릭 이벤트만 실행
   </figcaption>
 </figure>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="8-커스텀-이벤트">8. 커스텀 이벤트</h2>
 
@@ -1156,7 +1091,7 @@ button.onfoo          // ❌ 정의된 적 없음
 </div>
 
 
-  <div class="section section-base-bg-2">
+  <!-- <div class="section section-base-bg-2">
     <div class="container">
       <div class="row">
         <div class="col-12"></div>
@@ -1185,7 +1120,7 @@ button.onfoo          // ❌ 정의된 적 없음
 </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
 

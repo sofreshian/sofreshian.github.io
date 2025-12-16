@@ -197,10 +197,6 @@
             <a href="/">Home</a>
           </li>
         
-          <li class="menu-item-projects">
-            <a href="/projects/">Projects</a>
-          </li>
-        
           <li class="menu-item-blog">
             <a href="/blog/">Blog</a>
           </li>
@@ -310,13 +306,6 @@
         
         <li class=" ">
           <a href="/" >Home</a>
-        </li>
-      
-    
-      
-        
-        <li class=" ">
-          <a href="/projects/" >Projects</a>
         </li>
       
     
@@ -449,35 +438,7 @@
           </div>
         
         
-        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">Index</span></p>
-
-<h3 id="-심벌의-존재-목적은-무엇일까">① <a href="#1-심벌의-존재-목적은-무엇일까">심벌의 존재 목적은 무엇일까?</a></h3>
-
-<ul>
-  <li>①.1 <a href="#11-고유성-uniqueness">고유성 (Uniqueness)</a></li>
-  <li>①.2 <a href="#12-충돌방지-collition-prevention">충돌방지 (Collition prevention)</a></li>
-  <li>①.3 <a href="#13-내부적인-은닉과-보호-encapsulation--protection">내부적인 은닉과 보호 (Encapsulation &amp; Protection)</a></li>
-  <li>①.4 <a href="#14-표준-인터페이스-구현-well-known-symbols">표준 인터페이스 구현 (Well-known Symbols)</a></li>
-</ul>
-
-<h3 id="-심벌값의-공유">② <a href="#2-심벌값의-공유">심벌값의 공유</a></h3>
-
-<h3 id="-심벌로-상수를-정의할-때의-장점">③ <a href="#3-심벌로-상수를-정의할-때의-장점">심벌로 상수를 정의할 때의 장점</a></h3>
-
-<ul>
-  <li>③.1 <a href="#31-완벽한-고유성">완벽한 고유성</a></li>
-  <li>③.2 <a href="#32-상수의-의미-명확성">상수의 의미 명확성</a></li>
-  <li>③.3 <a href="#33-안전성과-신뢰성">안전성과 신뢰성</a></li>
-</ul>
-
-<h3 id="-표준-객체의-프로퍼티-키와-사용자-정의-프로퍼티-키의-충돌-가능성-문제">④ <a href="#4-표준-객체의-프로퍼티-키와-사용자-정의-프로퍼티-키의-충돌-가능성-문제">표준 객체의 프로퍼티 키와 사용자 정의 프로퍼티 키의 충돌 가능성 문제</a></h3>
-
-<ul>
-  <li>④.1 <a href="#41-왜-기존-객체의-프로퍼티를-임의로-추가하면-문제가-될까">왜 기존 객체의 프로퍼티를 임의로 추가하면 문제가 될까?</a></li>
-  <li>④.2 <a href="#42-해결책--심벌symbol을-사용하여-충돌-방지">해결책 → 심벌(Symbol)을 사용하여 충돌 방지</a></li>
-</ul>
-
-<hr />
+        <div class="content"><hr />
 
 <h2 id="1-심벌의-존재-목적은-무엇일까">1. 심벌의 존재 목적은 무엇일까?</h2>
 
@@ -487,6 +448,8 @@
   <p><strong>절대적으로 충돌하지 않는 고유한 식별자(identifier)를 생성하기 위해서입니다.</strong></p>
 </blockquote>
 
+<p><br /></p>
+
 <h3 id="11-고유성-uniqueness">1.1 고유성 (Uniqueness)</h3>
 
 <ul>
@@ -494,8 +457,8 @@
   <li>같은 설명(description)으로 심벌을 여러 번 생성해도 서로 완벽히 다른 고유값을 갖습니다.</li>
 </ul>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="nx">b</span><span class="p">);</span> <span class="c1">// false (서로 다른 고유한 값)</span>
 </code></pre></div></div>
@@ -511,18 +474,17 @@
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 일반 문자열 키는 충돌 위험 존재</span>
 <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">id</span><span class="p">:</span> <span class="mi">123</span>
+  <span class="na">id</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
 <span class="p">};</span>
 
 <span class="c1">// 나중에 실수로 덮어쓰기 가능</span>
 <span class="nx">user</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="mi">456</span><span class="p">;</span>
 
 <span class="c1">// 심벌을 사용하면 충돌 위험이 사라짐</span>
-<span class="kd">const</span> <span class="nx">userId</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">userId</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">);</span>
 <span class="nx">user</span><span class="p">[</span><span class="nx">userId</span><span class="p">]</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
 
 <span class="c1">// 절대로 다른 값으로 덮어쓸 위험이 없음</span>
-
 </code></pre></div></div>
 
 <p><br /></p>
@@ -534,16 +496,15 @@
   <li>따라서 특정 프로퍼티를 보호하거나 은닉할 때 유용합니다.</li>
 </ul>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">PASSWORD</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">password</span><span class="dl">'</span><span class="p">);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">PASSWORD</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">"</span><span class="s2">password</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Alice</span><span class="dl">'</span><span class="p">,</span>
-  <span class="p">[</span><span class="nx">PASSWORD</span><span class="p">]:</span> <span class="dl">'</span><span class="s1">1234</span><span class="dl">'</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Alice</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">[</span><span class="nx">PASSWORD</span><span class="p">]:</span> <span class="dl">"</span><span class="s2">1234</span><span class="dl">"</span><span class="p">,</span>
 <span class="p">};</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">PASSWORD</span><span class="p">);</span> <span class="c1">// undefined (일반적인 방법으로 접근 불가)</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">[</span><span class="nx">PASSWORD</span><span class="p">]);</span> <span class="c1">// 1234 (정확한 심벌로만 접근 가능)</span>
-
 </code></pre></div></div>
 
 <p><br /></p>
@@ -563,9 +524,9 @@
     <span class="k">return</span> <span class="p">{</span>
       <span class="nf">next</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">return</span> <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="nx">i</span><span class="o">++</span><span class="p">,</span> <span class="na">done</span><span class="p">:</span> <span class="nx">i</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="p">};</span>
-      <span class="p">}</span>
+      <span class="p">},</span>
     <span class="p">};</span>
-  <span class="p">}</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 
 <span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">val</span> <span class="k">of</span> <span class="nx">iterable</span><span class="p">)</span> <span class="p">{</span>
@@ -573,7 +534,7 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
 
 <p>🧐 Q. 심벌 값도 문자열, 숫자, 불리언과 같이 객체처럼 접근하면 암묵적으로 ‘래퍼 객체’를 생성한다. 그 의미는 무엇인가?</p>
 
@@ -583,17 +544,17 @@
 
 <p>쉽게 설명하면, 자바스크립트에서는 <strong>원시 값(숫자, 문자열, 불리언, 심벌 등)</strong> 자체에는 프로퍼티나 메서드를 추가할 수 없습니다. 그렇기 때문에 원시 값에 내장된 메서드나 프로퍼티(예: <code class="language-plaintext highlighter-rouge">.toString()</code>, <code class="language-plaintext highlighter-rouge">.description</code>)를 호출할 때, <strong>자바스크립트 엔진이 자동으로 임시 객체(래퍼 객체)를 생성하여 접근</strong>하도록 합니다.</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">mySymbol</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">mySymbol</span><span class="dl">'</span><span class="p">);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">mySymbol</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">"</span><span class="s2">mySymbol</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="c1">// 심벌 값 자체는 원시 값이므로 프로퍼티가 없음.</span>
-<span class="c1">// 하지만 description이나 toString을 사용할 때는 </span>
+<span class="c1">// 하지만 description이나 toString을 사용할 때는</span>
 <span class="c1">// 임시 래퍼 객체(Symbol.prototype 객체)를 생성하여 접근함.</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">mySymbol</span><span class="p">.</span><span class="nx">description</span><span class="p">);</span>    <span class="c1">// 'mySymbol'</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">mySymbol</span><span class="p">.</span><span class="nf">toString</span><span class="p">());</span>     <span class="c1">// 'Symbol(mySymbol)'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">mySymbol</span><span class="p">.</span><span class="nx">description</span><span class="p">);</span> <span class="c1">// 'mySymbol'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">mySymbol</span><span class="p">.</span><span class="nf">toString</span><span class="p">());</span> <span class="c1">// 'Symbol(mySymbol)'</span>
 
 <span class="c1">// 아래 코드와 같은 내부 동작이 발생 (사용자는 못 봄!)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">((</span><span class="nc">Object</span><span class="p">(</span><span class="nx">mySymbol</span><span class="p">)).</span><span class="nx">description</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">((</span><span class="nc">Object</span><span class="p">(</span><span class="nx">mySymbol</span><span class="p">)).</span><span class="nf">toString</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nc">Object</span><span class="p">(</span><span class="nx">mySymbol</span><span class="p">).</span><span class="nx">description</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nc">Object</span><span class="p">(</span><span class="nx">mySymbol</span><span class="p">).</span><span class="nf">toString</span><span class="p">());</span>
 
 <span class="c1">// mySymbol은 원시 값이므로 객체처럼 프로퍼티에 접근할 수 없습니다.</span>
 <span class="c1">// 하지만 프로퍼티 접근 시, 자바스크립트가 원시 값을 임시적으로 객체화시켜줍니다.</span>
@@ -602,7 +563,7 @@
 
 <p><br /></p>
 
-<p>🧐 Q. “심벌이 외부에 노출되지 않는다.”의 정확한 의미는 무엇인가요?”</p>
+<p>🧐 Q. 심벌이 외부에 노출되지 않는다.”의 정확한 의미는 무엇일까?</p>
 
 <p>Answer)</p>
 
@@ -613,38 +574,43 @@
 
 <span class="c1">// 중요한 정보를 저장하는 객체</span>
 <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Alice</span><span class="dl">'</span><span class="p">,</span>
-  <span class="p">[</span><span class="nx">SECRET_KEY</span><span class="p">]:</span> <span class="dl">'</span><span class="s1">비밀번호123!</span><span class="dl">'</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Alice</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">[</span><span class="nx">SECRET_KEY</span><span class="p">]:</span> <span class="dl">"</span><span class="s2">비밀번호123!</span><span class="dl">"</span><span class="p">,</span>
 <span class="p">};</span>
 
 <span class="c1">// 객체 출력 시</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span> 
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
 <span class="c1">// { name: 'Alice', [Symbol()]: '비밀번호123!' }</span>
 
 <span class="c1">// 일반적 접근 시도</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">SECRET_KEY</span><span class="p">);</span>       <span class="c1">// ❌ undefined</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">[</span><span class="dl">'</span><span class="s1">SECRET_KEY</span><span class="dl">'</span><span class="p">]);</span>    <span class="c1">// ❌ undefined</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">[</span><span class="nc">Symbol</span><span class="p">()]);</span>        <span class="c1">// ❌ undefined (새로운 심벌)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">SECRET_KEY</span><span class="p">);</span> <span class="c1">// ❌ undefined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">[</span><span class="dl">"</span><span class="s2">SECRET_KEY</span><span class="dl">"</span><span class="p">]);</span> <span class="c1">// ❌ undefined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">[</span><span class="nc">Symbol</span><span class="p">()]);</span> <span class="c1">// ❌ undefined (새로운 심벌)</span>
 
 <span class="c1">// 실제 SECRET_KEY 심벌을 알지 못하면 절대 접근할 수 없음</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">[</span><span class="nx">SECRET_KEY</span><span class="p">]);</span>      <span class="c1">// ✅ '비밀번호123!'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">user</span><span class="p">[</span><span class="nx">SECRET_KEY</span><span class="p">]);</span> <span class="c1">// ✅ '비밀번호123!'</span>
 <span class="c1">// 객체 생성시 사용했던 동익한 심벌값이 저장된 변수를 가지고 있어야만 접근 가능하다.</span>
-
 </code></pre></div></div>
 
 <p>즉, 심벌 값 자체는 개발자의 코드 영역에서 확인 불가능한, 엔진 내부의 고유한 값으로 유지됩니다.</p>
 
 <p>이러한 심벌의 특성이 바로 보완적으로 중요한 정보를 보호하거나 충돌 없는 고유 키를 만드는 데 사용되는 이유입니다.</p>
 
-<p><strong>&lt;⭐️ 핵심포인트&gt;</strong></p>
-
-<p>1) <strong>심벌(Symbol)</strong>을 객체 프로퍼티의 키로 사용하는 경우,  이 프로퍼티에 접근하려면 반드시 해당 <strong>심벌 그 자체</strong>를 가지고 있어야만 접근할 수 있습니다. (= 심벌값을 갖고있는 객체명을 알아야 한다.)</p>
+<p><br />
+<strong>⭐️ 핵심포인트</strong></p>
 
 <ol>
-  <li>즉, 프로퍼티 키로 사용된 심벌 값을 변수로 저장했다면,  <strong>이 변수만 있으면 언제든 접근할 수 있습니다.</strong> (=심벌값을 할당한 프로퍼티 키의 명을 알아야 한다.)</li>
+  <li>
+    <p><strong>심벌(Symbol)</strong>을 객체 프로퍼티의 키로 사용하는 경우, 이 프로퍼티에 접근하려면 반드시 해당 <strong>심벌 그 자체</strong>를 가지고 있어야만 접근할 수 있습니다. (= 심벌값을 갖고있는 객체명을 알아야 한다.)</p>
+  </li>
+  <li>
+    <p>즉, 프로퍼티 키로 사용된 심벌 값을 변수로 저장했다면, <strong>이 변수만 있으면 언제든 접근할 수 있습니다.</strong> (=심벌값을 할당한 프로퍼티 키의 명을 알아야 한다.)</p>
+  </li>
 </ol>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="2-심벌값의-공유">2. 심벌값의 공유</h2>
 
@@ -657,8 +623,8 @@
   <li>키를 기준으로 심벌을 공유하며, 키가 같으면 항상 같은 신벌을 반환합니다.</li>
 </ul>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">sym1</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">myKey</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">sym2</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">myKey</span><span class="dl">'</span><span class="p">);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">sym1</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">"</span><span class="s2">myKey</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">sym2</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">"</span><span class="s2">myKey</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">sym1</span> <span class="o">===</span> <span class="nx">sym2</span><span class="p">);</span> <span class="c1">// ✅ true (전역에서 같은 심벌을 참조)</span>
 </code></pre></div></div>
@@ -666,18 +632,17 @@
 <p>Q. 언제 사용할까?</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 라이브러리 코드</span>
-<span class="kd">const</span> <span class="nx">LIB_CONFIG</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">LIB_CONFIG</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">"</span><span class="s2">library.config</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="c1">// 사용자 코드</span>
 <span class="kd">const</span> <span class="nx">userConfig</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">)]:</span> <span class="p">{</span>
-    <span class="na">debug</span><span class="p">:</span> <span class="kc">true</span>
-  <span class="p">}</span>
+  <span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">"</span><span class="s2">library.config</span><span class="dl">"</span><span class="p">)]:</span> <span class="p">{</span>
+    <span class="na">debug</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 
 <span class="c1">// 어디서든 같은 심벌로 접근 가능</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">)]);</span> <span class="c1">// { debug: true }</span>
-
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">"</span><span class="s2">library.config</span><span class="dl">"</span><span class="p">)]);</span> <span class="c1">// { debug: true }</span>
 </code></pre></div></div>
 
 <p><br /></p>
@@ -691,12 +656,11 @@
   <li>즉, 전역에서 생성한 심벌(Symbol.for)에만 적용됩니다.</li>
 </ul>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">s1</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">myKey</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">s2</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">myKey</span><span class="dl">'</span><span class="p">);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">s1</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">"</span><span class="s2">myKey</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">s2</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">"</span><span class="s2">myKey</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">keyFor</span><span class="p">(</span><span class="nx">s1</span><span class="p">));</span> <span class="c1">// ✅ 'myKey' (전역 레지스트리에서 찾음)</span>
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">keyFor</span><span class="p">(</span><span class="nx">s2</span><span class="p">));</span> <span class="c1">// ❌ undefined (일반 심벌이므로 전역에 없음)</span>
-
 </code></pre></div></div>
 
 <p><br /></p>
@@ -715,30 +679,28 @@
 <p>예를 들어, 두개의 다른 파일에서 다음과 같이 Symbol을 사용했다고 생각해보면</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 파일 A.js</span>
-<span class="k">export</span> <span class="kd">const</span> <span class="nx">KEY</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">myKey</span><span class="dl">'</span><span class="p">);</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">KEY</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">"</span><span class="s2">myKey</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="c1">// 파일 B.js</span>
-<span class="k">export</span> <span class="kd">const</span> <span class="nx">KEY</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">myKey</span><span class="dl">'</span><span class="p">);</span>
-
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">KEY</span> <span class="o">=</span> <span class="nc">Symbol</span><span class="p">(</span><span class="dl">"</span><span class="s2">myKey</span><span class="dl">"</span><span class="p">);</span>
 </code></pre></div></div>
 
 <p>이때, 두 Symbol은 고유하지만 서로 다르기 때문에 동일한 역할을 수행하기 어렵습니다.</p>
 
 <p><br /></p>
 
-<p>(Solution) 전역 심벌 레지스토리를 통해 얻는 이점(Symbol.for 사용)</p>
+<p>Solution) 전역 심벌 레지스토리를 통해 얻는 이점(Symbol.for 사용)</p>
 
 <p>이런 상황에서 Symbol.for를 사용하면, 같은 키로 호출된 Symbol이 하나의 전역적인 Symbol로 관리되어 공유가 가능합니다.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 파일 A.js</span>
-<span class="kd">const</span> <span class="nx">KEY</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">sharedKey</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">KEY</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">"</span><span class="s2">sharedKey</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="c1">// 파일 B.js</span>
-<span class="kd">const</span> <span class="nx">KEY</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">sharedKey</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">KEY</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">"</span><span class="s2">sharedKey</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="c1">// A.js 와 B.js 에서 얻은 KEY 는 동일함</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">KEY</span> <span class="o">===</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">sharedKey</span><span class="dl">'</span><span class="p">));</span> <span class="c1">// true</span>
-
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">KEY</span> <span class="o">===</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">"</span><span class="s2">sharedKey</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// true</span>
 </code></pre></div></div>
 
 <p>이러한 방식을 사용하면 애플리케이션 전반에서 공통적으로 쓰이는 Symbol을 효율적이고 충돌 없이 관리할 수 있게 된다.</p>
@@ -760,15 +722,14 @@
 </ul>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 라이브러리 코드</span>
-<span class="kd">const</span> <span class="nx">LIB_CONFIG</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">LIB_CONFIG</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">"</span><span class="s2">library.config</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="c1">// 사용자 코드</span>
 <span class="kd">const</span> <span class="nx">userConfig</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">)]:</span> <span class="p">{</span>
-    <span class="na">option</span><span class="p">:</span> <span class="kc">true</span>
-  <span class="p">}</span>
+  <span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">"</span><span class="s2">library.config</span><span class="dl">"</span><span class="p">)]:</span> <span class="p">{</span>
+    <span class="na">option</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
-
 </code></pre></div></div>
 
 <p>이렇게 하면 라이브러리와 사용자 코드에서 서로 동일한 Symbol로 안전하게 소통할 수 있다.</p>
@@ -785,17 +746,16 @@
 <p>(1) 문자열 키로 정의한 경우</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">userConfig</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">option</span><span class="p">:</span> <span class="kc">true</span>
-  <span class="p">}</span>
+  <span class="dl">"</span><span class="s2">library.config</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">option</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 
 <span class="c1">// 접근 방법</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">[</span><span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">]);</span>  <span class="c1">// ✅ { option: true }</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">[</span><span class="dl">"</span><span class="s2">library.config</span><span class="dl">"</span><span class="p">]);</span>  <span class="c1">// ✅ { option: true }</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">.</span><span class="nx">library</span><span class="p">.</span><span class="nx">config</span><span class="p">);</span>     <span class="c1">// 🚨 Error 발생 (library 속성이 없음)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">[</span><span class="dl">'</span><span class="s1">library</span><span class="dl">'</span><span class="p">][</span><span class="dl">'</span><span class="s1">config</span><span class="dl">'</span><span class="p">]);</span> <span class="c1">// 🚨 Error 발생 (library 속성이 없음)</span>
-
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">[</span><span class="dl">"</span><span class="s2">library.config</span><span class="dl">"</span><span class="p">]);</span> <span class="c1">// ✅ { option: true }</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">[</span><span class="dl">"</span><span class="s2">library.config</span><span class="dl">"</span><span class="p">]);</span> <span class="c1">// ✅ { option: true }</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">.</span><span class="nx">library</span><span class="p">.</span><span class="nx">config</span><span class="p">);</span> <span class="c1">// 🚨 Error 발생 (library 속성이 없음)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">[</span><span class="dl">"</span><span class="s2">library</span><span class="dl">"</span><span class="p">][</span><span class="dl">"</span><span class="s2">config</span><span class="dl">"</span><span class="p">]);</span> <span class="c1">// 🚨 Error 발생 (library 속성이 없음)</span>
 </code></pre></div></div>
 
 <ul>
@@ -810,16 +770,15 @@
 <p>(2) 심벌(Symbol) 키로 정의한 경우</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">userConfig</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">)]:</span> <span class="p">{</span>
-    <span class="na">option</span><span class="p">:</span> <span class="kc">true</span>
-  <span class="p">}</span>
+  <span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">"</span><span class="s2">library.config</span><span class="dl">"</span><span class="p">)]:</span> <span class="p">{</span>
+    <span class="na">option</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 
 <span class="c1">// 접근 방법</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">)]);</span> <span class="c1">// ✅ { option: true }</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">[</span><span class="dl">'</span><span class="s1">library.config</span><span class="dl">'</span><span class="p">]);</span>             <span class="c1">// ❌ undefined</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">.</span><span class="nx">library</span><span class="p">);</span>                       <span class="c1">// ❌ undefined</span>
-
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">"</span><span class="s2">library.config</span><span class="dl">"</span><span class="p">)]);</span> <span class="c1">// ✅ { option: true }</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">[</span><span class="dl">"</span><span class="s2">library.config</span><span class="dl">"</span><span class="p">]);</span> <span class="c1">// ❌ undefined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">userConfig</span><span class="p">.</span><span class="nx">library</span><span class="p">);</span> <span class="c1">// ❌ undefined</span>
 </code></pre></div></div>
 
 <ul>
@@ -827,7 +786,9 @@
   <li>즉, 심벌 자체를 모르면 외부에서 직접 접근할 수 없습니다. (일종의 은닉 효과)</li>
 </ul>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="3-심벌로-상수를-정의할-때의-장점">3. 심벌로 상수를 정의할 때의 장점</h2>
 
@@ -869,7 +830,9 @@
 
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="4-표준-객체의-프로퍼티-키와-사용자-정의-프로퍼티-키의-충돌-가능성-문제">4. 표준 객체의 프로퍼티 키와 사용자 정의 프로퍼티 키의 충돌 가능성 문제</h2>
 
@@ -880,8 +843,7 @@
   <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nf">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">acc</span> <span class="o">+</span> <span class="nx">cur</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">].</span><span class="nf">sum</span><span class="p">();</span>  <span class="c1">// 3</span>
-
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">].</span><span class="nf">sum</span><span class="p">();</span> <span class="c1">// 3</span>
 </code></pre></div></div>
 
 <h3 id="-문제-상황">💥 <strong>문제 상황</strong></h3>
@@ -894,26 +856,25 @@
 </ul>
 
 <p>실제 비슷한 사례가 있었습니다.
- 과거 사용자들이 직접 만든 <code class="language-plaintext highlighter-rouge">Array.prototype.find</code> 메서드가, 나중에 ES6에서 도입된 내장 <code class="language-plaintext highlighter-rouge">Array.prototype.find</code> 메서드와 충돌한 사례입니다.</p>
+과거 사용자들이 직접 만든 <code class="language-plaintext highlighter-rouge">Array.prototype.find</code> 메서드가, 나중에 ES6에서 도입된 내장 <code class="language-plaintext highlighter-rouge">Array.prototype.find</code> 메서드와 충돌한 사례입니다.</p>
 
 <p><br /></p>
 
 <h3 id="42-해결책--심벌symbol을-사용하여-충돌-방지">4.2 해결책 → 심벌(Symbol)을 사용하여 충돌 방지</h3>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 심벌 키로 sum 메서드를 안전하게 추가</span>
-<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">sum</span><span class="dl">'</span><span class="p">)]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">[</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">"</span><span class="s2">sum</span><span class="dl">"</span><span class="p">)]</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
   <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nf">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">acc</span> <span class="o">+</span> <span class="nx">cur</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">][</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">'</span><span class="s1">sum</span><span class="dl">'</span><span class="p">)]());</span> <span class="c1">// 3</span>
-
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">][</span><span class="nb">Symbol</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="dl">"</span><span class="s2">sum</span><span class="dl">"</span><span class="p">)]());</span> <span class="c1">// 3</span>
 </code></pre></div></div>
 
 <ul>
   <li>향후 표준이 추가되더라도 충돌이나 덮어쓰기 위험이 없습니다.</li>
 </ul>
 
-<p><br /><br /><br /></p>
+<p><br /><br /></p>
 
 <h4 id="reference-모던자바스크립트-deep-dive-33장-symbol"><span style="color:grey">reference: 모던자바스크립트 Deep Dive 33장. Symbol</span></h4>
 </div>
@@ -960,7 +921,7 @@
 </div>
 
 
-  <div class="section section-base-bg-2">
+  <!-- <div class="section section-base-bg-2">
     <div class="container">
       <div class="row">
         <div class="col-12"></div>
@@ -989,7 +950,7 @@
 </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
 

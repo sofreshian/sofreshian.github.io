@@ -197,10 +197,6 @@
             <a href="/">Home</a>
           </li>
         
-          <li class="menu-item-projects">
-            <a href="/projects/">Projects</a>
-          </li>
-        
           <li class="menu-item-blog">
             <a href="/blog/">Blog</a>
           </li>
@@ -310,13 +306,6 @@
         
         <li class=" ">
           <a href="/" >Home</a>
-        </li>
-      
-    
-      
-        
-        <li class=" ">
-          <a href="/projects/" >Projects</a>
         </li>
       
     
@@ -449,74 +438,7 @@
           </div>
         
         
-        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">Index</span></p>
-
-<p>① <a href="#1-추가-기능의-필요성">추가 기능의 필요성</a><br /></p>
-
-<ul>
-  <li><a href="#11-모든-함수가-prototype을-가지는-문제">모든 함수가 <code class="language-plaintext highlighter-rouge">prototype</code>을 가지는 문제</a><br /></li>
-  <li><a href="#12-new와-일반-함수-호출-간의-혼동"><code class="language-plaintext highlighter-rouge">new</code>와 일반 함수 호출 간의 혼동</a><br /></li>
-  <li><a href="#13-prototype-재정의의-비일관성"><code class="language-plaintext highlighter-rouge">prototype</code> 재정의의 비일관성</a><br /></li>
-  <li><a href="#14-객체-메서드와-생성-가능-함수-간의-혼동">객체 메서드와 생성 가능 함수 간의 혼동</a><br /></li>
-</ul>
-
-<p>② <a href="#2-es6의-함수-구분">ES6의 함수 구분</a><br /></p>
-
-<ul>
-  <li><a href="#21-constructor"><code class="language-plaintext highlighter-rouge">constructor</code></a><br /></li>
-  <li><a href="#22-prototype"><code class="language-plaintext highlighter-rouge">prototype</code></a><br /></li>
-  <li><a href="#23-super"><code class="language-plaintext highlighter-rouge">super</code></a><br /></li>
-  <li><a href="#24-arguments"><code class="language-plaintext highlighter-rouge">arguments</code></a><br /></li>
-</ul>
-
-<p>③ <a href="#3-화살표-함수">화살표 함수</a><br /></p>
-
-<ul>
-  <li><a href="#31-화살표-함수와-this">화살표 함수와 <code class="language-plaintext highlighter-rouge">this</code></a><br />
-    <ul>
-      <li><a href="#311-일반-함수의-this-결정">일반 함수의 <code class="language-plaintext highlighter-rouge">this</code> 결정</a><br /></li>
-      <li><a href="#312-화살표-함수의-this-결정">화살표 함수의 <code class="language-plaintext highlighter-rouge">this</code> 결정</a><br /></li>
-    </ul>
-  </li>
-  <li><a href="#32-화살표-함수-사용-시-주의사항">화살표 함수 사용 시 주의사항</a><br />
-    <ul>
-      <li><a href="#321-객체-메서드에서의-화살표-함수">객체 메서드에서의 화살표 함수</a><br /></li>
-      <li><a href="#322-프로토타입-객체에서의-화살표-함수">프로토타입 객체에서의 화살표 함수</a><br /></li>
-      <li><a href="#323-클래스-필드에서-화살표-함수">클래스 필드에서 화살표 함수</a><br /></li>
-    </ul>
-  </li>
-  <li><a href="#33-화살표-함수와-super">화살표 함수와 <code class="language-plaintext highlighter-rouge">super</code></a><br />
-    <ul>
-      <li><a href="#331-일반-메서드에서의-super">일반 메서드에서의 <code class="language-plaintext highlighter-rouge">super</code></a><br /></li>
-      <li><a href="#332-화살표-함수에서의-super">화살표 함수에서의 <code class="language-plaintext highlighter-rouge">super</code></a><br /></li>
-    </ul>
-  </li>
-  <li><a href="#34-화살표-함수와-arguments">화살표 함수와 <code class="language-plaintext highlighter-rouge">arguments</code></a><br /></li>
-</ul>
-
-<p>④ <a href="#4-매개변수-기본값">매개변수 기본값</a><br /></p>
-
-<ul>
-  <li>
-    <p><a href="#41-es6-이전의-방어-코드">ES6 이전의 방어 코드</a><br /></p>
-  </li>
-  <li>
-    <p><a href="#42-es6의-매개변수-기본값-문법">ES6의 매개변수 기본값 문법</a><br /></p>
-  </li>
-  <li>
-    <p><a href="#43-매개변수-기본값의-동작">매개변수 기본값의 동작</a><br /></p>
-  </li>
-  <li>
-    <p><a href="#44-rest-파라미터의-기본값-불가능">Rest 파라미터의 기본값 불가능</a><br /></p>
-  </li>
-  <li>
-    <p><a href="#45-매개변수-기본값과-함수-length-및-arguments">매개변수 기본값과 함수 <code class="language-plaintext highlighter-rouge">length</code> 및 <code class="language-plaintext highlighter-rouge">arguments</code></a><br /></p>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<hr />
+        <div class="content"><hr />
 
 <h2 id="1-추가-기능의-필요성">1. 추가 기능의 필요성</h2>
 
@@ -544,8 +466,6 @@
 
 <p><br /></p>
 
-<hr style="border: 1px dashed #ccc;" />
-
 <h3 id="12-new와-일반-함수-호출-간의-혼동">1.2 <code class="language-plaintext highlighter-rouge">new</code>와 일반 함수 호출 간의 혼동</h3>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
@@ -569,8 +489,6 @@
 </ul>
 
 <p><br /></p>
-
-<hr style="border: 1px dashed #ccc;" />
 
 <h3 id="13-prototype-재정의의-비일관성">1.3 <code class="language-plaintext highlighter-rouge">prototype</code> 재정의의 비일관성</h3>
 
@@ -600,8 +518,6 @@
 
 <p><br /></p>
 
-<hr style="border: 1px dashed #ccc;" />
-
 <h3 id="14-객체-메서드와-생성-가능-함수-간의-혼동">1.4 객체 메서드와 생성 가능 함수 간의 혼동</h3>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
@@ -628,7 +544,7 @@
 
 <hr style="border: 1px dashed #ccc;" />
 
-<h2 id="2es6는-함수의-사용-목적에-따라-세-가지-종류로-명확히-구분">2.<strong>ES6는 함수의 사용 목적에 따라 세 가지 종류로 명확히 구분</strong></h2>
+<h2 id="2-es6는-함수의-사용-목적에-따라-세-가지-종류로-명확히-구분">2. <strong>ES6는 함수의 사용 목적에 따라 세 가지 종류로 명확히 구분</strong></h2>
 
 <h3 id="21-constructor">2.1 <strong><code class="language-plaintext highlighter-rouge">constructor</code></strong></h3>
 
@@ -655,8 +571,6 @@
 
 <p><br /></p>
 
-<hr style="border: 1px dashed #ccc;" />
-
 <h3 id="22-prototype">2.2 <strong><code class="language-plaintext highlighter-rouge">prototype</code></strong></h3>
 
 <ul>
@@ -680,8 +594,6 @@
 </code></pre></div></div>
 
 <p><br /></p>
-
-<hr style="border: 1px dashed #ccc;" />
 
 <h3 id="23-super">2.3 <strong><code class="language-plaintext highlighter-rouge">super</code></strong></h3>
 
@@ -713,8 +625,6 @@
 </code></pre></div></div>
 
 <p><br /></p>
-
-<hr style="border: 1px dashed #ccc;" />
 
 <h3 id="24-arguments">2.4 <strong><code class="language-plaintext highlighter-rouge">arguments</code></strong></h3>
 
@@ -877,8 +787,6 @@
 </code></pre></div></div>
 
 <p><br /></p>
-
-<hr style="border: 1px dashed #ccc;" />
 
 <h3 id="32-화살표-함수-사용시-주의해야-할-사항">3.2 화살표 함수 사용시 주의해야 할 사항!</h3>
 
@@ -1059,8 +967,6 @@
 
 <p><br /></p>
 
-<hr style="border: 1px dashed #ccc;" />
-
 <h3 id="33-화살표-함수는-super-바인딩을-갖지-않는다">3.3 화살표 함수는 super 바인딩을 갖지 않는다.</h3>
 
 <p><strong>화살표 함수에서 <code class="language-plaintext highlighter-rouge">super</code>를 “바인딩하지 않는다”는 것은</strong> 화살표 함수가 자체적으로 <code class="language-plaintext highlighter-rouge">super</code>를 설정하지 않고, 작성된 위치의 <strong>상위 스코프의 <code class="language-plaintext highlighter-rouge">super</code>를 그대로 참조한다</strong>는 뜻입니다. <br /></p>
@@ -1170,8 +1076,6 @@
 
 <p><br /></p>
 
-<hr style="border: 1px dashed #ccc;" />
-
 <h3 id="34-화살표-함수에서는-argument-객체를-사용할-수-없다">3.4 화살표 함수에서는 argument 객체를 사용할 수 없다.</h3>
 
 <h4 id="341-즉시실행-함수의-arguments">3.4.1 즉시실행 함수의 arguments</h4>
@@ -1259,8 +1163,6 @@
 
 <p><br /></p>
 
-<hr style="border: 1px dashed #ccc;" />
-
 <h3 id="42-es6-이후-매개-변수-기본값-문법-도입">4.2 ES6 이후: 매개 변수 기본값 문법 도입</h3>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">sum</span><span class="p">(</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
@@ -1289,8 +1191,6 @@
 </ol>
 
 <p><br /></p>
-
-<hr style="border: 1px dashed #ccc;" />
 
 <h3 id="43-매개변수-기본값의-동작">4.3 매개변수 기본값의 동작</h3>
 
@@ -1323,8 +1223,6 @@
 
 <p><br /></p>
 
-<hr style="border: 1px dashed #ccc;" />
-
 <h3 id="44-rest-파라미터의-기본값-불가능">4.4 Rest 파라미터의 기본값 불가능</h3>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">foo</span><span class="p">(...</span><span class="nx">rest</span> <span class="o">=</span> <span class="p">[])</span> <span class="p">{</span>
@@ -1354,8 +1252,6 @@
 </ol>
 
 <p><br /></p>
-
-<hr style="border: 1px dashed #ccc;" />
 
 <h3 id="45-매개변수-기본값과-함수-length-및-arguments">4.5 매개변수 기본값과 함수 <code class="language-plaintext highlighter-rouge">length</code> 및 <code class="language-plaintext highlighter-rouge">arguments</code></h3>
 
@@ -1389,7 +1285,7 @@
   </li>
 </ul>
 
-<p><br /><br /><br /></p>
+<p><br /><br /></p>
 
 <h4 id="reference-모던자바스크립트-deep-dive-26장-es6-함수의-추가-기능"><span style="color:grey">reference: 모던자바스크립트 Deep Dive 26장. ES6 함수의 추가 기능</span></h4>
 </div>
@@ -1436,7 +1332,7 @@
 </div>
 
 
-  <div class="section section-base-bg-2">
+  <!-- <div class="section section-base-bg-2">
     <div class="container">
       <div class="row">
         <div class="col-12"></div>
@@ -1465,7 +1361,7 @@
 </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
 

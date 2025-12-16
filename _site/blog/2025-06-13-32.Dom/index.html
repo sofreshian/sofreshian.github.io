@@ -197,10 +197,6 @@
             <a href="/">Home</a>
           </li>
         
-          <li class="menu-item-projects">
-            <a href="/projects/">Projects</a>
-          </li>
-        
           <li class="menu-item-blog">
             <a href="/blog/">Blog</a>
           </li>
@@ -310,13 +306,6 @@
         
         <li class=" ">
           <a href="/" >Home</a>
-        </li>
-      
-    
-      
-        
-        <li class=" ">
-          <a href="/projects/" >Projects</a>
         </li>
       
     
@@ -449,48 +438,11 @@
           </div>
         
         
-        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">Index</span></p>
-
-<h3>① 요소 탐색과 DOM 노드 접근</h3>
-<ul>
-  <li><a href="#1-요청과-응답">1.1 요청과 응답</a></li>
-  <li><a href="#21-id를-이용한-요소-노드-취득">1.2 id를 이용한 요소 노드 취득</a></li>
-  <li><a href="#22-태그-이름을-이용한-요소-노드-취득">1.3 태그 이름을 이용한 요소 노드 취득</a></li>
-  <li><a href="#23-class를-이용한-요소-노드-취득">1.4 class를 이용한 요소 노드 취득</a></li>
-  <li><a href="#24-css-선택자를-이용한-요소-노드-취득">1.5 CSS 선택자를 이용한 요소 노드 취득</a></li>
-</ul>
-
-<h3>② HTMLCollection과 NodeList의 차이</h3>
-<ul>
-  <li><a href="#3-살아있는객체-htmlcollection">2.1 HTMLCollection (살아있는 객체)</a></li>
-  <li><a href="#4-nodelist">2.2 NodeList (대부분은 정적)</a></li>
-</ul>
-
-<h3>③ 텍스트 접근: nodeValue vs textContent</h3>
-<ul>
-  <li><a href="#5-nodevalue-textnode-차이">3.1 nodeValue vs textContent</a></li>
-</ul>
-
-<h3>④ DOM 조작 최소화 기법과 DocumentFragment</h3>
-<ul>
-  <li><a href="#6-dom-조작-최소화-기법">4.1 DOM 조작 최소화 기법</a></li>
-</ul>
-<h3>⑤ HTML 어트리뷰트 vs DOM 프로퍼티</h3>
-<ul>
-  <li><a href="#🧐-q-왜-html-어트리뷰트는-변경이-불가능하고-dom-프로퍼티는-변경이-가능한가">5.1 HTML 어트리뷰트 vs DOM 프로퍼티</a></li>
-  <li><a href="#1-html-어트리뷰트-attribute">5.2 HTML 어트리뷰트</a></li>
-  <li><a href="#2-dom-프로퍼티-property">5.3 DOM 프로퍼티</a></li>
-  <li><a href="#32-동기화가-깨지는-경우-js나-사용자-입력으로-변경-후-">5.4 동기화가 깨지는 경우</a></li>
-  <li><a href="#추가-html-속성과-javascript-접근-방식-간-표기법-대응-정리">5.5 HTML vs JS 표기법 차이 요약</a></li>
-</ul>
-
-<hr />
+        <div class="content"><hr />
 
 <p><strong>🧐 Q. Dom이란 무엇일까?</strong></p>
 
 <p>Dom(Document Object Model)은 HTML 문서의 계층적 구조와 정보를 표현하며 이를 제어할 수 있는 API이다.</p>
-
-<p><br /></p>
 
 <h2 id="1-요청과-응답">1. 요청과 응답</h2>
 
@@ -500,7 +452,9 @@
   <li>서버는 선반에서 그 파일을 꺼내서 우리한테 보여준다.</li>
 </ul>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="2-요소-취득">2. 요소 취득</h2>
 
@@ -657,7 +611,9 @@ r
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="3-살아있는객체-htmlcollection">3. 살아있는객체, HTMLCollection</h2>
 
@@ -716,7 +672,9 @@ r
 <span class="nx">array</span><span class="p">.</span><span class="nf">forEach</span><span class="p">((</span><span class="nx">elem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">elem</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">blue</span><span class="dl">"</span><span class="p">));</span>
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="4-nodelist">4. NodeList</h2>
 
@@ -755,7 +713,9 @@ r
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="5-nodevalue-textnode-차이">5. nodevalue, textnode 차이</h2>
 
@@ -769,31 +729,6 @@ r
   </figcaption>
 </figure>
 
-<table>
-  <thead>
-    <tr>
-      <th>속성명</th>
-      <th>작동 대상</th>
-      <th>반환 내용</th>
-      <th>주로 사용 용도</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">nodeValue</code></td>
-      <td><strong>텍스트 노드, 주석 노드 등</strong></td>
-      <td>해당 노드 자체의 텍스트만</td>
-      <td>텍스트 노드 조작</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">textContent</code></td>
-      <td><strong>요소 노드 (Element)</strong></td>
-      <td><strong>요소 내부 전체 텍스트</strong> (하위 포함)</td>
-      <td>요소의 내용 전체 읽기/쓰기</td>
-    </tr>
-  </tbody>
-</table>
-
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"greet"</span><span class="nt">&gt;</span>Hello <span class="nt">&lt;span&gt;</span>World<span class="nt">&lt;/span&gt;</span>!<span class="nt">&lt;/p&gt;</span>
 </code></pre></div></div>
 
@@ -803,7 +738,9 @@ r
 <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">.</span><span class="nx">nodeValue</span><span class="p">);</span> <span class="c1">// "Hello " ← 텍스트 노드만!</span>
 </code></pre></div></div>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="6-dom-조작-최소화-기법">6. DOM 조작 최소화 기법</h2>
 
@@ -1088,7 +1025,7 @@ r
 </div>
 
 
-  <div class="section section-base-bg-2">
+  <!-- <div class="section section-base-bg-2">
     <div class="container">
       <div class="row">
         <div class="col-12"></div>
@@ -1117,7 +1054,7 @@ r
 </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
 

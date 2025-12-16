@@ -197,10 +197,6 @@
             <a href="/">Home</a>
           </li>
         
-          <li class="menu-item-projects">
-            <a href="/projects/">Projects</a>
-          </li>
-        
           <li class="menu-item-blog">
             <a href="/blog/">Blog</a>
           </li>
@@ -310,13 +306,6 @@
         
         <li class=" ">
           <a href="/" >Home</a>
-        </li>
-      
-    
-      
-        
-        <li class=" ">
-          <a href="/projects/" >Projects</a>
         </li>
       
     
@@ -449,40 +438,7 @@
           </div>
         
         
-        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">Index</span></p>
-
-<p>① <a href="#1-일급-객체">일급 객체</a><br /></p>
-
-<ul>
-  <li><a href="#11-함수를-값처럼-사용하는-이유">함수를 값처럼 사용하는 이유</a><br /></li>
-  <li><a href="#12-함수와-객체의-차이">함수와 객체의 차이</a><br /></li>
-</ul>
-
-<p>② <a href="#2-함수-객체의-프로퍼티">함수 객체의 프로퍼티</a><br /></p>
-
-<ul>
-  <li><a href="#21-arguments-프로퍼티">arguments 프로퍼티</a><br />
-    <ul>
-      <li><a href="#211-가변-인자-함수-구현">가변 인자 함수 구현</a><br /></li>
-    </ul>
-  </li>
-  <li><a href="#22-객체와-유사-배열-객체">객체와 유사 배열 객체</a><br />
-    <ul>
-      <li><a href="#221-객체의-특징">객체의 특징</a><br /></li>
-      <li><a href="#222-유사-배열-객체의-특징">유사 배열 객체의 특징</a><br /></li>
-      <li><a href="#223-유사-배열-객체의-배열-변환">유사 배열 객체의 배열 변환</a><br /></li>
-    </ul>
-  </li>
-  <li><a href="#23-caller-프로퍼티">caller 프로퍼티</a><br /></li>
-  <li><a href="#24-length-프로퍼티">length 프로퍼티</a><br /></li>
-  <li><a href="#25-name-프로퍼티">name 프로퍼티</a><br /></li>
-  <li><a href="#26-__proto__-접근자-프로퍼티"><strong>proto</strong> 접근자 프로퍼티</a><br /></li>
-  <li><a href="#27-prototype-프로퍼티">prototype 프로퍼티</a><br /></li>
-</ul>
-
-<p><br /></p>
-
-<hr />
+        <div class="content"><hr />
 
 <h2 id="1-일급-객체">1. 일급 객체</h2>
 
@@ -569,8 +525,6 @@
 
 <p><br /></p>
 
-<hr style="border: 1px dashed #ccc;" />
-
 <h3 id="21-arguments-프로퍼티">2.1 arguments 프로퍼티</h3>
 
 <p>함수를 정의할 때 선언한 매개변수는 함수 몸체 내부에서 변수와 동일하게 취급된다. 즉, 함수가 호출되면 함수 몸체 내에서 암묵적으로 매개변수가 선언되고 undefined로 초기화된 이후 인수가 할당된다.</p>
@@ -636,8 +590,6 @@
 </code></pre></div></div>
 
 <p><br /></p>
-
-<hr style="border: 1px dashed #ccc;" />
 
 <h3 id="22-객체object-vs-유사배열객체array-like-object">2.2 객체(Object) vs 유사배열객체(Array-like Object)</h3>
 
@@ -724,8 +676,6 @@
 
 <p><br /></p>
 
-<hr style="border: 1px dashed #ccc;" />
-
 <h3 id="23-caller-프로퍼티">2.3 caller 프로퍼티</h3>
 
 <p>함수 객체의 <code class="language-plaintext highlighter-rouge">caller</code> 프로퍼티는 함수 자신을 호출한 함수를 가리킨다.</p>
@@ -745,8 +695,6 @@
 
 <p><br /></p>
 
-<hr style="border: 1px dashed #ccc;" />
-
 <h3 id="24-length-프로퍼티">2.4 length 프로퍼티</h3>
 
 <p><span style="color: #8e44ad">arguments 객체의 length 프로퍼티는 <strong><u>인자의 개수</u></strong>를 가리키고,</span></p>
@@ -762,8 +710,6 @@
 </code></pre></div></div>
 
 <p><br /></p>
-
-<hr style="border: 1px dashed #ccc;" />
 
 <h3 id="25-name-프로퍼티">2.5 name 프로퍼티</h3>
 
@@ -787,8 +733,6 @@
 
 <p><br /></p>
 
-<hr style="border: 1px dashed #ccc;" />
-
 <h3 id="26-__proto__-접근자-프로퍼티">2.6 <code class="language-plaintext highlighter-rouge">__proto__</code> 접근자 프로퍼티</h3>
 
 <p><code class="language-plaintext highlighter-rouge">__proto__</code> 프로퍼티는 [[Prototype]] 내부 슬롯이 가리키는 프로토타입 객체에 접근하기 위해 사용하는 접근자 프로퍼티다. 내부 슬롯에는 직접 접근할 수 없고 간접적인 접근 방법을 제공하는 경우에 한하여 접근할 수 있다.</p>
@@ -805,8 +749,6 @@
 </code></pre></div></div>
 
 <p><br /></p>
-
-<hr style="border: 1px dashed #ccc;" />
 
 <h3 id="27-prototype-프로퍼티">2.7 prototype 프로퍼티</h3>
 
@@ -868,7 +810,7 @@
 </div>
 
 
-  <div class="section section-base-bg-2">
+  <!-- <div class="section section-base-bg-2">
     <div class="container">
       <div class="row">
         <div class="col-12"></div>
@@ -897,7 +839,7 @@
 </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
 

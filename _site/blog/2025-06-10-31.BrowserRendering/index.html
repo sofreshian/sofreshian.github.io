@@ -197,10 +197,6 @@
             <a href="/">Home</a>
           </li>
         
-          <li class="menu-item-projects">
-            <a href="/projects/">Projects</a>
-          </li>
-        
           <li class="menu-item-blog">
             <a href="/blog/">Blog</a>
           </li>
@@ -310,13 +306,6 @@
         
         <li class=" ">
           <a href="/" >Home</a>
-        </li>
-      
-    
-      
-        
-        <li class=" ">
-          <a href="/projects/" >Projects</a>
         </li>
       
     
@@ -449,26 +438,7 @@
           </div>
         
         
-        <div class="content"><p><span style="font-family: 'Brown', sans-serif !important; font-size: 20pt;">Index</span></p>
-
-<h3 id="-렌더링-과정">① <a href="#1-렌더링-과정--브라우저는-어떠한-과정을-거쳐서-렌더링을-진행할까">렌더링 과정</a></h3>
-
-<ul>
-  <li><a href="#11-요청과-응답">1.1 요청과 응답</a></li>
-  <li><a href="#12-http-10과-http-20">1.2 HTTP-10과-HTTP-20</a></li>
-  <li><a href="#13-렌더트리-생성">1.3 렌더트리 생성</a></li>
-</ul>
-
-<h3 id="-자바스크립트-파싱과-html-파싱-중단">② <a href="#2-자바스크립트-파싱과-html-파싱-중단">자바스크립트 파싱과 HTML 파싱 중단</a></h3>
-
-<ul>
-  <li><a href="#21-domcontentloaded-이벤트-사용">2.1 DOMContentLoaded 이벤트 사용</a></li>
-  <li><a href="#22-body-하단에-script-배치">2.2 body 하단에 script 배치</a></li>
-  <li><a href="#23-async-어트리뷰트">2.3 async 어트리뷰트</a></li>
-  <li><a href="#24-defer-어트리뷰트">2.4 defer 어트리뷰트</a></li>
-</ul>
-
-<hr />
+        <div class="content"><hr />
 
 <p>🧐 Q. 브라우저는 어떠한 과정을 거쳐서 렌더링을 진행할까?</p>
 
@@ -489,7 +459,9 @@
   <li>서버는 선반에서 그 파일을 꺼내서 우리한테 보여준다.</li>
 </ul>
 
-<p><br /><br /></p>
+<p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="2-http-10과-http-20">2. HTTP 1.0과 HTTP 2.0</h2>
 
@@ -506,6 +478,8 @@
 </figure>
 
 <p><br /></p>
+
+<hr style="border: 1px dashed #ccc;" />
 
 <h2 id="3-렌더트리-생성">3. 렌더트리 생성</h2>
 
@@ -529,16 +503,18 @@
 
 <p><br /></p>
 
+<hr style="border: 1px dashed #ccc;" />
+
 <h2 id="4-자바스크립트-파싱에-의한-html-파싱-중단">4. 자바스크립트 파싱에 의한 HTML 파싱 중단</h2>
 
 <h3 id="41-domcontentloaded-이벤트를-사용한-방식">4.1 DOMContentLoaded 이벤트를 사용한 방식</h3>
 
-<p>스크립트가 <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code>에 있어 HTML 요소가 아직 파싱되기 전 실행됨.  <code class="language-plaintext highlighter-rouge">getElementById('apple')</code>가 <code class="language-plaintext highlighter-rouge">null</code>을 반환해 에러 발생.</p>
+<p>스크립트가 <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code>에 있어 HTML 요소가 아직 파싱되기 전 실행됨. <code class="language-plaintext highlighter-rouge">getElementById('apple')</code>가 <code class="language-plaintext highlighter-rouge">null</code>을 반환해 에러 발생.</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;head&gt;</span>
   <span class="nt">&lt;script&gt;</span>
-    <span class="kd">const</span> <span class="nx">$apple</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">apple</span><span class="dl">'</span><span class="p">);</span>
-    <span class="nx">$apple</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// ❌ 오류 발생!</span>
+    <span class="kd">const</span> <span class="nx">$apple</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">apple</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">$apple</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// ❌ 오류 발생!</span>
   <span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;/head&gt;</span>
 <span class="nt">&lt;body&gt;</span>
@@ -551,7 +527,7 @@
 
 <p><br /></p>
 
-<h3 id="42--script를-body-끝에-배치하는-방식">4.2  <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code>를 <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> 끝에 배치하는 방식</h3>
+<h3 id="42-script를-body-끝에-배치하는-방식">4.2 <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code>를 <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> 끝에 배치하는 방식</h3>
 
 <p>스크립트가 <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> 끝에 있어 HTML 요소 파싱이 끝난 뒤 실행됨. 요소를 정상적으로 가져와 스타일 변경이 성공함.</p>
 
@@ -561,36 +537,34 @@
     ...
   <span class="nt">&lt;/ul&gt;</span>
   <span class="nt">&lt;script&gt;</span>
-    <span class="kd">const</span> <span class="nx">$apple</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">apple</span><span class="dl">'</span><span class="p">);</span>
-    <span class="nx">$apple</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// ✅ 정상 동작!</span>
+    <span class="kd">const</span> <span class="nx">$apple</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">apple</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">$apple</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// ✅ 정상 동작!</span>
   <span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
-
 </code></pre></div></div>
 
 <h3 id="43-async-어트리뷰트">4.3 async 어트리뷰트</h3>
 
 <p><strong>HTML 파싱 중에도 JS를 병렬로 다운로드하고, 다운로드가 끝나면 즉시 실행 (HTML 파싱이 중단됨)</strong>
- → <strong>DOM 조작에는 위험</strong> / <strong>순서 보장 없음</strong></p>
+→ <strong>DOM 조작에는 위험</strong> / <strong>순서 보장 없음</strong></p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"async-script.js"</span> <span class="na">async</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-  <span class="nt">&lt;h1&gt;</span>Async Script Example<span class="nt">&lt;/h1&gt;</span>
-  <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"message"</span><span class="nt">&gt;</span>Hello<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"async-script.js"</span> <span class="na">async</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Async Script Example<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"message"</span><span class="nt">&gt;</span>Hello<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-
 </code></pre></div></div>
 
 <p>📂 <code class="language-plaintext highlighter-rouge">async-script.js</code>:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 이 스크립트는 HTML이 아직 파싱 중일 수도 있는 시점에 실행됨</span>
-<span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">message</span><span class="dl">'</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Changed by async script</span><span class="dl">'</span><span class="p">;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">message</span><span class="dl">"</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Changed by async script</span><span class="dl">"</span><span class="p">;</span>
 </code></pre></div></div>
 
 <p>❌ <strong>문제 가능성:</strong> <code class="language-plaintext highlighter-rouge">#message</code> 요소가 아직 파싱되지 않았다면 <code class="language-plaintext highlighter-rouge">null</code> 에러 발생</p>
@@ -600,26 +574,25 @@
 <h3 id="44-defer-어트리뷰트">4.4 defer 어트리뷰트</h3>
 
 <p><strong>HTML 파싱과 동시에 JS를 비동기로 다운로드, DOM 생성이 완료된 후 실행</strong>
- → <strong>DOM 접근 안전함 / 스크립트 순서 보장</strong></p>
+→ <strong>DOM 접근 안전함 / 스크립트 순서 보장</strong></p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"defer-script.js"</span> <span class="na">defer</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-  <span class="nt">&lt;h1&gt;</span>Defer Script Example<span class="nt">&lt;/h1&gt;</span>
-  <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"message"</span><span class="nt">&gt;</span>Hello<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"defer-script.js"</span> <span class="na">defer</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Defer Script Example<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"message"</span><span class="nt">&gt;</span>Hello<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-
 </code></pre></div></div>
 
 <p>📂 <code class="language-plaintext highlighter-rouge">defer-script.js</code>:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 이 시점에서는 DOM이 모두 파싱 완료되어 안전하게 요소에 접근 가능</span>
-<span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">message</span><span class="dl">'</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Changed by defer script</span><span class="dl">'</span><span class="p">;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">message</span><span class="dl">"</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Changed by defer script</span><span class="dl">"</span><span class="p">;</span>
 </code></pre></div></div>
 
 <p>✅ <strong>안전함:</strong> DOM이 완성된 후 실행되므로 에러 없이 실행됨</p>
@@ -671,7 +644,7 @@
 </div>
 
 
-  <div class="section section-base-bg-2">
+  <!-- <div class="section section-base-bg-2">
     <div class="container">
       <div class="row">
         <div class="col-12"></div>
@@ -700,7 +673,7 @@
 </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
 
