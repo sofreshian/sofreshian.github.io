@@ -8,3 +8,123 @@
     text-decoration-color: var(--color-base-bg-3);
   }
 }
+
+// Home page custom background
+body.page-home {
+  background: linear-gradient(180deg, #0b0319ff, #0b0326ff);
+
+  .header {
+    background-color: #0b0319;
+  }
+}
+
+// Twinkling stars (home page only)
+.stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: twinkle 3s ease-in-out infinite;
+  box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.5);
+}
+
+// Generate stars with gradient distribution (more at top, fewer at bottom)
+// Group 1: Stars 1-50 → top 0-30% (densest)
+@for $i from 1 through 50 {
+  .star:nth-child(#{$i}) {
+    left: random(100) * 1%;
+    top: random(30) * 1%;
+    $size: (random(3) + 1) * 0.75 + px;
+    width: $size;
+    height: $size;
+    animation-delay: random(50) * 0.1s;
+    animation-duration: (random(30) + 20) * 0.1s;
+  }
+}
+
+// Group 2: Stars 51-70 → top 30-60% (medium)
+@for $i from 51 through 70 {
+  .star:nth-child(#{$i}) {
+    left: random(100) * 1%;
+    top: (30 + random(30)) * 1%;
+    $size: (random(3) + 1) * 0.75 + px;
+    width: $size;
+    height: $size;
+    animation-delay: random(50) * 0.1s;
+    animation-duration: (random(30) + 20) * 0.1s;
+  }
+}
+
+// Group 3: Stars 71-85 → top 60-100% (sparse)
+@for $i from 71 through 85 {
+  .star:nth-child(#{$i}) {
+    left: random(100) * 1%;
+    top: (60 + random(40)) * 1%;
+    $size: (random(3) + 1) * 0.75 + px;
+    width: $size;
+    height: $size;
+    animation-delay: random(50) * 0.1s;
+    animation-duration: (random(30) + 20) * 0.1s;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+// Home page post card styles
+body.page-home .card-post {
+  // Thumbnail size
+  .card-thumbnail {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-height: 115px;
+      width: auto;
+      object-fit: cover;
+    }
+  }
+
+  // Description text
+  .card-description p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
+
+// Post page content width adjustment
+body.page-post .col-12 {
+  width: 86%;
+}
+
+// Hide dark mode switcher in header
+.header .container .dark-mode-switcher {
+  display: none;
+}
+
+// Header menu spacing
+.menu-main ul li {
+  margin-right: 15px;
+}

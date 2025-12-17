@@ -63,7 +63,6 @@ exclude:
   - LICENSE
   - netlify.toml
 
-
 # -------------------
 # Theme Config
 # --------------------
@@ -121,7 +120,7 @@ logo:
   show_logo_text_on_mobile: false
   show_logo_text_on_desktop: false
 
-header: 
+header:
   fixed: false
 
 open_graph:
@@ -158,13 +157,13 @@ newsletter:
     form_action_url: https://zerostatic.us21.list-manage.com/subscribe/post?u=798e19886b83aaab346734382&amp;id=f1c526a772&amp;f_id=0027e3e6f0
     form_title: "Let's keep in touch"
 
-contact_form: 
+contact_form:
   use_netlify_form: false
   use_formspree_form: false
   formspree_endpoint: https://formspree.io/f/moqyklqv
   netlify_form_name: "contact"
 
-menu: 
+menu:
   show_dropdown_items_in_mobile_menu: false
   show_social_media_in_mobile_menu: false
 
