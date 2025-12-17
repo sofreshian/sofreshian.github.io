@@ -9,8 +9,9 @@
   }
 }
 
-// Home page custom background
-body.page-home {
+// Home & Blog page custom background
+body.page-home,
+body.page-blog {
   background: linear-gradient(180deg, #0b0319ff, #0b0326ff);
 
   .header {
@@ -114,9 +115,34 @@ body.page-home .card-post {
   }
 }
 
+// Post page gradient background (same as home)
+body.page-post {
+  background: linear-gradient(180deg, #0b0319ff, #0b0326ff);
+
+  .header {
+    background-color: #0b0319;
+  }
+}
+
+
 // Post page content width adjustment
 body.page-post .col-12 {
   width: 86%;
+}
+
+// Post page section bottom padding
+body.page-post .section {
+  padding-bottom: 10px;
+}
+
+// Hide description paragraph in post heading
+body.page-post .heading .heading-description {
+  display: none;
+}
+
+// Post page categories bottom margin
+body.page-post .categories {
+  margin-bottom: 100px;
 }
 
 // Hide dark mode switcher in header
@@ -141,3 +167,39 @@ body.page-blog .card-post .card-thumbnail {
   }
 }
 
+// Scroll to Top Button
+#scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: #c4b5fd; // 연보라
+  color: #0b0319; // 진한 보라 (배경색)
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    background-color: #a78bfa;
+    transform: translateY(-3px);
+  }
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
