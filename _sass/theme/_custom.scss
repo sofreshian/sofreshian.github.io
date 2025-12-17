@@ -128,3 +128,16 @@ body.page-post .col-12 {
 .menu-main ul li {
   margin-right: 15px;
 }
+
+// Blog page card thumbnail width
+body.page-blog .card-post .card-thumbnail {
+  width: 200px;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
