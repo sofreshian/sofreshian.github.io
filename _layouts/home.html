@@ -10,6 +10,56 @@ body_classes: page-home
   {% endfor %}
 </div>
 
+<!-- Shooting Star (Meteor) Animation -->
+<div class="meteor-container" id="meteor-container" aria-hidden="true"></div>
+
+<script>
+(function() {
+  const container = document.getElementById('meteor-container');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
+  if (reducedMotion || !container) return;
+
+  function createMeteor(index) {
+    const meteor = document.createElement('div');
+    meteor.className = 'meteor';
+    meteor.style.animationDelay = (index * 0.3) + 's';
+    // 화면 밖 상단에서 시작, 우측 위치만 랜덤
+    meteor.style.top = '-10%';
+    meteor.style.right = (Math.random() * 30) + '%';
+    
+    const head = document.createElement('div');
+    head.className = 'meteor-head';
+    
+    const tail = document.createElement('div');
+    tail.className = 'meteor-tail';
+    
+    meteor.appendChild(head);
+    meteor.appendChild(tail);
+    container.appendChild(meteor);
+    
+    // 애니메이션 끝나면 제거
+    meteor.addEventListener('animationend', () => {
+      meteor.remove();
+    });
+  }
+
+  function spawnMeteors() {
+    // 1~2개 랜덤 생성
+    const count = Math.floor(Math.random() * 2) + 1;
+    for (let i = 0; i < count; i++) {
+      createMeteor(i);
+    }
+  }
+
+  // 첫 실행 (약간의 딜레이 후)
+  setTimeout(spawnMeteors, 1000);
+  
+  // 60초마다 반복
+  setInterval(spawnMeteors, 60000);
+})();
+</script>
+
 <div class="section">
   <div class="container">
     <div class="row">

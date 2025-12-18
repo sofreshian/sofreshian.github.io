@@ -19,6 +19,11 @@ body.page-blog {
   }
 }
 
+// Home page header top margin
+body.page-home .header {
+  margin-top: 10px;
+}
+
 // Twinkling stars (home page only)
 .stars-container {
   position: fixed;
@@ -92,6 +97,111 @@ body.page-blog {
   }
 }
 
+// Meteor (Shooting Star) - Realistic Animation
+.meteor-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.meteor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  // ease-in: 등가속운동 (처음에 느리고 점점 빨라짐)
+  animation: meteor-fall 2s ease-in forwards;
+}
+
+.meteor-head {
+  width: 5px;
+  height: 5px;
+  background: radial-gradient(circle, #ffffff 0%, #a5d8ff 40%, transparent 70%);
+  border-radius: 50%;
+  box-shadow: 0 0 8px 3px rgba(165, 216, 255, 0.8),
+    0 0 20px 6px rgba(165, 216, 255, 0.4),
+    0 0 40px 10px rgba(165, 216, 255, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.meteor-tail {
+  position: absolute;
+  top: 1px;
+  left: 5px;
+  width: 180px;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(200, 220, 255, 0.6) 10%,
+    rgba(180, 200, 255, 0.3) 40%,
+    transparent 100%
+  );
+  border-radius: 2px 0 0 2px;
+  filter: blur(0.5px);
+  transform-origin: left center;
+  animation: tail-shimmer 0.15s ease-in-out infinite alternate;
+}
+
+.meteor-tail::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  background: linear-gradient(
+    to right,
+    rgba(165, 216, 255, 0.3) 0%,
+    rgba(165, 216, 255, 0.1) 30%,
+    transparent 100%
+  );
+  filter: blur(3px);
+}
+
+@keyframes meteor-fall {
+  0% {
+    opacity: 0;
+    transform: rotate(-45deg) translate(0, 0);
+  }
+  5% {
+    opacity: 1;
+    transform: rotate(-45deg) translate(0, 0);
+  }
+  90% {
+    opacity: 1;
+    transform: rotate(-45deg) translate(-150vw, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(-45deg) translate(-160vw, 0);
+  }
+}
+
+@keyframes tail-shimmer {
+  0% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// Respect reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+  .meteor-container {
+    display: none;
+  }
+}
+
 // Home page post card styles
 body.page-home .card-post {
   // Thumbnail size
@@ -124,7 +234,6 @@ body.page-post {
   }
 }
 
-
 // Post page content width adjustment
 body.page-post .col-12 {
   width: 86%;
@@ -153,6 +262,12 @@ body.page-post .categories {
 // Header menu spacing
 .menu-main ul li {
   margin-right: 15px;
+}
+
+// Header logo size
+.header .logo img {
+  width: 43px !important;
+  height: 43px !important;
 }
 
 // Blog page card thumbnail width
