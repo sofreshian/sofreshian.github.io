@@ -24,9 +24,9 @@ body_classes: page-home
     const meteor = document.createElement('div');
     meteor.className = 'meteor';
     meteor.style.animationDelay = (index * 0.3) + 's';
-    // 화면 밖 상단에서 시작, 우측 위치만 랜덤
-    meteor.style.top = '-10%';
-    meteor.style.right = (Math.random() * 30) + '%';
+    // 화면 밖 상단에서 시작, 화면 오른쪽 위 영역 (45도 최상단)
+    meteor.style.top = '-200px';
+    meteor.style.right = (Math.random() * 40) + '%'; // 0% ~ 40% (화면 오른쪽 위 영역)
     
     const head = document.createElement('div');
     head.className = 'meteor-head';
