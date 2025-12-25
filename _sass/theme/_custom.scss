@@ -282,6 +282,97 @@ body.page-blog .card-post .card-thumbnail {
   }
 }
 
+// Mobile Menu Styles
+.menu-main-mobile {
+  width: 400px !important;
+  right: -400px; // 초기 위치: 화면 오른쪽 밖
+  left: auto;
+  top: 0;
+  opacity: 1;
+  visibility: visible;
+  overflow: visible !important; // 그림자가 보이도록 overflow 허용
+  transition: right 0.4s ease-out; // 처음 빠르게, 나중에 느리게
+
+  // 홈화면 배경과 동일한 그라데이션
+  background: linear-gradient(180deg, #04000a, #0b0326ff) !important;
+
+  // 메뉴 텍스트 흰색
+  ul {
+    color: #ffffff;
+
+    li a {
+      color: #ffffff !important;
+    }
+  }
+
+  &.open {
+    right: 0; // 열렸을 때 화면에 표시
+
+    // 왼쪽 그라디언트 그림자 (메뉴 열릴 때만 보임)
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 100%;
+      width: 30px;
+      height: 100%;
+      background: linear-gradient(
+        to left,
+        rgba(4, 0, 10, 0.2),
+        rgba(4, 0, 10, 0.05)
+      );
+      pointer-events: none;
+    }
+  }
+
+  // Hide bottom section
+  .menu-main-mobile-bottom {
+    display: none;
+  }
+
+  // Close button at top right of menu modal
+  .menu-main-mobile-top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 10px;
+    height: auto;
+  }
+
+  .menu-main-close {
+    cursor: pointer;
+    padding: 10px 10px; // 기본값 10px 30px에서 변경
+
+    // 닫기 버튼은 항상 X 모양으로 표시 (흰색)
+    .hamburger {
+      color: #ffffff;
+      border-color: transparent; // 위아래 선 숨김
+      width: 30px;
+      height: 20px;
+
+      &::before,
+      &::after {
+        background: #ffffff;
+        height: 2px; // 햄버거 버튼과 동일한 두께
+        width: 100%;
+      }
+
+      &::before {
+        transform: translate(-50%, -50%) rotate(45deg); // X 모양
+      }
+
+      &::after {
+        transform: translate(-50%, -50%) rotate(-45deg); // X 모양
+      }
+    }
+  }
+}
+
+// Hide hamburger button when menu is open (to avoid duplicate with close button)
+.hamburger-trigger.open {
+  display: none !important;
+}
+
 // Scroll to Top Button
 #scroll-to-top {
   position: fixed;
