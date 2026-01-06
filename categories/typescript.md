@@ -1,6 +1,4 @@
 ---
 layout: category
-title: React
+title: Typescript
 ---
-
-

@@ -15,6 +15,19 @@ body_classes: page-category page-blog
         %}
       </div>
     </div>
+    
+    <!-- Category Filter -->
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-12">
+        <div class="category-filter">
+          <a href="{{ '/blog/' | relative_url }}" class="category-btn">All</a>
+          <a href="{{ '/category/react/' | relative_url }}" class="category-btn{% if page.title == 'React' %} active{% endif %}">React</a>
+          <a href="{{ '/category/javascript/' | relative_url }}" class="category-btn{% if page.title == 'Javascript' %} active{% endif %}">Javascript</a>
+          <a href="{{ '/category/algorithm/' | relative_url }}" class="category-btn{% if page.title == 'Algorithm' %} active{% endif %}">Algorithm</a>
+          <a href="{{ '/category/typescript/' | relative_url }}" class="category-btn{% if page.title == 'Typescript' %} active{% endif %}">Typescript</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

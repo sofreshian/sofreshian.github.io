@@ -45,6 +45,8 @@ main:
         # icon_darkmode: "/assets/images/icons/wireframe-7-white.svg"
         # description: "Javascript"
         url: /category/algorithm/
+      - name: "Typescript"
+        url: /category/typescript/
   # - name: About
   #   url: /about/
   #   weight: 3
