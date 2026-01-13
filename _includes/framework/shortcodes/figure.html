@@ -1,4 +1,4 @@
-<figure {% if include.full %} class="figure-full" {% endif %}>
+<figure {% if include.full %} class="figure-full" {% endif %} {% if include.width %} style="max-width: {{ include.width }}; margin: 0 auto;" {% endif %}>
   <a href="{{ include.link | relative_url }}" target="{{ include.target }}">
     <img src="{{ include.src | relative_url }}" alt="{{ include.alt }}">
   </a>
